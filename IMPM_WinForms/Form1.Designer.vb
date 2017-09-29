@@ -49,13 +49,19 @@ Partial Class Form1
         Me.ProtocolsTabPage = New System.Windows.Forms.TabPage()
         Me.TblVitalSignProtocolsGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignProtocolsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TasksTabPage = New System.Windows.Forms.TabPage()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.VitalSignHeaderLabel = New System.Windows.Forms.Label()
         Me.TblProtocolDeliverablesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TblProtocolRemeasurementsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.MainMenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.FunctionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.MainToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwVitalSignOverviewGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,6 +83,8 @@ Partial Class Form1
         Me.Panel1.SuspendLayout()
         CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblProtocolRemeasurementsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MainMenuStrip.SuspendLayout()
+        Me.MainToolStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'AKRODataSet
@@ -138,13 +146,13 @@ Partial Class Form1
         Me.VwVitalSignOverviewGridEX.Location = New System.Drawing.Point(0, 0)
         Me.VwVitalSignOverviewGridEX.Name = "VwVitalSignOverviewGridEX"
         Me.VwVitalSignOverviewGridEX.SelectOnExpand = False
-        Me.VwVitalSignOverviewGridEX.Size = New System.Drawing.Size(394, 753)
+        Me.VwVitalSignOverviewGridEX.Size = New System.Drawing.Size(394, 725)
         Me.VwVitalSignOverviewGridEX.TabIndex = 1
         '
         'MainSplitContainer
         '
         Me.MainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MainSplitContainer.Location = New System.Drawing.Point(0, 0)
+        Me.MainSplitContainer.Location = New System.Drawing.Point(0, 28)
         Me.MainSplitContainer.Name = "MainSplitContainer"
         '
         'MainSplitContainer.Panel1
@@ -156,7 +164,7 @@ Partial Class Form1
         Me.MainSplitContainer.Panel2.Controls.Add(Me.VitalSignTabControl)
         Me.MainSplitContainer.Panel2.Controls.Add(Me.ToolStrip1)
         Me.MainSplitContainer.Panel2.Controls.Add(Me.Panel1)
-        Me.MainSplitContainer.Size = New System.Drawing.Size(1182, 753)
+        Me.MainSplitContainer.Size = New System.Drawing.Size(1182, 725)
         Me.MainSplitContainer.SplitterDistance = 394
         Me.MainSplitContainer.TabIndex = 2
         '
@@ -165,12 +173,12 @@ Partial Class Form1
         Me.VitalSignTabControl.Controls.Add(Me.OverviewTabPage)
         Me.VitalSignTabControl.Controls.Add(Me.VSWorkLogTabPage)
         Me.VitalSignTabControl.Controls.Add(Me.ProtocolsTabPage)
-        Me.VitalSignTabControl.Controls.Add(Me.TabPage1)
+        Me.VitalSignTabControl.Controls.Add(Me.TasksTabPage)
         Me.VitalSignTabControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.VitalSignTabControl.Location = New System.Drawing.Point(0, 67)
+        Me.VitalSignTabControl.Location = New System.Drawing.Point(0, 65)
         Me.VitalSignTabControl.Name = "VitalSignTabControl"
         Me.VitalSignTabControl.SelectedIndex = 0
-        Me.VitalSignTabControl.Size = New System.Drawing.Size(784, 686)
+        Me.VitalSignTabControl.Size = New System.Drawing.Size(784, 660)
         Me.VitalSignTabControl.TabIndex = 0
         '
         'OverviewTabPage
@@ -277,34 +285,25 @@ Partial Class Form1
         Me.TblVitalSignProtocolsBindingSource.DataMember = "FK_tblVitalSignProtocols_tblVitalSigns"
         Me.TblVitalSignProtocolsBindingSource.DataSource = Me.TblVitalSignsBindingSource
         '
-        'TabPage1
+        'TasksTabPage
         '
-        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(776, 657)
-        Me.TabPage1.TabIndex = 3
-        Me.TabPage1.Text = "TabPage1"
-        Me.TabPage1.UseVisualStyleBackColor = True
+        Me.TasksTabPage.Location = New System.Drawing.Point(4, 25)
+        Me.TasksTabPage.Name = "TasksTabPage"
+        Me.TasksTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.TasksTabPage.Size = New System.Drawing.Size(776, 631)
+        Me.TasksTabPage.TabIndex = 3
+        Me.TasksTabPage.Text = "Tasks"
+        Me.TasksTabPage.UseVisualStyleBackColor = True
         '
         'ToolStrip1
         '
         Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 40)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(784, 27)
+        Me.ToolStrip1.Size = New System.Drawing.Size(784, 25)
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(24, 24)
-        Me.ToolStripButton1.Text = "ToolStripButton1"
         '
         'Panel1
         '
@@ -337,12 +336,69 @@ Partial Class Form1
         Me.TblProtocolRemeasurementsBindingSource.DataMember = "FK_tblVitalSignRemeasurements_tblVitalSignProtocols"
         Me.TblProtocolRemeasurementsBindingSource.DataSource = Me.TblVitalSignProtocolsBindingSource
         '
+        'MainMenuStrip
+        '
+        Me.MainMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MainMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FunctionsToolStripMenuItem})
+        Me.MainMenuStrip.Location = New System.Drawing.Point(0, 0)
+        Me.MainMenuStrip.Name = "MainMenuStrip"
+        Me.MainMenuStrip.Size = New System.Drawing.Size(1182, 28)
+        Me.MainMenuStrip.TabIndex = 2
+        Me.MainMenuStrip.Text = "MenuStrip1"
+        '
+        'FunctionsToolStripMenuItem
+        '
+        Me.FunctionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FunctionsToolStripMenuItem.Name = "FunctionsToolStripMenuItem"
+        Me.FunctionsToolStripMenuItem.Size = New System.Drawing.Size(83, 24)
+        Me.FunctionsToolStripMenuItem.Text = "Functions"
+        '
+        'SaveToolStripMenuItem
+        '
+        Me.SaveToolStripMenuItem.Image = CType(resources.GetObject("SaveToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(198, 26)
+        Me.SaveToolStripMenuItem.Text = "Save to database"
+        '
+        'ExitToolStripMenuItem
+        '
+        Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(198, 26)
+        Me.ExitToolStripMenuItem.Text = "Exit"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(72, 22)
+        Me.ToolStripLabel1.Text = "Vital Sign"
+        '
+        'MainToolStrip
+        '
+        Me.MainToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.MainToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1})
+        Me.MainToolStrip.Location = New System.Drawing.Point(0, 28)
+        Me.MainToolStrip.Name = "MainToolStrip"
+        Me.MainToolStrip.Size = New System.Drawing.Size(1182, 27)
+        Me.MainToolStrip.TabIndex = 3
+        Me.MainToolStrip.Text = "ToolStrip2"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(147, 24)
+        Me.ToolStripButton1.Text = "Save to database"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1182, 753)
+        Me.Controls.Add(Me.MainToolStrip)
         Me.Controls.Add(Me.MainSplitContainer)
+        Me.Controls.Add(Me.MainMenuStrip)
+        Me.MainMenuStrip = Me.MainMenuStrip
         Me.Name = "Form1"
         Me.Text = "Program Manager: NPS Arctic and Central Alaska Inventory and Monitoring Networks"
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -370,7 +426,12 @@ Partial Class Form1
         Me.Panel1.PerformLayout()
         CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblProtocolRemeasurementsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.MainMenuStrip.ResumeLayout(False)
+        Me.MainMenuStrip.PerformLayout()
+        Me.MainToolStrip.ResumeLayout(False)
+        Me.MainToolStrip.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -395,11 +456,17 @@ Partial Class Form1
     Friend WithEvents TblVitalSignProtocolsBindingSource As BindingSource
     Friend WithEvents TblVitalSignProtocolsTableAdapter As AKRODataSetTableAdapters.tblVitalSignProtocolsTableAdapter
     Friend WithEvents TblVitalSignProtocolsGridEX As Janus.Windows.GridEX.GridEX
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TasksTabPage As TabPage
     Friend WithEvents TblProtocolDeliverablesBindingSource As BindingSource
     Friend WithEvents TblProtocolDeliverablesTableAdapter As AKRODataSetTableAdapters.tblProtocolDeliverablesTableAdapter
     Friend WithEvents TblProtocolRemeasurementsBindingSource As BindingSource
     Friend WithEvents TblProtocolRemeasurementsTableAdapter As AKRODataSetTableAdapters.tblProtocolRemeasurementsTableAdapter
     Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents MainMenuStrip As MenuStrip
+    Friend WithEvents FunctionsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExitToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
+    Friend WithEvents MainToolStrip As ToolStrip
     Friend WithEvents ToolStripButton1 As ToolStripButton
 End Class

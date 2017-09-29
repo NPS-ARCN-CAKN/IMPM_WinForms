@@ -44,6 +44,9 @@ Public Class Form1
 
     End Sub
 
+    ''' <summary>
+    ''' Ends all editing on BindingSources and saves the dataset to the database.
+    ''' </summary>
     Private Sub SaveDataset()
         If AKRODataSet.HasChanges = True Then
             If MsgBox("Save changes to database?", MsgBoxStyle.YesNo, "Dataset has changes") = MsgBoxResult.Yes Then
@@ -71,7 +74,7 @@ Public Class Form1
         SaveDataset()
     End Sub
 
-    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs)
         SaveDataset()
     End Sub
 
@@ -89,5 +92,18 @@ Public Class Form1
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
 
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        SaveDataset()
+        Me.Close()
+    End Sub
+
+    Private Sub SaveToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem.Click
+        SaveDataset()
+    End Sub
+
+    Private Sub ToolStripButton1_Click_1(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
+        SaveDataset()
     End Sub
 End Class
