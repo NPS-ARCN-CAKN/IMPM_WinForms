@@ -51,6 +51,7 @@ Partial Class Form1
         Me.TblVitalSignProtocolsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TasksTabPage = New System.Windows.Forms.TabPage()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.VitalSignHeaderLabel = New System.Windows.Forms.Label()
         Me.TblProtocolDeliverablesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -59,7 +60,6 @@ Partial Class Form1
         Me.FunctionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.MainToolStrip = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -145,14 +145,19 @@ Partial Class Form1
         Me.VwVitalSignOverviewGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VwVitalSignOverviewGridEX.Location = New System.Drawing.Point(0, 0)
         Me.VwVitalSignOverviewGridEX.Name = "VwVitalSignOverviewGridEX"
+        Me.VwVitalSignOverviewGridEX.RecordNavigator = True
+        Me.VwVitalSignOverviewGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.VwVitalSignOverviewGridEX.SaveSettings = True
+        Me.VwVitalSignOverviewGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
         Me.VwVitalSignOverviewGridEX.SelectOnExpand = False
-        Me.VwVitalSignOverviewGridEX.Size = New System.Drawing.Size(394, 725)
+        Me.VwVitalSignOverviewGridEX.SettingsKey = "VwVitalSignOverviewGridEX"
+        Me.VwVitalSignOverviewGridEX.Size = New System.Drawing.Size(394, 698)
         Me.VwVitalSignOverviewGridEX.TabIndex = 1
         '
         'MainSplitContainer
         '
         Me.MainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MainSplitContainer.Location = New System.Drawing.Point(0, 28)
+        Me.MainSplitContainer.Location = New System.Drawing.Point(0, 55)
         Me.MainSplitContainer.Name = "MainSplitContainer"
         '
         'MainSplitContainer.Panel1
@@ -164,7 +169,7 @@ Partial Class Form1
         Me.MainSplitContainer.Panel2.Controls.Add(Me.VitalSignTabControl)
         Me.MainSplitContainer.Panel2.Controls.Add(Me.ToolStrip1)
         Me.MainSplitContainer.Panel2.Controls.Add(Me.Panel1)
-        Me.MainSplitContainer.Size = New System.Drawing.Size(1182, 725)
+        Me.MainSplitContainer.Size = New System.Drawing.Size(1182, 698)
         Me.MainSplitContainer.SplitterDistance = 394
         Me.MainSplitContainer.TabIndex = 2
         '
@@ -178,7 +183,7 @@ Partial Class Form1
         Me.VitalSignTabControl.Location = New System.Drawing.Point(0, 65)
         Me.VitalSignTabControl.Name = "VitalSignTabControl"
         Me.VitalSignTabControl.SelectedIndex = 0
-        Me.VitalSignTabControl.Size = New System.Drawing.Size(784, 660)
+        Me.VitalSignTabControl.Size = New System.Drawing.Size(784, 633)
         Me.VitalSignTabControl.TabIndex = 0
         '
         'OverviewTabPage
@@ -187,7 +192,7 @@ Partial Class Form1
         Me.OverviewTabPage.Location = New System.Drawing.Point(4, 25)
         Me.OverviewTabPage.Name = "OverviewTabPage"
         Me.OverviewTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.OverviewTabPage.Size = New System.Drawing.Size(776, 657)
+        Me.OverviewTabPage.Size = New System.Drawing.Size(776, 631)
         Me.OverviewTabPage.TabIndex = 0
         Me.OverviewTabPage.Text = "Overview"
         Me.OverviewTabPage.UseVisualStyleBackColor = True
@@ -202,7 +207,7 @@ Partial Class Form1
         Me.TblVitalSignsGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TblVitalSignsGridEX.Location = New System.Drawing.Point(3, 3)
         Me.TblVitalSignsGridEX.Name = "TblVitalSignsGridEX"
-        Me.TblVitalSignsGridEX.Size = New System.Drawing.Size(770, 651)
+        Me.TblVitalSignsGridEX.Size = New System.Drawing.Size(770, 625)
         Me.TblVitalSignsGridEX.TabIndex = 0
         Me.TblVitalSignsGridEX.View = Janus.Windows.GridEX.View.SingleCard
         '
@@ -217,7 +222,7 @@ Partial Class Form1
         Me.VSWorkLogTabPage.Location = New System.Drawing.Point(4, 25)
         Me.VSWorkLogTabPage.Name = "VSWorkLogTabPage"
         Me.VSWorkLogTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.VSWorkLogTabPage.Size = New System.Drawing.Size(776, 657)
+        Me.VSWorkLogTabPage.Size = New System.Drawing.Size(776, 604)
         Me.VSWorkLogTabPage.TabIndex = 1
         Me.VSWorkLogTabPage.Text = "Work log"
         Me.VSWorkLogTabPage.UseVisualStyleBackColor = True
@@ -241,7 +246,7 @@ Partial Class Form1
         Me.TblVitalSignWorkLogGridEX.SaveSettings = True
         Me.TblVitalSignWorkLogGridEX.SelectOnExpand = False
         Me.TblVitalSignWorkLogGridEX.SettingsKey = "TblVitalSignWorkLogGridEX"
-        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(770, 651)
+        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(770, 598)
         Me.TblVitalSignWorkLogGridEX.TabIndex = 0
         '
         'TblVitalSignWorkLogBindingSource
@@ -255,7 +260,7 @@ Partial Class Form1
         Me.ProtocolsTabPage.Location = New System.Drawing.Point(4, 25)
         Me.ProtocolsTabPage.Name = "ProtocolsTabPage"
         Me.ProtocolsTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.ProtocolsTabPage.Size = New System.Drawing.Size(776, 657)
+        Me.ProtocolsTabPage.Size = New System.Drawing.Size(776, 631)
         Me.ProtocolsTabPage.TabIndex = 2
         Me.ProtocolsTabPage.Text = "Protocols, deliverables and remeasurements"
         Me.ProtocolsTabPage.UseVisualStyleBackColor = True
@@ -276,7 +281,7 @@ Partial Class Form1
         Me.TblVitalSignProtocolsGridEX.RecordNavigator = True
         Me.TblVitalSignProtocolsGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignProtocolsGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
-        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(770, 651)
+        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(770, 625)
         Me.TblVitalSignProtocolsGridEX.TabIndex = 0
         Me.TblVitalSignProtocolsGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
         '
@@ -304,6 +309,12 @@ Partial Class Form1
         Me.ToolStrip1.Size = New System.Drawing.Size(784, 25)
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(72, 22)
+        Me.ToolStripLabel1.Text = "Vital Sign"
         '
         'Panel1
         '
@@ -366,12 +377,6 @@ Partial Class Form1
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(198, 26)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
-        'ToolStripLabel1
-        '
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(72, 22)
-        Me.ToolStripLabel1.Text = "Vital Sign"
-        '
         'MainToolStrip
         '
         Me.MainToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
@@ -395,14 +400,14 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1182, 753)
-        Me.Controls.Add(Me.MainToolStrip)
         Me.Controls.Add(Me.MainSplitContainer)
+        Me.Controls.Add(Me.MainToolStrip)
         Me.Controls.Add(Me.MainMenuStrip)
-        Me.MainMenuStrip = Me.MainMenuStrip
         Me.Name = "Form1"
         Me.Text = "Program Manager: NPS Arctic and Central Alaska Inventory and Monitoring Networks"
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VwVitalSignOverviewGridEX, System.Configuration.IPersistComponentSettings).LoadComponentSettings()
         CType(Me.VwVitalSignOverviewGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MainSplitContainer.Panel1.ResumeLayout(False)
         Me.MainSplitContainer.Panel2.ResumeLayout(False)

@@ -1755,6 +1755,12 @@ Partial Public Class AKRODataSet
         
         Private columnRecordInsertedBy As Global.System.Data.DataColumn
         
+        Private columnDeliverablesIRMAReferenceCode As Global.System.Data.DataColumn
+        
+        Private columnProjectIRMAReferenceCode1 As Global.System.Data.DataColumn
+        
+        Private columnReportIRMAReferenceCode As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -1855,6 +1861,30 @@ Partial Public Class AKRODataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DeliverablesIRMAReferenceCodeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDeliverablesIRMAReferenceCode
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ProjectIRMAReferenceCode1Column() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnProjectIRMAReferenceCode1
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ReportIRMAReferenceCodeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnReportIRMAReferenceCode
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1891,9 +1921,9 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddtblProtocolRemeasurementsRow(ByVal BeginDate As Date, ByVal EndDate As Date, ByVal Description As String, ByVal Notes As String, ByVal parenttblVitalSignProtocolsRowByFK_tblVitalSignRemeasurements_tblVitalSignProtocols As tblVitalSignProtocolsRow, ByVal RecordInsertedDate As Date, ByVal RecordInsertedBy As String) As tblProtocolRemeasurementsRow
+        Public Overloads Function AddtblProtocolRemeasurementsRow(ByVal BeginDate As Date, ByVal EndDate As Date, ByVal Description As String, ByVal Notes As String, ByVal parenttblVitalSignProtocolsRowByFK_tblVitalSignRemeasurements_tblVitalSignProtocols As tblVitalSignProtocolsRow, ByVal RecordInsertedDate As Date, ByVal RecordInsertedBy As String, ByVal DeliverablesIRMAReferenceCode As Integer, ByVal ProjectIRMAReferenceCode1 As Integer, ByVal ReportIRMAReferenceCode As Integer) As tblProtocolRemeasurementsRow
             Dim rowtblProtocolRemeasurementsRow As tblProtocolRemeasurementsRow = CType(Me.NewRow,tblProtocolRemeasurementsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, BeginDate, EndDate, Description, Notes, Nothing, RecordInsertedDate, RecordInsertedBy}
+            Dim columnValuesArray() As Object = New Object() {Nothing, BeginDate, EndDate, Description, Notes, Nothing, RecordInsertedDate, RecordInsertedBy, DeliverablesIRMAReferenceCode, ProjectIRMAReferenceCode1, ReportIRMAReferenceCode}
             If (Not (parenttblVitalSignProtocolsRowByFK_tblVitalSignRemeasurements_tblVitalSignProtocols) Is Nothing) Then
                 columnValuesArray(5) = parenttblVitalSignProtocolsRowByFK_tblVitalSignRemeasurements_tblVitalSignProtocols(9)
             End If
@@ -1933,6 +1963,9 @@ Partial Public Class AKRODataSet
             Me.columnProtocolID = MyBase.Columns("ProtocolID")
             Me.columnRecordInsertedDate = MyBase.Columns("RecordInsertedDate")
             Me.columnRecordInsertedBy = MyBase.Columns("RecordInsertedBy")
+            Me.columnDeliverablesIRMAReferenceCode = MyBase.Columns("DeliverablesIRMAReferenceCode")
+            Me.columnProjectIRMAReferenceCode1 = MyBase.Columns("ProjectIRMAReferenceCode1")
+            Me.columnReportIRMAReferenceCode = MyBase.Columns("ReportIRMAReferenceCode")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1954,6 +1987,12 @@ Partial Public Class AKRODataSet
             MyBase.Columns.Add(Me.columnRecordInsertedDate)
             Me.columnRecordInsertedBy = New Global.System.Data.DataColumn("RecordInsertedBy", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRecordInsertedBy)
+            Me.columnDeliverablesIRMAReferenceCode = New Global.System.Data.DataColumn("DeliverablesIRMAReferenceCode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDeliverablesIRMAReferenceCode)
+            Me.columnProjectIRMAReferenceCode1 = New Global.System.Data.DataColumn("ProjectIRMAReferenceCode1", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProjectIRMAReferenceCode1)
+            Me.columnReportIRMAReferenceCode = New Global.System.Data.DataColumn("ReportIRMAReferenceCode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnReportIRMAReferenceCode)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnRemeasurementID}, true))
             Me.columnRemeasurementID.AutoIncrement = true
             Me.columnRemeasurementID.AutoIncrementSeed = -1
@@ -6613,6 +6652,54 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DeliverablesIRMAReferenceCode() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tabletblProtocolRemeasurements.DeliverablesIRMAReferenceCodeColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DeliverablesIRMAReferenceCode' in table 'tblProtocolRemeasu"& _ 
+                            "rements' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletblProtocolRemeasurements.DeliverablesIRMAReferenceCodeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ProjectIRMAReferenceCode1() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tabletblProtocolRemeasurements.ProjectIRMAReferenceCode1Column),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ProjectIRMAReferenceCode1' in table 'tblProtocolRemeasureme"& _ 
+                            "nts' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletblProtocolRemeasurements.ProjectIRMAReferenceCode1Column) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ReportIRMAReferenceCode() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tabletblProtocolRemeasurements.ReportIRMAReferenceCodeColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ReportIRMAReferenceCode' in table 'tblProtocolRemeasurement"& _ 
+                            "s' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletblProtocolRemeasurements.ReportIRMAReferenceCodeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property tblVitalSignProtocolsRow() As tblVitalSignProtocolsRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_tblVitalSignRemeasurements_tblVitalSignProtocols")),tblVitalSignProtocolsRow)
@@ -6644,6 +6731,42 @@ Partial Public Class AKRODataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetNotesNull()
             Me(Me.tabletblProtocolRemeasurements.NotesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDeliverablesIRMAReferenceCodeNull() As Boolean
+            Return Me.IsNull(Me.tabletblProtocolRemeasurements.DeliverablesIRMAReferenceCodeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDeliverablesIRMAReferenceCodeNull()
+            Me(Me.tabletblProtocolRemeasurements.DeliverablesIRMAReferenceCodeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsProjectIRMAReferenceCode1Null() As Boolean
+            Return Me.IsNull(Me.tabletblProtocolRemeasurements.ProjectIRMAReferenceCode1Column)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetProjectIRMAReferenceCode1Null()
+            Me(Me.tabletblProtocolRemeasurements.ProjectIRMAReferenceCode1Column) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsReportIRMAReferenceCodeNull() As Boolean
+            Return Me.IsNull(Me.tabletblProtocolRemeasurements.ReportIRMAReferenceCodeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetReportIRMAReferenceCodeNull()
+            Me(Me.tabletblProtocolRemeasurements.ReportIRMAReferenceCodeColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -11060,61 +11183,109 @@ Namespace AKRODataSetTableAdapters
             tableMapping.ColumnMappings.Add("ProtocolID", "ProtocolID")
             tableMapping.ColumnMappings.Add("RecordInsertedDate", "RecordInsertedDate")
             tableMapping.ColumnMappings.Add("RecordInsertedBy", "RecordInsertedBy")
+            tableMapping.ColumnMappings.Add("DeliverablesIRMAReferenceCode", "DeliverablesIRMAReferenceCode")
+            tableMapping.ColumnMappings.Add("ProjectIRMAReferenceCode1", "ProjectIRMAReferenceCode1")
+            tableMapping.ColumnMappings.Add("ReportIRMAReferenceCode", "ReportIRMAReferenceCode")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblProtocolRemeasurements] WHERE (([RemeasurementID] = @Origin"& _ 
-                "al_RemeasurementID) AND ([BeginDate] = @Original_BeginDate) AND ((@IsNull_EndDat"& _ 
-                "e = 1 AND [EndDate] IS NULL) OR ([EndDate] = @Original_EndDate)) AND ([Descripti"& _ 
-                "on] = @Original_Description) AND ([ProtocolID] = @Original_ProtocolID) AND ([Rec"& _ 
-                "ordInsertedDate] = @Original_RecordInsertedDate) AND ([RecordInsertedBy] = @Orig"& _ 
-                "inal_RecordInsertedBy))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [tblProtocolRemeasurements] WHERE (([BeginDate] = @Original_BeginDate"& _ 
+                ") AND ((@IsNull_EndDate = 1 AND [EndDate] IS NULL) OR ([EndDate] = @Original_End"& _ 
+                "Date)) AND ((@IsNull_DeliverablesIRMAReferenceCode = 1 AND [DeliverablesIRMARefe"& _ 
+                "renceCode] IS NULL) OR ([DeliverablesIRMAReferenceCode] = @Original_Deliverables"& _ 
+                "IRMAReferenceCode)) AND ((@IsNull_ProjectIRMAReferenceCode1 = 1 AND [ProjectIRMA"& _ 
+                "ReferenceCode1] IS NULL) OR ([ProjectIRMAReferenceCode1] = @Original_ProjectIRMA"& _ 
+                "ReferenceCode1)) AND ((@IsNull_ReportIRMAReferenceCode = 1 AND [ReportIRMARefere"& _ 
+                "nceCode] IS NULL) OR ([ReportIRMAReferenceCode] = @Original_ReportIRMAReferenceC"& _ 
+                "ode)) AND ([Description] = @Original_Description) AND ([ProtocolID] = @Original_"& _ 
+                "ProtocolID) AND ([RecordInsertedDate] = @Original_RecordInsertedDate) AND ([Reco"& _ 
+                "rdInsertedBy] = @Original_RecordInsertedBy) AND ([RemeasurementID] = @Original_R"& _ 
+                "emeasurementID))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RemeasurementID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RemeasurementID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BeginDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BeginDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndDate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndDate", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DeliverablesIRMAReferenceCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesIRMAReferenceCode", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DeliverablesIRMAReferenceCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesIRMAReferenceCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProjectIRMAReferenceCode1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProjectIRMAReferenceCode1", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProjectIRMAReferenceCode1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProjectIRMAReferenceCode1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ReportIRMAReferenceCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReportIRMAReferenceCode", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ReportIRMAReferenceCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReportIRMAReferenceCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Description", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RecordInsertedDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RecordInsertedBy", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedBy", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RemeasurementID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RemeasurementID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO tblProtocolRemeasurements"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  (BeginDate, EndDate, Des"& _ 
-                "cription, Notes, ProtocolID)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES (@BeginDate,@EndDate,@Description,@Notes,@P"& _ 
-                "rotocolID); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT RemeasurementID, BeginDate, EndDate, Description, Notes, Pr"& _ 
-                "otocolID, RecordInsertedDate, RecordInsertedBy FROM tblProtocolRemeasurements WH"& _ 
-                "ERE (RemeasurementID = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [tblProtocolRemeasurements] ([BeginDate], [EndDate], [DeliverablesIRM"& _ 
+                "AReferenceCode], [ProjectIRMAReferenceCode1], [ReportIRMAReferenceCode], [Descri"& _ 
+                "ption], [Notes], [ProtocolID], [RecordInsertedDate], [RecordInsertedBy]) VALUES "& _ 
+                "(@BeginDate, @EndDate, @DeliverablesIRMAReferenceCode, @ProjectIRMAReferenceCode"& _ 
+                "1, @ReportIRMAReferenceCode, @Description, @Notes, @ProtocolID, @RecordInsertedD"& _ 
+                "ate, @RecordInsertedBy);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT BeginDate, EndDate, DeliverablesIRMAReferenceCo"& _ 
+                "de, ProjectIRMAReferenceCode1, ReportIRMAReferenceCode, Description, Notes, Prot"& _ 
+                "ocolID, RecordInsertedDate, RecordInsertedBy, RemeasurementID FROM tblProtocolRe"& _ 
+                "measurements WHERE (RemeasurementID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BeginDate", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "BeginDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndDate", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "EndDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BeginDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BeginDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DeliverablesIRMAReferenceCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesIRMAReferenceCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProjectIRMAReferenceCode1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProjectIRMAReferenceCode1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReportIRMAReferenceCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReportIRMAReferenceCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedBy", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE tblProtocolRemeasurements"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET          BeginDate = @BeginDate, EndDate = "& _ 
-                "@EndDate, Description = @Description, Notes = @Notes, ProtocolID = @ProtocolID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "WHERE  (RemeasurementID = @Original_RemeasurementID) AND (BeginDate = @Original_"& _ 
-                "BeginDate) AND (EndDate IS NULL) AND (Description = @Original_Description) AND ("& _ 
-                "ProtocolID = @Original_ProtocolID) OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  (RemeasurementID = @Ori"& _ 
-                "ginal_RemeasurementID) AND (BeginDate = @Original_BeginDate) AND (EndDate = @Ori"& _ 
-                "ginal_EndDate) AND (Description = @Original_Description) AND (ProtocolID = @Orig"& _ 
-                "inal_ProtocolID); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT RemeasurementID, BeginDate, EndDate, Description, Not"& _ 
-                "es, ProtocolID, RecordInsertedDate, RecordInsertedBy FROM tblProtocolRemeasureme"& _ 
-                "nts WHERE (RemeasurementID = @RemeasurementID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [tblProtocolRemeasurements] SET [BeginDate] = @BeginDate, [EndDate] = @End"& _ 
+                "Date, [DeliverablesIRMAReferenceCode] = @DeliverablesIRMAReferenceCode, [Project"& _ 
+                "IRMAReferenceCode1] = @ProjectIRMAReferenceCode1, [ReportIRMAReferenceCode] = @R"& _ 
+                "eportIRMAReferenceCode, [Description] = @Description, [Notes] = @Notes, [Protoco"& _ 
+                "lID] = @ProtocolID, [RecordInsertedDate] = @RecordInsertedDate, [RecordInsertedB"& _ 
+                "y] = @RecordInsertedBy WHERE (([BeginDate] = @Original_BeginDate) AND ((@IsNull_"& _ 
+                "EndDate = 1 AND [EndDate] IS NULL) OR ([EndDate] = @Original_EndDate)) AND ((@Is"& _ 
+                "Null_DeliverablesIRMAReferenceCode = 1 AND [DeliverablesIRMAReferenceCode] IS NU"& _ 
+                "LL) OR ([DeliverablesIRMAReferenceCode] = @Original_DeliverablesIRMAReferenceCod"& _ 
+                "e)) AND ((@IsNull_ProjectIRMAReferenceCode1 = 1 AND [ProjectIRMAReferenceCode1] "& _ 
+                "IS NULL) OR ([ProjectIRMAReferenceCode1] = @Original_ProjectIRMAReferenceCode1))"& _ 
+                " AND ((@IsNull_ReportIRMAReferenceCode = 1 AND [ReportIRMAReferenceCode] IS NULL"& _ 
+                ") OR ([ReportIRMAReferenceCode] = @Original_ReportIRMAReferenceCode)) AND ([Desc"& _ 
+                "ription] = @Original_Description) AND ([ProtocolID] = @Original_ProtocolID) AND "& _ 
+                "([RecordInsertedDate] = @Original_RecordInsertedDate) AND ([RecordInsertedBy] = "& _ 
+                "@Original_RecordInsertedBy) AND ([RemeasurementID] = @Original_RemeasurementID))"& _ 
+                ";"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT BeginDate, EndDate, DeliverablesIRMAReferenceCode, ProjectIRMAReferenc"& _ 
+                "eCode1, ReportIRMAReferenceCode, Description, Notes, ProtocolID, RecordInsertedD"& _ 
+                "ate, RecordInsertedBy, RemeasurementID FROM tblProtocolRemeasurements WHERE (Rem"& _ 
+                "easurementID = @RemeasurementID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BeginDate", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "BeginDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndDate", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "EndDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RemeasurementID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "RemeasurementID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BeginDate", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "BeginDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Description", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndDate", Global.System.Data.SqlDbType.[Date], 3, Global.System.Data.ParameterDirection.Input, 0, 0, "EndDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RemeasurementID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "RemeasurementID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BeginDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BeginDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@EndDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DeliverablesIRMAReferenceCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesIRMAReferenceCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProjectIRMAReferenceCode1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProjectIRMAReferenceCode1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ReportIRMAReferenceCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReportIRMAReferenceCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Description", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedBy", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BeginDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BeginDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_EndDate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndDate", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_EndDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "EndDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DeliverablesIRMAReferenceCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesIRMAReferenceCode", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DeliverablesIRMAReferenceCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesIRMAReferenceCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProjectIRMAReferenceCode1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProjectIRMAReferenceCode1", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProjectIRMAReferenceCode1", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProjectIRMAReferenceCode1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ReportIRMAReferenceCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReportIRMAReferenceCode", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ReportIRMAReferenceCode", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ReportIRMAReferenceCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Description", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Description", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RecordInsertedDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RecordInsertedBy", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedBy", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RemeasurementID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RemeasurementID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RemeasurementID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "RemeasurementID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11130,8 +11301,10 @@ Namespace AKRODataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT RemeasurementID, BeginDate, EndDate, Description, Notes, ProtocolID, Recor"& _ 
-                "dInsertedDate, RecordInsertedBy FROM dbo.tblProtocolRemeasurements"
+            Me._commandCollection(0).CommandText = "SELECT        BeginDate, EndDate, DeliverablesIRMAReferenceCode, ProjectIRMARefer"& _ 
+                "enceCode1, ReportIRMAReferenceCode, Description, Notes, ProtocolID, RecordInsert"& _ 
+                "edDate, RecordInsertedBy, RemeasurementID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            tblProtocolRemeasurem"& _ 
+                "ents"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -11191,28 +11364,49 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_RemeasurementID As Integer, ByVal Original_BeginDate As Date, ByVal Original_EndDate As Global.System.Nullable(Of Date), ByVal Original_Description As String, ByVal Original_ProtocolID As Integer, ByVal Original_RecordInsertedDate As Date, ByVal Original_RecordInsertedBy As String) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_RemeasurementID,Integer)
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_BeginDate,Date)
+        Public Overloads Overridable Function Delete(ByVal Original_BeginDate As Date, ByVal Original_EndDate As Global.System.Nullable(Of Date), ByVal Original_DeliverablesIRMAReferenceCode As Global.System.Nullable(Of Integer), ByVal Original_ProjectIRMAReferenceCode1 As Global.System.Nullable(Of Integer), ByVal Original_ReportIRMAReferenceCode As Global.System.Nullable(Of Integer), ByVal Original_Description As String, ByVal Original_ProtocolID As Integer, ByVal Original_RecordInsertedDate As Date, ByVal Original_RecordInsertedBy As String, ByVal Original_RemeasurementID As Integer) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_BeginDate,Date)
             If (Original_EndDate.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_EndDate.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_EndDate.Value,Date)
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DeliverablesIRMAReferenceCode.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_DeliverablesIRMAReferenceCode.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ProjectIRMAReferenceCode1.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_ProjectIRMAReferenceCode1.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ReportIRMAReferenceCode.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_ReportIRMAReferenceCode.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
             If (Original_Description Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Description")
             Else
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Description,String)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_Description,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_ProtocolID,Integer)
-            Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_RecordInsertedDate,Date)
+            Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_ProtocolID,Integer)
+            Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_RecordInsertedDate,Date)
             If (Original_RecordInsertedBy Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_RecordInsertedBy")
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_RecordInsertedBy,String)
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_RecordInsertedBy,String)
             End If
+            Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_RemeasurementID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -11232,28 +11426,45 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal BeginDate As String, ByVal EndDate As String, ByVal Description As String, ByVal Notes As String, ByVal ProtocolID As Integer) As Integer
-            If (BeginDate Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("BeginDate")
+        Public Overloads Overridable Function Insert(ByVal BeginDate As Date, ByVal EndDate As Global.System.Nullable(Of Date), ByVal DeliverablesIRMAReferenceCode As Global.System.Nullable(Of Integer), ByVal ProjectIRMAReferenceCode1 As Global.System.Nullable(Of Integer), ByVal ReportIRMAReferenceCode As Global.System.Nullable(Of Integer), ByVal Description As String, ByVal Notes As String, ByVal ProtocolID As Integer, ByVal RecordInsertedDate As Date, ByVal RecordInsertedBy As String) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(BeginDate,Date)
+            If (EndDate.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(EndDate.Value,Date)
             Else
-                Me.Adapter.InsertCommand.Parameters(0).Value = CType(BeginDate,String)
-            End If
-            If (EndDate Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (DeliverablesIRMAReferenceCode.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(DeliverablesIRMAReferenceCode.Value,Integer)
             Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(EndDate,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (ProjectIRMAReferenceCode1.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(ProjectIRMAReferenceCode1.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (ReportIRMAReferenceCode.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(ReportIRMAReferenceCode.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
             If (Description Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Description")
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Description,String)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(Description,String)
             End If
             If (Notes Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(Notes,String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Notes,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(4).Value = CType(ProtocolID,Integer)
+            Me.Adapter.InsertCommand.Parameters(7).Value = CType(ProtocolID,Integer)
+            Me.Adapter.InsertCommand.Parameters(8).Value = CType(RecordInsertedDate,Date)
+            If (RecordInsertedBy Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("RecordInsertedBy")
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(RecordInsertedBy,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -11273,46 +11484,109 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal BeginDate As String, ByVal EndDate As String, ByVal Description As String, ByVal Notes As String, ByVal ProtocolID As Integer, ByVal Original_RemeasurementID As Integer, ByVal Original_BeginDate As String, ByVal Original_Description As String, ByVal Original_ProtocolID As Integer, ByVal Original_EndDate As String, ByVal RemeasurementID As Integer) As Integer
-            If (BeginDate Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("BeginDate")
+        Public Overloads Overridable Function Update( _
+                    ByVal BeginDate As Date,  _
+                    ByVal EndDate As Global.System.Nullable(Of Date),  _
+                    ByVal DeliverablesIRMAReferenceCode As Global.System.Nullable(Of Integer),  _
+                    ByVal ProjectIRMAReferenceCode1 As Global.System.Nullable(Of Integer),  _
+                    ByVal ReportIRMAReferenceCode As Global.System.Nullable(Of Integer),  _
+                    ByVal Description As String,  _
+                    ByVal Notes As String,  _
+                    ByVal ProtocolID As Integer,  _
+                    ByVal RecordInsertedDate As Date,  _
+                    ByVal RecordInsertedBy As String,  _
+                    ByVal Original_BeginDate As Date,  _
+                    ByVal Original_EndDate As Global.System.Nullable(Of Date),  _
+                    ByVal Original_DeliverablesIRMAReferenceCode As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ProjectIRMAReferenceCode1 As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ReportIRMAReferenceCode As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_Description As String,  _
+                    ByVal Original_ProtocolID As Integer,  _
+                    ByVal Original_RecordInsertedDate As Date,  _
+                    ByVal Original_RecordInsertedBy As String,  _
+                    ByVal Original_RemeasurementID As Integer,  _
+                    ByVal RemeasurementID As Integer) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(BeginDate,Date)
+            If (EndDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(EndDate.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(BeginDate,String)
-            End If
-            If (EndDate Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (DeliverablesIRMAReferenceCode.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(DeliverablesIRMAReferenceCode.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(EndDate,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (ProjectIRMAReferenceCode1.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(ProjectIRMAReferenceCode1.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (ReportIRMAReferenceCode.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ReportIRMAReferenceCode.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
             If (Description Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Description")
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Description,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Description,String)
             End If
             If (Notes Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Notes,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Notes,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(ProtocolID,Integer)
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_RemeasurementID,Integer)
-            If (Original_BeginDate Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_BeginDate")
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(ProtocolID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(RecordInsertedDate,Date)
+            If (RecordInsertedBy Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("RecordInsertedBy")
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_BeginDate,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(RecordInsertedBy,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_BeginDate,Date)
+            If (Original_EndDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_EndDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DeliverablesIRMAReferenceCode.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_DeliverablesIRMAReferenceCode.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ProjectIRMAReferenceCode1.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_ProjectIRMAReferenceCode1.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ReportIRMAReferenceCode.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_ReportIRMAReferenceCode.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
             If (Original_Description Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Description")
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Description,String)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Description,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_ProtocolID,Integer)
-            If (Original_EndDate Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_ProtocolID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_RecordInsertedDate,Date)
+            If (Original_RecordInsertedBy Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_RecordInsertedBy")
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_EndDate,String)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_RecordInsertedBy,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(RemeasurementID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_RemeasurementID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(24).Value = CType(RemeasurementID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -11326,6 +11600,34 @@ Namespace AKRODataSetTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal BeginDate As Date,  _
+                    ByVal EndDate As Global.System.Nullable(Of Date),  _
+                    ByVal DeliverablesIRMAReferenceCode As Global.System.Nullable(Of Integer),  _
+                    ByVal ProjectIRMAReferenceCode1 As Global.System.Nullable(Of Integer),  _
+                    ByVal ReportIRMAReferenceCode As Global.System.Nullable(Of Integer),  _
+                    ByVal Description As String,  _
+                    ByVal Notes As String,  _
+                    ByVal ProtocolID As Integer,  _
+                    ByVal RecordInsertedDate As Date,  _
+                    ByVal RecordInsertedBy As String,  _
+                    ByVal Original_BeginDate As Date,  _
+                    ByVal Original_EndDate As Global.System.Nullable(Of Date),  _
+                    ByVal Original_DeliverablesIRMAReferenceCode As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ProjectIRMAReferenceCode1 As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_ReportIRMAReferenceCode As Global.System.Nullable(Of Integer),  _
+                    ByVal Original_Description As String,  _
+                    ByVal Original_ProtocolID As Integer,  _
+                    ByVal Original_RecordInsertedDate As Date,  _
+                    ByVal Original_RecordInsertedBy As String,  _
+                    ByVal Original_RemeasurementID As Integer) As Integer
+            Return Me.Update(BeginDate, EndDate, DeliverablesIRMAReferenceCode, ProjectIRMAReferenceCode1, ReportIRMAReferenceCode, Description, Notes, ProtocolID, RecordInsertedDate, RecordInsertedBy, Original_BeginDate, Original_EndDate, Original_DeliverablesIRMAReferenceCode, Original_ProjectIRMAReferenceCode1, Original_ReportIRMAReferenceCode, Original_Description, Original_ProtocolID, Original_RecordInsertedDate, Original_RecordInsertedBy, Original_RemeasurementID, Original_RemeasurementID)
         End Function
     End Class
     
