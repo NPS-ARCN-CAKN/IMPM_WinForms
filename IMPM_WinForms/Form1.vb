@@ -1,6 +1,8 @@
 ﻿Imports Janus.Windows.GridEX
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'AKRODataSet.tblVitalSignDataManagementSummary' table. You can move, or remove it, as needed.
+        Me.TblVitalSignDataManagementSummaryTableAdapter.Fill(Me.AKRODataSet.tblVitalSignDataManagementSummary)
         Me.VwVitalSignOverviewTableAdapter.Fill(Me.AKRODataSet.vwVitalSignOverview)
         Me.TblVitalSignsTableAdapter.Fill(Me.AKRODataSet.tblVitalSigns)
         Me.TblVitalSignProtocolsTableAdapter.Fill(Me.AKRODataSet.tblVitalSignProtocols)
@@ -20,6 +22,7 @@ Public Class Form1
     End Sub
 
     Public Sub SetUpGridEX(GridEX As GridEX)
+        'set up the gridex
         Dim MyFont As New Font("Sans Serif", 10, FontStyle.Regular)
         With GridEX
             .Font = MyFont
@@ -56,6 +59,7 @@ Public Class Form1
                     Me.TblVitalSignProtocolsBindingSource.EndEdit()
                     Me.TblProtocolDeliverablesBindingSource.EndEdit()
                     Me.TblProtocolRemeasurementsBindingSource.EndEdit()
+                    Me.TblVitalSignDataManagementSummaryBindingSource.EndEdit()
                     Me.TableAdapterManager.UpdateAll(Me.AKRODataSet)
                 Catch ex As Exception
                     Me.TblVitalSignsBindingSource.CancelEdit()
@@ -63,6 +67,7 @@ Public Class Form1
                     Me.TblVitalSignProtocolsBindingSource.CancelEdit()
                     Me.TblProtocolDeliverablesBindingSource.CancelEdit()
                     Me.TblProtocolRemeasurementsBindingSource.CancelEdit()
+                    Me.TblVitalSignDataManagementSummaryBindingSource.EndEdit()
                     MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
                 End Try
             End If
@@ -106,4 +111,43 @@ Public Class Form1
     Private Sub ToolStripButton1_Click_1(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         SaveDataset()
     End Sub
+
+    Private Sub TblVitalSignDataManagementSummaryGridEX_DoubleClick(sender As Object, e As EventArgs) Handles TblVitalSignDataManagementSummaryGridEX.DoubleClick
+        Dim GridEX As GridEX = Me.TblVitalSignDataManagementSummaryGridEX
+        If GridEX.View = View.TableView Then
+            GridEX.View = View.SingleCard
+        Else
+            GridEX.View = View.TableView
+        End If
+    End Sub
+
+    Private Sub TblVitalSignWorkLogGridEX_SelectionChanged(sender As Object, e As EventArgs) Handles TblVitalSignWorkLogGridEX.SelectionChanged
+        'set default values
+        Try
+            Me.TblVitalSignWorkLogGridEX.RootTable.Columns("LogDate").DefaultValue = Now
+            Me.TblVitalSignWorkLogGridEX.RootTable.Columns("UserName").DefaultValue = My.User.Name
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Changes the GridEX's view from SingleCard to Card to Table
+    ''' </summary>
+    ''' <param name="GridEX">GridEX</param>
+    Private Sub ToggleGridEXView(GridEX As GridEX)
+        If GridEX.View = View.SingleCard Then
+            GridEX.View = View.CardView
+        ElseIf GridEX.View = View.CardView Then
+            GridEX.View = View.TableView
+        ElseIf GridEX.View = View.TableView Then
+            GridEX.View = View.SingleCard
+        End If
+    End Sub
+
+    Private Sub TblVitalSignWorkLogGridEX_DoubleClick(sender As Object, e As EventArgs) Handles TblVitalSignWorkLogGridEX.DoubleClick
+        ToggleGridEXView(TblVitalSignWorkLogGridEX)
+    End Sub
+
+
 End Class

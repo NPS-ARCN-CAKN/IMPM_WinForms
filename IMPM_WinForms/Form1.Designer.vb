@@ -28,12 +28,14 @@ Partial Class Form1
         Dim TblVitalSignsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignWorkLogGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignProtocolsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.AKRODataSet = New IMPM.AKRODataSet()
         Me.VwVitalSignOverviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwVitalSignOverviewTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignOverviewTableAdapter()
         Me.TableAdapterManager = New IMPM.AKRODataSetTableAdapters.TableAdapterManager()
         Me.TblProtocolDeliverablesTableAdapter = New IMPM.AKRODataSetTableAdapters.tblProtocolDeliverablesTableAdapter()
         Me.TblProtocolRemeasurementsTableAdapter = New IMPM.AKRODataSetTableAdapters.tblProtocolRemeasurementsTableAdapter()
+        Me.TblVitalSignDataManagementSummaryTableAdapter = New IMPM.AKRODataSetTableAdapters.tblVitalSignDataManagementSummaryTableAdapter()
         Me.TblVitalSignProtocolsTableAdapter = New IMPM.AKRODataSetTableAdapters.tblVitalSignProtocolsTableAdapter()
         Me.TblVitalSignsTableAdapter = New IMPM.AKRODataSetTableAdapters.tblVitalSignsTableAdapter()
         Me.TblVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.tblVitalSignWorkLogTableAdapter()
@@ -50,6 +52,9 @@ Partial Class Form1
         Me.TblVitalSignProtocolsGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignProtocolsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TasksTabPage = New System.Windows.Forms.TabPage()
+        Me.DataManagementOverviewTabPage = New System.Windows.Forms.TabPage()
+        Me.TblVitalSignDataManagementSummaryGridEX = New Janus.Windows.GridEX.GridEX()
+        Me.TblVitalSignDataManagementSummaryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -79,6 +84,9 @@ Partial Class Form1
         Me.ProtocolsTabPage.SuspendLayout()
         CType(Me.TblVitalSignProtocolsGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignProtocolsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DataManagementOverviewTabPage.SuspendLayout()
+        CType(Me.TblVitalSignDataManagementSummaryGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblVitalSignDataManagementSummaryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -107,7 +115,7 @@ Partial Class Form1
         Me.TableAdapterManager.tblNetworksTableAdapter = Nothing
         Me.TableAdapterManager.tblProtocolDeliverablesTableAdapter = Me.TblProtocolDeliverablesTableAdapter
         Me.TableAdapterManager.tblProtocolRemeasurementsTableAdapter = Me.TblProtocolRemeasurementsTableAdapter
-        Me.TableAdapterManager.tblVitalSignDataManagementSummaryTableAdapter = Nothing
+        Me.TableAdapterManager.tblVitalSignDataManagementSummaryTableAdapter = Me.TblVitalSignDataManagementSummaryTableAdapter
         Me.TableAdapterManager.tblVitalSignObjectivesTableAdapter = Nothing
         Me.TableAdapterManager.tblVitalSignProtocolsTableAdapter = Me.TblVitalSignProtocolsTableAdapter
         Me.TableAdapterManager.tblVitalSignsTableAdapter = Me.TblVitalSignsTableAdapter
@@ -122,6 +130,10 @@ Partial Class Form1
         'TblProtocolRemeasurementsTableAdapter
         '
         Me.TblProtocolRemeasurementsTableAdapter.ClearBeforeFill = True
+        '
+        'TblVitalSignDataManagementSummaryTableAdapter
+        '
+        Me.TblVitalSignDataManagementSummaryTableAdapter.ClearBeforeFill = True
         '
         'TblVitalSignProtocolsTableAdapter
         '
@@ -179,6 +191,7 @@ Partial Class Form1
         Me.VitalSignTabControl.Controls.Add(Me.VSWorkLogTabPage)
         Me.VitalSignTabControl.Controls.Add(Me.ProtocolsTabPage)
         Me.VitalSignTabControl.Controls.Add(Me.TasksTabPage)
+        Me.VitalSignTabControl.Controls.Add(Me.DataManagementOverviewTabPage)
         Me.VitalSignTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.VitalSignTabControl.Location = New System.Drawing.Point(0, 65)
         Me.VitalSignTabControl.Name = "VitalSignTabControl"
@@ -192,7 +205,7 @@ Partial Class Form1
         Me.OverviewTabPage.Location = New System.Drawing.Point(4, 25)
         Me.OverviewTabPage.Name = "OverviewTabPage"
         Me.OverviewTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.OverviewTabPage.Size = New System.Drawing.Size(776, 631)
+        Me.OverviewTabPage.Size = New System.Drawing.Size(776, 604)
         Me.OverviewTabPage.TabIndex = 0
         Me.OverviewTabPage.Text = "Overview"
         Me.OverviewTabPage.UseVisualStyleBackColor = True
@@ -207,7 +220,7 @@ Partial Class Form1
         Me.TblVitalSignsGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TblVitalSignsGridEX.Location = New System.Drawing.Point(3, 3)
         Me.TblVitalSignsGridEX.Name = "TblVitalSignsGridEX"
-        Me.TblVitalSignsGridEX.Size = New System.Drawing.Size(770, 625)
+        Me.TblVitalSignsGridEX.Size = New System.Drawing.Size(770, 598)
         Me.TblVitalSignsGridEX.TabIndex = 0
         Me.TblVitalSignsGridEX.View = Janus.Windows.GridEX.View.SingleCard
         '
@@ -260,7 +273,7 @@ Partial Class Form1
         Me.ProtocolsTabPage.Location = New System.Drawing.Point(4, 25)
         Me.ProtocolsTabPage.Name = "ProtocolsTabPage"
         Me.ProtocolsTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.ProtocolsTabPage.Size = New System.Drawing.Size(776, 631)
+        Me.ProtocolsTabPage.Size = New System.Drawing.Size(776, 604)
         Me.ProtocolsTabPage.TabIndex = 2
         Me.ProtocolsTabPage.Text = "Protocols, deliverables and remeasurements"
         Me.ProtocolsTabPage.UseVisualStyleBackColor = True
@@ -281,7 +294,7 @@ Partial Class Form1
         Me.TblVitalSignProtocolsGridEX.RecordNavigator = True
         Me.TblVitalSignProtocolsGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignProtocolsGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
-        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(770, 625)
+        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(770, 598)
         Me.TblVitalSignProtocolsGridEX.TabIndex = 0
         Me.TblVitalSignProtocolsGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
         '
@@ -295,10 +308,50 @@ Partial Class Form1
         Me.TasksTabPage.Location = New System.Drawing.Point(4, 25)
         Me.TasksTabPage.Name = "TasksTabPage"
         Me.TasksTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.TasksTabPage.Size = New System.Drawing.Size(776, 631)
+        Me.TasksTabPage.Size = New System.Drawing.Size(776, 604)
         Me.TasksTabPage.TabIndex = 3
         Me.TasksTabPage.Text = "Tasks"
         Me.TasksTabPage.UseVisualStyleBackColor = True
+        '
+        'DataManagementOverviewTabPage
+        '
+        Me.DataManagementOverviewTabPage.Controls.Add(Me.TblVitalSignDataManagementSummaryGridEX)
+        Me.DataManagementOverviewTabPage.Location = New System.Drawing.Point(4, 25)
+        Me.DataManagementOverviewTabPage.Name = "DataManagementOverviewTabPage"
+        Me.DataManagementOverviewTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.DataManagementOverviewTabPage.Size = New System.Drawing.Size(776, 604)
+        Me.DataManagementOverviewTabPage.TabIndex = 4
+        Me.DataManagementOverviewTabPage.Text = "Data management summary"
+        Me.DataManagementOverviewTabPage.UseVisualStyleBackColor = True
+        '
+        'TblVitalSignDataManagementSummaryGridEX
+        '
+        Me.TblVitalSignDataManagementSummaryGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignDataManagementSummaryGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignDataManagementSummaryGridEX.CardBorders = False
+        Me.TblVitalSignDataManagementSummaryGridEX.CardHeaders = False
+        Me.TblVitalSignDataManagementSummaryGridEX.CardWidth = 742
+        Me.TblVitalSignDataManagementSummaryGridEX.DataSource = Me.TblVitalSignDataManagementSummaryBindingSource
+        TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout.LayoutString")
+        Me.TblVitalSignDataManagementSummaryGridEX.DesignTimeLayout = TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout
+        Me.TblVitalSignDataManagementSummaryGridEX.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TblVitalSignDataManagementSummaryGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TblVitalSignDataManagementSummaryGridEX.GroupByBoxVisible = False
+        Me.TblVitalSignDataManagementSummaryGridEX.Location = New System.Drawing.Point(3, 3)
+        Me.TblVitalSignDataManagementSummaryGridEX.Name = "TblVitalSignDataManagementSummaryGridEX"
+        Me.TblVitalSignDataManagementSummaryGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
+        Me.TblVitalSignDataManagementSummaryGridEX.RecordNavigator = True
+        Me.TblVitalSignDataManagementSummaryGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignDataManagementSummaryGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
+        Me.TblVitalSignDataManagementSummaryGridEX.SelectOnExpand = False
+        Me.TblVitalSignDataManagementSummaryGridEX.Size = New System.Drawing.Size(770, 598)
+        Me.TblVitalSignDataManagementSummaryGridEX.TabIndex = 0
+        Me.TblVitalSignDataManagementSummaryGridEX.View = Janus.Windows.GridEX.View.SingleCard
+        '
+        'TblVitalSignDataManagementSummaryBindingSource
+        '
+        Me.TblVitalSignDataManagementSummaryBindingSource.DataMember = "vwVitalSignOverview_tblVitalSignDataManagementSummary"
+        Me.TblVitalSignDataManagementSummaryBindingSource.DataSource = Me.VwVitalSignOverviewBindingSource
         '
         'ToolStrip1
         '
@@ -425,6 +478,9 @@ Partial Class Form1
         Me.ProtocolsTabPage.ResumeLayout(False)
         CType(Me.TblVitalSignProtocolsGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblVitalSignProtocolsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.DataManagementOverviewTabPage.ResumeLayout(False)
+        CType(Me.TblVitalSignDataManagementSummaryGridEX, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblVitalSignDataManagementSummaryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         Me.Panel1.ResumeLayout(False)
@@ -474,4 +530,8 @@ Partial Class Form1
     Friend WithEvents ToolStripLabel1 As ToolStripLabel
     Friend WithEvents MainToolStrip As ToolStrip
     Friend WithEvents ToolStripButton1 As ToolStripButton
+    Friend WithEvents DataManagementOverviewTabPage As TabPage
+    Friend WithEvents TblVitalSignDataManagementSummaryBindingSource As BindingSource
+    Friend WithEvents TblVitalSignDataManagementSummaryTableAdapter As AKRODataSetTableAdapters.tblVitalSignDataManagementSummaryTableAdapter
+    Friend WithEvents TblVitalSignDataManagementSummaryGridEX As Janus.Windows.GridEX.GridEX
 End Class

@@ -71,6 +71,8 @@ Partial Public Class AKRODataSet
     
     Private relationvwVitalSignOverview_tblVitalSigns As Global.System.Data.DataRelation
     
+    Private relationvwVitalSignOverview_tblVitalSignDataManagementSummary As Global.System.Data.DataRelation
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -470,6 +472,7 @@ Partial Public Class AKRODataSet
         Me.relationtblVitalSigns_vwVitalSignOverview = Me.Relations("tblVitalSigns_vwVitalSignOverview")
         Me.relationvwVitalSignOverview_tblNetworks = Me.Relations("vwVitalSignOverview_tblNetworks")
         Me.relationvwVitalSignOverview_tblVitalSigns = Me.Relations("vwVitalSignOverview_tblVitalSigns")
+        Me.relationvwVitalSignOverview_tblVitalSignDataManagementSummary = Me.Relations("vwVitalSignOverview_tblVitalSignDataManagementSummary")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -557,6 +560,8 @@ Partial Public Class AKRODataSet
         Me.Relations.Add(Me.relationvwVitalSignOverview_tblNetworks)
         Me.relationvwVitalSignOverview_tblVitalSigns = New Global.System.Data.DataRelation("vwVitalSignOverview_tblVitalSigns", New Global.System.Data.DataColumn() {Me.tablevwVitalSignOverview.VSIDColumn}, New Global.System.Data.DataColumn() {Me.tabletblVitalSigns.VSIDColumn}, false)
         Me.Relations.Add(Me.relationvwVitalSignOverview_tblVitalSigns)
+        Me.relationvwVitalSignOverview_tblVitalSignDataManagementSummary = New Global.System.Data.DataRelation("vwVitalSignOverview_tblVitalSignDataManagementSummary", New Global.System.Data.DataColumn() {Me.tablevwVitalSignOverview.VSIDColumn}, New Global.System.Data.DataColumn() {Me.tabletblVitalSignDataManagementSummary.VSIDColumn}, false)
+        Me.Relations.Add(Me.relationvwVitalSignOverview_tblVitalSignDataManagementSummary)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6916,6 +6921,17 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property vwVitalSignOverviewRow() As vwVitalSignOverviewRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("vwVitalSignOverview_tblVitalSignDataManagementSummary")),vwVitalSignOverviewRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("vwVitalSignOverview_tblVitalSignDataManagementSummary"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsDatabaseServerNull() As Boolean
             Return Me.IsNull(Me.tabletblVitalSignDataManagementSummary.DatabaseServerColumn)
         End Function
@@ -8897,6 +8913,16 @@ Partial Public Class AKRODataSet
                 Return New tblVitalSignsRow(-1) {}
             Else
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("vwVitalSignOverview_tblVitalSigns")),tblVitalSignsRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function GettblVitalSignDataManagementSummaryRows() As tblVitalSignDataManagementSummaryRow()
+            If (Me.Table.ChildRelations("vwVitalSignOverview_tblVitalSignDataManagementSummary") Is Nothing) Then
+                Return New tblVitalSignDataManagementSummaryRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("vwVitalSignOverview_tblVitalSignDataManagementSummary")),tblVitalSignDataManagementSummaryRow())
             End If
         End Function
     End Class
@@ -11793,59 +11819,42 @@ Namespace AKRODataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ApplicationOverview", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ApplicationOverview", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblVitalSignDataManagementSummary] ([VSID], [DatabaseServer], "& _ 
-                "[DatabaseName], [DatabaseFilename], [FileSharePath], [ApplicationOverview], [Dat"& _ 
-                "aManagementOverview]) VALUES (@VSID, @DatabaseServer, @DatabaseName, @DatabaseFi"& _ 
-                "lename, @FileSharePath, @ApplicationOverview, @DataManagementOverview);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT "& _ 
-                "VSDMID, VSID, DatabaseServer, DatabaseName, DatabaseFilename, FileSharePath, App"& _ 
-                "licationOverview, DataManagementOverview FROM tblVitalSignDataManagementSummary "& _ 
-                "WHERE (VSDMID = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO tblVitalSignDataManagementSummary"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  (VSID, DatabaseS"& _ 
+                "erver, DatabaseName, DatabaseFilename, FileSharePath, ApplicationOverview, DataM"& _ 
+                "anagementOverview)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES (@VSID,@DatabaseServer,@DatabaseName,@DatabaseFilenam"& _ 
+                "e,@FileSharePath,@ApplicationOverview,@DataManagementOverview); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSDMID,"& _ 
+                " VSID, DatabaseServer, DatabaseName, DatabaseFilename, FileSharePath, Applicatio"& _ 
+                "nOverview, DataManagementOverview FROM tblVitalSignDataManagementSummary WHERE ("& _ 
+                "VSDMID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DatabaseServer", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseServer", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DatabaseName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DatabaseFilename", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseFilename", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FileSharePath", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FileSharePath", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ApplicationOverview", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ApplicationOverview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataManagementOverview", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataManagementOverview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DatabaseServer", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseServer", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DatabaseName", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DatabaseFilename", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseFilename", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FileSharePath", Global.System.Data.SqlDbType.VarChar, 1000, Global.System.Data.ParameterDirection.Input, 0, 0, "FileSharePath", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ApplicationOverview", Global.System.Data.SqlDbType.VarChar, 1000, Global.System.Data.ParameterDirection.Input, 0, 0, "ApplicationOverview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataManagementOverview", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "DataManagementOverview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblVitalSignDataManagementSummary] SET [VSID] = @VSID, [DatabaseSer"& _ 
-                "ver] = @DatabaseServer, [DatabaseName] = @DatabaseName, [DatabaseFilename] = @Da"& _ 
-                "tabaseFilename, [FileSharePath] = @FileSharePath, [ApplicationOverview] = @Appli"& _ 
-                "cationOverview, [DataManagementOverview] = @DataManagementOverview WHERE (([VSDM"& _ 
-                "ID] = @Original_VSDMID) AND ([VSID] = @Original_VSID) AND ((@IsNull_DatabaseServ"& _ 
-                "er = 1 AND [DatabaseServer] IS NULL) OR ([DatabaseServer] = @Original_DatabaseSe"& _ 
-                "rver)) AND ((@IsNull_DatabaseName = 1 AND [DatabaseName] IS NULL) OR ([DatabaseN"& _ 
-                "ame] = @Original_DatabaseName)) AND ((@IsNull_DatabaseFilename = 1 AND [Database"& _ 
-                "Filename] IS NULL) OR ([DatabaseFilename] = @Original_DatabaseFilename)) AND ((@"& _ 
-                "IsNull_FileSharePath = 1 AND [FileSharePath] IS NULL) OR ([FileSharePath] = @Ori"& _ 
-                "ginal_FileSharePath)) AND ((@IsNull_ApplicationOverview = 1 AND [ApplicationOver"& _ 
-                "view] IS NULL) OR ([ApplicationOverview] = @Original_ApplicationOverview)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SE"& _ 
-                "LECT VSDMID, VSID, DatabaseServer, DatabaseName, DatabaseFilename, FileSharePath"& _ 
-                ", ApplicationOverview, DataManagementOverview FROM tblVitalSignDataManagementSum"& _ 
-                "mary WHERE (VSDMID = @VSDMID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE tblVitalSignDataManagementSummary"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET          VSID = @VSID, DatabaseServ"& _ 
+                "er = @DatabaseServer, DatabaseName = @DatabaseName, DatabaseFilename = @Database"& _ 
+                "Filename, FileSharePath = @FileSharePath, ApplicationOverview = @ApplicationOver"& _ 
+                "view, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                  DataManagementOverview = @DataManagementOverview"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHER"& _ 
+                "E  (VSDMID = @Original_VSDMID) AND (VSID = @Original_VSID); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSDMID, VSI"& _ 
+                "D, DatabaseServer, DatabaseName, DatabaseFilename, FileSharePath, ApplicationOve"& _ 
+                "rview, DataManagementOverview FROM tblVitalSignDataManagementSummary WHERE (VSDM"& _ 
+                "ID = @VSDMID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DatabaseServer", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseServer", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DatabaseName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DatabaseFilename", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseFilename", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FileSharePath", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FileSharePath", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ApplicationOverview", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ApplicationOverview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataManagementOverview", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataManagementOverview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSDMID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSDMID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DatabaseServer", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseServer", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DatabaseServer", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseServer", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DatabaseName", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseName", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DatabaseName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DatabaseFilename", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseFilename", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DatabaseFilename", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseFilename", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FileSharePath", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FileSharePath", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FileSharePath", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FileSharePath", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ApplicationOverview", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ApplicationOverview", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ApplicationOverview", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ApplicationOverview", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSDMID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSDMID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DatabaseServer", Global.System.Data.SqlDbType.VarChar, 100, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseServer", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DatabaseName", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DatabaseFilename", Global.System.Data.SqlDbType.VarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "DatabaseFilename", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FileSharePath", Global.System.Data.SqlDbType.VarChar, 1000, Global.System.Data.ParameterDirection.Input, 0, 0, "FileSharePath", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ApplicationOverview", Global.System.Data.SqlDbType.VarChar, 1000, Global.System.Data.ParameterDirection.Input, 0, 0, "ApplicationOverview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataManagementOverview", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "DataManagementOverview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSDMID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSDMID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSDMID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSDMID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12031,7 +12040,7 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal VSID As Integer, ByVal DatabaseServer As String, ByVal DatabaseName As String, ByVal DatabaseFilename As String, ByVal FileSharePath As String, ByVal ApplicationOverview As String, ByVal DataManagementOverview As String, ByVal Original_VSDMID As Integer, ByVal Original_VSID As Integer, ByVal Original_DatabaseServer As String, ByVal Original_DatabaseName As String, ByVal Original_DatabaseFilename As String, ByVal Original_FileSharePath As String, ByVal Original_ApplicationOverview As String, ByVal VSDMID As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal VSID As Integer, ByVal DatabaseServer As String, ByVal DatabaseName As String, ByVal DatabaseFilename As String, ByVal FileSharePath As String, ByVal ApplicationOverview As String, ByVal DataManagementOverview As String, ByVal Original_VSDMID As Integer, ByVal Original_VSID As Integer, ByVal VSDMID As Integer) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(VSID,Integer)
             If (DatabaseServer Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
@@ -12065,42 +12074,7 @@ Namespace AKRODataSetTableAdapters
             End If
             Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_VSDMID,Integer)
             Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_VSID,Integer)
-            If (Original_DatabaseServer Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_DatabaseServer,String)
-            End If
-            If (Original_DatabaseName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_DatabaseName,String)
-            End If
-            If (Original_DatabaseFilename Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_DatabaseFilename,String)
-            End If
-            If (Original_FileSharePath Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_FileSharePath,String)
-            End If
-            If (Original_ApplicationOverview Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_ApplicationOverview,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(VSDMID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(VSDMID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -12114,14 +12088,6 @@ Namespace AKRODataSetTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal VSID As Integer, ByVal DatabaseServer As String, ByVal DatabaseName As String, ByVal DatabaseFilename As String, ByVal FileSharePath As String, ByVal ApplicationOverview As String, ByVal DataManagementOverview As String, ByVal Original_VSDMID As Integer, ByVal Original_VSID As Integer, ByVal Original_DatabaseServer As String, ByVal Original_DatabaseName As String, ByVal Original_DatabaseFilename As String, ByVal Original_FileSharePath As String, ByVal Original_ApplicationOverview As String) As Integer
-            Return Me.Update(VSID, DatabaseServer, DatabaseName, DatabaseFilename, FileSharePath, ApplicationOverview, DataManagementOverview, Original_VSDMID, Original_VSID, Original_DatabaseServer, Original_DatabaseName, Original_DatabaseFilename, Original_FileSharePath, Original_ApplicationOverview, Original_VSDMID)
         End Function
     End Class
     
