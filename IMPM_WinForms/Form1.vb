@@ -1,20 +1,23 @@
 ﻿Imports Janus.Windows.GridEX
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'AKRODataSet.tblVitalSignDataManagementSummary' table. You can move, or remove it, as needed.
+
+        Me.TblVitalSignsTableAdapter.Fill(Me.AKRODataSet.tblVitalSigns)
         Me.TblVitalSignDataManagementSummaryTableAdapter.Fill(Me.AKRODataSet.tblVitalSignDataManagementSummary)
         Me.VwVitalSignOverviewTableAdapter.Fill(Me.AKRODataSet.vwVitalSignOverview)
-        Me.TblVitalSignsTableAdapter.Fill(Me.AKRODataSet.tblVitalSigns)
         Me.TblVitalSignProtocolsTableAdapter.Fill(Me.AKRODataSet.tblVitalSignProtocols)
         Me.TblProtocolRemeasurementsTableAdapter.Fill(Me.AKRODataSet.tblProtocolRemeasurements)
         Me.TblProtocolDeliverablesTableAdapter.Fill(Me.AKRODataSet.tblProtocolDeliverables)
         Me.TblVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.tblVitalSignWorkLog)
+        Me.TblVitalSignTasksTableAdapter.Fill(Me.AKRODataSet.tblVitalSignTasks)
+        Me.TblVitalSignTasksTableAdapter.Fill(Me.AKRODataSet.tblVitalSignTasks)
 
         'set up the gridexs
         SetUpGridEX(Me.VwVitalSignOverviewGridEX)
         SetUpGridEX(TblVitalSignsGridEX)
         SetUpGridEX(TblVitalSignWorkLogGridEX)
         SetUpGridEX(TblVitalSignProtocolsGridEX)
+        SetUpGridEX(TblVitalSignTasksGridEX)
 
 
         'maximize the form
@@ -24,12 +27,34 @@ Public Class Form1
     Public Sub SetUpGridEX(GridEX As GridEX)
         'set up the gridex
         Dim MyFont As New Font("Sans Serif", 10, FontStyle.Regular)
+        Dim MyFormatStyle As New GridEXFormatStyle()
+        With MyFormatStyle
+            .Font = MyFont
+            .TextAlignment = TextAlignment.Near
+        End With
+
+        'sometimes the column widths get blown out
+        'For Each Col As GridEXColumn In GridEX.RootTable.Columns
+        '    With Col
+        '        .Width = 100
+        '        .MaxLength = 800
+        '        .MaxLines = 100
+        '        .WordWrap = True
+        '    End With
+        'Next
+
+        'set up the gridex
         With GridEX
+            .ColumnAutoSizeMode = ColumnAutoSizeMode.DiaplayedCells
+            '.ColumnAutoResize = True
             .Font = MyFont
             .RowHeaders = InheritableBoolean.True
             .NewRowPosition = NewRowPosition.BottomRow
             .SelectOnExpand = False
+            .SaveSettings = True
         End With
+
+
     End Sub
 
     Private Sub VwVitalSignOverviewGridEX_SelectionChanged(sender As Object, e As EventArgs) Handles VwVitalSignOverviewGridEX.SelectionChanged
@@ -60,6 +85,7 @@ Public Class Form1
                     Me.TblProtocolDeliverablesBindingSource.EndEdit()
                     Me.TblProtocolRemeasurementsBindingSource.EndEdit()
                     Me.TblVitalSignDataManagementSummaryBindingSource.EndEdit()
+                    Me.TblVitalSignTasksBindingSource.EndEdit()
                     Me.TableAdapterManager.UpdateAll(Me.AKRODataSet)
                 Catch ex As Exception
                     Me.TblVitalSignsBindingSource.CancelEdit()
@@ -68,6 +94,7 @@ Public Class Form1
                     Me.TblProtocolDeliverablesBindingSource.CancelEdit()
                     Me.TblProtocolRemeasurementsBindingSource.CancelEdit()
                     Me.TblVitalSignDataManagementSummaryBindingSource.EndEdit()
+                    Me.TblVitalSignTasksBindingSource.EndEdit()
                     MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
                 End Try
             End If
