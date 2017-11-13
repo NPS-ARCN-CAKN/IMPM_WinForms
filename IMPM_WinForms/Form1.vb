@@ -1,6 +1,10 @@
 ﻿Imports Janus.Windows.GridEX
+Imports Microsoft.Reporting.WinForms
+
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'AKRODataSet.vwVitalSignWorkLog' table. You can move, or remove it, as needed.
+        Me.vwVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.vwVitalSignWorkLog)
 
         Me.TblVitalSignsTableAdapter.Fill(Me.AKRODataSet.tblVitalSigns)
         Me.TblVitalSignDataManagementSummaryTableAdapter.Fill(Me.AKRODataSet.tblVitalSignDataManagementSummary)
@@ -22,6 +26,18 @@ Public Class Form1
 
         'maximize the form
         Me.WindowState = FormWindowState.Maximized
+
+
+        'Dim x As New ReportDataSource()
+        'x.Name = "WorkLogReportDataset"
+        'x.Value = Me.TblVitalSignWorkLogBindingSource
+        ''Me.TblVitalSignWorkLogBindingSource.Filter = "VSID=49"
+        'With Me.WorkLogReportViewer
+        '    .LocalReport.DataSources.Clear()
+        '    .LocalReport.DataSources.Add(x)
+        'End With
+
+        Me.WorkLogReportViewer.RefreshReport()
     End Sub
 
     Public Sub SetUpGridEX(GridEX As GridEX)
@@ -31,6 +47,15 @@ Public Class Form1
         With MyFormatStyle
             .Font = MyFont
             .TextAlignment = TextAlignment.Near
+        End With
+
+        'filter row style
+        Dim FilterRowFont As New Font("Sans Serif", 10, FontStyle.Italic)
+        Dim FilterRowFormatStyle As New GridEXFormatStyle()
+        With FilterRowFormatStyle
+            .Font = MyFont
+            .TextAlignment = TextAlignment.Near
+            .BackColor = Color.LightYellow
         End With
 
         'sometimes the column widths get blown out
@@ -45,8 +70,10 @@ Public Class Form1
 
         'set up the gridex
         With GridEX
+            .AlternatingColors = True
             .ColumnAutoSizeMode = ColumnAutoSizeMode.DiaplayedCells
             '.ColumnAutoResize = True
+            '.FilterRowFormatStyle = FilterRowFormatStyle
             .Font = MyFont
             .RowHeaders = InheritableBoolean.True
             .NewRowPosition = NewRowPosition.BottomRow
@@ -66,9 +93,16 @@ Public Class Form1
             If Not Me.VwVitalSignOverviewGridEX.CurrentRow.Cells("NetworkVSName") Is Nothing Then
                 Dim Acronym As String = Me.VwVitalSignOverviewGridEX.CurrentRow.Cells("Acronym").Value
                 Dim VSName As String = Me.VwVitalSignOverviewGridEX.CurrentRow.Cells("NetworkVSName").Value
+                Dim VSID As Integer = Me.VwVitalSignOverviewGridEX.CurrentRow.Cells("VSID").Value
                 Me.VitalSignHeaderLabel.Text = Acronym & " " & VSName
+
+                'filter the worklog report to the current record
+                Dim MyReportParameter As New ReportParameter("VSIDReportParameter", VSID)
+                Me.WorkLogReportViewer.LocalReport.SetParameters(MyReportParameter)
+                Me.WorkLogReportViewer.RefreshReport()
             End If
         End If
+
 
     End Sub
 
@@ -112,14 +146,15 @@ Public Class Form1
 
     Private Sub TblVitalSignProtocolsGridEX_SelectionChanged(sender As Object, e As EventArgs) Handles TblVitalSignProtocolsGridEX.SelectionChanged
         'set default values
+        Dim GridEX As GridEX = Me.TblVitalSignProtocolsGridEX
         Try
-            Me.TblVitalSignProtocolsGridEX.Tables("tblVitalSignProtocols").Columns("RecordInsertedDate").DefaultValue = Now
-            Me.TblVitalSignProtocolsGridEX.Tables("tblVitalSignProtocols").Columns("RecordInsertedBy").DefaultValue = My.User.Name
-            Me.TblVitalSignProtocolsGridEX.Tables("tblVitalSignProtocols").Columns("Version").DefaultValue = 0
-            Me.TblVitalSignProtocolsGridEX.Tables("tblProtocolDeliverables").Columns("RecordInsertedDate").DefaultValue = Now
-            Me.TblVitalSignProtocolsGridEX.Tables("tblProtocolDeliverables").Columns("RecordInsertedBy").DefaultValue = My.User.Name
-            Me.TblVitalSignProtocolsGridEX.Tables("tblVitalSignRemeasurements").Columns("RecordInsertedDate").DefaultValue = Now
-            Me.TblVitalSignProtocolsGridEX.Tables("tblVitalSignRemeasurements").Columns("RecordInsertedBy").DefaultValue = My.User.Name
+            GridEX.Tables("tblVitalSignProtocols").Columns("RecordInsertedDate").DefaultValue = Now
+            GridEX.Tables("tblVitalSignProtocols").Columns("RecordInsertedBy").DefaultValue = My.User.Name
+            GridEX.Tables("tblVitalSignProtocols").Columns("Version").DefaultValue = 0
+            GridEX.Tables("tblProtocolDeliverables").Columns("RecordInsertedDate").DefaultValue = Now
+            GridEX.Tables("tblProtocolDeliverables").Columns("RecordInsertedBy").DefaultValue = My.User.Name
+            GridEX.Tables("tblVitalSignRemeasurements").Columns("RecordInsertedDate").DefaultValue = Now
+            GridEX.Tables("tblVitalSignRemeasurements").Columns("RecordInsertedBy").DefaultValue = My.User.Name
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
@@ -176,5 +211,15 @@ Public Class Form1
         ToggleGridEXView(TblVitalSignWorkLogGridEX)
     End Sub
 
-
+    Private Sub TblVitalSignTasksGridEX_SelectionChanged(sender As Object, e As EventArgs) Handles TblVitalSignTasksGridEX.SelectionChanged
+        'set default values
+        Try
+            Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
+            GridEX.RootTable.Columns("DateAssigned").DefaultValue = Now
+            GridEX.RootTable.Columns("BeginDate").DefaultValue = Now
+            GridEX.RootTable.Columns("DateDue").DefaultValue = Now.AddDays(30)
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
 End Class
