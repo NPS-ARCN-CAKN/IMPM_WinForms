@@ -10,5 +10,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=INP2300VNTWKSQL\NTWK;Initial Catalog=AKRO;Integrated Security=True</Value>
     </Setting>
+    <Setting Name="IRMADataStoreURLPrefix" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://irma.nps.gov/DataStore/Reference/Profile/</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

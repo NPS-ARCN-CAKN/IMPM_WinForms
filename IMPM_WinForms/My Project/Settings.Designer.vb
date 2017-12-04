@@ -63,6 +63,18 @@ Namespace My
                 Return CType(Me("AKROConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://irma.nps.gov/DataStore/Reference/Profile/")>  _
+        Public Property IRMADataStoreURLPrefix() As String
+            Get
+                Return CType(Me("IRMADataStoreURLPrefix"),String)
+            End Get
+            Set
+                Me("IRMADataStoreURLPrefix") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

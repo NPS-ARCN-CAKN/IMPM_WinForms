@@ -223,14 +223,6 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub TblVitalSignsGridEX_DoubleClick(sender As Object, e As EventArgs) Handles TblVitalSignsGridEX.DoubleClick
-        For Each Column As GridEXColumn In TblVitalSignsGridEX.RootTable.Columns
-            If Column.Key = "IRMAProjectReference" Then
-                'Process.Start()
-            End If
-        Next
-    End Sub
-
     Private Sub GenerateDeliverablesDirectoriesCreationScriptButton_Click(sender As Object, e As EventArgs) Handles GenerateDeliverablesDirectoriesCreationScriptButton.Click
         Try
             If Not Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolID") Is Nothing And Not Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolTitle") Is Nothing Then
@@ -260,5 +252,105 @@ Public Class Form1
     Private Sub RefreshToolStripButton_Click(sender As Object, e As EventArgs) Handles RefreshToolStripButton.Click
         SaveDataset()
         LoadDataset()
+    End Sub
+
+
+    Private Sub OpenProjectReferenceToolStripButton_Click(sender As Object, e As EventArgs) Handles OpenProjectReferenceToolStripButton.Click
+        'the gridex contains a column called IRMAProjectReference which is the unique ID of the Project Reference in the IRMA Data Store
+        'this sub will get the currently selected row in the GridEX, identify the IRMAProjectReference value
+        'and attempt to construct a URL and open it using a process
+        Try
+            'get the current row of the VS GridEX
+            If Not Me.TblVitalSignsGridEX.CurrentRow Is Nothing Then
+                Dim CurrentRow As GridEXRow = Me.TblVitalSignsGridEX.CurrentRow
+                'loop through the columns and look for the FilesDirectory columns
+                For i As Integer = 0 To CurrentRow.Cells.Count - 1
+                    If CurrentRow.Cells(i).Column.Key = "IRMAProjectReference" Then
+                        'if there is a value
+                        If Not IsDBNull(CurrentRow.Cells(i).Value) Then
+                            Dim ReferenceCode As String = CurrentRow.Cells(i).Value
+                            Dim URL As String = My.Settings.IRMADataStoreURLPrefix & ReferenceCode
+                            'try to start it using the default program (probably file explorer)
+                            Try
+                                Process.Start(URL)
+                            Catch ex As Exception
+                                MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+                            End Try
+                        Else
+                            MsgBox("Null")
+                        End If
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    Private Sub OpenProjectDirectoryToolStripButton_Click(sender As Object, e As EventArgs) Handles OpenProjectDirectoryToolStripButton.Click
+        'the gridex contains a column called FilesDirectory where the project's files are stored
+        'this sub will get the currently selected row in the GridEX, identify the FilesDirectory value
+        'and attempt to open the path using a process (file explorer, most likely)
+        Try
+            'get the current row of the VS GridEX
+            If Not Me.TblVitalSignsGridEX.CurrentRow Is Nothing Then
+                Dim CurrentRow As GridEXRow = Me.TblVitalSignsGridEX.CurrentRow
+                'loop through the columns and look for the FilesDirectory columns
+                For i As Integer = 0 To CurrentRow.Cells.Count - 1
+                    If CurrentRow.Cells(i).Column.Key = "FilesDirectory" Then
+                        'if there is a value
+                        If Not IsDBNull(CurrentRow.Cells(i).Value) Then
+                            Dim Directory As String = ""
+                            Directory = CurrentRow.Cells(i).Value
+                            'if the FilesDirectory value is a valid directory
+                            If My.Computer.FileSystem.DirectoryExists(Directory) Then
+                                'try to start it using the default program (probably file explorer)
+                                Try
+                                    Process.Start(Directory)
+                                Catch ex As Exception
+                                    MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+                                End Try
+                            Else
+                                MsgBox("Directory does not exist.")
+                            End If
+                        End If
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    Private Sub OpenWebProfileToolStripButton_Click(sender As Object, e As EventArgs) Handles OpenWebProfileToolStripButton.Click
+        'the gridex contains a column called URLMoreInfo that contains the Vital Sign's URL
+        'this sub will get the currently selected Vital Sign row, identify the URLMoreInfo value
+        'and attempt construct a URL and pass it to a process
+        Try
+            'get the current row of the GridEX
+            If Not Me.TblVitalSignsGridEX.CurrentRow Is Nothing Then
+                Dim CurrentRow As GridEXRow = Me.TblVitalSignsGridEX.CurrentRow
+                'loop through the columns and look for the URLMoreInfo column
+                For i As Integer = 0 To CurrentRow.Cells.Count - 1
+                    'locate the column
+                    If CurrentRow.Cells(i).Column.Key = "URLMoreInfo" Then
+                        'if there is a value
+                        If Not IsDBNull(CurrentRow.Cells(i).Value) Then
+                            Dim URLMoreInfo As String = CurrentRow.Cells(i).Value
+                            'try to start it using the default program (probably file explorer)
+                            Try
+                                Process.Start(URLMoreInfo)
+                            Catch ex As Exception
+                                MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+                            End Try
+                        Else
+                            MsgBox("Null")
+                        End If
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
     End Sub
 End Class
