@@ -353,4 +353,9 @@ Public Class Form1
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
     End Sub
+
+    Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
+        Dim SettingsForm As New SettingsForm
+        SettingsForm.ShowDialog()
+    End Sub
 End Class

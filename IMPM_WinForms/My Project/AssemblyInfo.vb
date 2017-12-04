@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("IMPM")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("IMPM")>
-<Assembly: AssemblyCopyright("Copyright ©  2017")>
+<Assembly: AssemblyTitle("Program Manager: NPS Arctic and Central Alaska Networks")>
+<Assembly: AssemblyDescription("Program Manager: NPS Arctic and Central Alaska Networks")>
+<Assembly: AssemblyCompany("National Park Service")>
+<Assembly: AssemblyProduct("Program Manager")>
+<Assembly: AssemblyCopyright("Public Domain Software,  2017")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>

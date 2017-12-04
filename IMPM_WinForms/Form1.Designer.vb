@@ -90,6 +90,7 @@ Partial Class Form1
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.vwVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -401,7 +402,7 @@ Partial Class Form1
         Me.WorkLogEditorTabPage.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.WorkLogEditorTabPage.Name = "WorkLogEditorTabPage"
         Me.WorkLogEditorTabPage.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.WorkLogEditorTabPage.Size = New System.Drawing.Size(762, 558)
+        Me.WorkLogEditorTabPage.Size = New System.Drawing.Size(762, 572)
         Me.WorkLogEditorTabPage.TabIndex = 1
         Me.WorkLogEditorTabPage.Text = "Edit work log"
         Me.WorkLogEditorTabPage.UseVisualStyleBackColor = True
@@ -430,7 +431,7 @@ Partial Class Form1
         Me.TblVitalSignWorkLogGridEX.SaveSettings = True
         Me.TblVitalSignWorkLogGridEX.SelectOnExpand = False
         Me.TblVitalSignWorkLogGridEX.SettingsKey = "TblVitalSignWorkLogGridEX"
-        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(756, 554)
+        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(756, 568)
         Me.TblVitalSignWorkLogGridEX.TabIndex = 0
         '
         'TblVitalSignWorkLogBindingSource
@@ -642,7 +643,7 @@ Partial Class Form1
         '
         'FunctionsToolStripMenuItem
         '
-        Me.FunctionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.ExitToolStripMenuItem})
+        Me.FunctionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.ExitToolStripMenuItem, Me.SettingsToolStripMenuItem})
         Me.FunctionsToolStripMenuItem.Name = "FunctionsToolStripMenuItem"
         Me.FunctionsToolStripMenuItem.Size = New System.Drawing.Size(83, 24)
         Me.FunctionsToolStripMenuItem.Text = "Functions"
@@ -695,6 +696,12 @@ Partial Class Form1
         'vwVitalSignWorkLogTableAdapter
         '
         Me.vwVitalSignWorkLogTableAdapter.ClearBeforeFill = True
+        '
+        'SettingsToolStripMenuItem
+        '
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(198, 26)
+        Me.SettingsToolStripMenuItem.Text = "Settings..."
         '
         'Form1
         '
@@ -818,4 +825,5 @@ Partial Class Form1
     Friend WithEvents OpenWebProfileToolStripButton As ToolStripButton
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents OpenProjectReferenceToolStripButton As ToolStripButton
+    Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
 End Class
