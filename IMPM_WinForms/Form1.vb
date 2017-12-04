@@ -3,18 +3,8 @@ Imports Microsoft.Reporting.WinForms
 
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'AKRODataSet.vwVitalSignWorkLog' table. You can move, or remove it, as needed.
-        Me.vwVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.vwVitalSignWorkLog)
+        LoadDataset()
 
-        Me.TblVitalSignsTableAdapter.Fill(Me.AKRODataSet.tblVitalSigns)
-        Me.TblVitalSignDataManagementSummaryTableAdapter.Fill(Me.AKRODataSet.tblVitalSignDataManagementSummary)
-        Me.VwVitalSignOverviewTableAdapter.Fill(Me.AKRODataSet.vwVitalSignOverview)
-        Me.TblVitalSignProtocolsTableAdapter.Fill(Me.AKRODataSet.tblVitalSignProtocols)
-        Me.TblProtocolRemeasurementsTableAdapter.Fill(Me.AKRODataSet.tblProtocolRemeasurements)
-        Me.TblProtocolDeliverablesTableAdapter.Fill(Me.AKRODataSet.tblProtocolDeliverables)
-        Me.TblVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.tblVitalSignWorkLog)
-        Me.TblVitalSignTasksTableAdapter.Fill(Me.AKRODataSet.tblVitalSignTasks)
-        Me.TblVitalSignTasksTableAdapter.Fill(Me.AKRODataSet.tblVitalSignTasks)
 
         'set up the gridexs
         SetUpGridEX(Me.VwVitalSignOverviewGridEX)
@@ -28,16 +18,26 @@ Public Class Form1
         Me.WindowState = FormWindowState.Maximized
 
 
-        'Dim x As New ReportDataSource()
-        'x.Name = "WorkLogReportDataset"
-        'x.Value = Me.TblVitalSignWorkLogBindingSource
-        ''Me.TblVitalSignWorkLogBindingSource.Filter = "VSID=49"
-        'With Me.WorkLogReportViewer
-        '    .LocalReport.DataSources.Clear()
-        '    .LocalReport.DataSources.Add(x)
-        'End With
 
         Me.WorkLogReportViewer.RefreshReport()
+    End Sub
+
+    Private Sub LoadDataset()
+        Me.AKRODataSet.Clear()
+
+        Try
+            Me.TblVitalSignsTableAdapter.Fill(Me.AKRODataSet.tblVitalSigns)
+            Me.TblVitalSignDataManagementSummaryTableAdapter.Fill(Me.AKRODataSet.tblVitalSignDataManagementSummary)
+            Me.VwVitalSignOverviewTableAdapter.Fill(Me.AKRODataSet.vwVitalSignOverview)
+            Me.TblVitalSignProtocolsTableAdapter.Fill(Me.AKRODataSet.tblVitalSignProtocols)
+            Me.TblProtocolRemeasurementsTableAdapter.Fill(Me.AKRODataSet.tblProtocolRemeasurements)
+            Me.TblProtocolDeliverablesTableAdapter.Fill(Me.AKRODataSet.tblProtocolDeliverables)
+            Me.TblVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.tblVitalSignWorkLog)
+            Me.TblVitalSignTasksTableAdapter.Fill(Me.AKRODataSet.tblVitalSignTasks)
+            Me.vwVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.vwVitalSignWorkLog)
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
     End Sub
 
     Public Sub SetUpGridEX(GridEX As GridEX)
@@ -221,5 +221,44 @@ Public Class Form1
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
+    End Sub
+
+    Private Sub TblVitalSignsGridEX_DoubleClick(sender As Object, e As EventArgs) Handles TblVitalSignsGridEX.DoubleClick
+        For Each Column As GridEXColumn In TblVitalSignsGridEX.RootTable.Columns
+            If Column.Key = "IRMAProjectReference" Then
+                'Process.Start()
+            End If
+        Next
+    End Sub
+
+    Private Sub GenerateDeliverablesDirectoriesCreationScriptButton_Click(sender As Object, e As EventArgs) Handles GenerateDeliverablesDirectoriesCreationScriptButton.Click
+        Try
+            If Not Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolID") Is Nothing And Not Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolTitle") Is Nothing Then
+                Dim ProtocolID As Integer = Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolID").Value
+                Dim ProtocolTitle As String = Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolTitle").Value
+
+                Dim DeliverablesDataView As New DataView(Me.AKRODataSet.Tables("tblProtocolDeliverables"), "ProtocolID=" & ProtocolID, "DeliverableIdentifier", DataViewRowState.CurrentRows)
+                Dim Script As String = "REM Script to create deliverable directories for " & vbNewLine
+                Script = Script & "REM " & ProtocolTitle & vbNewLine
+                For Each Row As DataRowView In DeliverablesDataView
+                    Dim Identifier As String = Row.Item("DeliverableIdentifier")
+                    Dim Desc As String = Row.Item("Deliverable")
+                    Script = Script & "mkdir """ & Identifier & " " & Desc & """" & vbNewLine
+                Next
+                Dim ScriptForm As New DeliverablesDirectoryGeneratorForm()
+                ScriptForm.Script = Script
+                ScriptForm.ShowDialog()
+            Else
+                MsgBox("Select a protocol")
+        End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    Private Sub RefreshToolStripButton_Click(sender As Object, e As EventArgs) Handles RefreshToolStripButton.Click
+        SaveDataset()
+        LoadDataset()
     End Sub
 End Class
