@@ -26,7 +26,7 @@ Partial Class Form1
         Dim VwVitalSignOverviewGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Dim TblVitalSignsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim TblVitalSignWorkLogGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignProtocolsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignTasksGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
@@ -69,6 +69,7 @@ Partial Class Form1
         Me.TblVitalSignProtocolsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
         Me.GenerateDeliverablesDirectoriesCreationScriptButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.TasksTabPage = New System.Windows.Forms.TabPage()
         Me.TblVitalSignTasksGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignTasksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -85,12 +86,12 @@ Partial Class Form1
         Me.FunctionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainToolStrip = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
-        Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.vwVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -384,9 +385,9 @@ Partial Class Form1
         'WorkLogReportViewer
         '
         Me.WorkLogReportViewer.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource1.Name = "WorkLogDataset"
-        ReportDataSource1.Value = Me.vwVitalSignWorkLogBindingSource
-        Me.WorkLogReportViewer.LocalReport.DataSources.Add(ReportDataSource1)
+        ReportDataSource2.Name = "WorkLogDataset"
+        ReportDataSource2.Value = Me.vwVitalSignWorkLogBindingSource
+        Me.WorkLogReportViewer.LocalReport.DataSources.Add(ReportDataSource2)
         Me.WorkLogReportViewer.LocalReport.DisplayName = "Work Log Report"
         Me.WorkLogReportViewer.LocalReport.ReportEmbeddedResource = "IMPM.WorkLogReport.rdlc"
         Me.WorkLogReportViewer.Location = New System.Drawing.Point(3, 2)
@@ -481,7 +482,7 @@ Partial Class Form1
         'ToolStrip2
         '
         Me.ToolStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateDeliverablesDirectoriesCreationScriptButton})
+        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateDeliverablesDirectoriesCreationScriptButton, Me.ToolStripSeparator4})
         Me.ToolStrip2.Location = New System.Drawing.Point(3, 2)
         Me.ToolStrip2.Name = "ToolStrip2"
         Me.ToolStrip2.Size = New System.Drawing.Size(770, 27)
@@ -495,6 +496,11 @@ Partial Class Form1
         Me.GenerateDeliverablesDirectoriesCreationScriptButton.Name = "GenerateDeliverablesDirectoriesCreationScriptButton"
         Me.GenerateDeliverablesDirectoriesCreationScriptButton.Size = New System.Drawing.Size(376, 24)
         Me.GenerateDeliverablesDirectoriesCreationScriptButton.Text = "Generate deliverables directories generation script..."
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 27)
         '
         'TasksTabPage
         '
@@ -661,6 +667,12 @@ Partial Class Form1
         Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(198, 26)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
+        'SettingsToolStripMenuItem
+        '
+        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(198, 26)
+        Me.SettingsToolStripMenuItem.Text = "Settings..."
+        '
         'MainToolStrip
         '
         Me.MainToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
@@ -696,12 +708,6 @@ Partial Class Form1
         'vwVitalSignWorkLogTableAdapter
         '
         Me.vwVitalSignWorkLogTableAdapter.ClearBeforeFill = True
-        '
-        'SettingsToolStripMenuItem
-        '
-        Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(198, 26)
-        Me.SettingsToolStripMenuItem.Text = "Settings..."
         '
         'Form1
         '
@@ -826,4 +832,5 @@ Partial Class Form1
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents OpenProjectReferenceToolStripButton As ToolStripButton
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
 End Class
