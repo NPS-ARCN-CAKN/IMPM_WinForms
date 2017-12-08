@@ -102,8 +102,6 @@ Public Class Form1
                 Me.WorkLogReportViewer.RefreshReport()
             End If
         End If
-
-
     End Sub
 
     ''' <summary>
@@ -359,5 +357,25 @@ Public Class Form1
         SettingsForm.ShowDialog()
     End Sub
 
+    Private Sub OpenDeliverablesScheduleFormToolStripButton_Click(sender As Object, e As EventArgs) Handles OpenDeliverablesScheduleFormToolStripButton.Click
+        'get the current ProtocolID so we can filter on the protocol's deliverables
+        Dim ProtocolID As Integer = 0
+        If Not Me.TblVitalSignProtocolsGridEX.CurrentRow Is Nothing Then
+            If Not Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolID") Is Nothing Then
+                ProtocolID = Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolID").Value
+            End If
+        End If
 
+        'create a filtered, sorted dataview
+        Dim DSDataView As DataView = Me.AKRODataSet.Tables("tblProtocolDeliverables").DefaultView
+        With DSDataView
+            .RowFilter = "ProtocolID = " & ProtocolID
+            .Sort = "DeliverableIdentifier"
+        End With
+
+        'build the form and give it the dataview
+        Dim DSForm As New DeliverablesScheduleForm()
+        DSForm.DeliverablesScheduleDataView = DSDataView
+        DSForm.ShowDialog()
+    End Sub
 End Class

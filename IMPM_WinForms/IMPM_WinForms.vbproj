@@ -112,6 +112,12 @@
     <Compile Include="DeliverablesDirectoryGeneratorForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DeliverablesScheduleForm.Designer.vb">
+      <DependentUpon>DeliverablesScheduleForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DeliverablesScheduleForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
   <ItemGroup>
     <EmbeddedResource Include="DeliverablesDirectoryGeneratorForm.resx">
       <DependentUpon>DeliverablesDirectoryGeneratorForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeliverablesScheduleForm.resx">
+      <DependentUpon>DeliverablesScheduleForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>

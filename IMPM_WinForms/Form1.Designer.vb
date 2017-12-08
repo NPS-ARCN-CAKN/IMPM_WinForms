@@ -51,12 +51,6 @@ Partial Class Form1
         Me.OverviewTabPage = New System.Windows.Forms.TabPage()
         Me.TblVitalSignsGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.VitalSignOverviewToolStrip = New System.Windows.Forms.ToolStrip()
-        Me.OpenProjectDirectoryToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.OpenWebProfileToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.OpenProjectReferenceToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.VSWorkLogTabPage = New System.Windows.Forms.TabPage()
         Me.WorkLogTabControl = New System.Windows.Forms.TabControl()
         Me.WorkLogReportTabPage = New System.Windows.Forms.TabPage()
@@ -76,6 +70,12 @@ Partial Class Form1
         Me.DataManagementOverviewTabPage = New System.Windows.Forms.TabPage()
         Me.TblVitalSignDataManagementSummaryGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignDataManagementSummaryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.VitalSignOverviewToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.OpenProjectDirectoryToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OpenWebProfileToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OpenProjectReferenceToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.VitalSignHeaderPanel = New System.Windows.Forms.Panel()
         Me.VitalSignHeaderLabel = New System.Windows.Forms.Label()
         Me.TblProtocolDeliverablesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -90,6 +90,7 @@ Partial Class Form1
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
+        Me.OpenDeliverablesScheduleFormToolStripButton = New System.Windows.Forms.ToolStripButton()
         CType(Me.vwVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,7 +104,6 @@ Partial Class Form1
         Me.OverviewTabPage.SuspendLayout()
         CType(Me.TblVitalSignsGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.VitalSignOverviewToolStrip.SuspendLayout()
         Me.VSWorkLogTabPage.SuspendLayout()
         Me.WorkLogTabControl.SuspendLayout()
         Me.WorkLogReportTabPage.SuspendLayout()
@@ -120,6 +120,7 @@ Partial Class Form1
         Me.DataManagementOverviewTabPage.SuspendLayout()
         CType(Me.TblVitalSignDataManagementSummaryGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignDataManagementSummaryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.VitalSignOverviewToolStrip.SuspendLayout()
         Me.VitalSignHeaderPanel.SuspendLayout()
         CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblProtocolRemeasurementsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -298,50 +299,6 @@ Partial Class Form1
         Me.TblVitalSignsBindingSource.DataMember = "vwVitalSignOverview_tblVitalSigns"
         Me.TblVitalSignsBindingSource.DataSource = Me.VwVitalSignOverviewBindingSource
         '
-        'VitalSignOverviewToolStrip
-        '
-        Me.VitalSignOverviewToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.VitalSignOverviewToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenProjectDirectoryToolStripButton, Me.ToolStripSeparator2, Me.OpenWebProfileToolStripButton, Me.ToolStripSeparator3, Me.OpenProjectReferenceToolStripButton})
-        Me.VitalSignOverviewToolStrip.Location = New System.Drawing.Point(0, 39)
-        Me.VitalSignOverviewToolStrip.Name = "VitalSignOverviewToolStrip"
-        Me.VitalSignOverviewToolStrip.Size = New System.Drawing.Size(784, 27)
-        Me.VitalSignOverviewToolStrip.TabIndex = 1
-        Me.VitalSignOverviewToolStrip.Text = "ToolStrip3"
-        '
-        'OpenProjectDirectoryToolStripButton
-        '
-        Me.OpenProjectDirectoryToolStripButton.Image = CType(resources.GetObject("OpenProjectDirectoryToolStripButton.Image"), System.Drawing.Image)
-        Me.OpenProjectDirectoryToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.OpenProjectDirectoryToolStripButton.Name = "OpenProjectDirectoryToolStripButton"
-        Me.OpenProjectDirectoryToolStripButton.Size = New System.Drawing.Size(183, 24)
-        Me.OpenProjectDirectoryToolStripButton.Text = "Open project directory"
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 27)
-        '
-        'OpenWebProfileToolStripButton
-        '
-        Me.OpenWebProfileToolStripButton.Image = CType(resources.GetObject("OpenWebProfileToolStripButton.Image"), System.Drawing.Image)
-        Me.OpenWebProfileToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.OpenWebProfileToolStripButton.Name = "OpenWebProfileToolStripButton"
-        Me.OpenWebProfileToolStripButton.Size = New System.Drawing.Size(158, 24)
-        Me.OpenWebProfileToolStripButton.Text = "Open web profile..."
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 27)
-        '
-        'OpenProjectReferenceToolStripButton
-        '
-        Me.OpenProjectReferenceToolStripButton.Image = CType(resources.GetObject("OpenProjectReferenceToolStripButton.Image"), System.Drawing.Image)
-        Me.OpenProjectReferenceToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.OpenProjectReferenceToolStripButton.Name = "OpenProjectReferenceToolStripButton"
-        Me.OpenProjectReferenceToolStripButton.Size = New System.Drawing.Size(203, 24)
-        Me.OpenProjectReferenceToolStripButton.Text = "Open Data Store Project..."
-        '
         'VSWorkLogTabPage
         '
         Me.VSWorkLogTabPage.Controls.Add(Me.WorkLogTabControl)
@@ -349,7 +306,7 @@ Partial Class Form1
         Me.VSWorkLogTabPage.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.VSWorkLogTabPage.Name = "VSWorkLogTabPage"
         Me.VSWorkLogTabPage.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.VSWorkLogTabPage.Size = New System.Drawing.Size(776, 605)
+        Me.VSWorkLogTabPage.Size = New System.Drawing.Size(776, 603)
         Me.VSWorkLogTabPage.TabIndex = 1
         Me.VSWorkLogTabPage.Text = "Work log"
         Me.VSWorkLogTabPage.UseVisualStyleBackColor = True
@@ -363,7 +320,7 @@ Partial Class Form1
         Me.WorkLogTabControl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.WorkLogTabControl.Name = "WorkLogTabControl"
         Me.WorkLogTabControl.SelectedIndex = 0
-        Me.WorkLogTabControl.Size = New System.Drawing.Size(770, 601)
+        Me.WorkLogTabControl.Size = New System.Drawing.Size(770, 599)
         Me.WorkLogTabControl.TabIndex = 2
         '
         'WorkLogReportTabPage
@@ -373,7 +330,7 @@ Partial Class Form1
         Me.WorkLogReportTabPage.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.WorkLogReportTabPage.Name = "WorkLogReportTabPage"
         Me.WorkLogReportTabPage.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.WorkLogReportTabPage.Size = New System.Drawing.Size(762, 572)
+        Me.WorkLogReportTabPage.Size = New System.Drawing.Size(762, 570)
         Me.WorkLogReportTabPage.TabIndex = 0
         Me.WorkLogReportTabPage.Text = "Report"
         Me.WorkLogReportTabPage.UseVisualStyleBackColor = True
@@ -389,7 +346,7 @@ Partial Class Form1
         Me.WorkLogReportViewer.Location = New System.Drawing.Point(3, 2)
         Me.WorkLogReportViewer.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.WorkLogReportViewer.Name = "WorkLogReportViewer"
-        Me.WorkLogReportViewer.Size = New System.Drawing.Size(756, 568)
+        Me.WorkLogReportViewer.Size = New System.Drawing.Size(756, 566)
         Me.WorkLogReportViewer.TabIndex = 1
         '
         'WorkLogEditorTabPage
@@ -444,7 +401,7 @@ Partial Class Form1
         Me.ProtocolsTabPage.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ProtocolsTabPage.Name = "ProtocolsTabPage"
         Me.ProtocolsTabPage.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.ProtocolsTabPage.Size = New System.Drawing.Size(776, 605)
+        Me.ProtocolsTabPage.Size = New System.Drawing.Size(776, 603)
         Me.ProtocolsTabPage.TabIndex = 2
         Me.ProtocolsTabPage.Text = "Protocols, deliverables and remeasurements"
         Me.ProtocolsTabPage.UseVisualStyleBackColor = True
@@ -466,7 +423,7 @@ Partial Class Form1
         Me.TblVitalSignProtocolsGridEX.RecordNavigator = True
         Me.TblVitalSignProtocolsGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignProtocolsGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
-        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(770, 574)
+        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(770, 572)
         Me.TblVitalSignProtocolsGridEX.TabIndex = 0
         Me.TblVitalSignProtocolsGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
         '
@@ -478,7 +435,7 @@ Partial Class Form1
         'ToolStrip2
         '
         Me.ToolStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateDeliverablesDirectoriesCreationScriptButton, Me.ToolStripSeparator4})
+        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateDeliverablesDirectoriesCreationScriptButton, Me.ToolStripSeparator4, Me.OpenDeliverablesScheduleFormToolStripButton})
         Me.ToolStrip2.Location = New System.Drawing.Point(3, 2)
         Me.ToolStrip2.Name = "ToolStrip2"
         Me.ToolStrip2.Size = New System.Drawing.Size(770, 27)
@@ -505,7 +462,7 @@ Partial Class Form1
         Me.TasksTabPage.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TasksTabPage.Name = "TasksTabPage"
         Me.TasksTabPage.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.TasksTabPage.Size = New System.Drawing.Size(776, 605)
+        Me.TasksTabPage.Size = New System.Drawing.Size(776, 603)
         Me.TasksTabPage.TabIndex = 3
         Me.TasksTabPage.Text = "Tasks"
         Me.TasksTabPage.UseVisualStyleBackColor = True
@@ -527,7 +484,7 @@ Partial Class Form1
         Me.TblVitalSignTasksGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
         Me.TblVitalSignTasksGridEX.RecordNavigator = True
         Me.TblVitalSignTasksGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(770, 601)
+        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(770, 599)
         Me.TblVitalSignTasksGridEX.TabIndex = 0
         '
         'TblVitalSignTasksBindingSource
@@ -542,7 +499,7 @@ Partial Class Form1
         Me.DataManagementOverviewTabPage.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DataManagementOverviewTabPage.Name = "DataManagementOverviewTabPage"
         Me.DataManagementOverviewTabPage.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DataManagementOverviewTabPage.Size = New System.Drawing.Size(776, 605)
+        Me.DataManagementOverviewTabPage.Size = New System.Drawing.Size(776, 603)
         Me.DataManagementOverviewTabPage.TabIndex = 4
         Me.DataManagementOverviewTabPage.Text = "Data management summary"
         Me.DataManagementOverviewTabPage.UseVisualStyleBackColor = True
@@ -575,7 +532,7 @@ Partial Class Form1
         Me.TblVitalSignDataManagementSummaryGridEX.RowFormatStyle.LineAlignment = Janus.Windows.GridEX.TextAlignment.Near
         Me.TblVitalSignDataManagementSummaryGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignDataManagementSummaryGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
-        Me.TblVitalSignDataManagementSummaryGridEX.Size = New System.Drawing.Size(770, 601)
+        Me.TblVitalSignDataManagementSummaryGridEX.Size = New System.Drawing.Size(770, 599)
         Me.TblVitalSignDataManagementSummaryGridEX.TabIndex = 0
         Me.TblVitalSignDataManagementSummaryGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
         '
@@ -583,6 +540,50 @@ Partial Class Form1
         '
         Me.TblVitalSignDataManagementSummaryBindingSource.DataMember = "vwVitalSignOverview_tblVitalSignDataManagementSummary"
         Me.TblVitalSignDataManagementSummaryBindingSource.DataSource = Me.VwVitalSignOverviewBindingSource
+        '
+        'VitalSignOverviewToolStrip
+        '
+        Me.VitalSignOverviewToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.VitalSignOverviewToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenProjectDirectoryToolStripButton, Me.ToolStripSeparator2, Me.OpenWebProfileToolStripButton, Me.ToolStripSeparator3, Me.OpenProjectReferenceToolStripButton})
+        Me.VitalSignOverviewToolStrip.Location = New System.Drawing.Point(0, 39)
+        Me.VitalSignOverviewToolStrip.Name = "VitalSignOverviewToolStrip"
+        Me.VitalSignOverviewToolStrip.Size = New System.Drawing.Size(784, 27)
+        Me.VitalSignOverviewToolStrip.TabIndex = 1
+        Me.VitalSignOverviewToolStrip.Text = "ToolStrip3"
+        '
+        'OpenProjectDirectoryToolStripButton
+        '
+        Me.OpenProjectDirectoryToolStripButton.Image = CType(resources.GetObject("OpenProjectDirectoryToolStripButton.Image"), System.Drawing.Image)
+        Me.OpenProjectDirectoryToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.OpenProjectDirectoryToolStripButton.Name = "OpenProjectDirectoryToolStripButton"
+        Me.OpenProjectDirectoryToolStripButton.Size = New System.Drawing.Size(183, 24)
+        Me.OpenProjectDirectoryToolStripButton.Text = "Open project directory"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 27)
+        '
+        'OpenWebProfileToolStripButton
+        '
+        Me.OpenWebProfileToolStripButton.Image = CType(resources.GetObject("OpenWebProfileToolStripButton.Image"), System.Drawing.Image)
+        Me.OpenWebProfileToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.OpenWebProfileToolStripButton.Name = "OpenWebProfileToolStripButton"
+        Me.OpenWebProfileToolStripButton.Size = New System.Drawing.Size(158, 24)
+        Me.OpenWebProfileToolStripButton.Text = "Open web profile..."
+        '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 27)
+        '
+        'OpenProjectReferenceToolStripButton
+        '
+        Me.OpenProjectReferenceToolStripButton.Image = CType(resources.GetObject("OpenProjectReferenceToolStripButton.Image"), System.Drawing.Image)
+        Me.OpenProjectReferenceToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.OpenProjectReferenceToolStripButton.Name = "OpenProjectReferenceToolStripButton"
+        Me.OpenProjectReferenceToolStripButton.Size = New System.Drawing.Size(203, 24)
+        Me.OpenProjectReferenceToolStripButton.Text = "Open Data Store Project..."
         '
         'VitalSignHeaderPanel
         '
@@ -689,6 +690,15 @@ Partial Class Form1
         '
         Me.vwVitalSignWorkLogTableAdapter.ClearBeforeFill = True
         '
+        'OpenDeliverablesScheduleFormToolStripButton
+        '
+        Me.OpenDeliverablesScheduleFormToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.OpenDeliverablesScheduleFormToolStripButton.Image = CType(resources.GetObject("OpenDeliverablesScheduleFormToolStripButton.Image"), System.Drawing.Image)
+        Me.OpenDeliverablesScheduleFormToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.OpenDeliverablesScheduleFormToolStripButton.Name = "OpenDeliverablesScheduleFormToolStripButton"
+        Me.OpenDeliverablesScheduleFormToolStripButton.Size = New System.Drawing.Size(166, 24)
+        Me.OpenDeliverablesScheduleFormToolStripButton.Text = "Deliverables schedule..."
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -715,8 +725,6 @@ Partial Class Form1
         Me.OverviewTabPage.ResumeLayout(False)
         CType(Me.TblVitalSignsGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblVitalSignsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.VitalSignOverviewToolStrip.ResumeLayout(False)
-        Me.VitalSignOverviewToolStrip.PerformLayout()
         Me.VSWorkLogTabPage.ResumeLayout(False)
         Me.WorkLogTabControl.ResumeLayout(False)
         Me.WorkLogReportTabPage.ResumeLayout(False)
@@ -736,6 +744,8 @@ Partial Class Form1
         Me.DataManagementOverviewTabPage.ResumeLayout(False)
         CType(Me.TblVitalSignDataManagementSummaryGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblVitalSignDataManagementSummaryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.VitalSignOverviewToolStrip.ResumeLayout(False)
+        Me.VitalSignOverviewToolStrip.PerformLayout()
         Me.VitalSignHeaderPanel.ResumeLayout(False)
         Me.VitalSignHeaderPanel.PerformLayout()
         CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -808,4 +818,5 @@ Partial Class Form1
     Friend WithEvents OpenProjectReferenceToolStripButton As ToolStripButton
     Friend WithEvents SettingsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents OpenDeliverablesScheduleFormToolStripButton As ToolStripButton
 End Class

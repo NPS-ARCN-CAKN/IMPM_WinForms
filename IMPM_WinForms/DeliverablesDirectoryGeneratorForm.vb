@@ -25,4 +25,8 @@ Public Class DeliverablesDirectoryGeneratorForm
             My.Computer.FileSystem.WriteAllText(SFD.FileName, _Script, False)
         End If
     End Sub
+
+    Private Sub DeliverablesDirectoryGeneratorForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
