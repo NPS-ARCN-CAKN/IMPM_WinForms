@@ -64,6 +64,7 @@ Partial Class Form1
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
         Me.GenerateDeliverablesDirectoriesCreationScriptButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OpenDeliverablesScheduleFormToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.TasksTabPage = New System.Windows.Forms.TabPage()
         Me.TblVitalSignTasksGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignTasksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -90,7 +91,6 @@ Partial Class Form1
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
-        Me.OpenDeliverablesScheduleFormToolStripButton = New System.Windows.Forms.ToolStripButton()
         CType(Me.vwVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -356,7 +356,7 @@ Partial Class Form1
         Me.WorkLogEditorTabPage.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.WorkLogEditorTabPage.Name = "WorkLogEditorTabPage"
         Me.WorkLogEditorTabPage.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.WorkLogEditorTabPage.Size = New System.Drawing.Size(762, 572)
+        Me.WorkLogEditorTabPage.Size = New System.Drawing.Size(762, 570)
         Me.WorkLogEditorTabPage.TabIndex = 1
         Me.WorkLogEditorTabPage.Text = "Edit work log"
         Me.WorkLogEditorTabPage.UseVisualStyleBackColor = True
@@ -385,7 +385,7 @@ Partial Class Form1
         Me.TblVitalSignWorkLogGridEX.SaveSettings = True
         Me.TblVitalSignWorkLogGridEX.SelectOnExpand = False
         Me.TblVitalSignWorkLogGridEX.SettingsKey = "TblVitalSignWorkLogGridEX"
-        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(756, 568)
+        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(756, 566)
         Me.TblVitalSignWorkLogGridEX.TabIndex = 0
         '
         'TblVitalSignWorkLogBindingSource
@@ -454,6 +454,15 @@ Partial Class Form1
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 27)
+        '
+        'OpenDeliverablesScheduleFormToolStripButton
+        '
+        Me.OpenDeliverablesScheduleFormToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.OpenDeliverablesScheduleFormToolStripButton.Image = CType(resources.GetObject("OpenDeliverablesScheduleFormToolStripButton.Image"), System.Drawing.Image)
+        Me.OpenDeliverablesScheduleFormToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.OpenDeliverablesScheduleFormToolStripButton.Name = "OpenDeliverablesScheduleFormToolStripButton"
+        Me.OpenDeliverablesScheduleFormToolStripButton.Size = New System.Drawing.Size(166, 24)
+        Me.OpenDeliverablesScheduleFormToolStripButton.Text = "Deliverables schedule..."
         '
         'TasksTabPage
         '
@@ -689,15 +698,6 @@ Partial Class Form1
         'vwVitalSignWorkLogTableAdapter
         '
         Me.vwVitalSignWorkLogTableAdapter.ClearBeforeFill = True
-        '
-        'OpenDeliverablesScheduleFormToolStripButton
-        '
-        Me.OpenDeliverablesScheduleFormToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.OpenDeliverablesScheduleFormToolStripButton.Image = CType(resources.GetObject("OpenDeliverablesScheduleFormToolStripButton.Image"), System.Drawing.Image)
-        Me.OpenDeliverablesScheduleFormToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.OpenDeliverablesScheduleFormToolStripButton.Name = "OpenDeliverablesScheduleFormToolStripButton"
-        Me.OpenDeliverablesScheduleFormToolStripButton.Size = New System.Drawing.Size(166, 24)
-        Me.OpenDeliverablesScheduleFormToolStripButton.Text = "Deliverables schedule..."
         '
         'Form1
         '

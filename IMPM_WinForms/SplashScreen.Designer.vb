@@ -64,9 +64,9 @@ Partial Class SplashScreen
         Me.ApplicationTitle.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ApplicationTitle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ApplicationTitle.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.ApplicationTitle.Location = New System.Drawing.Point(232, 9)
+        Me.ApplicationTitle.Location = New System.Drawing.Point(232, 44)
         Me.ApplicationTitle.Name = "ApplicationTitle"
-        Me.ApplicationTitle.Size = New System.Drawing.Size(456, 210)
+        Me.ApplicationTitle.Size = New System.Drawing.Size(456, 181)
         Me.ApplicationTitle.TabIndex = 0
         Me.ApplicationTitle.Text = "Application Title"
         '
