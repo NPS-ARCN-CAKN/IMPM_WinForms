@@ -379,7 +379,6 @@ Partial Class Form1
         Me.TblVitalSignWorkLogGridEX.Location = New System.Drawing.Point(3, 2)
         Me.TblVitalSignWorkLogGridEX.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.TblVitalSignWorkLogGridEX.Name = "TblVitalSignWorkLogGridEX"
-        Me.TblVitalSignWorkLogGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
         Me.TblVitalSignWorkLogGridEX.RecordNavigator = True
         Me.TblVitalSignWorkLogGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignWorkLogGridEX.SaveSettings = True
