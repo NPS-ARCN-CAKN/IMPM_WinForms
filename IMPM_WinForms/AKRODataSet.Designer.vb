@@ -5223,7 +5223,8 @@ Partial Public Class AKRODataSet
             Me.columnUsername.AllowDBNull = false
             Me.columnUsername.MaxLength = 30
             Me.columnLogEntry.AllowDBNull = false
-            Me.columnLogEntry.MaxLength = 2147483647
+            Me.columnLogEntry.Caption = "Log Entry"
+            Me.columnLogEntry.MaxLength = 100000
             Me.columnNetworkID.AllowDBNull = false
             Me.columnVSID.AllowDBNull = false
             Me.columnVSDMLogID.AllowDBNull = false

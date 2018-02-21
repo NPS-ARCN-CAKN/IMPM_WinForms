@@ -166,7 +166,7 @@
     <value>252, 60</value>
   </metadata>
   <data name="TblVitalSignWorkLogGridEX_DesignTimeLayout.LayoutString" xml:space="preserve">
-    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Key&gt;TblVitalSignWorkLog&lt;/Key&gt;&lt;Caption&gt;Work log&lt;/Caption&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="LogDate"&gt;&lt;Caption&gt;Log Date&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;LogDate&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;LogDate&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Width&gt;62&lt;/Width&gt;&lt;WordWrap&gt;True&lt;/WordWrap&gt;&lt;/Column0&gt;&lt;Column1 ID="Username"&gt;&lt;Caption&gt;Username&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Username&lt;/DataMember&gt;&lt;Key&gt;Username&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;Width&gt;58&lt;/Width&gt;&lt;WordWrap&gt;True&lt;/WordWrap&gt;&lt;/Column1&gt;&lt;Column2 ID="LogEntry"&gt;&lt;Caption&gt;Log Entry&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;LogEntry&lt;/DataMember&gt;&lt;Key&gt;LogEntry&lt;/Key&gt;&lt;MaxLength&gt;10000&lt;/MaxLength&gt;&lt;MaxLines&gt;1000&lt;/MaxLines&gt;&lt;MinLines&gt;10&lt;/MinLines&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;Selectable&gt;False&lt;/Selectable&gt;&lt;TextAlignment&gt;Near&lt;/TextAlignment&gt;&lt;Width&gt;593&lt;/Width&gt;&lt;WordWrap&gt;True&lt;/WordWrap&gt;&lt;ShowRowSelector&gt;True&lt;/ShowRowSelector&gt;&lt;/Column2&gt;&lt;Column3 ID="VSID"&gt;&lt;Caption&gt;VSID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSID&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column3&gt;&lt;Column4 ID="VSDMLogID"&gt;&lt;Caption&gt;VSDMLog ID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSDMLogID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSDMLogID&lt;/Key&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column4&gt;&lt;/Columns&gt;&lt;SortKeys Collection="true" ElementName="SortKey"&gt;&lt;SortKey0 ID="SortKey0"&gt;&lt;ColIndex&gt;2&lt;/ColIndex&gt;&lt;/SortKey0&gt;&lt;/SortKeys&gt;&lt;GroupCondition /&gt;&lt;/RootTable&gt;&lt;SearchColumnIndex&gt;2&lt;/SearchColumnIndex&gt;&lt;/GridEXLayoutData&gt;</value>
+    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Key&gt;TblVitalSignWorkLog&lt;/Key&gt;&lt;Caption&gt;Work log&lt;/Caption&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="LogDate"&gt;&lt;Caption&gt;Log Date&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;LogDate&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;LogDate&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Width&gt;62&lt;/Width&gt;&lt;WordWrap&gt;True&lt;/WordWrap&gt;&lt;/Column0&gt;&lt;Column1 ID="Username"&gt;&lt;Caption&gt;Username&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Username&lt;/DataMember&gt;&lt;Key&gt;Username&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;Width&gt;58&lt;/Width&gt;&lt;WordWrap&gt;True&lt;/WordWrap&gt;&lt;/Column1&gt;&lt;Column2 ID="LogEntry"&gt;&lt;Caption&gt;Log Entry&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;LogEntry&lt;/DataMember&gt;&lt;Key&gt;LogEntry&lt;/Key&gt;&lt;MaxLength&gt;100000&lt;/MaxLength&gt;&lt;MaxLines&gt;100000&lt;/MaxLines&gt;&lt;MinLines&gt;10&lt;/MinLines&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;Selectable&gt;False&lt;/Selectable&gt;&lt;TextAlignment&gt;Near&lt;/TextAlignment&gt;&lt;Width&gt;593&lt;/Width&gt;&lt;WordWrap&gt;True&lt;/WordWrap&gt;&lt;ShowRowSelector&gt;True&lt;/ShowRowSelector&gt;&lt;/Column2&gt;&lt;Column3 ID="VSID"&gt;&lt;Caption&gt;VSID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSID&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column3&gt;&lt;Column4 ID="VSDMLogID"&gt;&lt;Caption&gt;VSDMLog ID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSDMLogID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSDMLogID&lt;/Key&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column4&gt;&lt;/Columns&gt;&lt;SortKeys Collection="true" ElementName="SortKey"&gt;&lt;SortKey0 ID="SortKey0"&gt;&lt;ColIndex&gt;2&lt;/ColIndex&gt;&lt;/SortKey0&gt;&lt;/SortKeys&gt;&lt;GroupCondition /&gt;&lt;/RootTable&gt;&lt;SearchColumnIndex&gt;2&lt;/SearchColumnIndex&gt;&lt;/GridEXLayoutData&gt;</value>
   </data>
   <metadata name="TblVitalSignProtocolsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>841, 60</value>
@@ -181,22 +181,22 @@
   <data name="GenerateDeliverablesDirectoriesCreationScriptButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="OpenDeliverablesScheduleFormToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -232,52 +232,52 @@
   <data name="OpenProjectDirectoryToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIWSURBVDhP3Y/NaxNBHIbn4L03/wQP1tSP2Kh48CKIJw9W
-        vSgIImgJKBEKiqA9pI0IkdLYg4gilCq2VkSxiofgqdra7jZZm22SfqStoQkmuzv7/ZF9nbSrpBevgsM8
-        zMzhed/fkP9kzb8L86WJ087qhzMtdDmF94cXi686di6+DLdt41O4LZ0+tiPQCeFeRCzfbwDw2W6ydXfN
-        KtbT3fba5EXrN+WZa2ZpMlYS3xw4G+iECK87Zd8zYa0noS8NQF95CqM0Bt+VWJYG31MZytbbrUOjki2O
-        R4RAJyQ/sp82HIXJKWjFQdDvvahNdaM6HYWUjUPK3IXE30Kd62HE2GQV5McPqoHOAkY7HdfYgCSkUJ9N
-        oPL5BozKV9ZKg/bmKf+ZoPk9bnSvGejNCQ45m/9vWAwD8PRN0TNEWOUUzLU4jOUe6IUr0MTz8LQcuOHW
-        gKGI7XsGPPoFrvQRzs8x2BuPmXgfxsptGMUo9IUL0OZPQc0eh6fy4FItAdyjiNVwKJzaW9iVYdb6EOYq
-        a11qtl6GljsHVTgJOncUyuw+uPQbuAetAezhOxKTn8H6MQCz1MvkGPT8JSZ3sdYToPwRKDMdkKd3sYCp
-        7QEL90JlQxbkSuZ5Qys8gZofgiomoeb6QIU7oNmbUDIxKHwUCncVteUJX0iG5UAnROxrvy4m9owI/bur
-        XCJk/pX+kDmXCClivH0w0P/pIuQXXhToI7fv9lEAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAIWSURBVDhP3Y/LaxNBHMfn4L03/wQP1tRHbFQ8eBHEk/hA
+        L+pFBC0BJUJBEbSHtBEhUhs9iChCiWBrRbQF8RA8VVvT3TZrs82jNm2NTTTZ9yP7+jrbrpJevAoO82Fm
+        Dp/v9zfkP1nzb8NsZfy4tTxxso0TVnFif7n0smtr+UW4YxPvwx2ZzKEtgU5INh0xPc8F4NHts3G3jTpW
+        Mz2tlcnz5m+q2StGZTJW4V/vOR3ohHCvukXPMWCuJqEtDkJbegq9MgrPFmiWCs9RKNLG225CFhstfizC
+        BTohhfRu2bUkKqegloYgf+lDY6oH9ekohFwcwtxtCOwNNJleSoxOVkNhbK8S6DRgpNuy9TUIXArNmQRq
+        H65Br32irXLQ7p/inwn87zEjO41A9yfYZ63/3zUpOuBo66Kj8zCrKRgrcehfe6EVL0Hlz8JR82CG2wNS
+        kZbn6HDkj7CFd7B+jqK19piKd6Ev3YReikJbOAd1/hiU3GE4CgvmfltA9lHEdC0ZVuMNWrVh2voAxjJt
+        XfRbL0LNn4HCHYU8exDSzC7Y8mcw99oC/IdnCVR+BvPbIIxKH5Vj0AoXqHyKth6BzB6AlO2COL2NBkxt
+        Dli4E6rqIid+Z5+7avEJlMJDKHwSSr4fMncLcu46pLkYJDYKibmMH+Vxj0uGxUAnhO/vvMondqS5ge11
+        JhEy/spAyJhNhCQ+3jkU6P90EfIL3knn7/FDl/IAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="OpenWebProfileToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAKiSURBVDhPhZLZS1tBFMbv3+WL1FK6PLTSF1+sUIptUpfg
-        RggYjIRIK1VSHyo0YpNqjGYz0azYG6MhqzGLSrzZt0qMKNQKbWkDX++MacFS2wOHO8yc3/fNmXOZv4XA
-        /+j2S244rTpUNpQHrxuy2EC+0/WwvXn873jm67y1evTie/1bFtznGmxHZ9Cli1AeTPx48L7t/yITKVHu
-        4GsIkS8c9NUa+uJZCHMWGE/m0WW6X2qWXR+mjKKh/rQAyxkHYaCApxU7WmqP0XvYizFW2GiWXR/vuLHG
-        m/oCnsdTuGOroP1DEjdXfejzyCFxd10vEAgEWL/fj1cxMYwf36IrYMVdxwlaFsq4Mb8EZUCODtU9aDQa
-        zM3NsU3sMni4NZlM4uLiApFCEBPhbmhzNkiDNQx7c1BGxRCa2+FOuHF+fg6LxYKZmZm2Js4wPp+PrVar
-        yGazqFQqfKGLB7rRbeBBywCeLHXAFDCBrwMx2t/fx9TU1OUttre3W2OxGE5PT1EoFMBxHPb29hCNRhEK
-        hRAMBul3Z2cHiUQC+Xwex8fH0Gq1kMvlbczm5iZ1r9VqKJfLKJVKNIvFIk0iSiCSuVyO3pKcEzGZTMYy
-        GxsbbCaToS5bW1vwer3weDzg9+F2u+FyueBwOGCz2WC1Wmn/ZE3aGR0dZRmn00nV+VYoyLLsb5iAdrsd
-        6+vrFDabzTCZTDTj8TjEYjGYtbU1pNPpK65E9E9XAhuNRuj1eqysrCASiWBoaAgMOUilUldcCUiEf7kS
-        0GAwUHB5eRk6nY62LBKJwJDNer1OR0Nen4yJPBCZzO7uLk0yAZLENRwOU5iMu6enB8zi4qJTrVZDpVJh
-        dnaW/CCYnp7G5OQkFAoFxsfHIZVKIZFIMDIygsHBQfT391NYIBA4fwJeUXTin05i6QAAAABJRU5ErkJg
-        gg==
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAKkSURBVDhPhZL7S5NRGMffv8tfJCO6/FDSL/5iQoS15WV4
+        YwwcToaDJJf4Q1Izmemc7uamu2LvnI69uzh3UVvv3Lt7MicKmVBRg287xxUYWQ88vIdzns/3e57zvMzf
+        QhR4cPMZP5h+9V5dU++/qClifdl29/3WxvG/44m//cbKoep79VsG/OcK7Ien0KfzmNxX/bj3tuX/IqqU
+        RNj/GkLkCw9DuYKeeAZiwQrT8Sw6zHcLjbKrw8wra9pP87Ce8hBzOTwuOdBUeYjuD90YYcW1RtnV8SY1
+        UntZncfTeAq37CW0vkvi+oofPV4lZJ6OqwU4jmMDgQCex6QwfXyNDs6G285jNM0XcW12EZOcEm2aO5ib
+        m8PMzAzbwC6iDjcnk0mcn58jkgtCFe6ETrBDHqxg0CdgMiqF2NIKT8KDs7MzWK1WTE1NtTRwhvH7/Wy5
+        XEYmk0GpVKoXuutAJzqNddDah0eLbTBzZtTrQIz29vYwMTFxcYutra3mWCyGk5MT5HI58DyP3d1dRKNR
+        hEIhBINB+t3e3kYikUA2m8XR0RF0Oh2USmULs7GxQd0rlQqKxSIKhQLNfD5Pk4gSiKQgCPSW5JyIKRQK
+        lllfX2cPDg6oy+bmJnw+H7xeL+r78Hg8cLvdcDqdsNvtsNlstH+yJu0MDw+zjMvlour1VijIsuxvmIAO
+        hwNra2sUtlgsMJvNNOPxOKRSKZjV1VWk0+lLrkT0T1cCm0wmGAwGLC8vIxKJYGBgAAw5SKVSl1wJSIR/
+        uRLQaDRScGlpCXq9nrYskUjAkM1qtUpHQ16fjIk8EJnMzs4OTTIBksQ1HA5TmIy7q6sLzMLCgkur1UKj
+        0WB6epr8IFCr1RgfH8fY2BhGR0chl8shk8kwNDSE/v5+9Pb2UlgkErl+AhapdM58/L4KAAAAAElFTkSu
+        QmCC
 </value>
   </data>
   <data name="OpenProjectReferenceToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <metadata name="TblProtocolDeliverablesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -348,6 +348,6 @@
     <value>579, 189</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>298</value>
+    <value>73</value>
   </metadata>
 </root>
