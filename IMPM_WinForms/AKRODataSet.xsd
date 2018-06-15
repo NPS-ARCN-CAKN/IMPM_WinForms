@@ -351,7 +351,7 @@ SELECT BeginDate, EndDate, DeliverablesIRMAReferenceCode, ProjectIRMAReferenceCo
               <Mapping SourceColumn="RecordInsertedDate" DataSetColumn="RecordInsertedDate" />
               <Mapping SourceColumn="RecordInsertedBy" DataSetColumn="RecordInsertedBy" />
               <Mapping SourceColumn="DeliverablesIRMAReferenceCode" DataSetColumn="DeliverablesIRMAReferenceCode" />
-              <Mapping SourceColumn="ProjectIRMAReferenceCode1" DataSetColumn="ProjectIRMAReferenceCode1" />
+              <Mapping SourceColumn="ProjectIRMAReferenceCode1" DataSetColumn="ProjectIRMAReferenceCode" />
               <Mapping SourceColumn="ReportIRMAReferenceCode" DataSetColumn="ReportIRMAReferenceCode" />
             </Mappings>
             <Sources />
@@ -1257,7 +1257,7 @@ SELECT ProtocolTitle, ProtocolCitation, Version, IRMAReferenceCode, Notes, Docum
                 </xs:simpleType>
               </xs:element>
               <xs:element name="DeliverablesIRMAReferenceCode" msprop:Generator_ColumnVarNameInTable="columnDeliverablesIRMAReferenceCode" msprop:Generator_ColumnPropNameInRow="DeliverablesIRMAReferenceCode" msprop:Generator_ColumnPropNameInTable="DeliverablesIRMAReferenceCodeColumn" msprop:Generator_UserColumnName="DeliverablesIRMAReferenceCode" type="xs:int" minOccurs="0" />
-              <xs:element name="ProjectIRMAReferenceCode1" msprop:Generator_ColumnVarNameInTable="columnProjectIRMAReferenceCode1" msprop:Generator_ColumnPropNameInRow="ProjectIRMAReferenceCode1" msprop:Generator_ColumnPropNameInTable="ProjectIRMAReferenceCode1Column" msprop:Generator_UserColumnName="ProjectIRMAReferenceCode1" type="xs:int" minOccurs="0" />
+              <xs:element name="ProjectIRMAReferenceCode" msprop:Generator_ColumnVarNameInTable="columnProjectIRMAReferenceCode" msprop:Generator_ColumnPropNameInRow="ProjectIRMAReferenceCode" msprop:Generator_ColumnPropNameInTable="ProjectIRMAReferenceCodeColumn" msprop:Generator_UserColumnName="ProjectIRMAReferenceCode" type="xs:int" minOccurs="0" />
               <xs:element name="ReportIRMAReferenceCode" msprop:Generator_ColumnVarNameInTable="columnReportIRMAReferenceCode" msprop:Generator_ColumnPropNameInRow="ReportIRMAReferenceCode" msprop:Generator_ColumnPropNameInTable="ReportIRMAReferenceCodeColumn" msprop:Generator_UserColumnName="ReportIRMAReferenceCode" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
@@ -1874,6 +1874,7 @@ SELECT ProtocolTitle, ProtocolCitation, Version, IRMAReferenceCode, Notes, Docum
       <msdata:Relationship name="vwVitalSignOverview_tblVitalSigns" msdata:parent="vwVitalSignOverview" msdata:child="tblVitalSigns" msdata:parentkey="VSID" msdata:childkey="VSID" msprop:Generator_UserChildTable="tblVitalSigns" msprop:Generator_ChildPropName="GettblVitalSignsRows" msprop:Generator_UserRelationName="vwVitalSignOverview_tblVitalSigns" msprop:Generator_ParentPropName="vwVitalSignOverviewRow" msprop:Generator_RelationVarName="relationvwVitalSignOverview_tblVitalSigns" msprop:Generator_UserParentTable="vwVitalSignOverview" />
       <msdata:Relationship name="vwVitalSignOverview_tblVitalSignDataManagementSummary" msdata:parent="vwVitalSignOverview" msdata:child="tblVitalSignDataManagementSummary" msdata:parentkey="VSID" msdata:childkey="VSID" msprop:Generator_UserChildTable="tblVitalSignDataManagementSummary" msprop:Generator_ChildPropName="GettblVitalSignDataManagementSummaryRows" msprop:Generator_UserRelationName="vwVitalSignOverview_tblVitalSignDataManagementSummary" msprop:Generator_ParentPropName="vwVitalSignOverviewRow" msprop:Generator_RelationVarName="relationvwVitalSignOverview_tblVitalSignDataManagementSummary" msprop:Generator_UserParentTable="vwVitalSignOverview" />
       <msdata:Relationship name="vwVitalSignOverview_tblVitalSignTasks" msdata:parent="vwVitalSignOverview" msdata:child="tblVitalSignTasks" msdata:parentkey="VSID" msdata:childkey="VSID" msprop:Generator_UserChildTable="tblVitalSignTasks" msprop:Generator_ChildPropName="GettblVitalSignTasksRows" msprop:Generator_UserRelationName="vwVitalSignOverview_tblVitalSignTasks" msprop:Generator_ParentPropName="vwVitalSignOverviewRow" msprop:Generator_RelationVarName="relationvwVitalSignOverview_tblVitalSignTasks" msprop:Generator_UserParentTable="vwVitalSignOverview" />
+      <msdata:Relationship name="vwVitalSignOverview_tblVitalSignObjectives" msdata:parent="vwVitalSignOverview" msdata:child="tblVitalSignObjectives" msdata:parentkey="VSID" msdata:childkey="VSID" msprop:Generator_UserChildTable="tblVitalSignObjectives" msprop:Generator_ChildPropName="GettblVitalSignObjectivesRows" msprop:Generator_UserRelationName="vwVitalSignOverview_tblVitalSignObjectives" msprop:Generator_ParentPropName="vwVitalSignOverviewRow" msprop:Generator_RelationVarName="relationvwVitalSignOverview_tblVitalSignObjectives" msprop:Generator_UserParentTable="vwVitalSignOverview" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

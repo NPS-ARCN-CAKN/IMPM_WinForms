@@ -3,6 +3,7 @@ Imports Microsoft.Reporting.WinForms
 
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'load the dataset
         LoadDataset()
 
 
@@ -35,6 +36,7 @@ Public Class Form1
             Me.TblVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.tblVitalSignWorkLog)
             Me.TblVitalSignTasksTableAdapter.Fill(Me.AKRODataSet.tblVitalSignTasks)
             Me.vwVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.vwVitalSignWorkLog)
+            Me.TblVitalSignObjectivesTableAdapter.Fill(Me.AKRODataSet.tblVitalSignObjectives)
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
@@ -102,6 +104,17 @@ Public Class Form1
                 Me.WorkLogReportViewer.RefreshReport()
             End If
         End If
+
+
+        'load the project leader column dropdown
+        'With Me.TblVitalSignsGridEX.RootTable.Columns("ProjectLeadContactID")
+        '    .HasValueList = True
+        '    .LimitToList = True
+        'End With
+        'Dim List As GridEXValueListItemCollection = Me.TblVitalSignsGridEX.RootTable.Columns("ProjectLeadContactID").ValueList
+        'List.Clear()
+        'List.Add(3, "Skeeter")
+        'List.Add(2, "DS")
     End Sub
 
     ''' <summary>
@@ -118,6 +131,7 @@ Public Class Form1
                     Me.TblProtocolRemeasurementsBindingSource.EndEdit()
                     Me.TblVitalSignDataManagementSummaryBindingSource.EndEdit()
                     Me.TblVitalSignTasksBindingSource.EndEdit()
+                    Me.TblVitalSignObjectivesBindingSource.EndEdit()
                     Me.TableAdapterManager.UpdateAll(Me.AKRODataSet)
                 Catch ex As Exception
                     Me.TblVitalSignsBindingSource.CancelEdit()
@@ -125,8 +139,9 @@ Public Class Form1
                     Me.TblVitalSignProtocolsBindingSource.CancelEdit()
                     Me.TblProtocolDeliverablesBindingSource.CancelEdit()
                     Me.TblProtocolRemeasurementsBindingSource.CancelEdit()
-                    Me.TblVitalSignDataManagementSummaryBindingSource.EndEdit()
-                    Me.TblVitalSignTasksBindingSource.EndEdit()
+                    Me.TblVitalSignDataManagementSummaryBindingSource.CancelEdit()
+                    Me.TblVitalSignTasksBindingSource.CancelEdit()
+                    Me.TblVitalSignObjectivesBindingSource.CancelEdit()
                     MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
                 End Try
             End If
@@ -205,9 +220,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub TblVitalSignWorkLogGridEX_DoubleClick(sender As Object, e As EventArgs) Handles TblVitalSignWorkLogGridEX.DoubleClick
-        ToggleGridEXView(TblVitalSignWorkLogGridEX)
-    End Sub
+
 
     Private Sub TblVitalSignTasksGridEX_SelectionChanged(sender As Object, e As EventArgs) Handles TblVitalSignTasksGridEX.SelectionChanged
         'set default values
@@ -240,7 +253,7 @@ Public Class Form1
                 ScriptForm.ShowDialog()
             Else
                 MsgBox("Select a protocol")
-        End If
+            End If
 
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
@@ -377,5 +390,47 @@ Public Class Form1
         Dim DSForm As New DeliverablesScheduleForm()
         DSForm.DeliverablesScheduleDataView = DSDataView
         DSForm.ShowDialog()
+    End Sub
+
+
+    Private Sub TblVitalSignWorkLogGridEX_DoubleClick(sender As Object, e As EventArgs) Handles TblVitalSignWorkLogGridEX.DoubleClick
+        ToggleGridEXView(TblVitalSignWorkLogGridEX)
+    End Sub
+    ''' <summary>
+    ''' Returns the current Vital Sign work log VSDMLogID value
+    ''' </summary>
+    ''' <returns>VSDMLogID. Integer.</returns>
+    Private Function GetCurrentWorkLogID() As Integer
+        Dim VSDMLogID As Integer = 0
+        Try
+            'get the current row of the  GridEX
+            If Not Me.TblVitalSignWorkLogGridEX.CurrentRow Is Nothing Then
+                Dim CurrentRow As GridEXRow = Me.TblVitalSignWorkLogGridEX.CurrentRow
+                'loop through the columns and look for the VSDMLogID column
+                For i As Integer = 0 To CurrentRow.Cells.Count - 1
+                    If CurrentRow.Cells(i).Column.Key = "VSDMLogID" Then
+                        'if there is a value
+                        If Not IsDBNull(CurrentRow.Cells(i).Value) And CurrentRow.Cells(i).Value > 0 Then
+                            VSDMLogID = CurrentRow.Cells(i).Value
+                        End If
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+        Return VSDMLogID
+    End Function
+
+    Private Sub EditLogEntryToolStripButton_Click(sender As Object, e As EventArgs) Handles EditLogEntryToolStripButton.Click
+        'get the current VSDMLogID and submit it to a WorkLogForm
+        Dim VSDMLogID As Integer = GetCurrentWorkLogID()
+        If VSDMLogID > 0 Then
+            Dim LogEntryDataRow() As Data.DataRow
+            LogEntryDataRow = Me.AKRODataSet.Tables("tblVitalSignWorkLog").Select("VSDMLogID = " & VSDMLogID)
+            Dim WorkLogForm As New WorkLogForm(LogEntryDataRow(0))
+            WorkLogForm.ShowDialog()
+            Me.TblVitalSignWorkLogBindingSource.EndEdit()
+        End If
     End Sub
 End Class

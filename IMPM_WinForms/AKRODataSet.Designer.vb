@@ -75,6 +75,8 @@ Partial Public Class AKRODataSet
     
     Private relationvwVitalSignOverview_tblVitalSignTasks As Global.System.Data.DataRelation
     
+    Private relationvwVitalSignOverview_tblVitalSignObjectives As Global.System.Data.DataRelation
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -476,6 +478,7 @@ Partial Public Class AKRODataSet
         Me.relationvwVitalSignOverview_tblVitalSigns = Me.Relations("vwVitalSignOverview_tblVitalSigns")
         Me.relationvwVitalSignOverview_tblVitalSignDataManagementSummary = Me.Relations("vwVitalSignOverview_tblVitalSignDataManagementSummary")
         Me.relationvwVitalSignOverview_tblVitalSignTasks = Me.Relations("vwVitalSignOverview_tblVitalSignTasks")
+        Me.relationvwVitalSignOverview_tblVitalSignObjectives = Me.Relations("vwVitalSignOverview_tblVitalSignObjectives")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -567,6 +570,8 @@ Partial Public Class AKRODataSet
         Me.Relations.Add(Me.relationvwVitalSignOverview_tblVitalSignDataManagementSummary)
         Me.relationvwVitalSignOverview_tblVitalSignTasks = New Global.System.Data.DataRelation("vwVitalSignOverview_tblVitalSignTasks", New Global.System.Data.DataColumn() {Me.tablevwVitalSignOverview.VSIDColumn}, New Global.System.Data.DataColumn() {Me.tabletblVitalSignTasks.VSIDColumn}, false)
         Me.Relations.Add(Me.relationvwVitalSignOverview_tblVitalSignTasks)
+        Me.relationvwVitalSignOverview_tblVitalSignObjectives = New Global.System.Data.DataRelation("vwVitalSignOverview_tblVitalSignObjectives", New Global.System.Data.DataColumn() {Me.tablevwVitalSignOverview.VSIDColumn}, New Global.System.Data.DataColumn() {Me.tabletblVitalSignObjectives.VSIDColumn}, false)
+        Me.Relations.Add(Me.relationvwVitalSignOverview_tblVitalSignObjectives)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1767,7 +1772,7 @@ Partial Public Class AKRODataSet
         
         Private columnDeliverablesIRMAReferenceCode As Global.System.Data.DataColumn
         
-        Private columnProjectIRMAReferenceCode1 As Global.System.Data.DataColumn
+        Private columnProjectIRMAReferenceCode As Global.System.Data.DataColumn
         
         Private columnReportIRMAReferenceCode As Global.System.Data.DataColumn
         
@@ -1880,9 +1885,9 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property ProjectIRMAReferenceCode1Column() As Global.System.Data.DataColumn
+        Public ReadOnly Property ProjectIRMAReferenceCodeColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnProjectIRMAReferenceCode1
+                Return Me.columnProjectIRMAReferenceCode
             End Get
         End Property
         
@@ -1931,9 +1936,9 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddtblProtocolRemeasurementsRow(ByVal BeginDate As Date, ByVal EndDate As Date, ByVal Description As String, ByVal Notes As String, ByVal parenttblVitalSignProtocolsRowByFK_tblVitalSignRemeasurements_tblVitalSignProtocols As tblVitalSignProtocolsRow, ByVal RecordInsertedDate As Date, ByVal RecordInsertedBy As String, ByVal DeliverablesIRMAReferenceCode As Integer, ByVal ProjectIRMAReferenceCode1 As Integer, ByVal ReportIRMAReferenceCode As Integer) As tblProtocolRemeasurementsRow
+        Public Overloads Function AddtblProtocolRemeasurementsRow(ByVal BeginDate As Date, ByVal EndDate As Date, ByVal Description As String, ByVal Notes As String, ByVal parenttblVitalSignProtocolsRowByFK_tblVitalSignRemeasurements_tblVitalSignProtocols As tblVitalSignProtocolsRow, ByVal RecordInsertedDate As Date, ByVal RecordInsertedBy As String, ByVal DeliverablesIRMAReferenceCode As Integer, ByVal ProjectIRMAReferenceCode As Integer, ByVal ReportIRMAReferenceCode As Integer) As tblProtocolRemeasurementsRow
             Dim rowtblProtocolRemeasurementsRow As tblProtocolRemeasurementsRow = CType(Me.NewRow,tblProtocolRemeasurementsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, BeginDate, EndDate, Description, Notes, Nothing, RecordInsertedDate, RecordInsertedBy, DeliverablesIRMAReferenceCode, ProjectIRMAReferenceCode1, ReportIRMAReferenceCode}
+            Dim columnValuesArray() As Object = New Object() {Nothing, BeginDate, EndDate, Description, Notes, Nothing, RecordInsertedDate, RecordInsertedBy, DeliverablesIRMAReferenceCode, ProjectIRMAReferenceCode, ReportIRMAReferenceCode}
             If (Not (parenttblVitalSignProtocolsRowByFK_tblVitalSignRemeasurements_tblVitalSignProtocols) Is Nothing) Then
                 columnValuesArray(5) = parenttblVitalSignProtocolsRowByFK_tblVitalSignRemeasurements_tblVitalSignProtocols(9)
             End If
@@ -1974,7 +1979,7 @@ Partial Public Class AKRODataSet
             Me.columnRecordInsertedDate = MyBase.Columns("RecordInsertedDate")
             Me.columnRecordInsertedBy = MyBase.Columns("RecordInsertedBy")
             Me.columnDeliverablesIRMAReferenceCode = MyBase.Columns("DeliverablesIRMAReferenceCode")
-            Me.columnProjectIRMAReferenceCode1 = MyBase.Columns("ProjectIRMAReferenceCode1")
+            Me.columnProjectIRMAReferenceCode = MyBase.Columns("ProjectIRMAReferenceCode")
             Me.columnReportIRMAReferenceCode = MyBase.Columns("ReportIRMAReferenceCode")
         End Sub
         
@@ -1999,8 +2004,8 @@ Partial Public Class AKRODataSet
             MyBase.Columns.Add(Me.columnRecordInsertedBy)
             Me.columnDeliverablesIRMAReferenceCode = New Global.System.Data.DataColumn("DeliverablesIRMAReferenceCode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDeliverablesIRMAReferenceCode)
-            Me.columnProjectIRMAReferenceCode1 = New Global.System.Data.DataColumn("ProjectIRMAReferenceCode1", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnProjectIRMAReferenceCode1)
+            Me.columnProjectIRMAReferenceCode = New Global.System.Data.DataColumn("ProjectIRMAReferenceCode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProjectIRMAReferenceCode)
             Me.columnReportIRMAReferenceCode = New Global.System.Data.DataColumn("ReportIRMAReferenceCode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnReportIRMAReferenceCode)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnRemeasurementID}, true))
@@ -6749,17 +6754,17 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property ProjectIRMAReferenceCode1() As Integer
+        Public Property ProjectIRMAReferenceCode() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tabletblProtocolRemeasurements.ProjectIRMAReferenceCode1Column),Integer)
+                    Return CType(Me(Me.tabletblProtocolRemeasurements.ProjectIRMAReferenceCodeColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ProjectIRMAReferenceCode1' in table 'tblProtocolRemeasureme"& _ 
-                            "nts' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ProjectIRMAReferenceCode' in table 'tblProtocolRemeasuremen"& _ 
+                            "ts' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tabletblProtocolRemeasurements.ProjectIRMAReferenceCode1Column) = value
+                Me(Me.tabletblProtocolRemeasurements.ProjectIRMAReferenceCodeColumn) = value
             End Set
         End Property
         
@@ -6828,14 +6833,14 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsProjectIRMAReferenceCode1Null() As Boolean
-            Return Me.IsNull(Me.tabletblProtocolRemeasurements.ProjectIRMAReferenceCode1Column)
+        Public Function IsProjectIRMAReferenceCodeNull() As Boolean
+            Return Me.IsNull(Me.tabletblProtocolRemeasurements.ProjectIRMAReferenceCodeColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetProjectIRMAReferenceCode1Null()
-            Me(Me.tabletblProtocolRemeasurements.ProjectIRMAReferenceCode1Column) = Global.System.Convert.DBNull
+        Public Sub SetProjectIRMAReferenceCodeNull()
+            Me(Me.tabletblProtocolRemeasurements.ProjectIRMAReferenceCodeColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7275,6 +7280,17 @@ Partial Public Class AKRODataSet
             End Get
             Set
                 Me.SetParentRow(value, Me.Table.ParentRelations("FK_tblVitalSignObjectives_tblVitalSigns"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property vwVitalSignOverviewRow() As vwVitalSignOverviewRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("vwVitalSignOverview_tblVitalSignObjectives")),vwVitalSignOverviewRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("vwVitalSignOverview_tblVitalSignObjectives"))
             End Set
         End Property
     End Class
@@ -9160,6 +9176,16 @@ Partial Public Class AKRODataSet
                 Return New tblVitalSignTasksRow(-1) {}
             Else
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("vwVitalSignOverview_tblVitalSignTasks")),tblVitalSignTasksRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function GettblVitalSignObjectivesRows() As tblVitalSignObjectivesRow()
+            If (Me.Table.ChildRelations("vwVitalSignOverview_tblVitalSignObjectives") Is Nothing) Then
+                Return New tblVitalSignObjectivesRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("vwVitalSignOverview_tblVitalSignObjectives")),tblVitalSignObjectivesRow())
             End If
         End Function
     End Class
@@ -11447,7 +11473,7 @@ Namespace AKRODataSetTableAdapters
             tableMapping.ColumnMappings.Add("RecordInsertedDate", "RecordInsertedDate")
             tableMapping.ColumnMappings.Add("RecordInsertedBy", "RecordInsertedBy")
             tableMapping.ColumnMappings.Add("DeliverablesIRMAReferenceCode", "DeliverablesIRMAReferenceCode")
-            tableMapping.ColumnMappings.Add("ProjectIRMAReferenceCode1", "ProjectIRMAReferenceCode1")
+            tableMapping.ColumnMappings.Add("ProjectIRMAReferenceCode1", "ProjectIRMAReferenceCode")
             tableMapping.ColumnMappings.Add("ReportIRMAReferenceCode", "ReportIRMAReferenceCode")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
