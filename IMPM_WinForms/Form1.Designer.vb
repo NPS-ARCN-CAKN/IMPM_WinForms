@@ -308,14 +308,14 @@ Partial Class Form1
         Me.OverviewTabPage.Margin = New System.Windows.Forms.Padding(2)
         Me.OverviewTabPage.Name = "OverviewTabPage"
         Me.OverviewTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.OverviewTabPage.Size = New System.Drawing.Size(581, 476)
+        Me.OverviewTabPage.Size = New System.Drawing.Size(818, 584)
         Me.OverviewTabPage.TabIndex = 0
         Me.OverviewTabPage.Text = "Overview"
         Me.OverviewTabPage.UseVisualStyleBackColor = True
         '
         'TblVitalSignsGridEX
         '
-        Me.TblVitalSignsGridEX.CardWidth = 532
+        Me.TblVitalSignsGridEX.CardWidth = 769
         Me.TblVitalSignsGridEX.DataSource = Me.TblVitalSignsBindingSource
         TblVitalSignsGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignsGridEX_DesignTimeLayout.LayoutString")
         Me.TblVitalSignsGridEX.DesignTimeLayout = TblVitalSignsGridEX_DesignTimeLayout
@@ -324,7 +324,7 @@ Partial Class Form1
         Me.TblVitalSignsGridEX.Location = New System.Drawing.Point(2, 2)
         Me.TblVitalSignsGridEX.Margin = New System.Windows.Forms.Padding(2)
         Me.TblVitalSignsGridEX.Name = "TblVitalSignsGridEX"
-        Me.TblVitalSignsGridEX.Size = New System.Drawing.Size(577, 472)
+        Me.TblVitalSignsGridEX.Size = New System.Drawing.Size(814, 580)
         Me.TblVitalSignsGridEX.TabIndex = 0
         Me.TblVitalSignsGridEX.View = Janus.Windows.GridEX.View.SingleCard
         '
@@ -340,7 +340,7 @@ Partial Class Form1
         Me.VSWorkLogTabPage.Margin = New System.Windows.Forms.Padding(2)
         Me.VSWorkLogTabPage.Name = "VSWorkLogTabPage"
         Me.VSWorkLogTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.VSWorkLogTabPage.Size = New System.Drawing.Size(581, 476)
+        Me.VSWorkLogTabPage.Size = New System.Drawing.Size(818, 584)
         Me.VSWorkLogTabPage.TabIndex = 1
         Me.VSWorkLogTabPage.Text = "Work log"
         Me.VSWorkLogTabPage.UseVisualStyleBackColor = True
@@ -354,7 +354,7 @@ Partial Class Form1
         Me.WorkLogTabControl.Margin = New System.Windows.Forms.Padding(2)
         Me.WorkLogTabControl.Name = "WorkLogTabControl"
         Me.WorkLogTabControl.SelectedIndex = 0
-        Me.WorkLogTabControl.Size = New System.Drawing.Size(577, 472)
+        Me.WorkLogTabControl.Size = New System.Drawing.Size(814, 580)
         Me.WorkLogTabControl.TabIndex = 2
         '
         'WorkLogReportTabPage
@@ -364,7 +364,7 @@ Partial Class Form1
         Me.WorkLogReportTabPage.Margin = New System.Windows.Forms.Padding(2)
         Me.WorkLogReportTabPage.Name = "WorkLogReportTabPage"
         Me.WorkLogReportTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.WorkLogReportTabPage.Size = New System.Drawing.Size(569, 446)
+        Me.WorkLogReportTabPage.Size = New System.Drawing.Size(806, 554)
         Me.WorkLogReportTabPage.TabIndex = 0
         Me.WorkLogReportTabPage.Text = "Report"
         Me.WorkLogReportTabPage.UseVisualStyleBackColor = True
@@ -380,7 +380,7 @@ Partial Class Form1
         Me.WorkLogReportViewer.Location = New System.Drawing.Point(2, 2)
         Me.WorkLogReportViewer.Margin = New System.Windows.Forms.Padding(2)
         Me.WorkLogReportViewer.Name = "WorkLogReportViewer"
-        Me.WorkLogReportViewer.Size = New System.Drawing.Size(565, 442)
+        Me.WorkLogReportViewer.Size = New System.Drawing.Size(802, 550)
         Me.WorkLogReportViewer.TabIndex = 1
         '
         'WorkLogEditorTabPage
@@ -526,7 +526,7 @@ Partial Class Form1
         Me.TasksTabPage.Margin = New System.Windows.Forms.Padding(2)
         Me.TasksTabPage.Name = "TasksTabPage"
         Me.TasksTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.TasksTabPage.Size = New System.Drawing.Size(581, 476)
+        Me.TasksTabPage.Size = New System.Drawing.Size(818, 584)
         Me.TasksTabPage.TabIndex = 3
         Me.TasksTabPage.Text = "Tasks"
         Me.TasksTabPage.UseVisualStyleBackColor = True
@@ -548,7 +548,7 @@ Partial Class Form1
         Me.TblVitalSignTasksGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
         Me.TblVitalSignTasksGridEX.RecordNavigator = True
         Me.TblVitalSignTasksGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(577, 472)
+        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(814, 580)
         Me.TblVitalSignTasksGridEX.TabIndex = 0
         '
         'TblVitalSignTasksBindingSource
@@ -563,7 +563,7 @@ Partial Class Form1
         Me.DataManagementOverviewTabPage.Margin = New System.Windows.Forms.Padding(2)
         Me.DataManagementOverviewTabPage.Name = "DataManagementOverviewTabPage"
         Me.DataManagementOverviewTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.DataManagementOverviewTabPage.Size = New System.Drawing.Size(581, 476)
+        Me.DataManagementOverviewTabPage.Size = New System.Drawing.Size(818, 584)
         Me.DataManagementOverviewTabPage.TabIndex = 4
         Me.DataManagementOverviewTabPage.Text = "Data management summary"
         Me.DataManagementOverviewTabPage.UseVisualStyleBackColor = True
@@ -596,7 +596,7 @@ Partial Class Form1
         Me.TblVitalSignDataManagementSummaryGridEX.RowFormatStyle.LineAlignment = Janus.Windows.GridEX.TextAlignment.Near
         Me.TblVitalSignDataManagementSummaryGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignDataManagementSummaryGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
-        Me.TblVitalSignDataManagementSummaryGridEX.Size = New System.Drawing.Size(577, 472)
+        Me.TblVitalSignDataManagementSummaryGridEX.Size = New System.Drawing.Size(814, 580)
         Me.TblVitalSignDataManagementSummaryGridEX.TabIndex = 0
         Me.TblVitalSignDataManagementSummaryGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
         '
@@ -612,7 +612,7 @@ Partial Class Form1
         Me.ObjectivesTabPage.Controls.Add(Me.tblVitalSignObjectivesBindingNavigator)
         Me.ObjectivesTabPage.Location = New System.Drawing.Point(4, 22)
         Me.ObjectivesTabPage.Name = "ObjectivesTabPage"
-        Me.ObjectivesTabPage.Size = New System.Drawing.Size(581, 476)
+        Me.ObjectivesTabPage.Size = New System.Drawing.Size(818, 584)
         Me.ObjectivesTabPage.TabIndex = 5
         Me.ObjectivesTabPage.Text = "Objectives"
         Me.ObjectivesTabPage.UseVisualStyleBackColor = True
@@ -627,7 +627,7 @@ Partial Class Form1
         Me.TblVitalSignObjectivesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TblVitalSignObjectivesDataGridView.Location = New System.Drawing.Point(0, 0)
         Me.TblVitalSignObjectivesDataGridView.Name = "TblVitalSignObjectivesDataGridView"
-        Me.TblVitalSignObjectivesDataGridView.Size = New System.Drawing.Size(581, 451)
+        Me.TblVitalSignObjectivesDataGridView.Size = New System.Drawing.Size(818, 559)
         Me.TblVitalSignObjectivesDataGridView.TabIndex = 0
         '
         'DataGridViewTextBoxColumn3
@@ -665,14 +665,14 @@ Partial Class Form1
         Me.tblVitalSignObjectivesBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
         Me.tblVitalSignObjectivesBindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.tblVitalSignObjectivesBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem})
-        Me.tblVitalSignObjectivesBindingNavigator.Location = New System.Drawing.Point(0, 451)
+        Me.tblVitalSignObjectivesBindingNavigator.Location = New System.Drawing.Point(0, 559)
         Me.tblVitalSignObjectivesBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.tblVitalSignObjectivesBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
         Me.tblVitalSignObjectivesBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
         Me.tblVitalSignObjectivesBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.tblVitalSignObjectivesBindingNavigator.Name = "tblVitalSignObjectivesBindingNavigator"
         Me.tblVitalSignObjectivesBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.tblVitalSignObjectivesBindingNavigator.Size = New System.Drawing.Size(581, 25)
+        Me.tblVitalSignObjectivesBindingNavigator.Size = New System.Drawing.Size(818, 25)
         Me.tblVitalSignObjectivesBindingNavigator.TabIndex = 1
         Me.tblVitalSignObjectivesBindingNavigator.Text = "BindingNavigator1"
         '
