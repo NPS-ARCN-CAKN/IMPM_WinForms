@@ -36,6 +36,7 @@ Partial Class Form1
         Me.VwVitalSignOverviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwVitalSignOverviewTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignOverviewTableAdapter()
         Me.TableAdapterManager = New IMPM.AKRODataSetTableAdapters.TableAdapterManager()
+        Me.TblContactsTableAdapter = New IMPM.AKRODataSetTableAdapters.tblContactsTableAdapter()
         Me.TblProtocolDeliverablesTableAdapter = New IMPM.AKRODataSetTableAdapters.tblProtocolDeliverablesTableAdapter()
         Me.TblProtocolRemeasurementsTableAdapter = New IMPM.AKRODataSetTableAdapters.tblProtocolRemeasurementsTableAdapter()
         Me.TblVitalSignDataManagementSummaryTableAdapter = New IMPM.AKRODataSetTableAdapters.tblVitalSignDataManagementSummaryTableAdapter()
@@ -92,6 +93,33 @@ Partial Class Form1
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TblContactsDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TblContactsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VitalSignOverviewToolStrip = New System.Windows.Forms.ToolStrip()
         Me.OpenProjectDirectoryToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
@@ -147,6 +175,9 @@ Partial Class Form1
         CType(Me.TblVitalSignObjectivesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tblVitalSignObjectivesBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tblVitalSignObjectivesBindingNavigator.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        CType(Me.TblContactsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VitalSignOverviewToolStrip.SuspendLayout()
         Me.VitalSignHeaderPanel.SuspendLayout()
         CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -177,6 +208,7 @@ Partial Class Form1
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.tblContactsTableAdapter = Me.TblContactsTableAdapter
         Me.TableAdapterManager.tblNetworksTableAdapter = Nothing
         Me.TableAdapterManager.tblProtocolDeliverablesTableAdapter = Me.TblProtocolDeliverablesTableAdapter
         Me.TableAdapterManager.tblProtocolRemeasurementsTableAdapter = Me.TblProtocolRemeasurementsTableAdapter
@@ -187,6 +219,10 @@ Partial Class Form1
         Me.TableAdapterManager.tblVitalSignTasksTableAdapter = Me.TblVitalSignTasksTableAdapter
         Me.TableAdapterManager.tblVitalSignWorkLogTableAdapter = Me.TblVitalSignWorkLogTableAdapter
         Me.TableAdapterManager.UpdateOrder = IMPM.AKRODataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'TblContactsTableAdapter
+        '
+        Me.TblContactsTableAdapter.ClearBeforeFill = True
         '
         'TblProtocolDeliverablesTableAdapter
         '
@@ -293,6 +329,7 @@ Partial Class Form1
         Me.VitalSignTabControl.Controls.Add(Me.TasksTabPage)
         Me.VitalSignTabControl.Controls.Add(Me.DataManagementOverviewTabPage)
         Me.VitalSignTabControl.Controls.Add(Me.ObjectivesTabPage)
+        Me.VitalSignTabControl.Controls.Add(Me.TabPage1)
         Me.VitalSignTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.VitalSignTabControl.Location = New System.Drawing.Point(0, 59)
         Me.VitalSignTabControl.Margin = New System.Windows.Forms.Padding(2)
@@ -391,7 +428,7 @@ Partial Class Form1
         Me.WorkLogEditorTabPage.Margin = New System.Windows.Forms.Padding(2)
         Me.WorkLogEditorTabPage.Name = "WorkLogEditorTabPage"
         Me.WorkLogEditorTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.WorkLogEditorTabPage.Size = New System.Drawing.Size(569, 446)
+        Me.WorkLogEditorTabPage.Size = New System.Drawing.Size(806, 554)
         Me.WorkLogEditorTabPage.TabIndex = 1
         Me.WorkLogEditorTabPage.Text = "Edit work log"
         Me.WorkLogEditorTabPage.UseVisualStyleBackColor = True
@@ -420,7 +457,7 @@ Partial Class Form1
         Me.TblVitalSignWorkLogGridEX.SaveSettings = True
         Me.TblVitalSignWorkLogGridEX.SelectOnExpand = False
         Me.TblVitalSignWorkLogGridEX.SettingsKey = "TblVitalSignWorkLogGridEX"
-        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(565, 417)
+        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(802, 525)
         Me.TblVitalSignWorkLogGridEX.TabIndex = 0
         '
         'TblVitalSignWorkLogBindingSource
@@ -434,7 +471,7 @@ Partial Class Form1
         Me.WorkLogToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditLogEntryToolStripButton})
         Me.WorkLogToolStrip.Location = New System.Drawing.Point(2, 2)
         Me.WorkLogToolStrip.Name = "WorkLogToolStrip"
-        Me.WorkLogToolStrip.Size = New System.Drawing.Size(565, 25)
+        Me.WorkLogToolStrip.Size = New System.Drawing.Size(802, 25)
         Me.WorkLogToolStrip.TabIndex = 1
         Me.WorkLogToolStrip.Text = "ToolStrip1"
         '
@@ -761,6 +798,180 @@ Partial Class Form1
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.TblContactsDataGridView)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(818, 584)
+        Me.TabPage1.TabIndex = 6
+        Me.TabPage1.Text = "TabPage1"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TblContactsDataGridView
+        '
+        Me.TblContactsDataGridView.AllowUserToOrderColumns = True
+        Me.TblContactsDataGridView.AutoGenerateColumns = False
+        Me.TblContactsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.TblContactsDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26})
+        Me.TblContactsDataGridView.DataSource = Me.TblContactsBindingSource
+        Me.TblContactsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TblContactsDataGridView.Location = New System.Drawing.Point(3, 3)
+        Me.TblContactsDataGridView.Name = "TblContactsDataGridView"
+        Me.TblContactsDataGridView.Size = New System.Drawing.Size(812, 578)
+        Me.TblContactsDataGridView.TabIndex = 0
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "ContactID"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "ContactID"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "FirstName"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "FirstName"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "LastName"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "LastName"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "MiddleInitial"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "MiddleInitial"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Organization"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Organization"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "Suffix"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Suffix"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Email"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "Email"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "Telephone"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "Telephone"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "Fax"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "Fax"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "AddressLine1"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "AddressLine1"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "AddressLine2"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "AddressLine2"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "City"
+        Me.DataGridViewTextBoxColumn15.HeaderText = "City"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "State"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "State"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.DataPropertyName = "Country"
+        Me.DataGridViewTextBoxColumn17.HeaderText = "Country"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        '
+        'DataGridViewTextBoxColumn18
+        '
+        Me.DataGridViewTextBoxColumn18.DataPropertyName = "PostalCode"
+        Me.DataGridViewTextBoxColumn18.HeaderText = "PostalCode"
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        '
+        'DataGridViewCheckBoxColumn1
+        '
+        Me.DataGridViewCheckBoxColumn1.DataPropertyName = "IsNPS"
+        Me.DataGridViewCheckBoxColumn1.HeaderText = "IsNPS"
+        Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
+        '
+        'DataGridViewTextBoxColumn19
+        '
+        Me.DataGridViewTextBoxColumn19.DataPropertyName = "PersonalIRMAID"
+        Me.DataGridViewTextBoxColumn19.HeaderText = "PersonalIRMAID"
+        Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
+        '
+        'DataGridViewTextBoxColumn20
+        '
+        Me.DataGridViewTextBoxColumn20.DataPropertyName = "Website"
+        Me.DataGridViewTextBoxColumn20.HeaderText = "Website"
+        Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
+        '
+        'DataGridViewTextBoxColumn21
+        '
+        Me.DataGridViewTextBoxColumn21.DataPropertyName = "LastUpdatedBy"
+        Me.DataGridViewTextBoxColumn21.HeaderText = "LastUpdatedBy"
+        Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
+        '
+        'DataGridViewTextBoxColumn22
+        '
+        Me.DataGridViewTextBoxColumn22.DataPropertyName = "LastUpdated"
+        Me.DataGridViewTextBoxColumn22.HeaderText = "LastUpdated"
+        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
+        '
+        'DataGridViewTextBoxColumn23
+        '
+        Me.DataGridViewTextBoxColumn23.DataPropertyName = "RecordInsertedDate"
+        Me.DataGridViewTextBoxColumn23.HeaderText = "RecordInsertedDate"
+        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
+        '
+        'DataGridViewTextBoxColumn24
+        '
+        Me.DataGridViewTextBoxColumn24.DataPropertyName = "RecordInsertedBy"
+        Me.DataGridViewTextBoxColumn24.HeaderText = "RecordInsertedBy"
+        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
+        '
+        'DataGridViewTextBoxColumn25
+        '
+        Me.DataGridViewTextBoxColumn25.DataPropertyName = "RecordUpdatedDate"
+        Me.DataGridViewTextBoxColumn25.HeaderText = "RecordUpdatedDate"
+        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
+        '
+        'DataGridViewTextBoxColumn26
+        '
+        Me.DataGridViewTextBoxColumn26.DataPropertyName = "RecordUpdatedBy"
+        Me.DataGridViewTextBoxColumn26.HeaderText = "RecordUpdatedBy"
+        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
+        '
+        'TblContactsBindingSource
+        '
+        Me.TblContactsBindingSource.DataMember = "tblContacts"
+        Me.TblContactsBindingSource.DataSource = Me.AKRODataSet
+        '
         'VitalSignOverviewToolStrip
         '
         Me.VitalSignOverviewToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
@@ -966,6 +1177,9 @@ Partial Class Form1
         CType(Me.tblVitalSignObjectivesBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tblVitalSignObjectivesBindingNavigator.ResumeLayout(False)
         Me.tblVitalSignObjectivesBindingNavigator.PerformLayout()
+        Me.TabPage1.ResumeLayout(False)
+        CType(Me.TblContactsDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.VitalSignOverviewToolStrip.ResumeLayout(False)
         Me.VitalSignOverviewToolStrip.PerformLayout()
         Me.VitalSignHeaderPanel.ResumeLayout(False)
@@ -1062,4 +1276,32 @@ Partial Class Form1
     Friend WithEvents BindingNavigatorMoveNextItem As ToolStripButton
     Friend WithEvents BindingNavigatorMoveLastItem As ToolStripButton
     Friend WithEvents BindingNavigatorSeparator2 As ToolStripSeparator
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TblContactsBindingSource As BindingSource
+    Friend WithEvents TblContactsTableAdapter As AKRODataSetTableAdapters.tblContactsTableAdapter
+    Friend WithEvents TblContactsDataGridView As DataGridView
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewCheckBoxColumn1 As DataGridViewCheckBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn26 As DataGridViewTextBoxColumn
 End Class

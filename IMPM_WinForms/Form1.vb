@@ -37,6 +37,51 @@ Public Class Form1
             Me.TblVitalSignTasksTableAdapter.Fill(Me.AKRODataSet.tblVitalSignTasks)
             Me.vwVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.vwVitalSignWorkLog)
             Me.TblVitalSignObjectivesTableAdapter.Fill(Me.AKRODataSet.tblVitalSignObjectives)
+            Me.TblContactsTableAdapter.Fill(Me.AKRODataSet.tblContacts)
+
+            'load gridex dropdowns with values
+            LoadDropDowns()
+
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    Private Sub LoadDropDowns()
+        Try
+            'load the vital sign status dropdown
+            With Me.TblVitalSignsGridEX.RootTable.Columns("Status")
+                .AutoSize()
+                .AllowSort = True
+                .AutoComplete = True
+                .Caption = "Status"
+                .HasValueList = True
+                .LimitToList = True
+            End With
+            Dim List As GridEXValueListItemCollection = Me.TblVitalSignsGridEX.RootTable.Columns("Status").ValueList
+            List.Clear()
+            List.Add("Deferred", "Deferred")
+            List.Add("In development", "In development")
+            List.Add("Monitoring", "Monitoring")
+
+            'load the project leader column dropdown
+            With Me.TblVitalSignsGridEX.RootTable.Columns("ProjectLeadContactID")
+                .AutoSize()
+                .AllowSort = True
+                .AutoComplete = True
+                .Caption = "Project leader"
+                .HasValueList = True
+                .LimitToList = True
+            End With
+            List = Me.TblVitalSignsGridEX.RootTable.Columns("ProjectLeadContactID").ValueList
+            List.Clear()
+            Dim ContactsDataView As DataView = Me.AKRODataSet.tblContacts.DefaultView
+            ContactsDataView.Sort = "Lastname,Firstname"
+            For Each Row As DataRowView In ContactsDataView
+                Dim ContactName As String = Row.Item("Lastname").ToString.Trim & ", " & Row.Item("Firstname")
+                Dim ContactID As Integer = Row.Item("ContactID")
+                List.Add(ContactID, ContactName)
+            Next
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
@@ -104,17 +149,6 @@ Public Class Form1
                 Me.WorkLogReportViewer.RefreshReport()
             End If
         End If
-
-
-        'load the project leader column dropdown
-        'With Me.TblVitalSignsGridEX.RootTable.Columns("ProjectLeadContactID")
-        '    .HasValueList = True
-        '    .LimitToList = True
-        'End With
-        'Dim List As GridEXValueListItemCollection = Me.TblVitalSignsGridEX.RootTable.Columns("ProjectLeadContactID").ValueList
-        'List.Clear()
-        'List.Add(3, "Skeeter")
-        'List.Add(2, "DS")
     End Sub
 
     ''' <summary>
