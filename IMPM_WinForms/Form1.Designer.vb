@@ -69,6 +69,9 @@ Partial Class Form1
         Me.GenerateDeliverablesDirectoriesCreationScriptButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.OpenDeliverablesScheduleFormToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
+        Me.CreateDeliverablesDirectoriesToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.TasksTabPage = New System.Windows.Forms.TabPage()
         Me.TblVitalSignTasksGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignTasksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -527,7 +530,7 @@ Partial Class Form1
         'ToolStrip2
         '
         Me.ToolStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateDeliverablesDirectoriesCreationScriptButton, Me.ToolStripSeparator4, Me.OpenDeliverablesScheduleFormToolStripButton})
+        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateDeliverablesDirectoriesCreationScriptButton, Me.ToolStripSeparator4, Me.OpenDeliverablesScheduleFormToolStripButton, Me.ToolStripSeparator5, Me.CreateDeliverablesDirectoriesToolStripButton, Me.ToolStripSeparator6})
         Me.ToolStrip2.Location = New System.Drawing.Point(2, 2)
         Me.ToolStrip2.Name = "ToolStrip2"
         Me.ToolStrip2.Size = New System.Drawing.Size(814, 27)
@@ -555,6 +558,24 @@ Partial Class Form1
         Me.OpenDeliverablesScheduleFormToolStripButton.Name = "OpenDeliverablesScheduleFormToolStripButton"
         Me.OpenDeliverablesScheduleFormToolStripButton.Size = New System.Drawing.Size(133, 24)
         Me.OpenDeliverablesScheduleFormToolStripButton.Text = "Deliverables schedule..."
+        '
+        'ToolStripSeparator5
+        '
+        Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 27)
+        '
+        'CreateDeliverablesDirectoriesToolStripButton
+        '
+        Me.CreateDeliverablesDirectoriesToolStripButton.Image = CType(resources.GetObject("CreateDeliverablesDirectoriesToolStripButton.Image"), System.Drawing.Image)
+        Me.CreateDeliverablesDirectoriesToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.CreateDeliverablesDirectoriesToolStripButton.Name = "CreateDeliverablesDirectoriesToolStripButton"
+        Me.CreateDeliverablesDirectoriesToolStripButton.Size = New System.Drawing.Size(197, 24)
+        Me.CreateDeliverablesDirectoriesToolStripButton.Text = "Create deliverables directories..."
+        '
+        'ToolStripSeparator6
+        '
+        Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 27)
         '
         'TasksTabPage
         '
@@ -1304,4 +1325,7 @@ Partial Class Form1
     Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn26 As DataGridViewTextBoxColumn
+    Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
+    Friend WithEvents CreateDeliverablesDirectoriesToolStripButton As ToolStripButton
+    Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
 End Class

@@ -467,4 +467,84 @@ Public Class Form1
             Me.TblVitalSignWorkLogBindingSource.EndEdit()
         End If
     End Sub
+
+    Private Sub CreateDeliverablesDirectoriesToolStripButton_Click(sender As Object, e As EventArgs) Handles CreateDeliverablesDirectoriesToolStripButton.Click
+        CreateDeliverablesDirectories()
+    End Sub
+
+    Private Sub CreateDeliverablesDirectories()
+        Dim RootDirectory As String = ""
+
+        Try
+            'make sure we have a valid protocolid from the current row of the datagridview
+            If Not Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolID") Is Nothing Then
+                'get the current protocolid
+                Dim ProtocolID As Integer = Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolID").Value
+                Dim VSID As Integer = Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("VSID").Value
+
+                'try to get the files directory
+                Dim FilesDirectory As String = ""
+                If Not Me.TblVitalSignsGridEX.CurrentRow.Cells("FilesDirectory") Is Nothing Then
+                    FilesDirectory = Me.TblVitalSignsGridEX.CurrentRow.Cells("FilesDirectory").Value
+                End If
+
+                'make a savefiledialog. we could use a folderbrowserdialog but those suck.
+                Dim SFD As New SaveFileDialog
+                SFD.Title = "Select directory"
+                SFD.OverwritePrompt = False
+
+                'see if the vital sign files directory attribute exists, if so use it
+                If My.Computer.FileSystem.DirectoryExists(FilesDirectory) Then
+                    'make a /Data directory if it doesn't have it already
+                    'Dim DataDirectory As String = FilesDirectory & "\Data"
+                    'If My.Computer.FileSystem.DirectoryExists(DataDirectory) = False Then
+                    '    My.Computer.FileSystem.CreateDirectory(DataDirectory)
+                    'End If
+                    'set the initial directory to the vital sign's directory
+                    SFD.InitialDirectory = FilesDirectory
+                End If
+
+                'at this point user should have chosen a directory
+                If SFD.ShowDialog = DialogResult.OK Then
+                    'make a fileinfo so we can get at the directory name
+                    Dim FileInfo As New System.IO.FileInfo(SFD.FileName)
+                    RootDirectory = FileInfo.DirectoryName
+
+                    'get the deliverables for the current protocolid into a dataview so we can loop through them
+                    Dim DeliverablesDataView As New DataView(Me.AKRODataSet.Tables("tblProtocolDeliverables"), "ProtocolID=" & ProtocolID, "DeliverableIdentifier", DataViewRowState.CurrentRows)
+                    For Each Row As DataRowView In DeliverablesDataView
+                        Dim Identifier As String = Row.Item("DeliverableIdentifier")
+                        Dim Desc As String = Row.Item("Deliverable")
+                        Dim DeliverablesDirectoryPath As String = RootDirectory & "\" & Identifier & " " & Desc
+                        If My.Computer.FileSystem.DirectoryExists(RootDirectory) Then
+                            'we don't want to overwrite an existing directory
+                            If My.Computer.FileSystem.DirectoryExists(DeliverablesDirectoryPath) = False Then
+                                'create the directory
+                                My.Computer.FileSystem.CreateDirectory(DeliverablesDirectoryPath)
+                            End If
+
+                        End If
+                    Next
+                Else
+                    MsgBox("No protocol selected. Select a protocol in the grid.")
+                End If
+            End If
+
+
+            'Dim FolderBrowser As New FolderBrowserDialog
+            'If FolderBrowser.ShowDialog = DialogResult.OK Then
+            '    Dim RootDirectory As String = FolderBrowser.SelectedPath
+            '    If My.Computer.FileSystem.DirectoryExists(RootDirectory) Then
+
+
+            '        Try
+            '        Catch ex As Exception
+            '            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+            '        End Try
+            '    End If
+            'End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
 End Class
