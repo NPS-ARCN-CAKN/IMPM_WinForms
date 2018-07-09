@@ -18,8 +18,20 @@ Public Class Form1
         'maximize the form
         Me.WindowState = FormWindowState.Maximized
 
+        'set up static dropdowns
+        With Me.TblVitalSignProtocolsGridEX.Tables("tblProtocolDeliverables").Columns("Responsibility")
+            .AutoComplete = True
+            .HasValueList = True
+            .LimitToList = False
+        End With
+        Dim List As GridEXValueListItemCollection = Me.TblVitalSignProtocolsGridEX.Tables("tblProtocolDeliverables").Columns("Responsibility").ValueList
+        List.Clear()
+        List.Add("PI", "PI")
+        List.Add("DM", "DM")
+        List.Add("PI,DM", "PI,DM")
 
 
+        'refresh the work log report
         Me.WorkLogReportViewer.RefreshReport()
     End Sub
 
@@ -135,21 +147,45 @@ Public Class Form1
         'save the dataset, if it has changes
         SaveDataset()
 
+        'change the vital sign header text to match the current vs
         Me.VitalSignHeaderLabel.Text = "Vital Sign"
         If Not Me.VwVitalSignOverviewGridEX.CurrentRow Is Nothing Then
             If Not Me.VwVitalSignOverviewGridEX.CurrentRow.Cells("NetworkVSName") Is Nothing Then
                 Dim Acronym As String = Me.VwVitalSignOverviewGridEX.CurrentRow.Cells("Acronym").Value
                 Dim VSName As String = Me.VwVitalSignOverviewGridEX.CurrentRow.Cells("NetworkVSName").Value
                 Dim VSID As Integer = Me.VwVitalSignOverviewGridEX.CurrentRow.Cells("VSID").Value
+                Dim ProjectIRMAReferenceCode As Integer
+                If Not Me.VwVitalSignOverviewGridEX.CurrentRow.Cells("IRMAProjectReference") Is Nothing Then
+                    If Not IsDBNull(Me.VwVitalSignOverviewGridEX.CurrentRow.Cells("IRMAProjectReference").Value) Then
+                        ProjectIRMAReferenceCode = Me.VwVitalSignOverviewGridEX.CurrentRow.Cells("IRMAProjectReference").Value
+                    End If
+                End If
                 Me.VitalSignHeaderLabel.Text = Acronym & " " & VSName
 
-                'filter the worklog report to the current record
-                Dim MyReportParameter As New ReportParameter("VSIDReportParameter", VSID)
-                Me.WorkLogReportViewer.LocalReport.SetParameters(MyReportParameter)
-                Me.WorkLogReportViewer.RefreshReport()
+                    'filter the worklog report to the current record
+                    Dim MyReportParameter As New ReportParameter("VSIDReportParameter", VSID)
+                    Me.WorkLogReportViewer.LocalReport.SetParameters(MyReportParameter)
+                    Me.WorkLogReportViewer.RefreshReport()
+
+                    'set up the protocol remeasurement gridex's project column's default value to match the project
+                    If Not IsDBNull(ProjectIRMAReferenceCode) Then
+                    With Me.TblVitalSignProtocolsGridEX.Tables("tblVitalSignRemeasurements").Columns("ProjectIRMAReferenceCode")
+                        .AllowSort = True
+                        .AutoComplete = True
+                        .HasValueList = True
+                        .LimitToList = False
+                    End With
+                    Dim List As GridEXValueListItemCollection = Me.TblVitalSignProtocolsGridEX.Tables("tblVitalSignRemeasurements").Columns("ProjectIRMAReferenceCode").ValueList
+                        List.Clear()
+                        List.Add(ProjectIRMAReferenceCode, ProjectIRMAReferenceCode)
+                    End If
+
+                End If
             End If
-        End If
     End Sub
+
+
+
 
     ''' <summary>
     ''' Ends all editing on BindingSources and saves the dataset to the database.
@@ -272,21 +308,35 @@ Public Class Form1
         Try
             If Not Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolID") Is Nothing And Not Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolTitle") Is Nothing Then
                 Dim ProtocolID As Integer = Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolID").Value
-                Dim ProtocolTitle As String = Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolTitle").Value
 
+                'get the protocol title
+                Dim ProtocolTitle As String = ""
+                If Not IsDBNull(Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolTitle").Value) Then
+                    ProtocolTitle = Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("ProtocolTitle").Value
+                End If
+
+                'get the protocol Version
+                Dim ProtocolVersion As String = 0
+                If Not IsDBNull(Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("Version").Value) Then
+                    ProtocolVersion = Me.TblVitalSignProtocolsGridEX.CurrentRow.Cells("Version").Value
+                End If
+
+                'get the deliverables for the currently selected protocol version
                 Dim DeliverablesDataView As New DataView(Me.AKRODataSet.Tables("tblProtocolDeliverables"), "ProtocolID=" & ProtocolID, "DeliverableIdentifier", DataViewRowState.CurrentRows)
                 Dim Script As String = "REM Script to create deliverable directories for " & vbNewLine
                 Script = Script & "REM " & ProtocolTitle & vbNewLine
+                Script = Script & "REM Version: " & ProtocolVersion & vbNewLine
+                Script = Script & "REM Instructions: Put this batch file in a new empty deliverables directory and then execute it to create a subdirectory for each deliverable type." & vbNewLine
                 For Each Row As DataRowView In DeliverablesDataView
-                    Dim Identifier As String = Row.Item("DeliverableIdentifier")
-                    Dim Desc As String = Row.Item("Deliverable")
-                    Script = Script & "mkdir """ & Identifier & " " & Desc & """" & vbNewLine
-                Next
-                Dim ScriptForm As New DeliverablesDirectoryGeneratorForm()
-                ScriptForm.Script = Script
-                ScriptForm.ShowDialog()
-            Else
-                MsgBox("Select a protocol")
+                        Dim Identifier As String = Row.Item("DeliverableIdentifier")
+                        Dim Desc As String = Row.Item("Deliverable")
+                        Script = Script & "mkdir """ & Identifier & " " & Desc & """" & vbNewLine
+                    Next
+                    Dim ScriptForm As New DeliverablesDirectoryGeneratorForm()
+                    ScriptForm.Script = Script
+                    ScriptForm.ShowDialog()
+                Else
+                    MsgBox("Select a protocol")
             End If
 
         Catch ex As Exception
