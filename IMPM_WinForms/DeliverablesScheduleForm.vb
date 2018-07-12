@@ -34,19 +34,14 @@
             Next
 
 
-
-            LoadTextBox()
+            ReviseDGV()
         End Set
     End Property
 
 
     Public Sub New()
-
         ' This call is required by the designer.
         InitializeComponent()
-
-        ' Add any initialization after the InitializeComponent() call.
-        'Me.DeliverablesScheduleDataGridView.DataSource = _DeliverablesScheduleDataView
     End Sub
 
     Private Sub LoadTextBox()
@@ -126,17 +121,96 @@
 
 
     Private Sub ReviseDGV()
+        Dim Grid As DataGridView = Me.DeliverablesScheduleDataGridView
+        'first make unneeded columns invisible
         Dim i As Integer = 0
         For Each Row As DataRow In ChooserDataTable.Rows
-            Me.DeliverablesScheduleDataGridView.Columns(i).Visible = Row.Item(0)
+            Grid.Columns(i).Visible = Row.Item(0)
             i = i + 1
         Next
 
+        'clean the textbox
+        Me.DSTextBox.Text = ""
+
+        'dump out the selected columns to the text box
+
+        'start with the column headers
+        Dim Headers As String = ""
+        For Each Col As DataGridViewColumn In Grid.Columns
+            If Col.Visible = True Then
+                Headers = Headers & Col.HeaderText & ","
+            End If
+        Next
+        If Headers.Trim.Length > 0 Then
+            Me.DSTextBox.Text = Headers.Trim.Substring(0, Headers.Trim.Length - 1) & vbNewLine
+        End If
+
+        'now dump out the visible cells of the deliverables dgv to the textbox
+        Dim Specs As String = vbNewLine & vbNewLine & "Deliverable Specifications" & vbNewLine
+        For Each Row As DataGridViewRow In Grid.Rows
+            Dim RowText As String = ""
+            For Each Col As DataGridViewColumn In Grid.Columns
+                If Col.Visible = True Then
+                    If Not IsDBNull(Row.Cells(Col.Name).Value) Then
+                        RowText = RowText & Row.Cells(Col.Name).Value & ","
+                    Else
+                        RowText = RowText & ","
+                    End If
+                End If
+            Next
+
+            'write the deliverables to the text box
+            If RowText.Trim.Length > 0 Then
+                Me.DSTextBox.AppendText(RowText.Trim.Substring(0, RowText.Trim.Length - 1) & vbNewLine)
+            End If
+
+            'write out extended properties of each deliverable
+
+            Dim ID As String = IIf(IsDBNull(Row.Cells(0).Value) = False, Row.Cells(0).Value.trim, "NULL")
+            Dim Deliverable As String = IIf(IsDBNull(Row.Cells(1).Value) = False, Row.Cells(1).Value.trim, "NULL")
+            Specs = Specs & ID & vbNewLine & Deliverable & "." & vbNewLine & vbNewLine
+
+        Next
+
+        Me.DSTextBox.AppendText(Specs)
     End Sub
 
     Private Sub ColumnsChooserDataGridView_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles ColumnsChooserDataGridView.CellEndEdit
         Me.ColumnsChooserDataGridView.EndEdit()
+
+        'Me.DeliverablesScheduleDataGridView.Refresh()
+    End Sub
+
+    ''' <summary>
+    ''' Converts a DataTable to a string of delimited values such as CSV
+    ''' </summary>
+    ''' <param name="DataTable">DataTable to convert. DataTable</param>
+    ''' <param name="Delimiter">Values separator</param>
+    ''' <returns>String</returns>
+    ''' <remarks></remarks>
+    Public Function DataTableToCSV(DataTable As DataTable, Delimiter As String) As String
+        Dim CSV As String = ""
+        Try
+            'output the headers
+            For Each Column As DataColumn In DataTable.Columns
+                CSV = CSV & Column.ColumnName & Delimiter
+            Next
+            CSV = CSV.Substring(0, CSV.Trim.Length - 1) & vbNewLine
+
+            'output the rows
+            For Each Row As DataRow In DataTable.Rows
+                For Each Column As DataColumn In DataTable.Columns
+                    CSV = CSV & Row.Item(Column.ColumnName) & Delimiter
+                Next
+                CSV = CSV.Substring(0, CSV.Trim.Length - 1) & vbNewLine
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return CSV
+    End Function
+
+    Private Sub ColumnsChooserDataGridView_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles ColumnsChooserDataGridView.CellValueChanged
         ReviseDGV()
-        Me.DeliverablesScheduleDataGridView.Refresh()
     End Sub
 End Class
