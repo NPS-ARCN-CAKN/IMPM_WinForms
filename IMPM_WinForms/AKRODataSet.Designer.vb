@@ -83,6 +83,10 @@ Partial Public Class AKRODataSet
     
     Private relationFK_tblVitalSignTasks_tblContacts As Global.System.Data.DataRelation
     
+    Private relationtblVitalSigns_vwVitalSignWorkLog As Global.System.Data.DataRelation
+    
+    Private relationvwVitalSignOverview_vwVitalSignWorkLog As Global.System.Data.DataRelation
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -509,6 +513,8 @@ Partial Public Class AKRODataSet
         Me.relationvwVitalSignOverview_tblVitalSignObjectives = Me.Relations("vwVitalSignOverview_tblVitalSignObjectives")
         Me.relationFK_tblVitalSigns_tblContacts = Me.Relations("FK_tblVitalSigns_tblContacts")
         Me.relationFK_tblVitalSignTasks_tblContacts = Me.Relations("FK_tblVitalSignTasks_tblContacts")
+        Me.relationtblVitalSigns_vwVitalSignWorkLog = Me.Relations("tblVitalSigns_vwVitalSignWorkLog")
+        Me.relationvwVitalSignOverview_vwVitalSignWorkLog = Me.Relations("vwVitalSignOverview_vwVitalSignWorkLog")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -608,6 +614,10 @@ Partial Public Class AKRODataSet
         Me.Relations.Add(Me.relationFK_tblVitalSigns_tblContacts)
         Me.relationFK_tblVitalSignTasks_tblContacts = New Global.System.Data.DataRelation("FK_tblVitalSignTasks_tblContacts", New Global.System.Data.DataColumn() {Me.tabletblContacts.ContactIDColumn}, New Global.System.Data.DataColumn() {Me.tabletblVitalSignTasks.AssignedToColumn}, false)
         Me.Relations.Add(Me.relationFK_tblVitalSignTasks_tblContacts)
+        Me.relationtblVitalSigns_vwVitalSignWorkLog = New Global.System.Data.DataRelation("tblVitalSigns_vwVitalSignWorkLog", New Global.System.Data.DataColumn() {Me.tabletblVitalSigns.VSIDColumn}, New Global.System.Data.DataColumn() {Me.tablevwVitalSignWorkLog.VSIDColumn}, false)
+        Me.Relations.Add(Me.relationtblVitalSigns_vwVitalSignWorkLog)
+        Me.relationvwVitalSignOverview_vwVitalSignWorkLog = New Global.System.Data.DataRelation("vwVitalSignOverview_vwVitalSignWorkLog", New Global.System.Data.DataColumn() {Me.tablevwVitalSignOverview.VSIDColumn}, New Global.System.Data.DataColumn() {Me.tablevwVitalSignWorkLog.VSIDColumn}, false)
+        Me.Relations.Add(Me.relationvwVitalSignOverview_vwVitalSignWorkLog)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5205,9 +5215,12 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddvwVitalSignWorkLogRow(ByVal Acronym As String, ByVal Network As String, ByVal NetworkVSName As String, ByVal LogDate As Date, ByVal Username As String, ByVal LogEntry As String, ByVal NetworkID As Integer, ByVal VSID As Integer, ByVal VSDMLogID As Integer) As vwVitalSignWorkLogRow
+        Public Overloads Function AddvwVitalSignWorkLogRow(ByVal Acronym As String, ByVal Network As String, ByVal NetworkVSName As String, ByVal LogDate As Date, ByVal Username As String, ByVal LogEntry As String, ByVal NetworkID As Integer, ByVal parenttblVitalSignsRowBytblVitalSigns_vwVitalSignWorkLog As tblVitalSignsRow, ByVal VSDMLogID As Integer) As vwVitalSignWorkLogRow
             Dim rowvwVitalSignWorkLogRow As vwVitalSignWorkLogRow = CType(Me.NewRow,vwVitalSignWorkLogRow)
-            Dim columnValuesArray() As Object = New Object() {Acronym, Network, NetworkVSName, LogDate, Username, LogEntry, NetworkID, VSID, VSDMLogID}
+            Dim columnValuesArray() As Object = New Object() {Acronym, Network, NetworkVSName, LogDate, Username, LogEntry, NetworkID, Nothing, VSDMLogID}
+            If (Not (parenttblVitalSignsRowBytblVitalSigns_vwVitalSignWorkLog) Is Nothing) Then
+                columnValuesArray(7) = parenttblVitalSignsRowBytblVitalSigns_vwVitalSignWorkLog(0)
+            End If
             rowvwVitalSignWorkLogRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowvwVitalSignWorkLogRow)
             Return rowvwVitalSignWorkLogRow
@@ -8732,6 +8745,16 @@ Partial Public Class AKRODataSet
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("tblVitalSigns_vwVitalSignOverview")),vwVitalSignOverviewRow())
             End If
         End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function GetvwVitalSignWorkLogRows() As vwVitalSignWorkLogRow()
+            If (Me.Table.ChildRelations("tblVitalSigns_vwVitalSignWorkLog") Is Nothing) Then
+                Return New vwVitalSignWorkLogRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("tblVitalSigns_vwVitalSignWorkLog")),vwVitalSignWorkLogRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -9870,6 +9893,16 @@ Partial Public Class AKRODataSet
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("vwVitalSignOverview_tblVitalSignObjectives")),tblVitalSignObjectivesRow())
             End If
         End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function GetvwVitalSignWorkLogRows() As vwVitalSignWorkLogRow()
+            If (Me.Table.ChildRelations("vwVitalSignOverview_vwVitalSignWorkLog") Is Nothing) Then
+                Return New vwVitalSignWorkLogRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("vwVitalSignOverview_vwVitalSignWorkLog")),vwVitalSignWorkLogRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -9983,6 +10016,28 @@ Partial Public Class AKRODataSet
             End Get
             Set
                 Me(Me.tablevwVitalSignWorkLog.VSDMLogIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property tblVitalSignsRow() As tblVitalSignsRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("tblVitalSigns_vwVitalSignWorkLog")),tblVitalSignsRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("tblVitalSigns_vwVitalSignWorkLog"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property vwVitalSignOverviewRow() As vwVitalSignOverviewRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("vwVitalSignOverview_vwVitalSignWorkLog")),vwVitalSignOverviewRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("vwVitalSignOverview_vwVitalSignWorkLog"))
             End Set
         End Property
     End Class

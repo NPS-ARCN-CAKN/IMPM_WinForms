@@ -96,7 +96,6 @@ Partial Class Form1
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.TblContactsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VitalSignOverviewToolStrip = New System.Windows.Forms.ToolStrip()
         Me.OpenProjectDirectoryToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
@@ -105,6 +104,7 @@ Partial Class Form1
         Me.OpenProjectReferenceToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.VitalSignHeaderPanel = New System.Windows.Forms.Panel()
         Me.VitalSignHeaderLabel = New System.Windows.Forms.Label()
+        Me.TblContactsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TblProtocolDeliverablesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TblProtocolRemeasurementsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MainMenuStrip = New System.Windows.Forms.MenuStrip()
@@ -117,6 +117,7 @@ Partial Class Form1
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
+        Me.SitesTabPage = New System.Windows.Forms.TabPage()
         CType(Me.vwVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -152,9 +153,9 @@ Partial Class Form1
         CType(Me.TblVitalSignObjectivesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tblVitalSignObjectivesBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tblVitalSignObjectivesBindingNavigator.SuspendLayout()
-        CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VitalSignOverviewToolStrip.SuspendLayout()
         Me.VitalSignHeaderPanel.SuspendLayout()
+        CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblProtocolRemeasurementsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainMenuStrip.SuspendLayout()
@@ -304,6 +305,7 @@ Partial Class Form1
         Me.VitalSignTabControl.Controls.Add(Me.TasksTabPage)
         Me.VitalSignTabControl.Controls.Add(Me.DataManagementOverviewTabPage)
         Me.VitalSignTabControl.Controls.Add(Me.ObjectivesTabPage)
+        Me.VitalSignTabControl.Controls.Add(Me.SitesTabPage)
         Me.VitalSignTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.VitalSignTabControl.Location = New System.Drawing.Point(0, 59)
         Me.VitalSignTabControl.Margin = New System.Windows.Forms.Padding(2)
@@ -790,11 +792,6 @@ Partial Class Form1
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
-        'TblContactsBindingSource
-        '
-        Me.TblContactsBindingSource.DataMember = "tblContacts"
-        Me.TblContactsBindingSource.DataSource = Me.AKRODataSet
-        '
         'VitalSignOverviewToolStrip
         '
         Me.VitalSignOverviewToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
@@ -861,6 +858,11 @@ Partial Class Form1
         Me.VitalSignHeaderLabel.Size = New System.Drawing.Size(174, 19)
         Me.VitalSignHeaderLabel.TabIndex = 0
         Me.VitalSignHeaderLabel.Text = "VitalSignHeaderLabel"
+        '
+        'TblContactsBindingSource
+        '
+        Me.TblContactsBindingSource.DataMember = "tblContacts"
+        Me.TblContactsBindingSource.DataSource = Me.AKRODataSet
         '
         'TblProtocolDeliverablesBindingSource
         '
@@ -945,6 +947,16 @@ Partial Class Form1
         '
         Me.vwVitalSignWorkLogTableAdapter.ClearBeforeFill = True
         '
+        'SitesTabPage
+        '
+        Me.SitesTabPage.Location = New System.Drawing.Point(4, 22)
+        Me.SitesTabPage.Name = "SitesTabPage"
+        Me.SitesTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.SitesTabPage.Size = New System.Drawing.Size(818, 584)
+        Me.SitesTabPage.TabIndex = 6
+        Me.SitesTabPage.Text = "Sites"
+        Me.SitesTabPage.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1000,11 +1012,11 @@ Partial Class Form1
         CType(Me.tblVitalSignObjectivesBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tblVitalSignObjectivesBindingNavigator.ResumeLayout(False)
         Me.tblVitalSignObjectivesBindingNavigator.PerformLayout()
-        CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.VitalSignOverviewToolStrip.ResumeLayout(False)
         Me.VitalSignOverviewToolStrip.PerformLayout()
         Me.VitalSignHeaderPanel.ResumeLayout(False)
         Me.VitalSignHeaderPanel.PerformLayout()
+        CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblProtocolRemeasurementsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MainMenuStrip.ResumeLayout(False)
@@ -1102,4 +1114,5 @@ Partial Class Form1
     Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
     Friend WithEvents CreateDeliverablesDirectoriesToolStripButton As ToolStripButton
     Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
+    Friend WithEvents SitesTabPage As TabPage
 End Class
