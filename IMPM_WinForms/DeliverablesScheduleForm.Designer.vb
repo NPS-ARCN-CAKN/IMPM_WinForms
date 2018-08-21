@@ -34,18 +34,18 @@ Partial Class DeliverablesScheduleForm
         Me.DSTextBox = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.DeliverablesScheduleGridTabPage = New System.Windows.Forms.TabPage()
-        Me.ColumnsChooserDataGridView = New System.Windows.Forms.DataGridView()
         Me.DeliverablesScheduleTextTabPage = New System.Windows.Forms.TabPage()
-        Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.ColumnsChooserDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DeliverablesSplitContainer = New System.Windows.Forms.SplitContainer()
         CType(Me.DeliverablesScheduleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.DeliverablesScheduleGridTabPage.SuspendLayout()
-        CType(Me.ColumnsChooserDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DeliverablesScheduleTextTabPage.SuspendLayout()
-        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SplitContainer2.Panel1.SuspendLayout()
-        Me.SplitContainer2.Panel2.SuspendLayout()
-        Me.SplitContainer2.SuspendLayout()
+        CType(Me.ColumnsChooserDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DeliverablesSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DeliverablesSplitContainer.Panel1.SuspendLayout()
+        Me.DeliverablesSplitContainer.Panel2.SuspendLayout()
+        Me.DeliverablesSplitContainer.SuspendLayout()
         Me.SuspendLayout()
         '
         'DeliverablesScheduleDataGridView
@@ -64,7 +64,7 @@ Partial Class DeliverablesScheduleForm
         Me.DeliverablesScheduleDataGridView.Name = "DeliverablesScheduleDataGridView"
         Me.DeliverablesScheduleDataGridView.ReadOnly = True
         Me.DeliverablesScheduleDataGridView.RowTemplate.Height = 24
-        Me.DeliverablesScheduleDataGridView.Size = New System.Drawing.Size(501, 488)
+        Me.DeliverablesScheduleDataGridView.Size = New System.Drawing.Size(596, 488)
         Me.DeliverablesScheduleDataGridView.TabIndex = 0
         '
         'DeliverableIdentifier
@@ -134,12 +134,13 @@ Partial Class DeliverablesScheduleForm
         'DSTextBox
         '
         Me.DSTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DSTextBox.Font = New System.Drawing.Font("Courier New", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DSTextBox.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DSTextBox.Location = New System.Drawing.Point(2, 2)
         Me.DSTextBox.Margin = New System.Windows.Forms.Padding(2)
         Me.DSTextBox.Multiline = True
         Me.DSTextBox.Name = "DSTextBox"
-        Me.DSTextBox.Size = New System.Drawing.Size(501, 488)
+        Me.DSTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.DSTextBox.Size = New System.Drawing.Size(596, 488)
         Me.DSTextBox.TabIndex = 1
         Me.DSTextBox.WordWrap = False
         '
@@ -152,7 +153,7 @@ Partial Class DeliverablesScheduleForm
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(2)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(513, 518)
+        Me.TabControl1.Size = New System.Drawing.Size(608, 518)
         Me.TabControl1.TabIndex = 2
         '
         'DeliverablesScheduleGridTabPage
@@ -162,23 +163,10 @@ Partial Class DeliverablesScheduleForm
         Me.DeliverablesScheduleGridTabPage.Margin = New System.Windows.Forms.Padding(2)
         Me.DeliverablesScheduleGridTabPage.Name = "DeliverablesScheduleGridTabPage"
         Me.DeliverablesScheduleGridTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.DeliverablesScheduleGridTabPage.Size = New System.Drawing.Size(505, 492)
+        Me.DeliverablesScheduleGridTabPage.Size = New System.Drawing.Size(600, 492)
         Me.DeliverablesScheduleGridTabPage.TabIndex = 0
         Me.DeliverablesScheduleGridTabPage.Text = "Grid"
         Me.DeliverablesScheduleGridTabPage.UseVisualStyleBackColor = True
-        '
-        'ColumnsChooserDataGridView
-        '
-        Me.ColumnsChooserDataGridView.AllowUserToAddRows = False
-        Me.ColumnsChooserDataGridView.AllowUserToDeleteRows = False
-        Me.ColumnsChooserDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ColumnsChooserDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ColumnsChooserDataGridView.Location = New System.Drawing.Point(0, 0)
-        Me.ColumnsChooserDataGridView.Margin = New System.Windows.Forms.Padding(2)
-        Me.ColumnsChooserDataGridView.Name = "ColumnsChooserDataGridView"
-        Me.ColumnsChooserDataGridView.RowTemplate.Height = 24
-        Me.ColumnsChooserDataGridView.Size = New System.Drawing.Size(258, 518)
-        Me.ColumnsChooserDataGridView.TabIndex = 1
         '
         'DeliverablesScheduleTextTabPage
         '
@@ -187,47 +175,61 @@ Partial Class DeliverablesScheduleForm
         Me.DeliverablesScheduleTextTabPage.Margin = New System.Windows.Forms.Padding(2)
         Me.DeliverablesScheduleTextTabPage.Name = "DeliverablesScheduleTextTabPage"
         Me.DeliverablesScheduleTextTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.DeliverablesScheduleTextTabPage.Size = New System.Drawing.Size(505, 492)
+        Me.DeliverablesScheduleTextTabPage.Size = New System.Drawing.Size(600, 492)
         Me.DeliverablesScheduleTextTabPage.TabIndex = 1
         Me.DeliverablesScheduleTextTabPage.Text = "Text"
         Me.DeliverablesScheduleTextTabPage.UseVisualStyleBackColor = True
         '
-        'SplitContainer2
+        'ColumnsChooserDataGridView
         '
-        Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer2.Name = "SplitContainer2"
+        Me.ColumnsChooserDataGridView.AllowUserToAddRows = False
+        Me.ColumnsChooserDataGridView.AllowUserToDeleteRows = False
+        Me.ColumnsChooserDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.ColumnsChooserDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.ColumnsChooserDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ColumnsChooserDataGridView.Location = New System.Drawing.Point(0, 0)
+        Me.ColumnsChooserDataGridView.Margin = New System.Windows.Forms.Padding(2)
+        Me.ColumnsChooserDataGridView.Name = "ColumnsChooserDataGridView"
+        Me.ColumnsChooserDataGridView.RowTemplate.Height = 24
+        Me.ColumnsChooserDataGridView.Size = New System.Drawing.Size(163, 518)
+        Me.ColumnsChooserDataGridView.TabIndex = 1
         '
-        'SplitContainer2.Panel1
+        'DeliverablesSplitContainer
         '
-        Me.SplitContainer2.Panel1.Controls.Add(Me.ColumnsChooserDataGridView)
+        Me.DeliverablesSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DeliverablesSplitContainer.Location = New System.Drawing.Point(0, 0)
+        Me.DeliverablesSplitContainer.Name = "DeliverablesSplitContainer"
         '
-        'SplitContainer2.Panel2
+        'DeliverablesSplitContainer.Panel1
         '
-        Me.SplitContainer2.Panel2.Controls.Add(Me.TabControl1)
-        Me.SplitContainer2.Size = New System.Drawing.Size(775, 518)
-        Me.SplitContainer2.SplitterDistance = 258
-        Me.SplitContainer2.TabIndex = 3
+        Me.DeliverablesSplitContainer.Panel1.Controls.Add(Me.ColumnsChooserDataGridView)
+        '
+        'DeliverablesSplitContainer.Panel2
+        '
+        Me.DeliverablesSplitContainer.Panel2.Controls.Add(Me.TabControl1)
+        Me.DeliverablesSplitContainer.Size = New System.Drawing.Size(775, 518)
+        Me.DeliverablesSplitContainer.SplitterDistance = 163
+        Me.DeliverablesSplitContainer.TabIndex = 3
         '
         'DeliverablesScheduleForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(775, 518)
-        Me.Controls.Add(Me.SplitContainer2)
+        Me.Controls.Add(Me.DeliverablesSplitContainer)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "DeliverablesScheduleForm"
         Me.Text = "Deliverables Schedule"
         CType(Me.DeliverablesScheduleDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabControl1.ResumeLayout(False)
         Me.DeliverablesScheduleGridTabPage.ResumeLayout(False)
-        CType(Me.ColumnsChooserDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DeliverablesScheduleTextTabPage.ResumeLayout(False)
         Me.DeliverablesScheduleTextTabPage.PerformLayout()
-        Me.SplitContainer2.Panel1.ResumeLayout(False)
-        Me.SplitContainer2.Panel2.ResumeLayout(False)
-        CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SplitContainer2.ResumeLayout(False)
+        CType(Me.ColumnsChooserDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.DeliverablesSplitContainer.Panel1.ResumeLayout(False)
+        Me.DeliverablesSplitContainer.Panel2.ResumeLayout(False)
+        CType(Me.DeliverablesSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.DeliverablesSplitContainer.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -246,5 +248,5 @@ Partial Class DeliverablesScheduleForm
     Friend WithEvents SOP As DataGridViewTextBoxColumn
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents ColumnsChooserDataGridView As DataGridView
-    Friend WithEvents SplitContainer2 As SplitContainer
+    Friend WithEvents DeliverablesSplitContainer As SplitContainer
 End Class

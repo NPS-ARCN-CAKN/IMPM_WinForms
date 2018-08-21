@@ -192,8 +192,8 @@ Public Class Form1
     ''' </summary>
     Private Sub SaveDataset()
         If AKRODataSet.HasChanges = True Then
-            If MsgBox("Save changes to database?", MsgBoxStyle.YesNo, "Dataset has changes") = MsgBoxResult.Yes Then
-                Try
+            'If MsgBox("Save changes to database?", MsgBoxStyle.YesNo, "Dataset has changes") = MsgBoxResult.Yes Then
+            Try
                     Me.TblVitalSignsBindingSource.EndEdit()
                     Me.TblVitalSignWorkLogBindingSource.EndEdit()
                     Me.TblVitalSignProtocolsBindingSource.EndEdit()
@@ -214,7 +214,7 @@ Public Class Form1
                     Me.TblVitalSignObjectivesBindingSource.CancelEdit()
                     MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
                 End Try
-            End If
+            'End If
         End If
 
     End Sub
