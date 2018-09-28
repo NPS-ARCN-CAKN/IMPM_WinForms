@@ -96,6 +96,7 @@ Partial Class Form1
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.SitesTabPage = New System.Windows.Forms.TabPage()
         Me.VitalSignOverviewToolStrip = New System.Windows.Forms.ToolStrip()
         Me.OpenProjectDirectoryToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
@@ -117,7 +118,6 @@ Partial Class Form1
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
-        Me.SitesTabPage = New System.Windows.Forms.TabPage()
         CType(Me.vwVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -792,6 +792,16 @@ Partial Class Form1
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
+        'SitesTabPage
+        '
+        Me.SitesTabPage.Location = New System.Drawing.Point(4, 22)
+        Me.SitesTabPage.Name = "SitesTabPage"
+        Me.SitesTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.SitesTabPage.Size = New System.Drawing.Size(818, 584)
+        Me.SitesTabPage.TabIndex = 6
+        Me.SitesTabPage.Text = "Sites"
+        Me.SitesTabPage.UseVisualStyleBackColor = True
+        '
         'VitalSignOverviewToolStrip
         '
         Me.VitalSignOverviewToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
@@ -946,16 +956,6 @@ Partial Class Form1
         'vwVitalSignWorkLogTableAdapter
         '
         Me.vwVitalSignWorkLogTableAdapter.ClearBeforeFill = True
-        '
-        'SitesTabPage
-        '
-        Me.SitesTabPage.Location = New System.Drawing.Point(4, 22)
-        Me.SitesTabPage.Name = "SitesTabPage"
-        Me.SitesTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.SitesTabPage.Size = New System.Drawing.Size(818, 584)
-        Me.SitesTabPage.TabIndex = 6
-        Me.SitesTabPage.Text = "Sites"
-        Me.SitesTabPage.UseVisualStyleBackColor = True
         '
         'Form1
         '

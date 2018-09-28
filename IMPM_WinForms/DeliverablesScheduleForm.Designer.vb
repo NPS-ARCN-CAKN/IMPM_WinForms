@@ -64,7 +64,7 @@ Partial Class DeliverablesScheduleForm
         Me.DeliverablesScheduleDataGridView.Name = "DeliverablesScheduleDataGridView"
         Me.DeliverablesScheduleDataGridView.ReadOnly = True
         Me.DeliverablesScheduleDataGridView.RowTemplate.Height = 24
-        Me.DeliverablesScheduleDataGridView.Size = New System.Drawing.Size(596, 488)
+        Me.DeliverablesScheduleDataGridView.Size = New System.Drawing.Size(981, 731)
         Me.DeliverablesScheduleDataGridView.TabIndex = 0
         '
         'DeliverableIdentifier
@@ -153,7 +153,7 @@ Partial Class DeliverablesScheduleForm
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(2)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(608, 518)
+        Me.TabControl1.Size = New System.Drawing.Size(993, 761)
         Me.TabControl1.TabIndex = 2
         '
         'DeliverablesScheduleGridTabPage
@@ -163,7 +163,7 @@ Partial Class DeliverablesScheduleForm
         Me.DeliverablesScheduleGridTabPage.Margin = New System.Windows.Forms.Padding(2)
         Me.DeliverablesScheduleGridTabPage.Name = "DeliverablesScheduleGridTabPage"
         Me.DeliverablesScheduleGridTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.DeliverablesScheduleGridTabPage.Size = New System.Drawing.Size(600, 492)
+        Me.DeliverablesScheduleGridTabPage.Size = New System.Drawing.Size(985, 735)
         Me.DeliverablesScheduleGridTabPage.TabIndex = 0
         Me.DeliverablesScheduleGridTabPage.Text = "Grid"
         Me.DeliverablesScheduleGridTabPage.UseVisualStyleBackColor = True
@@ -191,7 +191,7 @@ Partial Class DeliverablesScheduleForm
         Me.ColumnsChooserDataGridView.Margin = New System.Windows.Forms.Padding(2)
         Me.ColumnsChooserDataGridView.Name = "ColumnsChooserDataGridView"
         Me.ColumnsChooserDataGridView.RowTemplate.Height = 24
-        Me.ColumnsChooserDataGridView.Size = New System.Drawing.Size(163, 518)
+        Me.ColumnsChooserDataGridView.Size = New System.Drawing.Size(187, 761)
         Me.ColumnsChooserDataGridView.TabIndex = 1
         '
         'DeliverablesSplitContainer
@@ -207,15 +207,15 @@ Partial Class DeliverablesScheduleForm
         'DeliverablesSplitContainer.Panel2
         '
         Me.DeliverablesSplitContainer.Panel2.Controls.Add(Me.TabControl1)
-        Me.DeliverablesSplitContainer.Size = New System.Drawing.Size(775, 518)
-        Me.DeliverablesSplitContainer.SplitterDistance = 163
+        Me.DeliverablesSplitContainer.Size = New System.Drawing.Size(1184, 761)
+        Me.DeliverablesSplitContainer.SplitterDistance = 187
         Me.DeliverablesSplitContainer.TabIndex = 3
         '
         'DeliverablesScheduleForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(775, 518)
+        Me.ClientSize = New System.Drawing.Size(1184, 761)
         Me.Controls.Add(Me.DeliverablesSplitContainer)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "DeliverablesScheduleForm"
