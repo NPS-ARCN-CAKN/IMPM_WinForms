@@ -49,6 +49,8 @@ Partial Public Class AKRODataSet
     
     Private tabletblContacts As tblContactsDataTable
     
+    Private tableDataManagementMilestones As DataManagementMilestonesDataTable
+    
     Private relationFK_tblProtocolDeliverables_tblVitalSignProtocols As Global.System.Data.DataRelation
     
     Private relationFK_tblVitalSignRemeasurements_tblVitalSignProtocols As Global.System.Data.DataRelation
@@ -86,6 +88,8 @@ Partial Public Class AKRODataSet
     Private relationtblVitalSigns_vwVitalSignWorkLog As Global.System.Data.DataRelation
     
     Private relationvwVitalSignOverview_vwVitalSignWorkLog As Global.System.Data.DataRelation
+    
+    Private relationFK_DataManagementMilestones_tblVitalSigns As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -151,6 +155,9 @@ Partial Public Class AKRODataSet
             End If
             If (Not (ds.Tables("tblContacts")) Is Nothing) Then
                 MyBase.Tables.Add(New tblContactsDataTable(ds.Tables("tblContacts")))
+            End If
+            If (Not (ds.Tables("DataManagementMilestones")) Is Nothing) Then
+                MyBase.Tables.Add(New DataManagementMilestonesDataTable(ds.Tables("DataManagementMilestones")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -291,6 +298,16 @@ Partial Public Class AKRODataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property DataManagementMilestones() As DataManagementMilestonesDataTable
+        Get
+            Return Me.tableDataManagementMilestones
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.BrowsableAttribute(true),  _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -391,6 +408,9 @@ Partial Public Class AKRODataSet
             End If
             If (Not (ds.Tables("tblContacts")) Is Nothing) Then
                 MyBase.Tables.Add(New tblContactsDataTable(ds.Tables("tblContacts")))
+            End If
+            If (Not (ds.Tables("DataManagementMilestones")) Is Nothing) Then
+                MyBase.Tables.Add(New DataManagementMilestonesDataTable(ds.Tables("DataManagementMilestones")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -496,6 +516,12 @@ Partial Public Class AKRODataSet
                 Me.tabletblContacts.InitVars
             End If
         End If
+        Me.tableDataManagementMilestones = CType(MyBase.Tables("DataManagementMilestones"),DataManagementMilestonesDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableDataManagementMilestones) Is Nothing) Then
+                Me.tableDataManagementMilestones.InitVars
+            End If
+        End If
         Me.relationFK_tblProtocolDeliverables_tblVitalSignProtocols = Me.Relations("FK_tblProtocolDeliverables_tblVitalSignProtocols")
         Me.relationFK_tblVitalSignRemeasurements_tblVitalSignProtocols = Me.Relations("FK_tblVitalSignRemeasurements_tblVitalSignProtocols")
         Me.relationFK_tblVitalSignObjectives_tblVitalSigns = Me.Relations("FK_tblVitalSignObjectives_tblVitalSigns")
@@ -515,6 +541,7 @@ Partial Public Class AKRODataSet
         Me.relationFK_tblVitalSignTasks_tblContacts = Me.Relations("FK_tblVitalSignTasks_tblContacts")
         Me.relationtblVitalSigns_vwVitalSignWorkLog = Me.Relations("tblVitalSigns_vwVitalSignWorkLog")
         Me.relationvwVitalSignOverview_vwVitalSignWorkLog = Me.Relations("vwVitalSignOverview_vwVitalSignWorkLog")
+        Me.relationFK_DataManagementMilestones_tblVitalSigns = Me.Relations("FK_DataManagementMilestones_tblVitalSigns")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -549,6 +576,8 @@ Partial Public Class AKRODataSet
         MyBase.Tables.Add(Me.tabletblVitalSignProtocols)
         Me.tabletblContacts = New tblContactsDataTable()
         MyBase.Tables.Add(Me.tabletblContacts)
+        Me.tableDataManagementMilestones = New DataManagementMilestonesDataTable()
+        MyBase.Tables.Add(Me.tableDataManagementMilestones)
         Dim fkc As Global.System.Data.ForeignKeyConstraint
         fkc = New Global.System.Data.ForeignKeyConstraint("FK_tblProtocolDeliverables_tblVitalSignProtocols", New Global.System.Data.DataColumn() {Me.tabletblVitalSignProtocols.ProtocolIDColumn}, New Global.System.Data.DataColumn() {Me.tabletblProtocolDeliverables.ProtocolIDColumn})
         Me.tabletblProtocolDeliverables.Constraints.Add(fkc)
@@ -618,6 +647,8 @@ Partial Public Class AKRODataSet
         Me.Relations.Add(Me.relationtblVitalSigns_vwVitalSignWorkLog)
         Me.relationvwVitalSignOverview_vwVitalSignWorkLog = New Global.System.Data.DataRelation("vwVitalSignOverview_vwVitalSignWorkLog", New Global.System.Data.DataColumn() {Me.tablevwVitalSignOverview.VSIDColumn}, New Global.System.Data.DataColumn() {Me.tablevwVitalSignWorkLog.VSIDColumn}, false)
         Me.Relations.Add(Me.relationvwVitalSignOverview_vwVitalSignWorkLog)
+        Me.relationFK_DataManagementMilestones_tblVitalSigns = New Global.System.Data.DataRelation("FK_DataManagementMilestones_tblVitalSigns", New Global.System.Data.DataColumn() {Me.tabletblVitalSigns.VSIDColumn}, New Global.System.Data.DataColumn() {Me.tableDataManagementMilestones.VSIDColumn}, false)
+        Me.Relations.Add(Me.relationFK_DataManagementMilestones_tblVitalSigns)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -689,6 +720,12 @@ Partial Public Class AKRODataSet
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Function ShouldSerializetblContacts() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializeDataManagementMilestones() As Boolean
         Return false
     End Function
     
@@ -785,6 +822,9 @@ Partial Public Class AKRODataSet
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub tblContactsRowChangeEventHandler(ByVal sender As Object, ByVal e As tblContactsRowChangeEvent)
+    
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub DataManagementMilestonesRowChangeEventHandler(ByVal sender As Object, ByVal e As DataManagementMilestonesRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -6459,6 +6499,421 @@ Partial Public Class AKRODataSet
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class DataManagementMilestonesDataTable
+        Inherits Global.System.Data.TypedTableBase(Of DataManagementMilestonesRow)
+        
+        Private columnProtocolAvailable As Global.System.Data.DataColumn
+        
+        Private columnDataAvailable As Global.System.Data.DataColumn
+        
+        Private columnDeliverablesSchedule As Global.System.Data.DataColumn
+        
+        Private columnSOPsWritten As Global.System.Data.DataColumn
+        
+        Private columnDMChapterWritten As Global.System.Data.DataColumn
+        
+        Private columnDMSystemPlanExists As Global.System.Data.DataColumn
+        
+        Private columnDMSystemBuilt As Global.System.Data.DataColumn
+        
+        Private columnProtocolDirectory As Global.System.Data.DataColumn
+        
+        Private columnDataDirectory As Global.System.Data.DataColumn
+        
+        Private columnCurrentStatus As Global.System.Data.DataColumn
+        
+        Private columnDMMID As Global.System.Data.DataColumn
+        
+        Private columnVSID As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "DataManagementMilestones"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ProtocolAvailableColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnProtocolAvailable
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DataAvailableColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataAvailable
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DeliverablesScheduleColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDeliverablesSchedule
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property SOPsWrittenColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSOPsWritten
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DMChapterWrittenColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDMChapterWritten
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DMSystemPlanExistsColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDMSystemPlanExists
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DMSystemBuiltColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDMSystemBuilt
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property ProtocolDirectoryColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnProtocolDirectory
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DataDirectoryColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDataDirectory
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property CurrentStatusColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCurrentStatus
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DMMIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDMMID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property VSIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnVSID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As DataManagementMilestonesRow
+            Get
+                Return CType(Me.Rows(index),DataManagementMilestonesRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event DataManagementMilestonesRowChanging As DataManagementMilestonesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event DataManagementMilestonesRowChanged As DataManagementMilestonesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event DataManagementMilestonesRowDeleting As DataManagementMilestonesRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event DataManagementMilestonesRowDeleted As DataManagementMilestonesRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddDataManagementMilestonesRow(ByVal row As DataManagementMilestonesRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddDataManagementMilestonesRow(ByVal ProtocolAvailable As Boolean, ByVal DataAvailable As Boolean, ByVal DeliverablesSchedule As Boolean, ByVal SOPsWritten As Boolean, ByVal DMChapterWritten As Boolean, ByVal DMSystemPlanExists As Boolean, ByVal DMSystemBuilt As Boolean, ByVal ProtocolDirectory As String, ByVal DataDirectory As String, ByVal CurrentStatus As String, ByVal parenttblVitalSignsRowByFK_DataManagementMilestones_tblVitalSigns As tblVitalSignsRow) As DataManagementMilestonesRow
+            Dim rowDataManagementMilestonesRow As DataManagementMilestonesRow = CType(Me.NewRow,DataManagementMilestonesRow)
+            Dim columnValuesArray() As Object = New Object() {ProtocolAvailable, DataAvailable, DeliverablesSchedule, SOPsWritten, DMChapterWritten, DMSystemPlanExists, DMSystemBuilt, ProtocolDirectory, DataDirectory, CurrentStatus, Nothing, Nothing}
+            If (Not (parenttblVitalSignsRowByFK_DataManagementMilestones_tblVitalSigns) Is Nothing) Then
+                columnValuesArray(11) = parenttblVitalSignsRowByFK_DataManagementMilestones_tblVitalSigns(0)
+            End If
+            rowDataManagementMilestonesRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowDataManagementMilestonesRow)
+            Return rowDataManagementMilestonesRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function FindByDMMID(ByVal DMMID As Integer) As DataManagementMilestonesRow
+            Return CType(Me.Rows.Find(New Object() {DMMID}),DataManagementMilestonesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As DataManagementMilestonesDataTable = CType(MyBase.Clone,DataManagementMilestonesDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New DataManagementMilestonesDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnProtocolAvailable = MyBase.Columns("ProtocolAvailable")
+            Me.columnDataAvailable = MyBase.Columns("DataAvailable")
+            Me.columnDeliverablesSchedule = MyBase.Columns("DeliverablesSchedule")
+            Me.columnSOPsWritten = MyBase.Columns("SOPsWritten")
+            Me.columnDMChapterWritten = MyBase.Columns("DMChapterWritten")
+            Me.columnDMSystemPlanExists = MyBase.Columns("DMSystemPlanExists")
+            Me.columnDMSystemBuilt = MyBase.Columns("DMSystemBuilt")
+            Me.columnProtocolDirectory = MyBase.Columns("ProtocolDirectory")
+            Me.columnDataDirectory = MyBase.Columns("DataDirectory")
+            Me.columnCurrentStatus = MyBase.Columns("CurrentStatus")
+            Me.columnDMMID = MyBase.Columns("DMMID")
+            Me.columnVSID = MyBase.Columns("VSID")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnProtocolAvailable = New Global.System.Data.DataColumn("ProtocolAvailable", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProtocolAvailable)
+            Me.columnDataAvailable = New Global.System.Data.DataColumn("DataAvailable", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataAvailable)
+            Me.columnDeliverablesSchedule = New Global.System.Data.DataColumn("DeliverablesSchedule", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDeliverablesSchedule)
+            Me.columnSOPsWritten = New Global.System.Data.DataColumn("SOPsWritten", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSOPsWritten)
+            Me.columnDMChapterWritten = New Global.System.Data.DataColumn("DMChapterWritten", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDMChapterWritten)
+            Me.columnDMSystemPlanExists = New Global.System.Data.DataColumn("DMSystemPlanExists", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDMSystemPlanExists)
+            Me.columnDMSystemBuilt = New Global.System.Data.DataColumn("DMSystemBuilt", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDMSystemBuilt)
+            Me.columnProtocolDirectory = New Global.System.Data.DataColumn("ProtocolDirectory", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnProtocolDirectory)
+            Me.columnDataDirectory = New Global.System.Data.DataColumn("DataDirectory", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDataDirectory)
+            Me.columnCurrentStatus = New Global.System.Data.DataColumn("CurrentStatus", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCurrentStatus)
+            Me.columnDMMID = New Global.System.Data.DataColumn("DMMID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDMMID)
+            Me.columnVSID = New Global.System.Data.DataColumn("VSID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnVSID)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnDMMID}, true))
+            Me.columnProtocolDirectory.MaxLength = 1000
+            Me.columnDataDirectory.MaxLength = 1000
+            Me.columnCurrentStatus.MaxLength = 2147483647
+            Me.columnDMMID.AutoIncrement = true
+            Me.columnDMMID.AutoIncrementSeed = -1
+            Me.columnDMMID.AutoIncrementStep = -1
+            Me.columnDMMID.AllowDBNull = false
+            Me.columnDMMID.ReadOnly = true
+            Me.columnDMMID.Unique = true
+            Me.columnVSID.AllowDBNull = false
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewDataManagementMilestonesRow() As DataManagementMilestonesRow
+            Return CType(Me.NewRow,DataManagementMilestonesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New DataManagementMilestonesRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(DataManagementMilestonesRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.DataManagementMilestonesRowChangedEvent) Is Nothing) Then
+                RaiseEvent DataManagementMilestonesRowChanged(Me, New DataManagementMilestonesRowChangeEvent(CType(e.Row,DataManagementMilestonesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.DataManagementMilestonesRowChangingEvent) Is Nothing) Then
+                RaiseEvent DataManagementMilestonesRowChanging(Me, New DataManagementMilestonesRowChangeEvent(CType(e.Row,DataManagementMilestonesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.DataManagementMilestonesRowDeletedEvent) Is Nothing) Then
+                RaiseEvent DataManagementMilestonesRowDeleted(Me, New DataManagementMilestonesRowChangeEvent(CType(e.Row,DataManagementMilestonesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.DataManagementMilestonesRowDeletingEvent) Is Nothing) Then
+                RaiseEvent DataManagementMilestonesRowDeleting(Me, New DataManagementMilestonesRowChangeEvent(CType(e.Row,DataManagementMilestonesRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemoveDataManagementMilestonesRow(ByVal row As DataManagementMilestonesRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As AKRODataSet = New AKRODataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "DataManagementMilestonesDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class tblNetworksRow
@@ -8783,6 +9238,16 @@ Partial Public Class AKRODataSet
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("tblVitalSigns_vwVitalSignWorkLog")),vwVitalSignWorkLogRow())
             End If
         End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function GetDataManagementMilestonesRows() As DataManagementMilestonesRow()
+            If (Me.Table.ChildRelations("FK_DataManagementMilestones_tblVitalSigns") Is Nothing) Then
+                Return New DataManagementMilestonesRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_DataManagementMilestones_tblVitalSigns")),DataManagementMilestonesRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -10937,6 +11402,335 @@ Partial Public Class AKRODataSet
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class DataManagementMilestonesRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableDataManagementMilestones As DataManagementMilestonesDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableDataManagementMilestones = CType(Me.Table,DataManagementMilestonesDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ProtocolAvailable() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataManagementMilestones.ProtocolAvailableColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ProtocolAvailable' in table 'DataManagementMilestones' is D"& _ 
+                            "BNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataManagementMilestones.ProtocolAvailableColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DataAvailable() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataManagementMilestones.DataAvailableColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DataAvailable' in table 'DataManagementMilestones' is DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataManagementMilestones.DataAvailableColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DeliverablesSchedule() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataManagementMilestones.DeliverablesScheduleColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DeliverablesSchedule' in table 'DataManagementMilestones' i"& _ 
+                            "s DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataManagementMilestones.DeliverablesScheduleColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property SOPsWritten() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataManagementMilestones.SOPsWrittenColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SOPsWritten' in table 'DataManagementMilestones' is DBNull."& _ 
+                            "", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataManagementMilestones.SOPsWrittenColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DMChapterWritten() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataManagementMilestones.DMChapterWrittenColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DMChapterWritten' in table 'DataManagementMilestones' is DB"& _ 
+                            "Null.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataManagementMilestones.DMChapterWrittenColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DMSystemPlanExists() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataManagementMilestones.DMSystemPlanExistsColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DMSystemPlanExists' in table 'DataManagementMilestones' is "& _ 
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataManagementMilestones.DMSystemPlanExistsColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DMSystemBuilt() As Boolean
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataManagementMilestones.DMSystemBuiltColumn),Boolean)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DMSystemBuilt' in table 'DataManagementMilestones' is DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataManagementMilestones.DMSystemBuiltColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ProtocolDirectory() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataManagementMilestones.ProtocolDirectoryColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ProtocolDirectory' in table 'DataManagementMilestones' is D"& _ 
+                            "BNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataManagementMilestones.ProtocolDirectoryColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DataDirectory() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataManagementMilestones.DataDirectoryColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DataDirectory' in table 'DataManagementMilestones' is DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataManagementMilestones.DataDirectoryColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property CurrentStatus() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDataManagementMilestones.CurrentStatusColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CurrentStatus' in table 'DataManagementMilestones' is DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDataManagementMilestones.CurrentStatusColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DMMID() As Integer
+            Get
+                Return CType(Me(Me.tableDataManagementMilestones.DMMIDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableDataManagementMilestones.DMMIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property VSID() As Integer
+            Get
+                Return CType(Me(Me.tableDataManagementMilestones.VSIDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableDataManagementMilestones.VSIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property tblVitalSignsRow() As tblVitalSignsRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_DataManagementMilestones_tblVitalSigns")),tblVitalSignsRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("FK_DataManagementMilestones_tblVitalSigns"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsProtocolAvailableNull() As Boolean
+            Return Me.IsNull(Me.tableDataManagementMilestones.ProtocolAvailableColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetProtocolAvailableNull()
+            Me(Me.tableDataManagementMilestones.ProtocolAvailableColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDataAvailableNull() As Boolean
+            Return Me.IsNull(Me.tableDataManagementMilestones.DataAvailableColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDataAvailableNull()
+            Me(Me.tableDataManagementMilestones.DataAvailableColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDeliverablesScheduleNull() As Boolean
+            Return Me.IsNull(Me.tableDataManagementMilestones.DeliverablesScheduleColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDeliverablesScheduleNull()
+            Me(Me.tableDataManagementMilestones.DeliverablesScheduleColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsSOPsWrittenNull() As Boolean
+            Return Me.IsNull(Me.tableDataManagementMilestones.SOPsWrittenColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetSOPsWrittenNull()
+            Me(Me.tableDataManagementMilestones.SOPsWrittenColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDMChapterWrittenNull() As Boolean
+            Return Me.IsNull(Me.tableDataManagementMilestones.DMChapterWrittenColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDMChapterWrittenNull()
+            Me(Me.tableDataManagementMilestones.DMChapterWrittenColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDMSystemPlanExistsNull() As Boolean
+            Return Me.IsNull(Me.tableDataManagementMilestones.DMSystemPlanExistsColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDMSystemPlanExistsNull()
+            Me(Me.tableDataManagementMilestones.DMSystemPlanExistsColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDMSystemBuiltNull() As Boolean
+            Return Me.IsNull(Me.tableDataManagementMilestones.DMSystemBuiltColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDMSystemBuiltNull()
+            Me(Me.tableDataManagementMilestones.DMSystemBuiltColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsProtocolDirectoryNull() As Boolean
+            Return Me.IsNull(Me.tableDataManagementMilestones.ProtocolDirectoryColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetProtocolDirectoryNull()
+            Me(Me.tableDataManagementMilestones.ProtocolDirectoryColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDataDirectoryNull() As Boolean
+            Return Me.IsNull(Me.tableDataManagementMilestones.DataDirectoryColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDataDirectoryNull()
+            Me(Me.tableDataManagementMilestones.DataDirectoryColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsCurrentStatusNull() As Boolean
+            Return Me.IsNull(Me.tableDataManagementMilestones.CurrentStatusColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetCurrentStatusNull()
+            Me(Me.tableDataManagementMilestones.CurrentStatusColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -11354,6 +12148,42 @@ Partial Public Class AKRODataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property Row() As tblContactsRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class DataManagementMilestonesRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As DataManagementMilestonesRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As DataManagementMilestonesRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As DataManagementMilestonesRow
             Get
                 Return Me.eventRow
             End Get
@@ -18372,6 +19202,685 @@ Namespace AKRODataSetTableAdapters
     End Class
     
     '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class DataManagementMilestonesTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
+        
+        Private _connection As Global.System.Data.SqlClient.SqlConnection
+        
+        Private _transaction As Global.System.Data.SqlClient.SqlTransaction
+        
+        Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "DataManagementMilestones"
+            tableMapping.ColumnMappings.Add("ProtocolAvailable", "ProtocolAvailable")
+            tableMapping.ColumnMappings.Add("DataAvailable", "DataAvailable")
+            tableMapping.ColumnMappings.Add("DeliverablesSchedule", "DeliverablesSchedule")
+            tableMapping.ColumnMappings.Add("SOPsWritten", "SOPsWritten")
+            tableMapping.ColumnMappings.Add("DMChapterWritten", "DMChapterWritten")
+            tableMapping.ColumnMappings.Add("DMSystemPlanExists", "DMSystemPlanExists")
+            tableMapping.ColumnMappings.Add("DMSystemBuilt", "DMSystemBuilt")
+            tableMapping.ColumnMappings.Add("ProtocolDirectory", "ProtocolDirectory")
+            tableMapping.ColumnMappings.Add("DataDirectory", "DataDirectory")
+            tableMapping.ColumnMappings.Add("CurrentStatus", "CurrentStatus")
+            tableMapping.ColumnMappings.Add("DMMID", "DMMID")
+            tableMapping.ColumnMappings.Add("VSID", "VSID")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[DataManagementMilestones] WHERE (((@IsNull_ProtocolAvailable ="& _ 
+                " 1 AND [ProtocolAvailable] IS NULL) OR ([ProtocolAvailable] = @Original_Protocol"& _ 
+                "Available)) AND ((@IsNull_DataAvailable = 1 AND [DataAvailable] IS NULL) OR ([Da"& _ 
+                "taAvailable] = @Original_DataAvailable)) AND ((@IsNull_DeliverablesSchedule = 1 "& _ 
+                "AND [DeliverablesSchedule] IS NULL) OR ([DeliverablesSchedule] = @Original_Deliv"& _ 
+                "erablesSchedule)) AND ((@IsNull_SOPsWritten = 1 AND [SOPsWritten] IS NULL) OR (["& _ 
+                "SOPsWritten] = @Original_SOPsWritten)) AND ((@IsNull_DMChapterWritten = 1 AND [D"& _ 
+                "MChapterWritten] IS NULL) OR ([DMChapterWritten] = @Original_DMChapterWritten)) "& _ 
+                "AND ((@IsNull_DMSystemPlanExists = 1 AND [DMSystemPlanExists] IS NULL) OR ([DMSy"& _ 
+                "stemPlanExists] = @Original_DMSystemPlanExists)) AND ((@IsNull_DMSystemBuilt = 1"& _ 
+                " AND [DMSystemBuilt] IS NULL) OR ([DMSystemBuilt] = @Original_DMSystemBuilt)) AN"& _ 
+                "D ((@IsNull_ProtocolDirectory = 1 AND [ProtocolDirectory] IS NULL) OR ([Protocol"& _ 
+                "Directory] = @Original_ProtocolDirectory)) AND ((@IsNull_DataDirectory = 1 AND ["& _ 
+                "DataDirectory] IS NULL) OR ([DataDirectory] = @Original_DataDirectory)) AND ([DM"& _ 
+                "MID] = @Original_DMMID) AND ([VSID] = @Original_VSID))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProtocolAvailable", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolAvailable", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolAvailable", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataAvailable", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataAvailable", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataAvailable", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DeliverablesSchedule", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesSchedule", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DeliverablesSchedule", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesSchedule", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SOPsWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SOPsWritten", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SOPsWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SOPsWritten", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DMChapterWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMChapterWritten", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMChapterWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMChapterWritten", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DMSystemPlanExists", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemPlanExists", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMSystemPlanExists", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemPlanExists", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DMSystemBuilt", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemBuilt", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMSystemBuilt", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemBuilt", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProtocolDirectory", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolDirectory", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolDirectory", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataDirectory", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataDirectory", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataDirectory", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMMID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMMID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[DataManagementMilestones] ([ProtocolAvailable], [DataAvailable"& _ 
+                "], [DeliverablesSchedule], [SOPsWritten], [DMChapterWritten], [DMSystemPlanExist"& _ 
+                "s], [DMSystemBuilt], [ProtocolDirectory], [DataDirectory], [CurrentStatus], [VSI"& _ 
+                "D]) VALUES (@ProtocolAvailable, @DataAvailable, @DeliverablesSchedule, @SOPsWrit"& _ 
+                "ten, @DMChapterWritten, @DMSystemPlanExists, @DMSystemBuilt, @ProtocolDirectory,"& _ 
+                " @DataDirectory, @CurrentStatus, @VSID);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProtocolAvailable, DataAvailabl"& _ 
+                "e, DeliverablesSchedule, SOPsWritten, DMChapterWritten, DMSystemPlanExists, DMSy"& _ 
+                "stemBuilt, ProtocolDirectory, DataDirectory, CurrentStatus, DMMID, VSID FROM Dat"& _ 
+                "aManagementMilestones WHERE (DMMID = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolAvailable", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataAvailable", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DeliverablesSchedule", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesSchedule", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SOPsWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SOPsWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMChapterWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMChapterWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMSystemPlanExists", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemPlanExists", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMSystemBuilt", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemBuilt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolDirectory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataDirectory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CurrentStatus", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CurrentStatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[DataManagementMilestones] SET [ProtocolAvailable] = @ProtocolAvaila"& _ 
+                "ble, [DataAvailable] = @DataAvailable, [DeliverablesSchedule] = @DeliverablesSch"& _ 
+                "edule, [SOPsWritten] = @SOPsWritten, [DMChapterWritten] = @DMChapterWritten, [DM"& _ 
+                "SystemPlanExists] = @DMSystemPlanExists, [DMSystemBuilt] = @DMSystemBuilt, [Prot"& _ 
+                "ocolDirectory] = @ProtocolDirectory, [DataDirectory] = @DataDirectory, [CurrentS"& _ 
+                "tatus] = @CurrentStatus, [VSID] = @VSID WHERE (((@IsNull_ProtocolAvailable = 1 A"& _ 
+                "ND [ProtocolAvailable] IS NULL) OR ([ProtocolAvailable] = @Original_ProtocolAvai"& _ 
+                "lable)) AND ((@IsNull_DataAvailable = 1 AND [DataAvailable] IS NULL) OR ([DataAv"& _ 
+                "ailable] = @Original_DataAvailable)) AND ((@IsNull_DeliverablesSchedule = 1 AND "& _ 
+                "[DeliverablesSchedule] IS NULL) OR ([DeliverablesSchedule] = @Original_Deliverab"& _ 
+                "lesSchedule)) AND ((@IsNull_SOPsWritten = 1 AND [SOPsWritten] IS NULL) OR ([SOPs"& _ 
+                "Written] = @Original_SOPsWritten)) AND ((@IsNull_DMChapterWritten = 1 AND [DMCha"& _ 
+                "pterWritten] IS NULL) OR ([DMChapterWritten] = @Original_DMChapterWritten)) AND "& _ 
+                "((@IsNull_DMSystemPlanExists = 1 AND [DMSystemPlanExists] IS NULL) OR ([DMSystem"& _ 
+                "PlanExists] = @Original_DMSystemPlanExists)) AND ((@IsNull_DMSystemBuilt = 1 AND"& _ 
+                " [DMSystemBuilt] IS NULL) OR ([DMSystemBuilt] = @Original_DMSystemBuilt)) AND (("& _ 
+                "@IsNull_ProtocolDirectory = 1 AND [ProtocolDirectory] IS NULL) OR ([ProtocolDire"& _ 
+                "ctory] = @Original_ProtocolDirectory)) AND ((@IsNull_DataDirectory = 1 AND [Data"& _ 
+                "Directory] IS NULL) OR ([DataDirectory] = @Original_DataDirectory)) AND ([DMMID]"& _ 
+                " = @Original_DMMID) AND ([VSID] = @Original_VSID));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProtocolAvailable, D"& _ 
+                "ataAvailable, DeliverablesSchedule, SOPsWritten, DMChapterWritten, DMSystemPlanE"& _ 
+                "xists, DMSystemBuilt, ProtocolDirectory, DataDirectory, CurrentStatus, DMMID, VS"& _ 
+                "ID FROM DataManagementMilestones WHERE (DMMID = @DMMID)"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolAvailable", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataAvailable", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DeliverablesSchedule", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesSchedule", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SOPsWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SOPsWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMChapterWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMChapterWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMSystemPlanExists", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemPlanExists", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMSystemBuilt", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemBuilt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolDirectory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataDirectory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CurrentStatus", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CurrentStatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProtocolAvailable", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolAvailable", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolAvailable", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataAvailable", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataAvailable", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataAvailable", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DeliverablesSchedule", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesSchedule", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DeliverablesSchedule", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesSchedule", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SOPsWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SOPsWritten", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SOPsWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SOPsWritten", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DMChapterWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMChapterWritten", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMChapterWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMChapterWritten", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DMSystemPlanExists", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemPlanExists", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMSystemPlanExists", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemPlanExists", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DMSystemBuilt", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemBuilt", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMSystemBuilt", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemBuilt", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProtocolDirectory", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolDirectory", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolDirectory", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataDirectory", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataDirectory", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataDirectory", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMMID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMMID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMMID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "DMMID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.SqlClient.SqlConnection()
+            Me._connection.ConnectionString = Global.IMPM.My.MySettings.Default.AKROConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
+            Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT ProtocolAvailable, DataAvailable, DeliverablesSchedule, SOPsWritten, DMCha"& _ 
+                "pterWritten, DMSystemPlanExists, DMSystemBuilt, ProtocolDirectory, DataDirectory"& _ 
+                ", CurrentStatus, DMMID, VSID FROM dbo.DataManagementMilestones"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As AKRODataSet.DataManagementMilestonesDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As AKRODataSet.DataManagementMilestonesDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As AKRODataSet.DataManagementMilestonesDataTable = New AKRODataSet.DataManagementMilestonesDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As AKRODataSet.DataManagementMilestonesDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As AKRODataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "DataManagementMilestones")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_ProtocolAvailable As Global.System.Nullable(Of Boolean), ByVal Original_DataAvailable As Global.System.Nullable(Of Boolean), ByVal Original_DeliverablesSchedule As Global.System.Nullable(Of Boolean), ByVal Original_SOPsWritten As Global.System.Nullable(Of Boolean), ByVal Original_DMChapterWritten As Global.System.Nullable(Of Boolean), ByVal Original_DMSystemPlanExists As Global.System.Nullable(Of Boolean), ByVal Original_DMSystemBuilt As Global.System.Nullable(Of Boolean), ByVal Original_ProtocolDirectory As String, ByVal Original_DataDirectory As String, ByVal Original_DMMID As Integer, ByVal Original_VSID As Integer) As Integer
+            If (Original_ProtocolAvailable.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_ProtocolAvailable.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DataAvailable.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_DataAvailable.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DeliverablesSchedule.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_DeliverablesSchedule.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (Original_SOPsWritten.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_SOPsWritten.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DMChapterWritten.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_DMChapterWritten.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DMSystemPlanExists.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_DMSystemPlanExists.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(11).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DMSystemBuilt.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_DMSystemBuilt.Value,Boolean)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(13).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ProtocolDirectory Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_ProtocolDirectory,String)
+            End If
+            If (Original_DataDirectory Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(Original_DataDirectory,String)
+            End If
+            Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_DMMID,Integer)
+            Me.Adapter.DeleteCommand.Parameters(19).Value = CType(Original_VSID,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal ProtocolAvailable As Global.System.Nullable(Of Boolean), ByVal DataAvailable As Global.System.Nullable(Of Boolean), ByVal DeliverablesSchedule As Global.System.Nullable(Of Boolean), ByVal SOPsWritten As Global.System.Nullable(Of Boolean), ByVal DMChapterWritten As Global.System.Nullable(Of Boolean), ByVal DMSystemPlanExists As Global.System.Nullable(Of Boolean), ByVal DMSystemBuilt As Global.System.Nullable(Of Boolean), ByVal ProtocolDirectory As String, ByVal DataDirectory As String, ByVal CurrentStatus As String, ByVal VSID As Integer) As Integer
+            If (ProtocolAvailable.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(ProtocolAvailable.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DataAvailable.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(DataAvailable.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (DeliverablesSchedule.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(DeliverablesSchedule.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (SOPsWritten.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(SOPsWritten.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (DMChapterWritten.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(DMChapterWritten.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (DMSystemPlanExists.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(DMSystemPlanExists.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (DMSystemBuilt.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(DMSystemBuilt.Value,Boolean)
+            Else
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (ProtocolDirectory Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(ProtocolDirectory,String)
+            End If
+            If (DataDirectory Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(DataDirectory,String)
+            End If
+            If (CurrentStatus Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(CurrentStatus,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(10).Value = CType(VSID,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal ProtocolAvailable As Global.System.Nullable(Of Boolean),  _
+                    ByVal DataAvailable As Global.System.Nullable(Of Boolean),  _
+                    ByVal DeliverablesSchedule As Global.System.Nullable(Of Boolean),  _
+                    ByVal SOPsWritten As Global.System.Nullable(Of Boolean),  _
+                    ByVal DMChapterWritten As Global.System.Nullable(Of Boolean),  _
+                    ByVal DMSystemPlanExists As Global.System.Nullable(Of Boolean),  _
+                    ByVal DMSystemBuilt As Global.System.Nullable(Of Boolean),  _
+                    ByVal ProtocolDirectory As String,  _
+                    ByVal DataDirectory As String,  _
+                    ByVal CurrentStatus As String,  _
+                    ByVal VSID As Integer,  _
+                    ByVal Original_ProtocolAvailable As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_DataAvailable As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_DeliverablesSchedule As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_SOPsWritten As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_DMChapterWritten As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_DMSystemPlanExists As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_DMSystemBuilt As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_ProtocolDirectory As String,  _
+                    ByVal Original_DataDirectory As String,  _
+                    ByVal Original_DMMID As Integer,  _
+                    ByVal Original_VSID As Integer,  _
+                    ByVal DMMID As Integer) As Integer
+            If (ProtocolAvailable.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ProtocolAvailable.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (DataAvailable.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(DataAvailable.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (DeliverablesSchedule.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(DeliverablesSchedule.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (SOPsWritten.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(SOPsWritten.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+            End If
+            If (DMChapterWritten.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(DMChapterWritten.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            If (DMSystemPlanExists.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(DMSystemPlanExists.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (DMSystemBuilt.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(DMSystemBuilt.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+            End If
+            If (ProtocolDirectory Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(ProtocolDirectory,String)
+            End If
+            If (DataDirectory Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(DataDirectory,String)
+            End If
+            If (CurrentStatus Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(CurrentStatus,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(VSID,Integer)
+            If (Original_ProtocolAvailable.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_ProtocolAvailable.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DataAvailable.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_DataAvailable.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DeliverablesSchedule.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_DeliverablesSchedule.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+            End If
+            If (Original_SOPsWritten.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_SOPsWritten.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DMChapterWritten.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_DMChapterWritten.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DMSystemPlanExists.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_DMSystemPlanExists.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+            End If
+            If (Original_DMSystemBuilt.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_DMSystemBuilt.Value,Boolean)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+            End If
+            If (Original_ProtocolDirectory Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_ProtocolDirectory,String)
+            End If
+            If (Original_DataDirectory Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_DataDirectory,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_DMMID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_VSID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(31).Value = CType(DMMID,Integer)
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update( _
+                    ByVal ProtocolAvailable As Global.System.Nullable(Of Boolean),  _
+                    ByVal DataAvailable As Global.System.Nullable(Of Boolean),  _
+                    ByVal DeliverablesSchedule As Global.System.Nullable(Of Boolean),  _
+                    ByVal SOPsWritten As Global.System.Nullable(Of Boolean),  _
+                    ByVal DMChapterWritten As Global.System.Nullable(Of Boolean),  _
+                    ByVal DMSystemPlanExists As Global.System.Nullable(Of Boolean),  _
+                    ByVal DMSystemBuilt As Global.System.Nullable(Of Boolean),  _
+                    ByVal ProtocolDirectory As String,  _
+                    ByVal DataDirectory As String,  _
+                    ByVal CurrentStatus As String,  _
+                    ByVal VSID As Integer,  _
+                    ByVal Original_ProtocolAvailable As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_DataAvailable As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_DeliverablesSchedule As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_SOPsWritten As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_DMChapterWritten As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_DMSystemPlanExists As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_DMSystemBuilt As Global.System.Nullable(Of Boolean),  _
+                    ByVal Original_ProtocolDirectory As String,  _
+                    ByVal Original_DataDirectory As String,  _
+                    ByVal Original_DMMID As Integer,  _
+                    ByVal Original_VSID As Integer) As Integer
+            Return Me.Update(ProtocolAvailable, DataAvailable, DeliverablesSchedule, SOPsWritten, DMChapterWritten, DMSystemPlanExists, DMSystemBuilt, ProtocolDirectory, DataDirectory, CurrentStatus, VSID, Original_ProtocolAvailable, Original_DataAvailable, Original_DeliverablesSchedule, Original_SOPsWritten, Original_DMChapterWritten, Original_DMSystemPlanExists, Original_DMSystemBuilt, Original_ProtocolDirectory, Original_DataDirectory, Original_DMMID, Original_VSID, Original_DMMID)
+        End Function
+    End Class
+    
+    '''<summary>
     '''TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     '''</summary>
     <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
@@ -18403,6 +19912,8 @@ Namespace AKRODataSetTableAdapters
         Private _tblVitalSignProtocolsTableAdapter As tblVitalSignProtocolsTableAdapter
         
         Private _tblContactsTableAdapter As tblContactsTableAdapter
+        
+        Private _dataManagementMilestonesTableAdapter As DataManagementMilestonesTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -18560,6 +20071,20 @@ Namespace AKRODataSetTableAdapters
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
+            "a", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property DataManagementMilestonesTableAdapter() As DataManagementMilestonesTableAdapter
+            Get
+                Return Me._dataManagementMilestonesTableAdapter
+            End Get
+            Set
+                Me._dataManagementMilestonesTableAdapter = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property BackupDataSetBeforeUpdate() As Boolean
             Get
@@ -18618,6 +20143,10 @@ Namespace AKRODataSetTableAdapters
                             AndAlso (Not (Me._tblContactsTableAdapter.Connection) Is Nothing)) Then
                     Return Me._tblContactsTableAdapter.Connection
                 End If
+                If ((Not (Me._dataManagementMilestonesTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._dataManagementMilestonesTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._dataManagementMilestonesTableAdapter.Connection
+                End If
                 Return Nothing
             End Get
             Set
@@ -18659,6 +20188,9 @@ Namespace AKRODataSetTableAdapters
                     count = (count + 1)
                 End If
                 If (Not (Me._tblContactsTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
+                If (Not (Me._dataManagementMilestonesTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -18762,6 +20294,15 @@ Namespace AKRODataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
+            If (Not (Me._dataManagementMilestonesTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.DataManagementMilestones.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._dataManagementMilestonesTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             Return result
         End Function
         
@@ -18852,6 +20393,14 @@ Namespace AKRODataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._dataManagementMilestonesTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.DataManagementMilestones.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._dataManagementMilestonesTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             Return result
         End Function
         
@@ -18862,6 +20411,14 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As AKRODataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._dataManagementMilestonesTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.DataManagementMilestones.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._dataManagementMilestonesTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._tblVitalSignWorkLogTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.tblVitalSignWorkLog.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
@@ -19033,6 +20590,11 @@ Namespace AKRODataSetTableAdapters
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
+            If ((Not (Me._dataManagementMilestonesTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._dataManagementMilestonesTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+                        "tring.")
+            End If
             Dim workConnection As Global.System.Data.IDbConnection = Me.Connection
             If (workConnection Is Nothing) Then
                 Throw New Global.System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana"& _ 
@@ -19155,6 +20717,15 @@ Namespace AKRODataSetTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._tblContactsTableAdapter.Adapter)
                     End If
                 End If
+                If (Not (Me._dataManagementMilestonesTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._dataManagementMilestonesTableAdapter, Me._dataManagementMilestonesTableAdapter.Connection)
+                    Me._dataManagementMilestonesTableAdapter.Connection = CType(workConnection,Global.System.Data.SqlClient.SqlConnection)
+                    Me._dataManagementMilestonesTableAdapter.Transaction = CType(workTransaction,Global.System.Data.SqlClient.SqlTransaction)
+                    If Me._dataManagementMilestonesTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._dataManagementMilestonesTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._dataManagementMilestonesTableAdapter.Adapter)
+                    End If
+                End If
                 '
                 '---- Perform updates -----------
                 '
@@ -19254,6 +20825,10 @@ Namespace AKRODataSetTableAdapters
                 If (Not (Me._tblContactsTableAdapter) Is Nothing) Then
                     Me._tblContactsTableAdapter.Connection = CType(revertConnections(Me._tblContactsTableAdapter),Global.System.Data.SqlClient.SqlConnection)
                     Me._tblContactsTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._dataManagementMilestonesTableAdapter) Is Nothing) Then
+                    Me._dataManagementMilestonesTableAdapter.Connection = CType(revertConnections(Me._dataManagementMilestonesTableAdapter),Global.System.Data.SqlClient.SqlConnection)
+                    Me._dataManagementMilestonesTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

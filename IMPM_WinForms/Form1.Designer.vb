@@ -23,6 +23,16 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim ProtocolAvailableLabel As System.Windows.Forms.Label
+        Dim DataAvailableLabel As System.Windows.Forms.Label
+        Dim DeliverablesScheduleLabel As System.Windows.Forms.Label
+        Dim SOPsWrittenLabel As System.Windows.Forms.Label
+        Dim DMChapterWrittenLabel As System.Windows.Forms.Label
+        Dim DMSystemPlanExistsLabel As System.Windows.Forms.Label
+        Dim DMSystemBuiltLabel As System.Windows.Forms.Label
+        Dim ProtocolDirectoryLabel As System.Windows.Forms.Label
+        Dim DataDirectoryLabel As System.Windows.Forms.Label
+        Dim CurrentStatusLabel As System.Windows.Forms.Label
         Dim VwVitalSignOverviewGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Dim TblVitalSignsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
@@ -96,7 +106,20 @@ Partial Class Form1
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.SitesTabPage = New System.Windows.Forms.TabPage()
+        Me.DataManagementMilestonesTabPage = New System.Windows.Forms.TabPage()
+        Me.OpenDataDirectoryButton = New System.Windows.Forms.Button()
+        Me.OpenProtocolDirectoryButton = New System.Windows.Forms.Button()
+        Me.ProtocolAvailableCheckBox = New System.Windows.Forms.CheckBox()
+        Me.DataManagementMilestonesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DataAvailableCheckBox = New System.Windows.Forms.CheckBox()
+        Me.DeliverablesScheduleCheckBox = New System.Windows.Forms.CheckBox()
+        Me.SOPsWrittenCheckBox = New System.Windows.Forms.CheckBox()
+        Me.DMChapterWrittenCheckBox = New System.Windows.Forms.CheckBox()
+        Me.DMSystemPlanExistsCheckBox = New System.Windows.Forms.CheckBox()
+        Me.DMSystemBuiltCheckBox = New System.Windows.Forms.CheckBox()
+        Me.ProtocolDirectoryTextBox = New System.Windows.Forms.TextBox()
+        Me.DataDirectoryTextBox = New System.Windows.Forms.TextBox()
+        Me.CurrentStatusTextBox = New System.Windows.Forms.TextBox()
         Me.VitalSignOverviewToolStrip = New System.Windows.Forms.ToolStrip()
         Me.OpenProjectDirectoryToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
@@ -118,6 +141,17 @@ Partial Class Form1
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
+        Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
+        ProtocolAvailableLabel = New System.Windows.Forms.Label()
+        DataAvailableLabel = New System.Windows.Forms.Label()
+        DeliverablesScheduleLabel = New System.Windows.Forms.Label()
+        SOPsWrittenLabel = New System.Windows.Forms.Label()
+        DMChapterWrittenLabel = New System.Windows.Forms.Label()
+        DMSystemPlanExistsLabel = New System.Windows.Forms.Label()
+        DMSystemBuiltLabel = New System.Windows.Forms.Label()
+        ProtocolDirectoryLabel = New System.Windows.Forms.Label()
+        DataDirectoryLabel = New System.Windows.Forms.Label()
+        CurrentStatusLabel = New System.Windows.Forms.Label()
         CType(Me.vwVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -153,6 +187,8 @@ Partial Class Form1
         CType(Me.TblVitalSignObjectivesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tblVitalSignObjectivesBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tblVitalSignObjectivesBindingNavigator.SuspendLayout()
+        Me.DataManagementMilestonesTabPage.SuspendLayout()
+        CType(Me.DataManagementMilestonesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VitalSignOverviewToolStrip.SuspendLayout()
         Me.VitalSignHeaderPanel.SuspendLayout()
         CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -161,6 +197,96 @@ Partial Class Form1
         Me.MainMenuStrip.SuspendLayout()
         Me.MainToolStrip.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'ProtocolAvailableLabel
+        '
+        ProtocolAvailableLabel.AutoSize = True
+        ProtocolAvailableLabel.Location = New System.Drawing.Point(27, 30)
+        ProtocolAvailableLabel.Name = "ProtocolAvailableLabel"
+        ProtocolAvailableLabel.Size = New System.Drawing.Size(95, 13)
+        ProtocolAvailableLabel.TabIndex = 0
+        ProtocolAvailableLabel.Text = "Protocol Available:"
+        '
+        'DataAvailableLabel
+        '
+        DataAvailableLabel.AutoSize = True
+        DataAvailableLabel.Location = New System.Drawing.Point(27, 60)
+        DataAvailableLabel.Name = "DataAvailableLabel"
+        DataAvailableLabel.Size = New System.Drawing.Size(79, 13)
+        DataAvailableLabel.TabIndex = 2
+        DataAvailableLabel.Text = "Data Available:"
+        '
+        'DeliverablesScheduleLabel
+        '
+        DeliverablesScheduleLabel.AutoSize = True
+        DeliverablesScheduleLabel.Location = New System.Drawing.Point(27, 90)
+        DeliverablesScheduleLabel.Name = "DeliverablesScheduleLabel"
+        DeliverablesScheduleLabel.Size = New System.Drawing.Size(116, 13)
+        DeliverablesScheduleLabel.TabIndex = 4
+        DeliverablesScheduleLabel.Text = "Deliverables Schedule:"
+        '
+        'SOPsWrittenLabel
+        '
+        SOPsWrittenLabel.AutoSize = True
+        SOPsWrittenLabel.Location = New System.Drawing.Point(27, 120)
+        SOPsWrittenLabel.Name = "SOPsWrittenLabel"
+        SOPsWrittenLabel.Size = New System.Drawing.Size(74, 13)
+        SOPsWrittenLabel.TabIndex = 6
+        SOPsWrittenLabel.Text = "SOPs Written:"
+        '
+        'DMChapterWrittenLabel
+        '
+        DMChapterWrittenLabel.AutoSize = True
+        DMChapterWrittenLabel.Location = New System.Drawing.Point(27, 150)
+        DMChapterWrittenLabel.Name = "DMChapterWrittenLabel"
+        DMChapterWrittenLabel.Size = New System.Drawing.Size(101, 13)
+        DMChapterWrittenLabel.TabIndex = 8
+        DMChapterWrittenLabel.Text = "DMChapter Written:"
+        '
+        'DMSystemPlanExistsLabel
+        '
+        DMSystemPlanExistsLabel.AutoSize = True
+        DMSystemPlanExistsLabel.Location = New System.Drawing.Point(27, 180)
+        DMSystemPlanExistsLabel.Name = "DMSystemPlanExistsLabel"
+        DMSystemPlanExistsLabel.Size = New System.Drawing.Size(115, 13)
+        DMSystemPlanExistsLabel.TabIndex = 10
+        DMSystemPlanExistsLabel.Text = "DMSystem Plan Exists:"
+        '
+        'DMSystemBuiltLabel
+        '
+        DMSystemBuiltLabel.AutoSize = True
+        DMSystemBuiltLabel.Location = New System.Drawing.Point(27, 210)
+        DMSystemBuiltLabel.Name = "DMSystemBuiltLabel"
+        DMSystemBuiltLabel.Size = New System.Drawing.Size(84, 13)
+        DMSystemBuiltLabel.TabIndex = 12
+        DMSystemBuiltLabel.Text = "DMSystem Built:"
+        '
+        'ProtocolDirectoryLabel
+        '
+        ProtocolDirectoryLabel.AutoSize = True
+        ProtocolDirectoryLabel.Location = New System.Drawing.Point(27, 238)
+        ProtocolDirectoryLabel.Name = "ProtocolDirectoryLabel"
+        ProtocolDirectoryLabel.Size = New System.Drawing.Size(94, 13)
+        ProtocolDirectoryLabel.TabIndex = 14
+        ProtocolDirectoryLabel.Text = "Protocol Directory:"
+        '
+        'DataDirectoryLabel
+        '
+        DataDirectoryLabel.AutoSize = True
+        DataDirectoryLabel.Location = New System.Drawing.Point(27, 264)
+        DataDirectoryLabel.Name = "DataDirectoryLabel"
+        DataDirectoryLabel.Size = New System.Drawing.Size(78, 13)
+        DataDirectoryLabel.TabIndex = 16
+        DataDirectoryLabel.Text = "Data Directory:"
+        '
+        'CurrentStatusLabel
+        '
+        CurrentStatusLabel.AutoSize = True
+        CurrentStatusLabel.Location = New System.Drawing.Point(27, 290)
+        CurrentStatusLabel.Name = "CurrentStatusLabel"
+        CurrentStatusLabel.Size = New System.Drawing.Size(77, 13)
+        CurrentStatusLabel.TabIndex = 18
+        CurrentStatusLabel.Text = "Current Status:"
         '
         'vwVitalSignWorkLogBindingSource
         '
@@ -184,6 +310,7 @@ Partial Class Form1
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.DataManagementMilestonesTableAdapter = Nothing
         Me.TableAdapterManager.tblContactsTableAdapter = Me.TblContactsTableAdapter
         Me.TableAdapterManager.tblNetworksTableAdapter = Nothing
         Me.TableAdapterManager.tblProtocolDeliverablesTableAdapter = Me.TblProtocolDeliverablesTableAdapter
@@ -300,12 +427,12 @@ Partial Class Form1
         'VitalSignTabControl
         '
         Me.VitalSignTabControl.Controls.Add(Me.OverviewTabPage)
-        Me.VitalSignTabControl.Controls.Add(Me.VSWorkLogTabPage)
         Me.VitalSignTabControl.Controls.Add(Me.ProtocolsTabPage)
-        Me.VitalSignTabControl.Controls.Add(Me.TasksTabPage)
-        Me.VitalSignTabControl.Controls.Add(Me.DataManagementOverviewTabPage)
         Me.VitalSignTabControl.Controls.Add(Me.ObjectivesTabPage)
-        Me.VitalSignTabControl.Controls.Add(Me.SitesTabPage)
+        Me.VitalSignTabControl.Controls.Add(Me.DataManagementMilestonesTabPage)
+        Me.VitalSignTabControl.Controls.Add(Me.DataManagementOverviewTabPage)
+        Me.VitalSignTabControl.Controls.Add(Me.TasksTabPage)
+        Me.VitalSignTabControl.Controls.Add(Me.VSWorkLogTabPage)
         Me.VitalSignTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.VitalSignTabControl.Location = New System.Drawing.Point(0, 59)
         Me.VitalSignTabControl.Margin = New System.Windows.Forms.Padding(2)
@@ -792,15 +919,159 @@ Partial Class Form1
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
         '
-        'SitesTabPage
+        'DataManagementMilestonesTabPage
         '
-        Me.SitesTabPage.Location = New System.Drawing.Point(4, 22)
-        Me.SitesTabPage.Name = "SitesTabPage"
-        Me.SitesTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.SitesTabPage.Size = New System.Drawing.Size(818, 584)
-        Me.SitesTabPage.TabIndex = 6
-        Me.SitesTabPage.Text = "Sites"
-        Me.SitesTabPage.UseVisualStyleBackColor = True
+        Me.DataManagementMilestonesTabPage.AutoScroll = True
+        Me.DataManagementMilestonesTabPage.Controls.Add(Me.OpenDataDirectoryButton)
+        Me.DataManagementMilestonesTabPage.Controls.Add(Me.OpenProtocolDirectoryButton)
+        Me.DataManagementMilestonesTabPage.Controls.Add(ProtocolAvailableLabel)
+        Me.DataManagementMilestonesTabPage.Controls.Add(Me.ProtocolAvailableCheckBox)
+        Me.DataManagementMilestonesTabPage.Controls.Add(DataAvailableLabel)
+        Me.DataManagementMilestonesTabPage.Controls.Add(Me.DataAvailableCheckBox)
+        Me.DataManagementMilestonesTabPage.Controls.Add(DeliverablesScheduleLabel)
+        Me.DataManagementMilestonesTabPage.Controls.Add(Me.DeliverablesScheduleCheckBox)
+        Me.DataManagementMilestonesTabPage.Controls.Add(SOPsWrittenLabel)
+        Me.DataManagementMilestonesTabPage.Controls.Add(Me.SOPsWrittenCheckBox)
+        Me.DataManagementMilestonesTabPage.Controls.Add(DMChapterWrittenLabel)
+        Me.DataManagementMilestonesTabPage.Controls.Add(Me.DMChapterWrittenCheckBox)
+        Me.DataManagementMilestonesTabPage.Controls.Add(DMSystemPlanExistsLabel)
+        Me.DataManagementMilestonesTabPage.Controls.Add(Me.DMSystemPlanExistsCheckBox)
+        Me.DataManagementMilestonesTabPage.Controls.Add(DMSystemBuiltLabel)
+        Me.DataManagementMilestonesTabPage.Controls.Add(Me.DMSystemBuiltCheckBox)
+        Me.DataManagementMilestonesTabPage.Controls.Add(ProtocolDirectoryLabel)
+        Me.DataManagementMilestonesTabPage.Controls.Add(Me.ProtocolDirectoryTextBox)
+        Me.DataManagementMilestonesTabPage.Controls.Add(DataDirectoryLabel)
+        Me.DataManagementMilestonesTabPage.Controls.Add(Me.DataDirectoryTextBox)
+        Me.DataManagementMilestonesTabPage.Controls.Add(CurrentStatusLabel)
+        Me.DataManagementMilestonesTabPage.Controls.Add(Me.CurrentStatusTextBox)
+        Me.DataManagementMilestonesTabPage.Location = New System.Drawing.Point(4, 22)
+        Me.DataManagementMilestonesTabPage.Name = "DataManagementMilestonesTabPage"
+        Me.DataManagementMilestonesTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.DataManagementMilestonesTabPage.Size = New System.Drawing.Size(818, 584)
+        Me.DataManagementMilestonesTabPage.TabIndex = 6
+        Me.DataManagementMilestonesTabPage.Text = "Data management milestones"
+        Me.DataManagementMilestonesTabPage.UseVisualStyleBackColor = True
+        '
+        'OpenDataDirectoryButton
+        '
+        Me.OpenDataDirectoryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.OpenDataDirectoryButton.Location = New System.Drawing.Point(727, 258)
+        Me.OpenDataDirectoryButton.Name = "OpenDataDirectoryButton"
+        Me.OpenDataDirectoryButton.Size = New System.Drawing.Size(75, 23)
+        Me.OpenDataDirectoryButton.TabIndex = 21
+        Me.OpenDataDirectoryButton.Text = "Open..."
+        Me.OpenDataDirectoryButton.UseVisualStyleBackColor = True
+        '
+        'OpenProtocolDirectoryButton
+        '
+        Me.OpenProtocolDirectoryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.OpenProtocolDirectoryButton.Location = New System.Drawing.Point(726, 235)
+        Me.OpenProtocolDirectoryButton.Name = "OpenProtocolDirectoryButton"
+        Me.OpenProtocolDirectoryButton.Size = New System.Drawing.Size(75, 23)
+        Me.OpenProtocolDirectoryButton.TabIndex = 20
+        Me.OpenProtocolDirectoryButton.Text = "Open..."
+        Me.OpenProtocolDirectoryButton.UseVisualStyleBackColor = True
+        '
+        'ProtocolAvailableCheckBox
+        '
+        Me.ProtocolAvailableCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "ProtocolAvailable", True))
+        Me.ProtocolAvailableCheckBox.Location = New System.Drawing.Point(149, 25)
+        Me.ProtocolAvailableCheckBox.Name = "ProtocolAvailableCheckBox"
+        Me.ProtocolAvailableCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.ProtocolAvailableCheckBox.TabIndex = 1
+        Me.ProtocolAvailableCheckBox.UseVisualStyleBackColor = True
+        '
+        'DataManagementMilestonesBindingSource
+        '
+        Me.DataManagementMilestonesBindingSource.DataMember = "FK_DataManagementMilestones_tblVitalSigns"
+        Me.DataManagementMilestonesBindingSource.DataSource = Me.TblVitalSignsBindingSource
+        '
+        'DataAvailableCheckBox
+        '
+        Me.DataAvailableCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DataAvailable", True))
+        Me.DataAvailableCheckBox.Location = New System.Drawing.Point(149, 55)
+        Me.DataAvailableCheckBox.Name = "DataAvailableCheckBox"
+        Me.DataAvailableCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.DataAvailableCheckBox.TabIndex = 3
+        Me.DataAvailableCheckBox.UseVisualStyleBackColor = True
+        '
+        'DeliverablesScheduleCheckBox
+        '
+        Me.DeliverablesScheduleCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DeliverablesSchedule", True))
+        Me.DeliverablesScheduleCheckBox.Location = New System.Drawing.Point(149, 85)
+        Me.DeliverablesScheduleCheckBox.Name = "DeliverablesScheduleCheckBox"
+        Me.DeliverablesScheduleCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.DeliverablesScheduleCheckBox.TabIndex = 5
+        Me.DeliverablesScheduleCheckBox.UseVisualStyleBackColor = True
+        '
+        'SOPsWrittenCheckBox
+        '
+        Me.SOPsWrittenCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "SOPsWritten", True))
+        Me.SOPsWrittenCheckBox.Location = New System.Drawing.Point(149, 115)
+        Me.SOPsWrittenCheckBox.Name = "SOPsWrittenCheckBox"
+        Me.SOPsWrittenCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.SOPsWrittenCheckBox.TabIndex = 7
+        Me.SOPsWrittenCheckBox.UseVisualStyleBackColor = True
+        '
+        'DMChapterWrittenCheckBox
+        '
+        Me.DMChapterWrittenCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DMChapterWritten", True))
+        Me.DMChapterWrittenCheckBox.Location = New System.Drawing.Point(149, 145)
+        Me.DMChapterWrittenCheckBox.Name = "DMChapterWrittenCheckBox"
+        Me.DMChapterWrittenCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.DMChapterWrittenCheckBox.TabIndex = 9
+        Me.DMChapterWrittenCheckBox.UseVisualStyleBackColor = True
+        '
+        'DMSystemPlanExistsCheckBox
+        '
+        Me.DMSystemPlanExistsCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DMSystemPlanExists", True))
+        Me.DMSystemPlanExistsCheckBox.Location = New System.Drawing.Point(149, 175)
+        Me.DMSystemPlanExistsCheckBox.Name = "DMSystemPlanExistsCheckBox"
+        Me.DMSystemPlanExistsCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.DMSystemPlanExistsCheckBox.TabIndex = 11
+        Me.DMSystemPlanExistsCheckBox.UseVisualStyleBackColor = True
+        '
+        'DMSystemBuiltCheckBox
+        '
+        Me.DMSystemBuiltCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DMSystemBuilt", True))
+        Me.DMSystemBuiltCheckBox.Location = New System.Drawing.Point(149, 205)
+        Me.DMSystemBuiltCheckBox.Name = "DMSystemBuiltCheckBox"
+        Me.DMSystemBuiltCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.DMSystemBuiltCheckBox.TabIndex = 13
+        Me.DMSystemBuiltCheckBox.UseVisualStyleBackColor = True
+        '
+        'ProtocolDirectoryTextBox
+        '
+        Me.ProtocolDirectoryTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProtocolDirectoryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "ProtocolDirectory", True))
+        Me.ProtocolDirectoryTextBox.Location = New System.Drawing.Point(149, 235)
+        Me.ProtocolDirectoryTextBox.Name = "ProtocolDirectoryTextBox"
+        Me.ProtocolDirectoryTextBox.Size = New System.Drawing.Size(571, 20)
+        Me.ProtocolDirectoryTextBox.TabIndex = 15
+        '
+        'DataDirectoryTextBox
+        '
+        Me.DataDirectoryTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataDirectoryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "DataDirectory", True))
+        Me.DataDirectoryTextBox.Location = New System.Drawing.Point(149, 261)
+        Me.DataDirectoryTextBox.Name = "DataDirectoryTextBox"
+        Me.DataDirectoryTextBox.Size = New System.Drawing.Size(571, 20)
+        Me.DataDirectoryTextBox.TabIndex = 17
+        '
+        'CurrentStatusTextBox
+        '
+        Me.CurrentStatusTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CurrentStatusTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "CurrentStatus", True))
+        Me.CurrentStatusTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CurrentStatusTextBox.Location = New System.Drawing.Point(149, 287)
+        Me.CurrentStatusTextBox.Multiline = True
+        Me.CurrentStatusTextBox.Name = "CurrentStatusTextBox"
+        Me.CurrentStatusTextBox.Size = New System.Drawing.Size(653, 289)
+        Me.CurrentStatusTextBox.TabIndex = 19
         '
         'VitalSignOverviewToolStrip
         '
@@ -957,6 +1228,10 @@ Partial Class Form1
         '
         Me.vwVitalSignWorkLogTableAdapter.ClearBeforeFill = True
         '
+        'DataManagementMilestonesTableAdapter
+        '
+        Me.DataManagementMilestonesTableAdapter.ClearBeforeFill = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1012,6 +1287,9 @@ Partial Class Form1
         CType(Me.tblVitalSignObjectivesBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tblVitalSignObjectivesBindingNavigator.ResumeLayout(False)
         Me.tblVitalSignObjectivesBindingNavigator.PerformLayout()
+        Me.DataManagementMilestonesTabPage.ResumeLayout(False)
+        Me.DataManagementMilestonesTabPage.PerformLayout()
+        CType(Me.DataManagementMilestonesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.VitalSignOverviewToolStrip.ResumeLayout(False)
         Me.VitalSignOverviewToolStrip.PerformLayout()
         Me.VitalSignHeaderPanel.ResumeLayout(False)
@@ -1114,5 +1392,19 @@ Partial Class Form1
     Friend WithEvents ToolStripSeparator5 As ToolStripSeparator
     Friend WithEvents CreateDeliverablesDirectoriesToolStripButton As ToolStripButton
     Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
-    Friend WithEvents SitesTabPage As TabPage
+    Friend WithEvents DataManagementMilestonesTabPage As TabPage
+    Friend WithEvents ProtocolAvailableCheckBox As CheckBox
+    Friend WithEvents DataAvailableCheckBox As CheckBox
+    Friend WithEvents DeliverablesScheduleCheckBox As CheckBox
+    Friend WithEvents SOPsWrittenCheckBox As CheckBox
+    Friend WithEvents DMChapterWrittenCheckBox As CheckBox
+    Friend WithEvents DMSystemPlanExistsCheckBox As CheckBox
+    Friend WithEvents DMSystemBuiltCheckBox As CheckBox
+    Friend WithEvents ProtocolDirectoryTextBox As TextBox
+    Friend WithEvents DataDirectoryTextBox As TextBox
+    Friend WithEvents CurrentStatusTextBox As TextBox
+    Friend WithEvents DataManagementMilestonesBindingSource As BindingSource
+    Friend WithEvents DataManagementMilestonesTableAdapter As AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter
+    Friend WithEvents OpenDataDirectoryButton As Button
+    Friend WithEvents OpenProtocolDirectoryButton As Button
 End Class

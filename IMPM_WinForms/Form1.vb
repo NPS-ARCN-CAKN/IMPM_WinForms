@@ -3,6 +3,9 @@ Imports Microsoft.Reporting.WinForms
 
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'AKRODataSet.DataManagementMilestones' table. You can move, or remove it, as needed.
+        Me.DataManagementMilestonesTableAdapter.Fill(Me.AKRODataSet.DataManagementMilestones)
+
         'load the dataset
         LoadDataset()
 
@@ -50,6 +53,7 @@ Public Class Form1
             Me.vwVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.vwVitalSignWorkLog)
             Me.TblVitalSignObjectivesTableAdapter.Fill(Me.AKRODataSet.tblVitalSignObjectives)
             Me.TblContactsTableAdapter.Fill(Me.AKRODataSet.tblContacts)
+            Me.DataManagementMilestonesTableAdapter.Fill(Me.AKRODataSet.DataManagementMilestones)
 
             'load gridex dropdowns with values
             LoadDropDowns()
@@ -593,6 +597,40 @@ Public Class Form1
             '        End Try
             '    End If
             'End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    Private Sub OpenProtocolDirectoryButton_Click(sender As Object, e As EventArgs) Handles OpenProtocolDirectoryButton.Click
+        Try
+            Process.Start(Me.ProtocolDirectoryTextBox.Text.Trim)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub OpenDataDirectoryButton_Click(sender As Object, e As EventArgs) Handles OpenDataDirectoryButton.Click
+        Try
+            Process.Start(Me.DataDirectoryTextBox.Text.Trim)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub DataManagementMilestonesBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles DataManagementMilestonesBindingSource.CurrentChanged
+        Me.ProtocolDirectoryTextBox.ForeColor = Color.Black
+        Me.DataDirectoryTextBox.ForeColor = Color.Black
+        Try
+            'make sure the protocol directory exists
+            If My.Computer.FileSystem.DirectoryExists(Me.ProtocolDirectoryTextBox.Text.Trim) = False Then
+                Me.ProtocolDirectoryTextBox.ForeColor = Color.Red
+            End If
+
+            'make sure the data directory exists
+            If My.Computer.FileSystem.DirectoryExists(Me.DataDirectoryTextBox.Text.Trim) = False Then
+                Me.DataDirectoryTextBox.ForeColor = Color.Red
+            End If
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
