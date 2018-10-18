@@ -583,20 +583,6 @@ Public Class Form1
                     MsgBox("No protocol selected. Select a protocol in the grid.")
                 End If
             End If
-
-
-            'Dim FolderBrowser As New FolderBrowserDialog
-            'If FolderBrowser.ShowDialog = DialogResult.OK Then
-            '    Dim RootDirectory As String = FolderBrowser.SelectedPath
-            '    If My.Computer.FileSystem.DirectoryExists(RootDirectory) Then
-
-
-            '        Try
-            '        Catch ex As Exception
-            '            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
-            '        End Try
-            '    End If
-            'End If
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
