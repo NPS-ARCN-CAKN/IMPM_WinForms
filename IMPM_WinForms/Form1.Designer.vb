@@ -120,6 +120,7 @@ Partial Class Form1
         Me.TblVitalSignWorkLogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.WorkLogToolStrip = New System.Windows.Forms.ToolStrip()
         Me.EditLogEntryToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.SitesTabPage = New System.Windows.Forms.TabPage()
         Me.VitalSignOverviewToolStrip = New System.Windows.Forms.ToolStrip()
         Me.OpenProjectDirectoryToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
@@ -142,7 +143,8 @@ Partial Class Form1
         Me.RefreshToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
         Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
-        Me.SitesTabPage = New System.Windows.Forms.TabPage()
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OpenProtocolTrackerToolStripButton = New System.Windows.Forms.ToolStripButton()
         ProtocolAvailableLabel = New System.Windows.Forms.Label()
         DataAvailableLabel = New System.Windows.Forms.Label()
         DeliverablesScheduleLabel = New System.Windows.Forms.Label()
@@ -457,7 +459,7 @@ Partial Class Form1
         '
         'TblVitalSignsGridEX
         '
-        Me.TblVitalSignsGridEX.CardWidth = 769
+        Me.TblVitalSignsGridEX.CardWidth = 786
         Me.TblVitalSignsGridEX.DataSource = Me.TblVitalSignsBindingSource
         TblVitalSignsGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignsGridEX_DesignTimeLayout.LayoutString")
         Me.TblVitalSignsGridEX.DesignTimeLayout = TblVitalSignsGridEX_DesignTimeLayout
@@ -1075,10 +1077,19 @@ Partial Class Form1
         Me.EditLogEntryToolStripButton.Size = New System.Drawing.Size(90, 22)
         Me.EditLogEntryToolStripButton.Text = "Edit log entry..."
         '
+        'SitesTabPage
+        '
+        Me.SitesTabPage.Location = New System.Drawing.Point(4, 22)
+        Me.SitesTabPage.Name = "SitesTabPage"
+        Me.SitesTabPage.Size = New System.Drawing.Size(818, 584)
+        Me.SitesTabPage.TabIndex = 7
+        Me.SitesTabPage.Text = "Sites"
+        Me.SitesTabPage.UseVisualStyleBackColor = True
+        '
         'VitalSignOverviewToolStrip
         '
         Me.VitalSignOverviewToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.VitalSignOverviewToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenProjectDirectoryToolStripButton, Me.ToolStripSeparator2, Me.OpenWebProfileToolStripButton, Me.ToolStripSeparator3, Me.OpenProjectReferenceToolStripButton})
+        Me.VitalSignOverviewToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenProjectDirectoryToolStripButton, Me.ToolStripSeparator2, Me.OpenWebProfileToolStripButton, Me.ToolStripSeparator3, Me.OpenProjectReferenceToolStripButton, Me.ToolStripSeparator7, Me.OpenProtocolTrackerToolStripButton})
         Me.VitalSignOverviewToolStrip.Location = New System.Drawing.Point(0, 32)
         Me.VitalSignOverviewToolStrip.Name = "VitalSignOverviewToolStrip"
         Me.VitalSignOverviewToolStrip.Size = New System.Drawing.Size(826, 27)
@@ -1234,14 +1245,18 @@ Partial Class Form1
         '
         Me.DataManagementMilestonesTableAdapter.ClearBeforeFill = True
         '
-        'SitesTabPage
+        'ToolStripSeparator7
         '
-        Me.SitesTabPage.Location = New System.Drawing.Point(4, 22)
-        Me.SitesTabPage.Name = "SitesTabPage"
-        Me.SitesTabPage.Size = New System.Drawing.Size(818, 584)
-        Me.SitesTabPage.TabIndex = 7
-        Me.SitesTabPage.Text = "Sites"
-        Me.SitesTabPage.UseVisualStyleBackColor = True
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 27)
+        '
+        'OpenProtocolTrackerToolStripButton
+        '
+        Me.OpenProtocolTrackerToolStripButton.Image = CType(resources.GetObject("OpenProtocolTrackerToolStripButton.Image"), System.Drawing.Image)
+        Me.OpenProtocolTrackerToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.OpenProtocolTrackerToolStripButton.Name = "OpenProtocolTrackerToolStripButton"
+        Me.OpenProtocolTrackerToolStripButton.Size = New System.Drawing.Size(156, 24)
+        Me.OpenProtocolTrackerToolStripButton.Text = "Open protocol tracker..."
         '
         'Form1
         '
@@ -1419,4 +1434,6 @@ Partial Class Form1
     Friend WithEvents OpenDataDirectoryButton As Button
     Friend WithEvents OpenProtocolDirectoryButton As Button
     Friend WithEvents SitesTabPage As TabPage
+    Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
+    Friend WithEvents OpenProtocolTrackerToolStripButton As ToolStripButton
 End Class

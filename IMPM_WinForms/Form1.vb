@@ -621,4 +621,42 @@ Public Class Form1
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
     End Sub
+
+    Private Sub OpenProtocolTrackerToolStripButton_Click(sender As Object, e As EventArgs) Handles OpenProtocolTrackerToolStripButton.Click
+        'the gridex contains a column called IRMAProtocolTrackerID which is the unique ID of the Vital Sign (not the protocol as the website implies)
+        'in the IRMA Data Store protocol tracker website (see My.Settings.IRMAProtocolTrackerID)
+        'this sub will get the currently selected row in the GridEX, identify the IRMAProtocolTrackerID value
+        'and attempt to construct a URL and open it using a process
+        Try
+            'get the current row of the VS GridEX
+            If Not Me.TblVitalSignsGridEX.CurrentRow Is Nothing Then
+                Dim CurrentRow As GridEXRow = Me.TblVitalSignsGridEX.CurrentRow
+                'loop through the columns and look for the IRMAProtocolTrackerID column
+                For i As Integer = 0 To CurrentRow.Cells.Count - 1
+                    If CurrentRow.Cells(i).Column.Key = "IRMAProtocolTrackerID" Then
+                        'if there is a value
+                        If Not IsDBNull(CurrentRow.Cells(i).Value) Then
+                            Dim IRMAProtocolTrackerID As String = CurrentRow.Cells(i).Value
+                            Dim URL As String = My.Settings.IRMAProtocolTrackerURLPrefix & IRMAProtocolTrackerID
+                            'try to start it using the default program (probably file explorer)
+                            Try
+                                Process.Start(URL)
+                            Catch ex As Exception
+                                MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+                            End Try
+                        Else
+                            'try to open the protocol tracker to the main inventory
+                            Try
+                                Process.Start(My.Settings.IRMAProtocolTrackerURLPrefix)
+                            Catch ex As Exception
+                                MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+                            End Try
+                        End If
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
 End Class

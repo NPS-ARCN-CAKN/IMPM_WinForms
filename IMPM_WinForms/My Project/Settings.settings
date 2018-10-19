@@ -13,5 +13,8 @@
     <Setting Name="IRMADataStoreURLPrefix" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://irma.nps.gov/DataStore/Reference/Profile/</Value>
     </Setting>
+    <Setting Name="IRMAProtocolTrackerURLPrefix" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://irma.nps.gov/ProtocolTracking/Protocol/Edit/</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -3048,6 +3048,8 @@ Partial Public Class AKRODataSet
         
         Private columnDataManagementOverview As Global.System.Data.DataColumn
         
+        Private columnIRMAProtocolTrackerID As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -3324,6 +3326,14 @@ Partial Public Class AKRODataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IRMAProtocolTrackerIDColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIRMAProtocolTrackerID
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3389,9 +3399,10 @@ Partial Public Class AKRODataSet
                     ByVal RecordInsertedBy As String,  _
                     ByVal RecordUpdatedDate As Date,  _
                     ByVal RecordUpdatedBy As String,  _
-                    ByVal DataManagementOverview As String) As tblVitalSignsRow
+                    ByVal DataManagementOverview As String,  _
+                    ByVal IRMAProtocolTrackerID As Integer) As tblVitalSignsRow
             Dim rowtblVitalSignsRow As tblVitalSignsRow = CType(Me.NewRow,tblVitalSignsRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, NetworkVSName, GrabberTitle, Overview, OverviewHTML, Status, URLMoreInfo, SamplingFrequency, SamplingTiming, PDSWritten, ProtocolsWritten, ProtocolIRMAReference, PeerReviewed, ImplementationDate, SamplingDesign, Nothing, FilesDirectory, StatusAndTrends, Importance, ResourceBriefDocumentID, ADIWGUID, IRMADocumentsCollectionID, IRMADatasetsCollectionID, IRMAProjectReference, RecordInsertedDate, RecordInsertedBy, RecordUpdatedDate, RecordUpdatedBy, DataManagementOverview}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, NetworkVSName, GrabberTitle, Overview, OverviewHTML, Status, URLMoreInfo, SamplingFrequency, SamplingTiming, PDSWritten, ProtocolsWritten, ProtocolIRMAReference, PeerReviewed, ImplementationDate, SamplingDesign, Nothing, FilesDirectory, StatusAndTrends, Importance, ResourceBriefDocumentID, ADIWGUID, IRMADocumentsCollectionID, IRMADatasetsCollectionID, IRMAProjectReference, RecordInsertedDate, RecordInsertedBy, RecordUpdatedDate, RecordUpdatedBy, DataManagementOverview, IRMAProtocolTrackerID}
             If (Not (parenttblNetworksRowByFK_tblVitalSigns_tblNetworks) Is Nothing) Then
                 columnValuesArray(1) = parenttblNetworksRowByFK_tblVitalSigns_tblNetworks(0)
             End If
@@ -3456,6 +3467,7 @@ Partial Public Class AKRODataSet
             Me.columnRecordUpdatedDate = MyBase.Columns("RecordUpdatedDate")
             Me.columnRecordUpdatedBy = MyBase.Columns("RecordUpdatedBy")
             Me.columnDataManagementOverview = MyBase.Columns("DataManagementOverview")
+            Me.columnIRMAProtocolTrackerID = MyBase.Columns("IRMAProtocolTrackerID")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3521,6 +3533,8 @@ Partial Public Class AKRODataSet
             MyBase.Columns.Add(Me.columnRecordUpdatedBy)
             Me.columnDataManagementOverview = New Global.System.Data.DataColumn("DataManagementOverview", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDataManagementOverview)
+            Me.columnIRMAProtocolTrackerID = New Global.System.Data.DataColumn("IRMAProtocolTrackerID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIRMAProtocolTrackerID)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnVSID}, true))
             Me.columnVSID.AutoIncrement = true
             Me.columnVSID.AutoIncrementSeed = -1
@@ -3552,6 +3566,7 @@ Partial Public Class AKRODataSet
             Me.columnRecordUpdatedBy.AllowDBNull = false
             Me.columnRecordUpdatedBy.MaxLength = 50
             Me.columnDataManagementOverview.MaxLength = 2147483647
+            Me.columnIRMAProtocolTrackerID.Caption = "IRMA Protocol Tracker ID"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8886,6 +8901,21 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IRMAProtocolTrackerID() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tabletblVitalSigns.IRMAProtocolTrackerIDColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'IRMAProtocolTrackerID' in table 'tblVitalSigns' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletblVitalSigns.IRMAProtocolTrackerIDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property tblNetworksRow() As tblNetworksRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_tblVitalSigns_tblNetworks")),tblNetworksRow)
@@ -9167,6 +9197,18 @@ Partial Public Class AKRODataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetDataManagementOverviewNull()
             Me(Me.tabletblVitalSigns.DataManagementOverviewColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsIRMAProtocolTrackerIDNull() As Boolean
+            Return Me.IsNull(Me.tabletblVitalSigns.IRMAProtocolTrackerIDColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetIRMAProtocolTrackerIDNull()
+            Me(Me.tabletblVitalSigns.IRMAProtocolTrackerIDColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15217,6 +15259,7 @@ Namespace AKRODataSetTableAdapters
             tableMapping.ColumnMappings.Add("RecordUpdatedDate", "RecordUpdatedDate")
             tableMapping.ColumnMappings.Add("RecordUpdatedBy", "RecordUpdatedBy")
             tableMapping.ColumnMappings.Add("DataManagementOverview", "DataManagementOverview")
+            tableMapping.ColumnMappings.Add("IRMAProtocolTrackerID", "IRMAProtocolTrackerID")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -15292,180 +15335,117 @@ Namespace AKRODataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RecordUpdatedBy", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedBy", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblVitalSigns] ([NetworkID], [NetworkVSName], [GrabberTitle], "& _ 
-                "[Overview], [OverviewHTML], [Status], [URLMoreInfo], [SamplingFrequency], [Sampl"& _ 
-                "ingTiming], [PDSWritten], [ProtocolsWritten], [ProtocolIRMAReference], [PeerRevi"& _ 
-                "ewed], [ImplementationDate], [SamplingDesign], [ProjectLeadContactID], [FilesDir"& _ 
-                "ectory], [StatusAndTrends], [Importance], [ResourceBriefDocumentID], [ADIWGUID],"& _ 
-                " [IRMADocumentsCollectionID], [IRMADatasetsCollectionID], [IRMAProjectReference]"& _ 
-                ", [RecordInsertedDate], [RecordInsertedBy], [RecordUpdatedDate], [RecordUpdatedB"& _ 
-                "y], [DataManagementOverview]) VALUES (@NetworkID, @NetworkVSName, @GrabberTitle,"& _ 
-                " @Overview, @OverviewHTML, @Status, @URLMoreInfo, @SamplingFrequency, @SamplingT"& _ 
-                "iming, @PDSWritten, @ProtocolsWritten, @ProtocolIRMAReference, @PeerReviewed, @I"& _ 
-                "mplementationDate, @SamplingDesign, @ProjectLeadContactID, @FilesDirectory, @Sta"& _ 
-                "tusAndTrends, @Importance, @ResourceBriefDocumentID, @ADIWGUID, @IRMADocumentsCo"& _ 
-                "llectionID, @IRMADatasetsCollectionID, @IRMAProjectReference, @RecordInsertedDat"& _ 
-                "e, @RecordInsertedBy, @RecordUpdatedDate, @RecordUpdatedBy, @DataManagementOverv"& _ 
-                "iew);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSID, NetworkID, NetworkVSName, GrabberTitle, Overview, OverviewHT"& _ 
-                "ML, Status, URLMoreInfo, SamplingFrequency, SamplingTiming, PDSWritten, Protocol"& _ 
-                "sWritten, ProtocolIRMAReference, PeerReviewed, ImplementationDate, SamplingDesig"& _ 
-                "n, ProjectLeadContactID, FilesDirectory, StatusAndTrends, Importance, ResourceBr"& _ 
-                "iefDocumentID, ADIWGUID, IRMADocumentsCollectionID, IRMADatasetsCollectionID, IR"& _ 
-                "MAProjectReference, RecordInsertedDate, RecordInsertedBy, RecordUpdatedDate, Rec"& _ 
-                "ordUpdatedBy, DataManagementOverview FROM tblVitalSigns WHERE (VSID = SCOPE_IDEN"& _ 
-                "TITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO tblVitalSigns"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (NetworkID, NetworkVSName, Gr"& _ 
+                "abberTitle, Overview, OverviewHTML, Status, URLMoreInfo, SamplingFrequency, Samp"& _ 
+                "lingTiming, PDSWritten, ProtocolsWritten, ProtocolIRMAReference, PeerReviewed, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         ImplementationDate, SamplingDesign, ProjectLeadContact"& _ 
+                "ID, FilesDirectory, StatusAndTrends, Importance, ResourceBriefDocumentID, ADIWGU"& _ 
+                "ID, IRMADocumentsCollectionID, IRMADatasetsCollectionID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                     "& _ 
+                "    IRMAProjectReference, RecordInsertedDate, RecordInsertedBy, RecordUpdatedDat"& _ 
+                "e, RecordUpdatedBy, DataManagementOverview, IRMAProtocolTrackerID)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES      "& _ 
+                "  (@NetworkID,@NetworkVSName,@GrabberTitle,@Overview,@OverviewHTML,@Status,@URLM"& _ 
+                "oreInfo,@SamplingFrequency,@SamplingTiming,@PDSWritten,@ProtocolsWritten,@Protoc"& _ 
+                "olIRMAReference,@PeerReviewed,@ImplementationDate,@SamplingDesign,@ProjectLeadCo"& _ 
+                "ntactID,@FilesDirectory,@StatusAndTrends,@Importance,@ResourceBriefDocumentID,@A"& _ 
+                "DIWGUID,@IRMADocumentsCollectionID,@IRMADatasetsCollectionID,@IRMAProjectReferen"& _ 
+                "ce,@RecordInsertedDate,@RecordInsertedBy,@RecordUpdatedDate,@RecordUpdatedBy,@Da"& _ 
+                "taManagementOverview,@IRMAProtocolTrackerID); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSID, NetworkID, NetworkV"& _ 
+                "SName, GrabberTitle, Overview, OverviewHTML, Status, URLMoreInfo, SamplingFreque"& _ 
+                "ncy, SamplingTiming, PDSWritten, ProtocolsWritten, ProtocolIRMAReference, PeerRe"& _ 
+                "viewed, ImplementationDate, SamplingDesign, ProjectLeadContactID, FilesDirectory"& _ 
+                ", StatusAndTrends, Importance, ResourceBriefDocumentID, ADIWGUID, IRMADocumentsC"& _ 
+                "ollectionID, IRMADatasetsCollectionID, IRMAProjectReference, RecordInsertedDate,"& _ 
+                " RecordInsertedBy, RecordUpdatedDate, RecordUpdatedBy, DataManagementOverview FR"& _ 
+                "OM tblVitalSigns WHERE (VSID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NetworkID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NetworkID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NetworkVSName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NetworkVSName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GrabberTitle", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GrabberTitle", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Overview", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Overview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OverviewHTML", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OverviewHTML", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@URLMoreInfo", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "URLMoreInfo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SamplingFrequency", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingFrequency", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SamplingTiming", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingTiming", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PDSWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PDSWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolsWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolsWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolIRMAReference", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolIRMAReference", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PeerReviewed", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PeerReviewed", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ImplementationDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImplementationDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SamplingDesign", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingDesign", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProjectLeadContactID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProjectLeadContactID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FilesDirectory", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FilesDirectory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StatusAndTrends", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusAndTrends", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Importance", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Importance", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ResourceBriefDocumentID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResourceBriefDocumentID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ADIWGUID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ADIWGUID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMADocumentsCollectionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMADocumentsCollectionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMADatasetsCollectionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMADatasetsCollectionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMAProjectReference", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMAProjectReference", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedBy", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordUpdatedDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordUpdatedBy", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataManagementOverview", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataManagementOverview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NetworkID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "NetworkID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NetworkVSName", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "NetworkVSName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GrabberTitle", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "GrabberTitle", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Overview", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Overview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OverviewHTML", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "OverviewHTML", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@URLMoreInfo", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "URLMoreInfo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SamplingFrequency", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingFrequency", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SamplingTiming", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingTiming", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PDSWritten", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PDSWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolsWritten", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolsWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolIRMAReference", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolIRMAReference", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PeerReviewed", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PeerReviewed", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ImplementationDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "ImplementationDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SamplingDesign", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingDesign", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProjectLeadContactID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProjectLeadContactID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FilesDirectory", Global.System.Data.SqlDbType.NVarChar, 500, Global.System.Data.ParameterDirection.Input, 0, 0, "FilesDirectory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StatusAndTrends", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusAndTrends", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Importance", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Importance", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ResourceBriefDocumentID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ResourceBriefDocumentID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ADIWGUID", Global.System.Data.SqlDbType.VarChar, 36, Global.System.Data.ParameterDirection.Input, 0, 0, "ADIWGUID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMADocumentsCollectionID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMADocumentsCollectionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMADatasetsCollectionID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMADatasetsCollectionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMAProjectReference", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMAProjectReference", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedBy", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordUpdatedDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordUpdatedBy", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataManagementOverview", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "DataManagementOverview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMAProtocolTrackerID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMAProtocolTrackerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblVitalSigns] SET [NetworkID] = @NetworkID, [NetworkVSName] = @Net"& _ 
-                "workVSName, [GrabberTitle] = @GrabberTitle, [Overview] = @Overview, [OverviewHTM"& _ 
-                "L] = @OverviewHTML, [Status] = @Status, [URLMoreInfo] = @URLMoreInfo, [SamplingF"& _ 
-                "requency] = @SamplingFrequency, [SamplingTiming] = @SamplingTiming, [PDSWritten]"& _ 
-                " = @PDSWritten, [ProtocolsWritten] = @ProtocolsWritten, [ProtocolIRMAReference] "& _ 
-                "= @ProtocolIRMAReference, [PeerReviewed] = @PeerReviewed, [ImplementationDate] ="& _ 
-                " @ImplementationDate, [SamplingDesign] = @SamplingDesign, [ProjectLeadContactID]"& _ 
-                " = @ProjectLeadContactID, [FilesDirectory] = @FilesDirectory, [StatusAndTrends] "& _ 
-                "= @StatusAndTrends, [Importance] = @Importance, [ResourceBriefDocumentID] = @Res"& _ 
-                "ourceBriefDocumentID, [ADIWGUID] = @ADIWGUID, [IRMADocumentsCollectionID] = @IRM"& _ 
-                "ADocumentsCollectionID, [IRMADatasetsCollectionID] = @IRMADatasetsCollectionID, "& _ 
-                "[IRMAProjectReference] = @IRMAProjectReference, [RecordInsertedDate] = @RecordIn"& _ 
-                "sertedDate, [RecordInsertedBy] = @RecordInsertedBy, [RecordUpdatedDate] = @Recor"& _ 
-                "dUpdatedDate, [RecordUpdatedBy] = @RecordUpdatedBy, [DataManagementOverview] = @"& _ 
-                "DataManagementOverview WHERE (([VSID] = @Original_VSID) AND ([NetworkID] = @Orig"& _ 
-                "inal_NetworkID) AND ([NetworkVSName] = @Original_NetworkVSName) AND ((@IsNull_Gr"& _ 
-                "abberTitle = 1 AND [GrabberTitle] IS NULL) OR ([GrabberTitle] = @Original_Grabbe"& _ 
-                "rTitle)) AND ([Status] = @Original_Status) AND ((@IsNull_URLMoreInfo = 1 AND [UR"& _ 
-                "LMoreInfo] IS NULL) OR ([URLMoreInfo] = @Original_URLMoreInfo)) AND ((@IsNull_Sa"& _ 
-                "mplingFrequency = 1 AND [SamplingFrequency] IS NULL) OR ([SamplingFrequency] = @"& _ 
-                "Original_SamplingFrequency)) AND ((@IsNull_SamplingTiming = 1 AND [SamplingTimin"& _ 
-                "g] IS NULL) OR ([SamplingTiming] = @Original_SamplingTiming)) AND ((@IsNull_PDSW"& _ 
-                "ritten = 1 AND [PDSWritten] IS NULL) OR ([PDSWritten] = @Original_PDSWritten)) A"& _ 
-                "ND ((@IsNull_ProtocolsWritten = 1 AND [ProtocolsWritten] IS NULL) OR ([Protocols"& _ 
-                "Written] = @Original_ProtocolsWritten)) AND ((@IsNull_ProtocolIRMAReference = 1 "& _ 
-                "AND [ProtocolIRMAReference] IS NULL) OR ([ProtocolIRMAReference] = @Original_Pro"& _ 
-                "tocolIRMAReference)) AND ((@IsNull_PeerReviewed = 1 AND [PeerReviewed] IS NULL) "& _ 
-                "OR ([PeerReviewed] = @Original_PeerReviewed)) AND ((@IsNull_ImplementationDate ="& _ 
-                " 1 AND [ImplementationDate] IS NULL) OR ([ImplementationDate] = @Original_Implem"& _ 
-                "entationDate)) AND ((@IsNull_ProjectLeadContactID = 1 AND [ProjectLeadContactID]"& _ 
-                " IS NULL) OR ([ProjectLeadContactID] = @Original_ProjectLeadContactID)) AND ((@I"& _ 
-                "sNull_FilesDirectory = 1 AND [FilesDirectory] IS NULL) OR ([FilesDirectory] = @O"& _ 
-                "riginal_FilesDirectory)) AND ((@IsNull_ResourceBriefDocumentID = 1 AND [Resource"& _ 
-                "BriefDocumentID] IS NULL) OR ([ResourceBriefDocumentID] = @Original_ResourceBrie"& _ 
-                "fDocumentID)) AND ([ADIWGUID] = @Original_ADIWGUID) AND ((@IsNull_IRMADocumentsC"& _ 
-                "ollectionID = 1 AND [IRMADocumentsCollectionID] IS NULL) OR ([IRMADocumentsColle"& _ 
-                "ctionID] = @Original_IRMADocumentsCollectionID)) AND ((@IsNull_IRMADatasetsColle"& _ 
-                "ctionID = 1 AND [IRMADatasetsCollectionID] IS NULL) OR ([IRMADatasetsCollectionI"& _ 
-                "D] = @Original_IRMADatasetsCollectionID)) AND ((@IsNull_IRMAProjectReference = 1"& _ 
-                " AND [IRMAProjectReference] IS NULL) OR ([IRMAProjectReference] = @Original_IRMA"& _ 
-                "ProjectReference)) AND ([RecordInsertedDate] = @Original_RecordInsertedDate) AND"& _ 
-                " ([RecordInsertedBy] = @Original_RecordInsertedBy) AND ([RecordUpdatedDate] = @O"& _ 
-                "riginal_RecordUpdatedDate) AND ([RecordUpdatedBy] = @Original_RecordUpdatedBy));"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSID, NetworkID, NetworkVSName, GrabberTitle, Overview, OverviewHTML, S"& _ 
-                "tatus, URLMoreInfo, SamplingFrequency, SamplingTiming, PDSWritten, ProtocolsWrit"& _ 
-                "ten, ProtocolIRMAReference, PeerReviewed, ImplementationDate, SamplingDesign, Pr"& _ 
-                "ojectLeadContactID, FilesDirectory, StatusAndTrends, Importance, ResourceBriefDo"& _ 
-                "cumentID, ADIWGUID, IRMADocumentsCollectionID, IRMADatasetsCollectionID, IRMAPro"& _ 
-                "jectReference, RecordInsertedDate, RecordInsertedBy, RecordUpdatedDate, RecordUp"& _ 
-                "datedBy, DataManagementOverview FROM tblVitalSigns WHERE (VSID = @VSID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE       tblVitalSigns"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                NetworkID = @NetworkID, NetworkVSN"& _ 
+                "ame = @NetworkVSName, GrabberTitle = @GrabberTitle, Overview = @Overview, Overvi"& _ 
+                "ewHTML = @OverviewHTML, Status = @Status, URLMoreInfo = @URLMoreInfo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"        "& _ 
+                "                 SamplingFrequency = @SamplingFrequency, SamplingTiming = @Sampl"& _ 
+                "ingTiming, PDSWritten = @PDSWritten, ProtocolsWritten = @ProtocolsWritten, Proto"& _ 
+                "colIRMAReference = @ProtocolIRMAReference, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         PeerReview"& _ 
+                "ed = @PeerReviewed, ImplementationDate = @ImplementationDate, SamplingDesign = @"& _ 
+                "SamplingDesign, ProjectLeadContactID = @ProjectLeadContactID, FilesDirectory = @"& _ 
+                "FilesDirectory, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         StatusAndTrends = @StatusAndTrends, I"& _ 
+                "mportance = @Importance, ResourceBriefDocumentID = @ResourceBriefDocumentID, ADI"& _ 
+                "WGUID = @ADIWGUID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IRMADocumentsCollectionID = @IRMAD"& _ 
+                "ocumentsCollectionID, IRMADatasetsCollectionID = @IRMADatasetsCollectionID, IRMA"& _ 
+                "ProjectReference = @IRMAProjectReference, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RecordInser"& _ 
+                "tedDate = @RecordInsertedDate, RecordInsertedBy = @RecordInsertedBy, RecordUpdat"& _ 
+                "edDate = @RecordUpdatedDate, RecordUpdatedBy = @RecordUpdatedBy, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             "& _ 
+                "            DataManagementOverview = @DataManagementOverview, IRMAProtocolTracke"& _ 
+                "rID = @IRMAProtocolTrackerID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (VSID = @Original_VSID); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSI"& _ 
+                "D, NetworkID, NetworkVSName, GrabberTitle, Overview, OverviewHTML, Status, URLMo"& _ 
+                "reInfo, SamplingFrequency, SamplingTiming, PDSWritten, ProtocolsWritten, Protoco"& _ 
+                "lIRMAReference, PeerReviewed, ImplementationDate, SamplingDesign, ProjectLeadCon"& _ 
+                "tactID, FilesDirectory, StatusAndTrends, Importance, ResourceBriefDocumentID, AD"& _ 
+                "IWGUID, IRMADocumentsCollectionID, IRMADatasetsCollectionID, IRMAProjectReferenc"& _ 
+                "e, RecordInsertedDate, RecordInsertedBy, RecordUpdatedDate, RecordUpdatedBy, Dat"& _ 
+                "aManagementOverview FROM tblVitalSigns WHERE (VSID = @VSID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NetworkID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NetworkID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NetworkVSName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NetworkVSName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GrabberTitle", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GrabberTitle", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Overview", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Overview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OverviewHTML", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "OverviewHTML", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@URLMoreInfo", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "URLMoreInfo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SamplingFrequency", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingFrequency", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SamplingTiming", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingTiming", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PDSWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PDSWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolsWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolsWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolIRMAReference", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolIRMAReference", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PeerReviewed", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PeerReviewed", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ImplementationDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImplementationDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SamplingDesign", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingDesign", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProjectLeadContactID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProjectLeadContactID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FilesDirectory", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FilesDirectory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StatusAndTrends", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusAndTrends", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Importance", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Importance", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ResourceBriefDocumentID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResourceBriefDocumentID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ADIWGUID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ADIWGUID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMADocumentsCollectionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMADocumentsCollectionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMADatasetsCollectionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMADatasetsCollectionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMAProjectReference", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMAProjectReference", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedBy", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordUpdatedDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordUpdatedBy", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataManagementOverview", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataManagementOverview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NetworkID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NetworkID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NetworkVSName", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NetworkVSName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_GrabberTitle", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GrabberTitle", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_GrabberTitle", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "GrabberTitle", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Status", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_URLMoreInfo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "URLMoreInfo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_URLMoreInfo", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "URLMoreInfo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SamplingFrequency", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingFrequency", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SamplingFrequency", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingFrequency", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SamplingTiming", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingTiming", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SamplingTiming", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingTiming", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PDSWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PDSWritten", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PDSWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PDSWritten", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProtocolsWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolsWritten", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolsWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolsWritten", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProtocolIRMAReference", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolIRMAReference", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolIRMAReference", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolIRMAReference", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_PeerReviewed", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PeerReviewed", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_PeerReviewed", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "PeerReviewed", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ImplementationDate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImplementationDate", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ImplementationDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ImplementationDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProjectLeadContactID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProjectLeadContactID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProjectLeadContactID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProjectLeadContactID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_FilesDirectory", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FilesDirectory", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FilesDirectory", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FilesDirectory", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ResourceBriefDocumentID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResourceBriefDocumentID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ResourceBriefDocumentID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ResourceBriefDocumentID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ADIWGUID", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ADIWGUID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IRMADocumentsCollectionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMADocumentsCollectionID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IRMADocumentsCollectionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMADocumentsCollectionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IRMADatasetsCollectionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMADatasetsCollectionID", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IRMADatasetsCollectionID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMADatasetsCollectionID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IRMAProjectReference", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMAProjectReference", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IRMAProjectReference", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMAProjectReference", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RecordInsertedDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RecordInsertedBy", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedBy", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RecordUpdatedDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_RecordUpdatedBy", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedBy", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NetworkID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "NetworkID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NetworkVSName", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "NetworkVSName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@GrabberTitle", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "GrabberTitle", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Overview", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Overview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@OverviewHTML", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "OverviewHTML", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Status", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "Status", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@URLMoreInfo", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "URLMoreInfo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SamplingFrequency", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingFrequency", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SamplingTiming", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingTiming", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PDSWritten", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PDSWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolsWritten", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolsWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolIRMAReference", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolIRMAReference", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PeerReviewed", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PeerReviewed", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ImplementationDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "ImplementationDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SamplingDesign", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "SamplingDesign", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProjectLeadContactID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProjectLeadContactID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FilesDirectory", Global.System.Data.SqlDbType.NVarChar, 500, Global.System.Data.ParameterDirection.Input, 0, 0, "FilesDirectory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@StatusAndTrends", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "StatusAndTrends", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Importance", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Importance", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ResourceBriefDocumentID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ResourceBriefDocumentID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ADIWGUID", Global.System.Data.SqlDbType.VarChar, 36, Global.System.Data.ParameterDirection.Input, 0, 0, "ADIWGUID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMADocumentsCollectionID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMADocumentsCollectionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMADatasetsCollectionID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMADatasetsCollectionID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMAProjectReference", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMAProjectReference", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedBy", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordUpdatedDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordUpdatedBy", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataManagementOverview", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "DataManagementOverview", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IRMAProtocolTrackerID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "IRMAProtocolTrackerID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15481,13 +15461,14 @@ Namespace AKRODataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT VSID, NetworkID, NetworkVSName, GrabberTitle, Overview, OverviewHTML, Stat"& _ 
-                "us, URLMoreInfo, SamplingFrequency, SamplingTiming, PDSWritten, ProtocolsWritten"& _ 
-                ", ProtocolIRMAReference, PeerReviewed, ImplementationDate, SamplingDesign, Proje"& _ 
-                "ctLeadContactID, FilesDirectory, StatusAndTrends, Importance, ResourceBriefDocum"& _ 
-                "entID, ADIWGUID, IRMADocumentsCollectionID, IRMADatasetsCollectionID, IRMAProjec"& _ 
-                "tReference, RecordInsertedDate, RecordInsertedBy, RecordUpdatedDate, RecordUpdat"& _ 
-                "edBy, DataManagementOverview FROM dbo.tblVitalSigns"
+            Me._commandCollection(0).CommandText = "SELECT        VSID, NetworkID, NetworkVSName, GrabberTitle, Overview, OverviewHTM"& _ 
+                "L, Status, URLMoreInfo, SamplingFrequency, SamplingTiming, PDSWritten, Protocols"& _ 
+                "Written, ProtocolIRMAReference, PeerReviewed, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Impleme"& _ 
+                "ntationDate, SamplingDesign, ProjectLeadContactID, FilesDirectory, StatusAndTren"& _ 
+                "ds, Importance, ResourceBriefDocumentID, ADIWGUID, IRMADocumentsCollectionID, IR"& _ 
+                "MADatasetsCollectionID, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         IRMAProjectReference, RecordI"& _ 
+                "nsertedDate, RecordInsertedBy, RecordUpdatedDate, RecordUpdatedBy, DataManagemen"& _ 
+                "tOverview, IRMAProtocolTrackerID"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            tblVitalSigns"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -15754,7 +15735,8 @@ Namespace AKRODataSetTableAdapters
                     ByVal RecordInsertedBy As String,  _
                     ByVal RecordUpdatedDate As Date,  _
                     ByVal RecordUpdatedBy As String,  _
-                    ByVal DataManagementOverview As String) As Integer
+                    ByVal DataManagementOverview As String,  _
+                    ByVal IRMAProtocolTrackerID As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(NetworkID,Integer)
             If (NetworkVSName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("NetworkVSName")
@@ -15888,6 +15870,11 @@ Namespace AKRODataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(28).Value = CType(DataManagementOverview,String)
             End If
+            If (IRMAProtocolTrackerID.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(29).Value = CType(IRMAProtocolTrackerID.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(29).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -15937,30 +15924,8 @@ Namespace AKRODataSetTableAdapters
                     ByVal RecordUpdatedDate As Date,  _
                     ByVal RecordUpdatedBy As String,  _
                     ByVal DataManagementOverview As String,  _
+                    ByVal IRMAProtocolTrackerID As Global.System.Nullable(Of Integer),  _
                     ByVal Original_VSID As Integer,  _
-                    ByVal Original_NetworkID As Integer,  _
-                    ByVal Original_NetworkVSName As String,  _
-                    ByVal Original_GrabberTitle As String,  _
-                    ByVal Original_Status As String,  _
-                    ByVal Original_URLMoreInfo As String,  _
-                    ByVal Original_SamplingFrequency As String,  _
-                    ByVal Original_SamplingTiming As String,  _
-                    ByVal Original_PDSWritten As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_ProtocolsWritten As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_ProtocolIRMAReference As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_PeerReviewed As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_ImplementationDate As Global.System.Nullable(Of Date),  _
-                    ByVal Original_ProjectLeadContactID As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_FilesDirectory As String,  _
-                    ByVal Original_ResourceBriefDocumentID As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_ADIWGUID As String,  _
-                    ByVal Original_IRMADocumentsCollectionID As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_IRMADatasetsCollectionID As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_IRMAProjectReference As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_RecordInsertedDate As Date,  _
-                    ByVal Original_RecordInsertedBy As String,  _
-                    ByVal Original_RecordUpdatedDate As Date,  _
-                    ByVal Original_RecordUpdatedBy As String,  _
                     ByVal VSID As Integer) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(NetworkID,Integer)
             If (NetworkVSName Is Nothing) Then
@@ -16095,141 +16060,13 @@ Namespace AKRODataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(28).Value = CType(DataManagementOverview,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_VSID,Integer)
-            Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_NetworkID,Integer)
-            If (Original_NetworkVSName Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_NetworkVSName")
+            If (IRMAProtocolTrackerID.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(IRMAProtocolTrackerID.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_NetworkVSName,String)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             End If
-            If (Original_GrabberTitle Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_GrabberTitle,String)
-            End If
-            If (Original_Status Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Status")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_Status,String)
-            End If
-            If (Original_URLMoreInfo Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_URLMoreInfo,String)
-            End If
-            If (Original_SamplingFrequency Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_SamplingFrequency,String)
-            End If
-            If (Original_SamplingTiming Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_SamplingTiming,String)
-            End If
-            If (Original_PDSWritten.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_PDSWritten.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
-            End If
-            If (Original_ProtocolsWritten.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_ProtocolsWritten.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
-            End If
-            If (Original_ProtocolIRMAReference.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_ProtocolIRMAReference.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
-            End If
-            If (Original_PeerReviewed.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_PeerReviewed.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
-            End If
-            If (Original_ImplementationDate.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_ImplementationDate.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
-            End If
-            If (Original_ProjectLeadContactID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_ProjectLeadContactID.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
-            End If
-            If (Original_FilesDirectory Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_FilesDirectory,String)
-            End If
-            If (Original_ResourceBriefDocumentID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_ResourceBriefDocumentID.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
-            End If
-            If (Original_ADIWGUID Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_ADIWGUID")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Original_ADIWGUID,String)
-            End If
-            If (Original_IRMADocumentsCollectionID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(59).Value = CType(Original_IRMADocumentsCollectionID.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(58).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(59).Value = Global.System.DBNull.Value
-            End If
-            If (Original_IRMADatasetsCollectionID.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(61).Value = CType(Original_IRMADatasetsCollectionID.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(60).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(61).Value = Global.System.DBNull.Value
-            End If
-            If (Original_IRMAProjectReference.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(63).Value = CType(Original_IRMAProjectReference.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(62).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(63).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(64).Value = CType(Original_RecordInsertedDate,Date)
-            If (Original_RecordInsertedBy Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_RecordInsertedBy")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(65).Value = CType(Original_RecordInsertedBy,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(66).Value = CType(Original_RecordUpdatedDate,Date)
-            If (Original_RecordUpdatedBy Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_RecordUpdatedBy")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(67).Value = CType(Original_RecordUpdatedBy,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(68).Value = CType(VSID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_VSID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(31).Value = CType(VSID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -16243,67 +16080,6 @@ Namespace AKRODataSetTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal NetworkID As Integer,  _
-                    ByVal NetworkVSName As String,  _
-                    ByVal GrabberTitle As String,  _
-                    ByVal Overview As String,  _
-                    ByVal OverviewHTML As String,  _
-                    ByVal Status As String,  _
-                    ByVal URLMoreInfo As String,  _
-                    ByVal SamplingFrequency As String,  _
-                    ByVal SamplingTiming As String,  _
-                    ByVal PDSWritten As Global.System.Nullable(Of Integer),  _
-                    ByVal ProtocolsWritten As Global.System.Nullable(Of Integer),  _
-                    ByVal ProtocolIRMAReference As Global.System.Nullable(Of Integer),  _
-                    ByVal PeerReviewed As Global.System.Nullable(Of Integer),  _
-                    ByVal ImplementationDate As Global.System.Nullable(Of Date),  _
-                    ByVal SamplingDesign As String,  _
-                    ByVal ProjectLeadContactID As Global.System.Nullable(Of Integer),  _
-                    ByVal FilesDirectory As String,  _
-                    ByVal StatusAndTrends As String,  _
-                    ByVal Importance As String,  _
-                    ByVal ResourceBriefDocumentID As Global.System.Nullable(Of Integer),  _
-                    ByVal ADIWGUID As String,  _
-                    ByVal IRMADocumentsCollectionID As Global.System.Nullable(Of Integer),  _
-                    ByVal IRMADatasetsCollectionID As Global.System.Nullable(Of Integer),  _
-                    ByVal IRMAProjectReference As Global.System.Nullable(Of Integer),  _
-                    ByVal RecordInsertedDate As Date,  _
-                    ByVal RecordInsertedBy As String,  _
-                    ByVal RecordUpdatedDate As Date,  _
-                    ByVal RecordUpdatedBy As String,  _
-                    ByVal DataManagementOverview As String,  _
-                    ByVal Original_VSID As Integer,  _
-                    ByVal Original_NetworkID As Integer,  _
-                    ByVal Original_NetworkVSName As String,  _
-                    ByVal Original_GrabberTitle As String,  _
-                    ByVal Original_Status As String,  _
-                    ByVal Original_URLMoreInfo As String,  _
-                    ByVal Original_SamplingFrequency As String,  _
-                    ByVal Original_SamplingTiming As String,  _
-                    ByVal Original_PDSWritten As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_ProtocolsWritten As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_ProtocolIRMAReference As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_PeerReviewed As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_ImplementationDate As Global.System.Nullable(Of Date),  _
-                    ByVal Original_ProjectLeadContactID As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_FilesDirectory As String,  _
-                    ByVal Original_ResourceBriefDocumentID As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_ADIWGUID As String,  _
-                    ByVal Original_IRMADocumentsCollectionID As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_IRMADatasetsCollectionID As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_IRMAProjectReference As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_RecordInsertedDate As Date,  _
-                    ByVal Original_RecordInsertedBy As String,  _
-                    ByVal Original_RecordUpdatedDate As Date,  _
-                    ByVal Original_RecordUpdatedBy As String) As Integer
-            Return Me.Update(NetworkID, NetworkVSName, GrabberTitle, Overview, OverviewHTML, Status, URLMoreInfo, SamplingFrequency, SamplingTiming, PDSWritten, ProtocolsWritten, ProtocolIRMAReference, PeerReviewed, ImplementationDate, SamplingDesign, ProjectLeadContactID, FilesDirectory, StatusAndTrends, Importance, ResourceBriefDocumentID, ADIWGUID, IRMADocumentsCollectionID, IRMADatasetsCollectionID, IRMAProjectReference, RecordInsertedDate, RecordInsertedBy, RecordUpdatedDate, RecordUpdatedBy, DataManagementOverview, Original_VSID, Original_NetworkID, Original_NetworkVSName, Original_GrabberTitle, Original_Status, Original_URLMoreInfo, Original_SamplingFrequency, Original_SamplingTiming, Original_PDSWritten, Original_ProtocolsWritten, Original_ProtocolIRMAReference, Original_PeerReviewed, Original_ImplementationDate, Original_ProjectLeadContactID, Original_FilesDirectory, Original_ResourceBriefDocumentID, Original_ADIWGUID, Original_IRMADocumentsCollectionID, Original_IRMADatasetsCollectionID, Original_IRMAProjectReference, Original_RecordInsertedDate, Original_RecordInsertedBy, Original_RecordUpdatedDate, Original_RecordUpdatedBy, Original_VSID)
         End Function
     End Class
     

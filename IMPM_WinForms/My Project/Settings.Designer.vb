@@ -75,6 +75,18 @@ Namespace My
                 Me("IRMADataStoreURLPrefix") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://irma.nps.gov/ProtocolTracking/Protocol/Edit/")>  _
+        Public Property IRMAProtocolTrackerURLPrefix() As String
+            Get
+                Return CType(Me("IRMAProtocolTrackerURLPrefix"),String)
+            End Get
+            Set
+                Me("IRMAProtocolTrackerURLPrefix") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
