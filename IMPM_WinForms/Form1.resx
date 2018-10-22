@@ -196,7 +196,7 @@
     <value>1286, 17</value>
   </metadata>
   <data name="TblVitalSignsGridEX_DesignTimeLayout.LayoutString" xml:space="preserve">
-    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Key&gt;IBindingList&lt;/Key&gt;&lt;Caption&gt;IBindingList&lt;/Caption&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="NetworkVSName"&gt;&lt;Caption&gt;Vital Sign&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;NetworkVSName&lt;/DataMember&gt;&lt;Key&gt;NetworkVSName&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;/Column0&gt;&lt;Column1 ID="Status"&gt;&lt;Caption&gt;Status&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Status&lt;/DataMember&gt;&lt;EditType&gt;DropDownList&lt;/EditType&gt;&lt;Key&gt;Status&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;/Column1&gt;&lt;Column2 ID="IRMAProjectReference"&gt;&lt;Caption&gt;IRMAProject Reference&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;IRMAProjectReference&lt;/DataMember&gt;&lt;Key&gt;IRMAProjectReference&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;/Column2&gt;&lt;Column3 ID="IRMAProtocolTrackerID"&gt;&lt;Caption&gt;IRMAProtocol Tracker ID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;IRMAProtocolTrackerID&lt;/DataMember&gt;&lt;Key&gt;IRMAProtocolTrackerID&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;/Column3&gt;&lt;Column4 ID="PDSWritten"&gt;&lt;Caption&gt;PDSWritten&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;PDSWritten&lt;/DataMember&gt;&lt;Key&gt;PDSWritten&lt;/Key&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;/Column4&gt;&lt;Column5 ID="ProtocolsWritten"&gt;&lt;Caption&gt;Protocols Written&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;ProtocolsWritten&lt;/DataMember&gt;&lt;Key&gt;ProtocolsWritten&lt;/Key&gt;&lt;Position&gt;5&lt;/Position&gt;&lt;/Column5&gt;&lt;Column6 ID="PeerReviewed"&gt;&lt;Caption&gt;Peer Reviewed&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;PeerReviewed&lt;/DataMember&gt;&lt;Key&gt;PeerReviewed&lt;/Key&gt;&lt;Position&gt;6&lt;/Position&gt;&lt;/Column6&gt;&lt;Column7 ID="Overview"&gt;&lt;Caption&gt;Overview&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Overview&lt;/DataMember&gt;&lt;Key&gt;Overview&lt;/Key&gt;&lt;MaxLines&gt;100&lt;/MaxLines&gt;&lt;MinLines&gt;5&lt;/MinLines&gt;&lt;Position&gt;7&lt;/Position&gt;&lt;WordWrap&gt;True&lt;/WordWrap&gt;&lt;/Column7&gt;&lt;Column8 ID="ImplementationDate"&gt;&lt;Caption&gt;Implementation Date&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;ImplementationDate&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;ImplementationDate&lt;/Key&gt;&lt;Position&gt;8&lt;/Position&gt;&lt;/Column8&gt;&lt;Column9 ID="FilesDirectory"&gt;&lt;Caption&gt;Files Directory&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;FilesDirectory&lt;/DataMember&gt;&lt;Key&gt;FilesDirectory&lt;/Key&gt;&lt;Position&gt;9&lt;/Position&gt;&lt;/Column9&gt;&lt;Column10 ID="URLMoreInfo"&gt;&lt;Caption&gt;URL More Info&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;URLMoreInfo&lt;/DataMember&gt;&lt;Key&gt;URLMoreInfo&lt;/Key&gt;&lt;Position&gt;10&lt;/Position&gt;&lt;/Column10&gt;&lt;Column11 ID="SamplingFrequency"&gt;&lt;Caption&gt;Sampling Frequency&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;SamplingFrequency&lt;/DataMember&gt;&lt;Key&gt;SamplingFrequency&lt;/Key&gt;&lt;Position&gt;11&lt;/Position&gt;&lt;/Column11&gt;&lt;Column12 ID="SamplingTiming"&gt;&lt;Caption&gt;Sampling Timing&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;SamplingTiming&lt;/DataMember&gt;&lt;Key&gt;SamplingTiming&lt;/Key&gt;&lt;Position&gt;12&lt;/Position&gt;&lt;/Column12&gt;&lt;Column13 ID="SamplingDesign"&gt;&lt;Caption&gt;Sampling Design&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;SamplingDesign&lt;/DataMember&gt;&lt;Key&gt;SamplingDesign&lt;/Key&gt;&lt;Position&gt;13&lt;/Position&gt;&lt;/Column13&gt;&lt;Column14 ID="ProjectLeadContactID"&gt;&lt;Caption&gt;Project Lead Contact ID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;ProjectLeadContactID&lt;/DataMember&gt;&lt;EditType&gt;DropDownList&lt;/EditType&gt;&lt;Key&gt;ProjectLeadContactID&lt;/Key&gt;&lt;Position&gt;14&lt;/Position&gt;&lt;/Column14&gt;&lt;Column15 ID="StatusAndTrends"&gt;&lt;Caption&gt;Status And Trends&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;StatusAndTrends&lt;/DataMember&gt;&lt;Key&gt;StatusAndTrends&lt;/Key&gt;&lt;Position&gt;15&lt;/Position&gt;&lt;/Column15&gt;&lt;Column16 ID="Importance"&gt;&lt;Caption&gt;Importance&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Importance&lt;/DataMember&gt;&lt;Key&gt;Importance&lt;/Key&gt;&lt;Position&gt;16&lt;/Position&gt;&lt;/Column16&gt;&lt;Column17 ID="RecordInsertedDate"&gt;&lt;Caption&gt;Record Inserted Date&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;RecordInsertedDate&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;RecordInsertedDate&lt;/Key&gt;&lt;Position&gt;17&lt;/Position&gt;&lt;/Column17&gt;&lt;Column18 ID="RecordInsertedBy"&gt;&lt;Caption&gt;Record Inserted By&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;RecordInsertedBy&lt;/DataMember&gt;&lt;Key&gt;RecordInsertedBy&lt;/Key&gt;&lt;Position&gt;18&lt;/Position&gt;&lt;/Column18&gt;&lt;Column19 ID="RecordUpdatedDate"&gt;&lt;Caption&gt;Record Updated Date&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;RecordUpdatedDate&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;RecordUpdatedDate&lt;/Key&gt;&lt;Position&gt;19&lt;/Position&gt;&lt;/Column19&gt;&lt;Column20 ID="RecordUpdatedBy"&gt;&lt;Caption&gt;Record Updated By&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;RecordUpdatedBy&lt;/DataMember&gt;&lt;Key&gt;RecordUpdatedBy&lt;/Key&gt;&lt;Position&gt;20&lt;/Position&gt;&lt;/Column20&gt;&lt;Column21 ID="NetworkID"&gt;&lt;Caption&gt;Network ID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;NetworkID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;NetworkID&lt;/Key&gt;&lt;Position&gt;21&lt;/Position&gt;&lt;/Column21&gt;&lt;Column22 ID="VSID"&gt;&lt;Caption&gt;VSID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSID&lt;/Key&gt;&lt;Position&gt;22&lt;/Position&gt;&lt;/Column22&gt;&lt;/Columns&gt;&lt;GroupCondition /&gt;&lt;/RootTable&gt;&lt;/GridEXLayoutData&gt;</value>
+    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Key&gt;IBindingList&lt;/Key&gt;&lt;Caption&gt;IBindingList&lt;/Caption&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="NetworkVSName"&gt;&lt;Caption&gt;Vital Sign&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;NetworkVSName&lt;/DataMember&gt;&lt;Key&gt;NetworkVSName&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;/Column0&gt;&lt;Column1 ID="ProjectLeadContactID"&gt;&lt;Caption&gt;Project Leader&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;ProjectLeadContactID&lt;/DataMember&gt;&lt;EditType&gt;DropDownList&lt;/EditType&gt;&lt;Key&gt;ProjectLeadContactID&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;/Column1&gt;&lt;Column2 ID="Status"&gt;&lt;Caption&gt;Status&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Status&lt;/DataMember&gt;&lt;EditType&gt;DropDownList&lt;/EditType&gt;&lt;Key&gt;Status&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;/Column2&gt;&lt;Column3 ID="IRMAProjectReference"&gt;&lt;Caption&gt;IRMAProject Reference&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;IRMAProjectReference&lt;/DataMember&gt;&lt;Key&gt;IRMAProjectReference&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;/Column3&gt;&lt;Column4 ID="IRMAProtocolTrackerID"&gt;&lt;Caption&gt;IRMAProtocol Tracker ID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;IRMAProtocolTrackerID&lt;/DataMember&gt;&lt;Key&gt;IRMAProtocolTrackerID&lt;/Key&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;/Column4&gt;&lt;Column5 ID="PDSWritten"&gt;&lt;Caption&gt;PDSWritten&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;PDSWritten&lt;/DataMember&gt;&lt;Key&gt;PDSWritten&lt;/Key&gt;&lt;Position&gt;5&lt;/Position&gt;&lt;/Column5&gt;&lt;Column6 ID="ProtocolsWritten"&gt;&lt;Caption&gt;Protocols Written&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;ProtocolsWritten&lt;/DataMember&gt;&lt;Key&gt;ProtocolsWritten&lt;/Key&gt;&lt;Position&gt;6&lt;/Position&gt;&lt;/Column6&gt;&lt;Column7 ID="PeerReviewed"&gt;&lt;Caption&gt;Peer Reviewed&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;PeerReviewed&lt;/DataMember&gt;&lt;Key&gt;PeerReviewed&lt;/Key&gt;&lt;Position&gt;7&lt;/Position&gt;&lt;/Column7&gt;&lt;Column8 ID="Overview"&gt;&lt;Caption&gt;Overview&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Overview&lt;/DataMember&gt;&lt;Key&gt;Overview&lt;/Key&gt;&lt;MaxLines&gt;100&lt;/MaxLines&gt;&lt;MinLines&gt;5&lt;/MinLines&gt;&lt;Position&gt;8&lt;/Position&gt;&lt;WordWrap&gt;True&lt;/WordWrap&gt;&lt;/Column8&gt;&lt;Column9 ID="ImplementationDate"&gt;&lt;Caption&gt;Implementation Date&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;ImplementationDate&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;ImplementationDate&lt;/Key&gt;&lt;Position&gt;9&lt;/Position&gt;&lt;/Column9&gt;&lt;Column10 ID="FilesDirectory"&gt;&lt;Caption&gt;Files Directory&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;FilesDirectory&lt;/DataMember&gt;&lt;Key&gt;FilesDirectory&lt;/Key&gt;&lt;Position&gt;10&lt;/Position&gt;&lt;/Column10&gt;&lt;Column11 ID="URLMoreInfo"&gt;&lt;Caption&gt;URL More Info&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;URLMoreInfo&lt;/DataMember&gt;&lt;Key&gt;URLMoreInfo&lt;/Key&gt;&lt;Position&gt;11&lt;/Position&gt;&lt;/Column11&gt;&lt;Column12 ID="SamplingFrequency"&gt;&lt;Caption&gt;Sampling Frequency&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;SamplingFrequency&lt;/DataMember&gt;&lt;Key&gt;SamplingFrequency&lt;/Key&gt;&lt;Position&gt;12&lt;/Position&gt;&lt;/Column12&gt;&lt;Column13 ID="SamplingTiming"&gt;&lt;Caption&gt;Sampling Timing&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;SamplingTiming&lt;/DataMember&gt;&lt;Key&gt;SamplingTiming&lt;/Key&gt;&lt;Position&gt;13&lt;/Position&gt;&lt;/Column13&gt;&lt;Column14 ID="SamplingDesign"&gt;&lt;Caption&gt;Sampling Design&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;SamplingDesign&lt;/DataMember&gt;&lt;Key&gt;SamplingDesign&lt;/Key&gt;&lt;Position&gt;14&lt;/Position&gt;&lt;/Column14&gt;&lt;Column15 ID="StatusAndTrends"&gt;&lt;Caption&gt;Status And Trends&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;StatusAndTrends&lt;/DataMember&gt;&lt;Key&gt;StatusAndTrends&lt;/Key&gt;&lt;Position&gt;15&lt;/Position&gt;&lt;/Column15&gt;&lt;Column16 ID="Importance"&gt;&lt;Caption&gt;Importance&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Importance&lt;/DataMember&gt;&lt;Key&gt;Importance&lt;/Key&gt;&lt;Position&gt;16&lt;/Position&gt;&lt;/Column16&gt;&lt;Column17 ID="RecordInsertedDate"&gt;&lt;Caption&gt;Record Inserted Date&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;RecordInsertedDate&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;RecordInsertedDate&lt;/Key&gt;&lt;Position&gt;17&lt;/Position&gt;&lt;/Column17&gt;&lt;Column18 ID="RecordInsertedBy"&gt;&lt;Caption&gt;Record Inserted By&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;RecordInsertedBy&lt;/DataMember&gt;&lt;Key&gt;RecordInsertedBy&lt;/Key&gt;&lt;Position&gt;18&lt;/Position&gt;&lt;/Column18&gt;&lt;Column19 ID="RecordUpdatedDate"&gt;&lt;Caption&gt;Record Updated Date&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;RecordUpdatedDate&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;RecordUpdatedDate&lt;/Key&gt;&lt;Position&gt;19&lt;/Position&gt;&lt;/Column19&gt;&lt;Column20 ID="RecordUpdatedBy"&gt;&lt;Caption&gt;Record Updated By&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;RecordUpdatedBy&lt;/DataMember&gt;&lt;Key&gt;RecordUpdatedBy&lt;/Key&gt;&lt;Position&gt;20&lt;/Position&gt;&lt;/Column20&gt;&lt;Column21 ID="NetworkID"&gt;&lt;Caption&gt;Network ID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;NetworkID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;NetworkID&lt;/Key&gt;&lt;Position&gt;21&lt;/Position&gt;&lt;/Column21&gt;&lt;Column22 ID="VSID"&gt;&lt;Caption&gt;VSID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSID&lt;/Key&gt;&lt;Position&gt;22&lt;/Position&gt;&lt;/Column22&gt;&lt;/Columns&gt;&lt;GroupCondition /&gt;&lt;/RootTable&gt;&lt;/GridEXLayoutData&gt;</value>
   </data>
   <metadata name="TblVitalSignProtocolsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>841, 60</value>
@@ -247,17 +247,17 @@
   <data name="CreateDeliverablesDirectoriesToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <metadata name="TblVitalSignObjectivesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -375,33 +375,33 @@
   <data name="OpenProjectDirectoryToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIQSURBVDhP3Y+7a1NRHMfP4N7NP8HBmvqIjYqDiyCC4CI6
-        qJMIWgJKhIIiaIe0ESFSGh1UFLFUsLXiA0Ecgjg0tqY3aa7NbZLWpq2hN9jc9/vx9dz2Ko2Dq+DhfDjn
-        DJ/v93fIf7Jm30YL9dfH7KU/qL7bP1970bV1/nm0o40P0Y5s9tCWUCck9zRm+r4HwKc7YOPuGE2sZHus
-        5YnT5i8a+UtGfSJR517tORnqhLAvu0XfNWCupKEtDEJbfAy9PgbfEWiWCt9VKNLG22mB53mLG4+xoU5I
-        ZWS37NkSlTNQa0OQv/ZhbbIHzak4hFISwsxNCIVraDG9lASdjEdlfK8S6jRgtNt29FUIbAat6RT4j1eg
-        859pqxy2B6f4e4Lge8zoTiPUgwn22ev/90yKDrjauujqHMxGBsZyEvq3XmjVC1C5M3DVMpjhzQGZmOW7
-        Olw5B0d4D/vHGKzVh1S8DX3xOvRaHNrcWaizx6GUDsNVCmDubArI3Y+Zni3DXnsDix+mrXdhLNHWhaD1
-        PNTyKSjsUcjFg5Cmd8GRv7QHBA/fFqj8BOb3QRj1PionoFXOUfkEbT0CuXAAUr4L4tQ2GjDZHjB3K9LQ
-        RVbMZ595avURlMo9KFwaSrkfMnsDcukqpJkEpEIcEnMRxU8PfDYdFUOdEK6/8zKX2jHCDmxvMqmI8VcG
-        IkYxFZG4ZOdQqP/TRchPX4bnFvx0N3wAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIQSURBVDhP3Y/NaxNBHIbn4L03/wQP1tSPtFHx4EUQQfAi
+        elBPImgJKBEKiqA9pI0IkdIoKFIRSwVbK34giIfQU2Nju9tmbbZJWpu2hm6w2e/vzb7Otqs0HrwKDvMw
+        M4fnfX9D/pM1/z7KVt+edFb+oPzh0GLlVcfOxZfRthY+Rduy2aM7Qp2Q3POY5ftNAD7dAVt316xjLdtt
+        r06es35Rm75qVicTVf7NgTOhTgj3ukvyPRPWWhr60gD05acwqmPwXZFmafA9lSJvvd0GBEGw+fEYF+qE
+        lEb2K01HpnIGWmUQytdebEx1o56PQywkIc7dgcjeRIPpoSToZAJK451qqNOA0S7HNdYhchk0ZlIQJq7D
+        ED7TViVsD07p9wTB95jRvWaoBxMcdDb/37QoBuDpm6Jn8LBqGZirSRjfeqCXL0Pjz8PTimCGtwdkYrbv
+        GfCUHFzxI5wfY7DXn1DxHozlWzAqcegLF6DNn4JaOAZPZcHc3xaQexyzmo4CZ+MdbGGYtj6AuUJbl4LW
+        S9CKZ6FyJ6DMHoE8sw+u8qU1IHj4jkjlZ7C+D8Cs9lI5Ab10kcqnaetxKOxhyNMdkPK7aMBUa8DC3UjN
+        kDgpn33R1MpDUEsPofJpqMU+KNxtKIUbkOcSkNk4ZOYKmIlHPpeOSqFOCN/Xfo1P7Rnh+nfXmVTE/Cv9
+        EXM2FZH5ZPtgqP/TRchPWMTnDgKYhmIAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="OpenWebProfileToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="OpenProjectReferenceToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -425,17 +425,17 @@
   <data name="OpenProtocolTrackerToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <metadata name="TblContactsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

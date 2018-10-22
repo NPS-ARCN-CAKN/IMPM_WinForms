@@ -136,6 +136,7 @@ Partial Class Form1
         Me.TblProtocolRemeasurementsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MainMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FunctionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NetworkTasksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -316,6 +317,7 @@ Partial Class Form1
         Me.TableAdapterManager.DataManagementMilestonesTableAdapter = Nothing
         Me.TableAdapterManager.tblContactsTableAdapter = Me.TblContactsTableAdapter
         Me.TableAdapterManager.tblNetworksTableAdapter = Nothing
+        Me.TableAdapterManager.tblNetworkTasksTableAdapter = Nothing
         Me.TableAdapterManager.tblProtocolDeliverablesTableAdapter = Me.TblProtocolDeliverablesTableAdapter
         Me.TableAdapterManager.tblProtocolRemeasurementsTableAdapter = Me.TblProtocolRemeasurementsTableAdapter
         Me.TableAdapterManager.tblVitalSignDataManagementSummaryTableAdapter = Me.TblVitalSignDataManagementSummaryTableAdapter
@@ -1194,28 +1196,34 @@ Partial Class Form1
         '
         'FunctionsToolStripMenuItem
         '
-        Me.FunctionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.ExitToolStripMenuItem, Me.SettingsToolStripMenuItem})
+        Me.FunctionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NetworkTasksToolStripMenuItem, Me.SaveToolStripMenuItem, Me.ExitToolStripMenuItem, Me.SettingsToolStripMenuItem})
         Me.FunctionsToolStripMenuItem.Name = "FunctionsToolStripMenuItem"
         Me.FunctionsToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
         Me.FunctionsToolStripMenuItem.Text = "Functions"
+        '
+        'NetworkTasksToolStripMenuItem
+        '
+        Me.NetworkTasksToolStripMenuItem.Name = "NetworkTasksToolStripMenuItem"
+        Me.NetworkTasksToolStripMenuItem.Size = New System.Drawing.Size(166, 26)
+        Me.NetworkTasksToolStripMenuItem.Text = "Network tasks..."
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Image = CType(resources.GetObject("SaveToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(166, 26)
         Me.SaveToolStripMenuItem.Text = "Save to database"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(166, 26)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(166, 26)
         Me.SettingsToolStripMenuItem.Text = "Settings..."
         '
         'MainToolStrip
@@ -1436,4 +1444,5 @@ Partial Class Form1
     Friend WithEvents SitesTabPage As TabPage
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
     Friend WithEvents OpenProtocolTrackerToolStripButton As ToolStripButton
+    Friend WithEvents NetworkTasksToolStripMenuItem As ToolStripMenuItem
 End Class

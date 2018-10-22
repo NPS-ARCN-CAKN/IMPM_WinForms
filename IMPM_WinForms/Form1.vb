@@ -685,4 +685,9 @@ Public Class Form1
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
     End Sub
+
+    Private Sub NetworkTasksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NetworkTasksToolStripMenuItem.Click
+        Dim NetworkTasksForm As New NetworkTasksForm
+        NetworkTasksForm.ShowDialog()
+    End Sub
 End Class
