@@ -605,21 +605,8 @@ Public Class Form1
     End Sub
 
     Private Sub DataManagementMilestonesBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles DataManagementMilestonesBindingSource.CurrentChanged
-        Me.ProtocolDirectoryTextBox.ForeColor = Color.Black
-        Me.DataDirectoryTextBox.ForeColor = Color.Black
-        Try
-            'make sure the protocol directory exists
-            If My.Computer.FileSystem.DirectoryExists(Me.ProtocolDirectoryTextBox.Text.Trim) = False Then
-                Me.ProtocolDirectoryTextBox.ForeColor = Color.Red
-            End If
 
-            'make sure the data directory exists
-            If My.Computer.FileSystem.DirectoryExists(Me.DataDirectoryTextBox.Text.Trim) = False Then
-                Me.DataDirectoryTextBox.ForeColor = Color.Red
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
-        End Try
+
     End Sub
 
     Private Sub OpenProtocolTrackerToolStripButton_Click(sender As Object, e As EventArgs) Handles OpenProtocolTrackerToolStripButton.Click
@@ -656,6 +643,45 @@ Public Class Form1
                 Next
             End If
         Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    Private Sub ProtocolDirectoryTextBox_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ProtocolDirectoryTextBox.Validating
+        Try
+            'make sure the protocol directory exists
+            If Me.ProtocolDirectoryTextBox.Text.Trim <> "" Then
+                If My.Computer.FileSystem.DirectoryExists(Me.ProtocolDirectoryTextBox.Text.Trim) = False Then
+                    Me.ProtocolDirectoryTextBox.ForeColor = Color.Red
+                Else
+                    Me.ProtocolDirectoryTextBox.ForeColor = Color.Black
+                End If
+            Else
+                Me.ProtocolDirectoryTextBox.ForeColor = Color.Black
+            End If
+        Catch ex As Exception
+            Me.ProtocolDirectoryTextBox.ForeColor = Color.Black
+            Me.DataDirectoryTextBox.ForeColor = Color.Black
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    Private Sub DataDirectoryTextBox_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles DataDirectoryTextBox.Validating
+        Try
+            'make sure the data directory exists
+            If Me.DataDirectoryTextBox.Text.Trim <> "" Then
+                If My.Computer.FileSystem.DirectoryExists(Me.DataDirectoryTextBox.Text.Trim) = False Then
+                    Me.DataDirectoryTextBox.ForeColor = Color.Red
+                Else
+                    Me.DataDirectoryTextBox.ForeColor = Color.Black
+                End If
+            Else
+                Me.DataDirectoryTextBox.ForeColor = Color.Black
+            End If
+
+        Catch ex As Exception
+            Me.ProtocolDirectoryTextBox.ForeColor = Color.Black
+            Me.DataDirectoryTextBox.ForeColor = Color.Black
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
     End Sub

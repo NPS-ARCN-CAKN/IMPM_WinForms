@@ -91,6 +91,8 @@ Partial Public Class AKRODataSet
     
     Private relationFK_DataManagementMilestones_tblVitalSigns As Global.System.Data.DataRelation
     
+    Private relationvwVitalSignWorkLog_tblVitalSigns As Global.System.Data.DataRelation
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -542,6 +544,7 @@ Partial Public Class AKRODataSet
         Me.relationtblVitalSigns_vwVitalSignWorkLog = Me.Relations("tblVitalSigns_vwVitalSignWorkLog")
         Me.relationvwVitalSignOverview_vwVitalSignWorkLog = Me.Relations("vwVitalSignOverview_vwVitalSignWorkLog")
         Me.relationFK_DataManagementMilestones_tblVitalSigns = Me.Relations("FK_DataManagementMilestones_tblVitalSigns")
+        Me.relationvwVitalSignWorkLog_tblVitalSigns = Me.Relations("vwVitalSignWorkLog_tblVitalSigns")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -649,6 +652,8 @@ Partial Public Class AKRODataSet
         Me.Relations.Add(Me.relationvwVitalSignOverview_vwVitalSignWorkLog)
         Me.relationFK_DataManagementMilestones_tblVitalSigns = New Global.System.Data.DataRelation("FK_DataManagementMilestones_tblVitalSigns", New Global.System.Data.DataColumn() {Me.tabletblVitalSigns.VSIDColumn}, New Global.System.Data.DataColumn() {Me.tableDataManagementMilestones.VSIDColumn}, false)
         Me.Relations.Add(Me.relationFK_DataManagementMilestones_tblVitalSigns)
+        Me.relationvwVitalSignWorkLog_tblVitalSigns = New Global.System.Data.DataRelation("vwVitalSignWorkLog_tblVitalSigns", New Global.System.Data.DataColumn() {Me.tablevwVitalSignWorkLog.VSIDColumn}, New Global.System.Data.DataColumn() {Me.tabletblVitalSigns.VSIDColumn}, false)
+        Me.Relations.Add(Me.relationvwVitalSignWorkLog_tblVitalSigns)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4285,6 +4290,7 @@ Partial Public Class AKRODataSet
             Me.columnUsername.AllowDBNull = false
             Me.columnUsername.MaxLength = 30
             Me.columnLogEntry.AllowDBNull = false
+            Me.columnLogEntry.Caption = "Log Entry"
             Me.columnLogEntry.MaxLength = 2147483647
             Me.columnVSID.AllowDBNull = false
         End Sub
@@ -8949,6 +8955,17 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property vwVitalSignWorkLogRow() As vwVitalSignWorkLogRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("vwVitalSignWorkLog_tblVitalSigns")),vwVitalSignWorkLogRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("vwVitalSignWorkLog_tblVitalSigns"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsGrabberTitleNull() As Boolean
             Return Me.IsNull(Me.tabletblVitalSigns.GrabberTitleColumn)
         End Function
@@ -10575,6 +10592,16 @@ Partial Public Class AKRODataSet
                 Me.SetParentRow(value, Me.Table.ParentRelations("vwVitalSignOverview_vwVitalSignWorkLog"))
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function GettblVitalSignsRows() As tblVitalSignsRow()
+            If (Me.Table.ChildRelations("vwVitalSignWorkLog_tblVitalSigns") Is Nothing) Then
+                Return New tblVitalSignsRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("vwVitalSignWorkLog_tblVitalSigns")),tblVitalSignsRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -16777,11 +16804,11 @@ Namespace AKRODataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE tblVitalSignWorkLog"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET          LogDate = @LogDate, Username = @Username"& _ 
-                ", LogEntry = @LogEntry"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  (VSDMLogID = @Original_VSDMLogID) AND (LogDate = "& _ 
-                "@Original_LogDate) AND (Username = @Original_Username) AND (VSID = @Original_VSI"& _ 
-                "D); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSDMLogID, LogDate, Username, LogEntry, VSID FROM tblVitalSignWorkL"& _ 
-                "og WHERE (VSDMLogID = @VSDMLogID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE       tblVitalSignWorkLog"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                LogDate = @LogDate, Username"& _ 
+                " = @Username, LogEntry = @LogEntry"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (VSDMLogID = @Original_VSDMLogI"& _ 
+                "D) AND (LogDate = @Original_LogDate) AND (Username = @Original_Username) AND (VS"& _ 
+                "ID = @Original_VSID);  "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSDMLogID, LogDate, Username, LogEntry, VSID FRO"& _ 
+                "M tblVitalSignWorkLog WHERE (VSDMLogID = @VSDMLogID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@LogDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "LogDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Username", Global.System.Data.SqlDbType.NVarChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "Username", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))

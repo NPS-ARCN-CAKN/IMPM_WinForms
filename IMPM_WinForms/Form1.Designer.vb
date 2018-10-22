@@ -127,6 +127,8 @@ Partial Class Form1
         Me.OpenWebProfileToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.OpenProjectReferenceToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OpenProtocolTrackerToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.VitalSignHeaderPanel = New System.Windows.Forms.Panel()
         Me.VitalSignHeaderLabel = New System.Windows.Forms.Label()
         Me.TblContactsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -143,8 +145,6 @@ Partial Class Form1
         Me.RefreshToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
         Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
-        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
-        Me.OpenProtocolTrackerToolStripButton = New System.Windows.Forms.ToolStripButton()
         ProtocolAvailableLabel = New System.Windows.Forms.Label()
         DataAvailableLabel = New System.Windows.Forms.Label()
         DeliverablesScheduleLabel = New System.Windows.Forms.Label()
@@ -1130,6 +1130,19 @@ Partial Class Form1
         Me.OpenProjectReferenceToolStripButton.Size = New System.Drawing.Size(166, 24)
         Me.OpenProjectReferenceToolStripButton.Text = "Open Data Store Project..."
         '
+        'ToolStripSeparator7
+        '
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 27)
+        '
+        'OpenProtocolTrackerToolStripButton
+        '
+        Me.OpenProtocolTrackerToolStripButton.Image = CType(resources.GetObject("OpenProtocolTrackerToolStripButton.Image"), System.Drawing.Image)
+        Me.OpenProtocolTrackerToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.OpenProtocolTrackerToolStripButton.Name = "OpenProtocolTrackerToolStripButton"
+        Me.OpenProtocolTrackerToolStripButton.Size = New System.Drawing.Size(156, 24)
+        Me.OpenProtocolTrackerToolStripButton.Text = "Open protocol tracker..."
+        '
         'VitalSignHeaderPanel
         '
         Me.VitalSignHeaderPanel.Controls.Add(Me.VitalSignHeaderLabel)
@@ -1244,19 +1257,6 @@ Partial Class Form1
         'DataManagementMilestonesTableAdapter
         '
         Me.DataManagementMilestonesTableAdapter.ClearBeforeFill = True
-        '
-        'ToolStripSeparator7
-        '
-        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 27)
-        '
-        'OpenProtocolTrackerToolStripButton
-        '
-        Me.OpenProtocolTrackerToolStripButton.Image = CType(resources.GetObject("OpenProtocolTrackerToolStripButton.Image"), System.Drawing.Image)
-        Me.OpenProtocolTrackerToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.OpenProtocolTrackerToolStripButton.Name = "OpenProtocolTrackerToolStripButton"
-        Me.OpenProtocolTrackerToolStripButton.Size = New System.Drawing.Size(156, 24)
-        Me.OpenProtocolTrackerToolStripButton.Text = "Open protocol tracker..."
         '
         'Form1
         '
