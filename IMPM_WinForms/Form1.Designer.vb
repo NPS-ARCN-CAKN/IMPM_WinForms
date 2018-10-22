@@ -949,7 +949,7 @@ Partial Class Form1
         TblVitalSignTasksGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignTasksGridEX_DesignTimeLayout.LayoutString")
         Me.TblVitalSignTasksGridEX.DesignTimeLayout = TblVitalSignTasksGridEX_DesignTimeLayout
         Me.TblVitalSignTasksGridEX.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TblVitalSignTasksGridEX.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic
+        Me.TblVitalSignTasksGridEX.FilterMode = Janus.Windows.GridEX.FilterMode.Manual
         Me.TblVitalSignTasksGridEX.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.TblVitalSignTasksGridEX.Location = New System.Drawing.Point(2, 2)
         Me.TblVitalSignTasksGridEX.Margin = New System.Windows.Forms.Padding(2)
