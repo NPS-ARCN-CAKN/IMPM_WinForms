@@ -5559,6 +5559,10 @@ Partial Public Class AKRODataSet
         
         Private columnPIPSourceReferenceCode As Global.System.Data.DataColumn
         
+        Private columnQAPReferenceCode As Global.System.Data.DataColumn
+        
+        Private columnDateNarrativePublished As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -5691,6 +5695,22 @@ Partial Public Class AKRODataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property QAPReferenceCodeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnQAPReferenceCode
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property DateNarrativePublishedColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnDateNarrativePublished
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -5727,9 +5747,9 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddtblVitalSignProtocolsRow(ByVal ProtocolTitle As String, ByVal ProtocolCitation As String, ByVal Version As Decimal, ByVal IRMAReferenceCode As Integer, ByVal Notes As String, ByVal DocumentID As Integer, ByVal RecordInsertedDate As Date, ByVal RecordInsertedBy As String, ByVal parenttblVitalSignsRowByFK_tblVitalSignProtocols_tblVitalSigns As tblVitalSignsRow, ByVal DQSReferenceCode As Integer, ByVal PIPSourceReferenceCode As Integer) As tblVitalSignProtocolsRow
+        Public Overloads Function AddtblVitalSignProtocolsRow(ByVal ProtocolTitle As String, ByVal ProtocolCitation As String, ByVal Version As Decimal, ByVal IRMAReferenceCode As Integer, ByVal Notes As String, ByVal DocumentID As Integer, ByVal RecordInsertedDate As Date, ByVal RecordInsertedBy As String, ByVal parenttblVitalSignsRowByFK_tblVitalSignProtocols_tblVitalSigns As tblVitalSignsRow, ByVal DQSReferenceCode As Integer, ByVal PIPSourceReferenceCode As Integer, ByVal QAPReferenceCode As Integer, ByVal DateNarrativePublished As Date) As tblVitalSignProtocolsRow
             Dim rowtblVitalSignProtocolsRow As tblVitalSignProtocolsRow = CType(Me.NewRow,tblVitalSignProtocolsRow)
-            Dim columnValuesArray() As Object = New Object() {ProtocolTitle, ProtocolCitation, Version, IRMAReferenceCode, Notes, DocumentID, RecordInsertedDate, RecordInsertedBy, Nothing, Nothing, DQSReferenceCode, PIPSourceReferenceCode}
+            Dim columnValuesArray() As Object = New Object() {ProtocolTitle, ProtocolCitation, Version, IRMAReferenceCode, Notes, DocumentID, RecordInsertedDate, RecordInsertedBy, Nothing, Nothing, DQSReferenceCode, PIPSourceReferenceCode, QAPReferenceCode, DateNarrativePublished}
             If (Not (parenttblVitalSignsRowByFK_tblVitalSignProtocols_tblVitalSigns) Is Nothing) Then
                 columnValuesArray(8) = parenttblVitalSignsRowByFK_tblVitalSignProtocols_tblVitalSigns(0)
             End If
@@ -5773,6 +5793,8 @@ Partial Public Class AKRODataSet
             Me.columnProtocolID = MyBase.Columns("ProtocolID")
             Me.columnDQSReferenceCode = MyBase.Columns("DQSReferenceCode")
             Me.columnPIPSourceReferenceCode = MyBase.Columns("PIPSourceReferenceCode")
+            Me.columnQAPReferenceCode = MyBase.Columns("QAPReferenceCode")
+            Me.columnDateNarrativePublished = MyBase.Columns("DateNarrativePublished")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5802,6 +5824,10 @@ Partial Public Class AKRODataSet
             MyBase.Columns.Add(Me.columnDQSReferenceCode)
             Me.columnPIPSourceReferenceCode = New Global.System.Data.DataColumn("PIPSourceReferenceCode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPIPSourceReferenceCode)
+            Me.columnQAPReferenceCode = New Global.System.Data.DataColumn("QAPReferenceCode", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnQAPReferenceCode)
+            Me.columnDateNarrativePublished = New Global.System.Data.DataColumn("DateNarrativePublished", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnDateNarrativePublished)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnProtocolID}, true))
             Me.columnProtocolTitle.AllowDBNull = false
             Me.columnProtocolTitle.MaxLength = 255
@@ -5821,6 +5847,7 @@ Partial Public Class AKRODataSet
             Me.columnProtocolID.Unique = true
             Me.columnDQSReferenceCode.Caption = "DQS Reference Code"
             Me.columnPIPSourceReferenceCode.Caption = "PIP Source Reference Code"
+            Me.columnQAPReferenceCode.Caption = "QAP Reference Code"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11260,6 +11287,38 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property QAPReferenceCode() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tabletblVitalSignProtocols.QAPReferenceCodeColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'QAPReferenceCode' in table 'tblVitalSignProtocols' is DBNul"& _ 
+                            "l.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletblVitalSignProtocols.QAPReferenceCodeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property DateNarrativePublished() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tabletblVitalSignProtocols.DateNarrativePublishedColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DateNarrativePublished' in table 'tblVitalSignProtocols' is"& _ 
+                            " DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletblVitalSignProtocols.DateNarrativePublishedColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property tblVitalSignsRow() As tblVitalSignsRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("FK_tblVitalSignProtocols_tblVitalSigns")),tblVitalSignsRow)
@@ -11327,6 +11386,30 @@ Partial Public Class AKRODataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetPIPSourceReferenceCodeNull()
             Me(Me.tabletblVitalSignProtocols.PIPSourceReferenceCodeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsQAPReferenceCodeNull() As Boolean
+            Return Me.IsNull(Me.tabletblVitalSignProtocols.QAPReferenceCodeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetQAPReferenceCodeNull()
+            Me(Me.tabletblVitalSignProtocols.QAPReferenceCodeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsDateNarrativePublishedNull() As Boolean
+            Return Me.IsNull(Me.tabletblVitalSignProtocols.DateNarrativePublishedColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetDateNarrativePublishedNull()
+            Me(Me.tabletblVitalSignProtocols.DateNarrativePublishedColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -18303,6 +18386,7 @@ Namespace AKRODataSetTableAdapters
             tableMapping.ColumnMappings.Add("ProtocolID", "ProtocolID")
             tableMapping.ColumnMappings.Add("DQSReferenceCode", "DQSReferenceCode")
             tableMapping.ColumnMappings.Add("PIPSourceReferenceCode", "PIPSourceReferenceCode")
+            tableMapping.ColumnMappings.Add("QAPReferenceCode", "QAPReferenceCode")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -18330,11 +18414,12 @@ Namespace AKRODataSetTableAdapters
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO tblVitalSignProtocols"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (ProtocolTitle, Proto"& _ 
                 "colCitation, Version, IRMAReferenceCode, Notes, DocumentID, VSID, DQSReferenceCo"& _ 
-                "de, PIPSourceReferenceCode)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@ProtocolTitle,@ProtocolCitation,@Ve"& _ 
-                "rsion,@IRMAReferenceCode,@Notes,@DocumentID,@VSID,@DQSReferenceCode,@PIPSourceRe"& _ 
-                "ferenceCode);    "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProtocolTitle, ProtocolCitation, Version, IRMAReferenc"& _ 
-                "eCode, Notes, DocumentID, RecordInsertedDate, RecordInsertedBy, VSID, ProtocolID"& _ 
-                " FROM tblVitalSignProtocols WHERE (ProtocolID = SCOPE_IDENTITY())"
+                "de, PIPSourceReferenceCode, QAPReferenceCode, DateNarrativePublished)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES   "& _ 
+                "     (@ProtocolTitle,@ProtocolCitation,@Version,@IRMAReferenceCode,@Notes,@Docum"& _ 
+                "entID,@VSID,@DQSReferenceCode,@PIPSourceReferenceCode,@QAPReferenceCode,@DateNar"& _ 
+                "rativePublished);      "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProtocolTitle, ProtocolCitation, Version, IRMARe"& _ 
+                "ferenceCode, Notes, DocumentID, RecordInsertedDate, RecordInsertedBy, VSID, Prot"& _ 
+                "ocolID FROM tblVitalSignProtocols WHERE (ProtocolID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolTitle", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolTitle", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolCitation", Global.System.Data.SqlDbType.VarChar, 500, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolCitation", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -18345,16 +18430,19 @@ Namespace AKRODataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DQSReferenceCode", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "DQSReferenceCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PIPSourceReferenceCode", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PIPSourceReferenceCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@QAPReferenceCode", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "QAPReferenceCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateNarrativePublished", Global.System.Data.SqlDbType.VarChar, 3, Global.System.Data.ParameterDirection.Input, 0, 0, "DateNarrativePublished", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE       tblVitalSignProtocols"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                ProtocolTitle = @ProtocolT"& _ 
                 "itle, ProtocolCitation = @ProtocolCitation, Version = @Version, IRMAReferenceCod"& _ 
                 "e = @IRMAReferenceCode, Notes = @Notes, DocumentID = @DocumentID, VSID = @VSID, "& _ 
                 ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         DQSReferenceCode = @DQSReferenceCode, PIPSourceRefere"& _ 
-                "nceCode = @PIPSourceReferenceCode"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (ProtocolID = @Original_Protocol"& _ 
-                "ID);    "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProtocolTitle, ProtocolCitation, Version, IRMAReferenceCode, No"& _ 
-                "tes, DocumentID, RecordInsertedDate, RecordInsertedBy, VSID, ProtocolID FROM tbl"& _ 
-                "VitalSignProtocols WHERE (ProtocolID = @ProtocolID)"
+                "nceCode = @PIPSourceReferenceCode, QAPReferenceCode = @QAPReferenceCode, DateNar"& _ 
+                "rativePublished = @DateNarrativePublished"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (ProtocolID = @Original_"& _ 
+                "ProtocolID);      "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProtocolTitle, ProtocolCitation, Version, IRMAReferen"& _ 
+                "ceCode, Notes, DocumentID, RecordInsertedDate, RecordInsertedBy, VSID, ProtocolI"& _ 
+                "D FROM tblVitalSignProtocols WHERE (ProtocolID = @ProtocolID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolTitle", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolTitle", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolCitation", Global.System.Data.SqlDbType.VarChar, 500, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolCitation", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -18365,6 +18453,8 @@ Namespace AKRODataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DQSReferenceCode", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "DQSReferenceCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PIPSourceReferenceCode", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PIPSourceReferenceCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@QAPReferenceCode", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "QAPReferenceCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateNarrativePublished", Global.System.Data.SqlDbType.VarChar, 3, Global.System.Data.ParameterDirection.Input, 0, 0, "DateNarrativePublished", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
@@ -18384,7 +18474,8 @@ Namespace AKRODataSetTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        ProtocolTitle, ProtocolCitation, Version, IRMAReferenceCode, Notes,"& _ 
                 " DocumentID, RecordInsertedDate, RecordInsertedBy, VSID, ProtocolID, DQSReferenc"& _ 
-                "eCode, PIPSourceReferenceCode"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            tblVitalSignProtocols"
+                "eCode, PIPSourceReferenceCode, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         QAPReferenceCode"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM"& _ 
+                "            tblVitalSignProtocols"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -18497,7 +18588,7 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal ProtocolTitle As String, ByVal ProtocolCitation As String, ByVal Version As Decimal, ByVal IRMAReferenceCode As Global.System.Nullable(Of Integer), ByVal Notes As String, ByVal DocumentID As Global.System.Nullable(Of Integer), ByVal VSID As Integer, ByVal DQSReferenceCode As Global.System.Nullable(Of Integer), ByVal PIPSourceReferenceCode As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Insert(ByVal ProtocolTitle As String, ByVal ProtocolCitation As String, ByVal Version As Decimal, ByVal IRMAReferenceCode As Global.System.Nullable(Of Integer), ByVal Notes As String, ByVal DocumentID As Global.System.Nullable(Of Integer), ByVal VSID As Integer, ByVal DQSReferenceCode As Global.System.Nullable(Of Integer), ByVal PIPSourceReferenceCode As Global.System.Nullable(Of Integer), ByVal QAPReferenceCode As Global.System.Nullable(Of Integer), ByVal DateNarrativePublished As String) As Integer
             If (ProtocolTitle Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("ProtocolTitle")
             Else
@@ -18535,6 +18626,16 @@ Namespace AKRODataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
+            If (QAPReferenceCode.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(QAPReferenceCode.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (DateNarrativePublished Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(DateNarrativePublished,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -18554,7 +18655,7 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ProtocolTitle As String, ByVal ProtocolCitation As String, ByVal Version As Decimal, ByVal IRMAReferenceCode As Global.System.Nullable(Of Integer), ByVal Notes As String, ByVal DocumentID As Global.System.Nullable(Of Integer), ByVal VSID As Integer, ByVal DQSReferenceCode As Global.System.Nullable(Of Integer), ByVal PIPSourceReferenceCode As Global.System.Nullable(Of Integer), ByVal Original_ProtocolID As Integer, ByVal ProtocolID As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal ProtocolTitle As String, ByVal ProtocolCitation As String, ByVal Version As Decimal, ByVal IRMAReferenceCode As Global.System.Nullable(Of Integer), ByVal Notes As String, ByVal DocumentID As Global.System.Nullable(Of Integer), ByVal VSID As Integer, ByVal DQSReferenceCode As Global.System.Nullable(Of Integer), ByVal PIPSourceReferenceCode As Global.System.Nullable(Of Integer), ByVal QAPReferenceCode As Global.System.Nullable(Of Integer), ByVal DateNarrativePublished As String, ByVal Original_ProtocolID As Integer, ByVal ProtocolID As Integer) As Integer
             If (ProtocolTitle Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("ProtocolTitle")
             Else
@@ -18592,8 +18693,18 @@ Namespace AKRODataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_ProtocolID,Integer)
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(ProtocolID,Integer)
+            If (QAPReferenceCode.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(QAPReferenceCode.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+            End If
+            If (DateNarrativePublished Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(DateNarrativePublished,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_ProtocolID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(ProtocolID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then

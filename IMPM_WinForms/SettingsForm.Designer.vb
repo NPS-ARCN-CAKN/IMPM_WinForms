@@ -30,17 +30,19 @@ Partial Class SettingsForm
         Me.SettingsPropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SettingsPropertyGrid.LineColor = System.Drawing.SystemColors.ControlDark
         Me.SettingsPropertyGrid.Location = New System.Drawing.Point(0, 0)
+        Me.SettingsPropertyGrid.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.SettingsPropertyGrid.Name = "SettingsPropertyGrid"
         Me.SettingsPropertyGrid.PropertySort = System.Windows.Forms.PropertySort.Alphabetical
-        Me.SettingsPropertyGrid.Size = New System.Drawing.Size(724, 434)
+        Me.SettingsPropertyGrid.Size = New System.Drawing.Size(543, 353)
         Me.SettingsPropertyGrid.TabIndex = 0
         '
         'SettingsForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(724, 434)
+        Me.ClientSize = New System.Drawing.Size(543, 353)
         Me.Controls.Add(Me.SettingsPropertyGrid)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "SettingsForm"
         Me.Text = "Settings"
         Me.ResumeLayout(False)

@@ -87,6 +87,19 @@ Namespace My
                 Me("IRMAProtocolTrackerURLPrefix") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("http://inp2300fcvbeol6/Reports/Pages/Folder.aspx?ItemPath=%2fReportPortal%2fInter"& _ 
+            "nal%2fIMD%2fARCN%2fARCN-CAKN+Program+Manager&ViewMode=Detail")>  _
+        Public Property ProgramManagerReportServerURL() As String
+            Get
+                Return CType(Me("ProgramManagerReportServerURL"),String)
+            End Get
+            Set
+                Me("ProgramManagerReportServerURL") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

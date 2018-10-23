@@ -16,5 +16,8 @@
     <Setting Name="IRMAProtocolTrackerURLPrefix" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://irma.nps.gov/ProtocolTracking/Protocol/Edit/</Value>
     </Setting>
+    <Setting Name="ProgramManagerReportServerURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://inp2300fcvbeol6/Reports/Pages/Folder.aspx?ItemPath=%2fReportPortal%2fInternal%2fIMD%2fARCN%2fARCN-CAKN+Program+Manager&amp;ViewMode=Detail</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

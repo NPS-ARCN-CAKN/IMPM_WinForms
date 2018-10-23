@@ -227,6 +227,10 @@ Public Class Form1
         SaveDataset()
     End Sub
 
+    Private Sub SaveSettings()
+
+    End Sub
+
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs)
         SaveDataset()
     End Sub
@@ -683,6 +687,17 @@ Public Class Form1
             Me.ProtocolDirectoryTextBox.ForeColor = Color.Black
             Me.DataDirectoryTextBox.ForeColor = Color.Black
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+
+
+    Private Sub OpenProgramManagerReportServerURLToolStripButton_Click(sender As Object, e As EventArgs) Handles OpenProgramManagerReportServerURLToolStripButton.Click
+        Try
+            'open the program manager sql server report server url
+            Process.Start(My.Settings.ProgramManagerReportServerURL)
+        Catch ex As Exception
+            MsgBox(ex.Message & " Possibly the URL for the Sql Server Reporting Server is incorrectly set in Settings." & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
     End Sub
 
