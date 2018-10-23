@@ -86,6 +86,8 @@ Partial Class NetworkTasksForm
         TblNetworkTasksGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblNetworkTasksGridEX_DesignTimeLayout.LayoutString")
         Me.TblNetworkTasksGridEX.DesignTimeLayout = TblNetworkTasksGridEX_DesignTimeLayout
         Me.TblNetworkTasksGridEX.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TblNetworkTasksGridEX.FilterMode = Janus.Windows.GridEX.FilterMode.Manual
+        Me.TblNetworkTasksGridEX.FilterRowFormatStyle.BackColor = System.Drawing.Color.White
         Me.TblNetworkTasksGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!)
         Me.TblNetworkTasksGridEX.Location = New System.Drawing.Point(0, 49)
         Me.TblNetworkTasksGridEX.Name = "TblNetworkTasksGridEX"

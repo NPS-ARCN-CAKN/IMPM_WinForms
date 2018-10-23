@@ -39,7 +39,7 @@ Partial Class Form1
         Dim TblVitalSignProtocolsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignTasksGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim TblVitalSignWorkLogGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.vwVitalSignWorkLogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AKRODataSet = New IMPM.AKRODataSet()
@@ -1009,9 +1009,9 @@ Partial Class Form1
         'WorkLogReportViewer
         '
         Me.WorkLogReportViewer.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource2.Name = "WorkLogDataset"
-        ReportDataSource2.Value = Me.vwVitalSignWorkLogBindingSource
-        Me.WorkLogReportViewer.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource1.Name = "WorkLogDataset"
+        ReportDataSource1.Value = Me.vwVitalSignWorkLogBindingSource
+        Me.WorkLogReportViewer.LocalReport.DataSources.Add(ReportDataSource1)
         Me.WorkLogReportViewer.LocalReport.DisplayName = "Work Log Report"
         Me.WorkLogReportViewer.LocalReport.ReportEmbeddedResource = "IMPM.WorkLogReport.rdlc"
         Me.WorkLogReportViewer.Location = New System.Drawing.Point(2, 2)

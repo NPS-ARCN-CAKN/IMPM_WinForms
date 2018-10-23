@@ -705,4 +705,29 @@ Public Class Form1
         Dim NetworkTasksForm As New NetworkTasksForm
         NetworkTasksForm.ShowDialog()
     End Sub
+
+
+
+    Private Sub TblVitalSignProtocolsGridEX_RowDoubleClick(sender As Object, e As RowActionEventArgs) Handles TblVitalSignProtocolsGridEX.RowDoubleClick
+        'try to open the double clicked protocol item's IRMA Data Store reference code in a browser
+        OpenProtocolItemIRMAReferenceCode(Me.TblVitalSignProtocolsGridEX)
+    End Sub
+
+    Private Sub OpenProtocolItemIRMAReferenceCode(GridEX As GridEX)
+        Try
+            Dim CellText As String = "" 'the IRMA Data Store reference code for the clicked item
+            Dim CellColumnName As String = "" 'the column name
+            If Not GridEX.CurrentRow Is Nothing And Not GridEX.CurrentColumn Is Nothing Then
+                CellColumnName = GridEX.CurrentColumn.Key
+                CellText = GridEX.CurrentRow.Cells(GridEX.CurrentColumn.Index).Text
+            End If
+
+            'try to open the URL with reference code for the protocol item
+            If (IsNumeric(CellText)) = True And (CellColumnName = "IRMAReferenceCode" Or CellColumnName = "DateNarrativePublished" Or CellColumnName = "DQSReferenceCode" Or CellColumnName = "PIPSourceReferenceCode" Or CellColumnName = "QAPReferenceCode") Then
+                Process.Start(My.Settings.IRMADataStoreURLPrefix.Trim & CellText)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
 End Class

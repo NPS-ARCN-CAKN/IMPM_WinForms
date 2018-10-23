@@ -3753,13 +3753,9 @@ Partial Public Class AKRODataSet
         
         Private columnVSID As Global.System.Data.DataColumn
         
-        Private columnIsComplete As Global.System.Data.DataColumn
-        
         Private columnTask As Global.System.Data.DataColumn
         
         Private columnAssignedTo As Global.System.Data.DataColumn
-        
-        Private columnBeginDate As Global.System.Data.DataColumn
         
         Private columnDateDue As Global.System.Data.DataColumn
         
@@ -3822,14 +3818,6 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property IsCompleteColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnIsComplete
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property TaskColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnTask
@@ -3841,14 +3829,6 @@ Partial Public Class AKRODataSet
         Public ReadOnly Property AssignedToColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnAssignedTo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property BeginDateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnBeginDate
             End Get
         End Property
         
@@ -3921,14 +3901,14 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddtblVitalSignTasksRow(ByVal parenttblVitalSignsRowByFK_tblVitalSignTracking_tblVitalSigns As tblVitalSignsRow, ByVal IsComplete As Boolean, ByVal Task As String, ByVal parenttblContactsRowByFK_tblVitalSignTasks_tblContacts As tblContactsRow, ByVal BeginDate As Date, ByVal DateDue As Date, ByVal DateCompleted As Date, ByVal DateAssigned As Date, ByVal Notes As String) As tblVitalSignTasksRow
+        Public Overloads Function AddtblVitalSignTasksRow(ByVal parenttblVitalSignsRowByFK_tblVitalSignTracking_tblVitalSigns As tblVitalSignsRow, ByVal Task As String, ByVal parenttblContactsRowByFK_tblVitalSignTasks_tblContacts As tblContactsRow, ByVal DateDue As Date, ByVal DateCompleted As Date, ByVal DateAssigned As Date, ByVal Notes As String) As tblVitalSignTasksRow
             Dim rowtblVitalSignTasksRow As tblVitalSignTasksRow = CType(Me.NewRow,tblVitalSignTasksRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, IsComplete, Task, Nothing, BeginDate, DateDue, DateCompleted, DateAssigned, Notes}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Task, Nothing, DateDue, DateCompleted, DateAssigned, Notes}
             If (Not (parenttblVitalSignsRowByFK_tblVitalSignTracking_tblVitalSigns) Is Nothing) Then
                 columnValuesArray(1) = parenttblVitalSignsRowByFK_tblVitalSignTracking_tblVitalSigns(0)
             End If
             If (Not (parenttblContactsRowByFK_tblVitalSignTasks_tblContacts) Is Nothing) Then
-                columnValuesArray(4) = parenttblContactsRowByFK_tblVitalSignTasks_tblContacts(0)
+                columnValuesArray(3) = parenttblContactsRowByFK_tblVitalSignTasks_tblContacts(0)
             End If
             rowtblVitalSignTasksRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowtblVitalSignTasksRow)
@@ -3960,10 +3940,8 @@ Partial Public Class AKRODataSet
         Friend Sub InitVars()
             Me.columnVSTaskID = MyBase.Columns("VSTaskID")
             Me.columnVSID = MyBase.Columns("VSID")
-            Me.columnIsComplete = MyBase.Columns("IsComplete")
             Me.columnTask = MyBase.Columns("Task")
             Me.columnAssignedTo = MyBase.Columns("AssignedTo")
-            Me.columnBeginDate = MyBase.Columns("BeginDate")
             Me.columnDateDue = MyBase.Columns("DateDue")
             Me.columnDateCompleted = MyBase.Columns("DateCompleted")
             Me.columnDateAssigned = MyBase.Columns("DateAssigned")
@@ -3977,14 +3955,10 @@ Partial Public Class AKRODataSet
             MyBase.Columns.Add(Me.columnVSTaskID)
             Me.columnVSID = New Global.System.Data.DataColumn("VSID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnVSID)
-            Me.columnIsComplete = New Global.System.Data.DataColumn("IsComplete", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIsComplete)
             Me.columnTask = New Global.System.Data.DataColumn("Task", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTask)
             Me.columnAssignedTo = New Global.System.Data.DataColumn("AssignedTo", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnAssignedTo)
-            Me.columnBeginDate = New Global.System.Data.DataColumn("BeginDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBeginDate)
             Me.columnDateDue = New Global.System.Data.DataColumn("DateDue", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDateDue)
             Me.columnDateCompleted = New Global.System.Data.DataColumn("DateCompleted", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
@@ -4003,7 +3977,6 @@ Partial Public Class AKRODataSet
             Me.columnVSID.AllowDBNull = false
             Me.columnTask.AllowDBNull = false
             Me.columnTask.MaxLength = 255
-            Me.columnBeginDate.AllowDBNull = false
             Me.columnDateDue.AllowDBNull = false
             Me.columnNotes.MaxLength = 2147483647
         End Sub
@@ -5848,6 +5821,7 @@ Partial Public Class AKRODataSet
             Me.columnDQSReferenceCode.Caption = "DQS Reference Code"
             Me.columnPIPSourceReferenceCode.Caption = "PIP Source Reference Code"
             Me.columnQAPReferenceCode.Caption = "QAP Reference Code"
+            Me.columnDateNarrativePublished.Caption = "Date Narrative Published"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9859,21 +9833,6 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property IsComplete() As Boolean
-            Get
-                Try 
-                    Return CType(Me(Me.tabletblVitalSignTasks.IsCompleteColumn),Boolean)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'IsComplete' in table 'tblVitalSignTasks' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tabletblVitalSignTasks.IsCompleteColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Task() As String
             Get
                 Return CType(Me(Me.tabletblVitalSignTasks.TaskColumn),String)
@@ -9895,17 +9854,6 @@ Partial Public Class AKRODataSet
             End Get
             Set
                 Me(Me.tabletblVitalSignTasks.AssignedToColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property BeginDate() As Date
-            Get
-                Return CType(Me(Me.tabletblVitalSignTasks.BeginDateColumn),Date)
-            End Get
-            Set
-                Me(Me.tabletblVitalSignTasks.BeginDateColumn) = value
             End Set
         End Property
         
@@ -9997,18 +9945,6 @@ Partial Public Class AKRODataSet
                 Me.SetParentRow(value, Me.Table.ParentRelations("FK_tblVitalSignTasks_tblContacts"))
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsIsCompleteNull() As Boolean
-            Return Me.IsNull(Me.tabletblVitalSignTasks.IsCompleteColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetIsCompleteNull()
-            Me(Me.tabletblVitalSignTasks.IsCompleteColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -17108,10 +17044,8 @@ Namespace AKRODataSetTableAdapters
             tableMapping.DataSetTable = "tblVitalSignTasks"
             tableMapping.ColumnMappings.Add("VSTaskID", "VSTaskID")
             tableMapping.ColumnMappings.Add("VSID", "VSID")
-            tableMapping.ColumnMappings.Add("IsComplete", "IsComplete")
             tableMapping.ColumnMappings.Add("Task", "Task")
             tableMapping.ColumnMappings.Add("AssignedTo", "AssignedTo")
-            tableMapping.ColumnMappings.Add("BeginDate", "BeginDate")
             tableMapping.ColumnMappings.Add("DateDue", "DateDue")
             tableMapping.ColumnMappings.Add("DateCompleted", "DateCompleted")
             tableMapping.ColumnMappings.Add("DateAssigned", "DateAssigned")
@@ -17119,85 +17053,41 @@ Namespace AKRODataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[tblVitalSignTasks] WHERE (([VSTaskID] = @Original_VSTaskID) AN"& _ 
-                "D ([VSID] = @Original_VSID) AND ((@IsNull_IsComplete = 1 AND [IsComplete] IS NUL"& _ 
-                "L) OR ([IsComplete] = @Original_IsComplete)) AND ([Task] = @Original_Task) AND ("& _ 
-                "(@IsNull_AssignedTo = 1 AND [AssignedTo] IS NULL) OR ([AssignedTo] = @Original_A"& _ 
-                "ssignedTo)) AND ([BeginDate] = @Original_BeginDate) AND ([DateDue] = @Original_D"& _ 
-                "ateDue) AND ((@IsNull_DateCompleted = 1 AND [DateCompleted] IS NULL) OR ([DateCo"& _ 
-                "mpleted] = @Original_DateCompleted)) AND ((@IsNull_DateAssigned = 1 AND [DateAss"& _ 
-                "igned] IS NULL) OR ([DateAssigned] = @Original_DateAssigned)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM tblVitalSignTasks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (VSTaskID = @Original_VSTaskID)"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSTaskID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSTaskID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IsComplete", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsComplete", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsComplete", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsComplete", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Task", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Task", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AssignedTo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AssignedTo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AssignedTo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AssignedTo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BeginDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BeginDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateDue", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateDue", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DateCompleted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateCompleted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateCompleted", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateCompleted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DateAssigned", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateAssigned", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateAssigned", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateAssigned", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSTaskID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSTaskID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[tblVitalSignTasks] ([VSID], [IsComplete], [Task], [AssignedTo]"& _ 
-                ", [BeginDate], [DateDue], [DateCompleted], [DateAssigned], [Notes]) VALUES (@VSI"& _ 
-                "D, @IsComplete, @Task, @AssignedTo, @BeginDate, @DateDue, @DateCompleted, @DateA"& _ 
-                "ssigned, @Notes);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSTaskID, VSID, IsComplete, Task, AssignedTo, BeginDat"& _ 
-                "e, DateDue, DateCompleted, DateAssigned, Notes FROM tblVitalSignTasks WHERE (VST"& _ 
-                "askID = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO tblVitalSignTasks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (VSID, Task, AssignedTo, "& _ 
+                "DateDue, DateCompleted, DateAssigned, Notes)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@VSID,@Task,@Assign"& _ 
+                "edTo,@DateDue,@DateCompleted,@DateAssigned,@Notes); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSTaskID, VSID, Tas"& _ 
+                "k, AssignedTo, DateDue, DateCompleted, DateAssigned, Notes FROM tblVitalSignTask"& _ 
+                "s WHERE (VSTaskID = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsComplete", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsComplete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Task", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Task", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AssignedTo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AssignedTo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BeginDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BeginDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateDue", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateDue", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateCompleted", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateAssigned", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateAssigned", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Task", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "Task", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AssignedTo", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "AssignedTo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateDue", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DateDue", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateCompleted", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DateCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateAssigned", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DateAssigned", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[tblVitalSignTasks] SET [VSID] = @VSID, [IsComplete] = @IsComplete, "& _ 
-                "[Task] = @Task, [AssignedTo] = @AssignedTo, [BeginDate] = @BeginDate, [DateDue] "& _ 
-                "= @DateDue, [DateCompleted] = @DateCompleted, [DateAssigned] = @DateAssigned, [N"& _ 
-                "otes] = @Notes WHERE (([VSTaskID] = @Original_VSTaskID) AND ([VSID] = @Original_"& _ 
-                "VSID) AND ((@IsNull_IsComplete = 1 AND [IsComplete] IS NULL) OR ([IsComplete] = "& _ 
-                "@Original_IsComplete)) AND ([Task] = @Original_Task) AND ((@IsNull_AssignedTo = "& _ 
-                "1 AND [AssignedTo] IS NULL) OR ([AssignedTo] = @Original_AssignedTo)) AND ([Begi"& _ 
-                "nDate] = @Original_BeginDate) AND ([DateDue] = @Original_DateDue) AND ((@IsNull_"& _ 
-                "DateCompleted = 1 AND [DateCompleted] IS NULL) OR ([DateCompleted] = @Original_D"& _ 
-                "ateCompleted)) AND ((@IsNull_DateAssigned = 1 AND [DateAssigned] IS NULL) OR ([D"& _ 
-                "ateAssigned] = @Original_DateAssigned)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSTaskID, VSID, IsComplete, Ta"& _ 
-                "sk, AssignedTo, BeginDate, DateDue, DateCompleted, DateAssigned, Notes FROM tblV"& _ 
-                "italSignTasks WHERE (VSTaskID = @VSTaskID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE       tblVitalSignTasks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                VSID = @VSID, Task = @Task, As"& _ 
+                "signedTo = @AssignedTo, DateDue = @DateDue, DateCompleted = @DateCompleted, Date"& _ 
+                "Assigned = @DateAssigned, Notes = @Notes"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (VSTaskID = @Original_VST"& _ 
+                "askID); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSTaskID, VSID, Task, AssignedTo, DateDue, DateCompleted, DateA"& _ 
+                "ssigned, Notes FROM tblVitalSignTasks WHERE (VSTaskID = @VSTaskID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsComplete", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsComplete", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Task", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Task", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AssignedTo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AssignedTo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@BeginDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BeginDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateDue", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateDue", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateCompleted", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateAssigned", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateAssigned", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSTaskID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSTaskID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_IsComplete", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsComplete", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsComplete", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsComplete", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Task", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Task", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_AssignedTo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AssignedTo", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_AssignedTo", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "AssignedTo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_BeginDate", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "BeginDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateDue", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateDue", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DateCompleted", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateCompleted", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateCompleted", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateCompleted", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DateAssigned", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateAssigned", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DateAssigned", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DateAssigned", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSTaskID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSTaskID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Task", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "Task", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@AssignedTo", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "AssignedTo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateDue", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DateDue", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateCompleted", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DateCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateAssigned", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DateAssigned", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSTaskID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSTaskID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSTaskID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSTaskID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17213,8 +17103,8 @@ Namespace AKRODataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT VSTaskID, VSID, IsComplete, Task, AssignedTo, BeginDate, DateDue, DateComp"& _ 
-                "leted, DateAssigned, Notes FROM dbo.tblVitalSignTasks"
+            Me._commandCollection(0).CommandText = "SELECT        VSTaskID, VSID, Task, AssignedTo, DateDue, DateCompleted, DateAssig"& _ 
+                "ned, Notes"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            tblVitalSignTasks"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -17274,44 +17164,8 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_VSTaskID As Integer, ByVal Original_VSID As Integer, ByVal Original_IsComplete As Global.System.Nullable(Of Boolean), ByVal Original_Task As String, ByVal Original_AssignedTo As Global.System.Nullable(Of Integer), ByVal Original_BeginDate As Date, ByVal Original_DateDue As Date, ByVal Original_DateCompleted As Global.System.Nullable(Of Date), ByVal Original_DateAssigned As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_VSTaskID As Integer) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_VSTaskID,Integer)
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_VSID,Integer)
-            If (Original_IsComplete.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_IsComplete.Value,Boolean)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Task Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Task")
-            Else
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Task,String)
-            End If
-            If (Original_AssignedTo.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_AssignedTo.Value,Integer)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_BeginDate,Date)
-            Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_DateDue,Date)
-            If (Original_DateCompleted.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(Original_DateCompleted.Value,Date)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(10).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DateAssigned.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(Original_DateAssigned.Value,Date)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -17331,39 +17185,33 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal VSID As Integer, ByVal IsComplete As Global.System.Nullable(Of Boolean), ByVal Task As String, ByVal AssignedTo As Global.System.Nullable(Of Integer), ByVal BeginDate As Date, ByVal DateDue As Date, ByVal DateCompleted As Global.System.Nullable(Of Date), ByVal DateAssigned As Global.System.Nullable(Of Date), ByVal Notes As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal VSID As Integer, ByVal Task As String, ByVal AssignedTo As Global.System.Nullable(Of Integer), ByVal DateDue As Date, ByVal DateCompleted As Global.System.Nullable(Of Date), ByVal DateAssigned As Global.System.Nullable(Of Date), ByVal Notes As String) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(VSID,Integer)
-            If (IsComplete.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(IsComplete.Value,Boolean)
-            Else
-                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
             If (Task Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Task")
             Else
-                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Task,String)
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Task,String)
             End If
             If (AssignedTo.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(AssignedTo.Value,Integer)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(AssignedTo.Value,Integer)
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.InsertCommand.Parameters(4).Value = CType(BeginDate,Date)
-            Me.Adapter.InsertCommand.Parameters(5).Value = CType(DateDue,Date)
+            Me.Adapter.InsertCommand.Parameters(3).Value = CType(DateDue,Date)
             If (DateCompleted.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(DateCompleted.Value,Date)
+                Me.Adapter.InsertCommand.Parameters(4).Value = CType(DateCompleted.Value,Date)
             Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
             If (DateAssigned.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(DateAssigned.Value,Date)
+                Me.Adapter.InsertCommand.Parameters(5).Value = CType(DateAssigned.Value,Date)
             Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
             If (Notes Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(Notes,String)
+                Me.Adapter.InsertCommand.Parameters(6).Value = CType(Notes,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -17384,97 +17232,36 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal VSID As Integer,  _
-                    ByVal IsComplete As Global.System.Nullable(Of Boolean),  _
-                    ByVal Task As String,  _
-                    ByVal AssignedTo As Global.System.Nullable(Of Integer),  _
-                    ByVal BeginDate As Date,  _
-                    ByVal DateDue As Date,  _
-                    ByVal DateCompleted As Global.System.Nullable(Of Date),  _
-                    ByVal DateAssigned As Global.System.Nullable(Of Date),  _
-                    ByVal Notes As String,  _
-                    ByVal Original_VSTaskID As Integer,  _
-                    ByVal Original_VSID As Integer,  _
-                    ByVal Original_IsComplete As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_Task As String,  _
-                    ByVal Original_AssignedTo As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_BeginDate As Date,  _
-                    ByVal Original_DateDue As Date,  _
-                    ByVal Original_DateCompleted As Global.System.Nullable(Of Date),  _
-                    ByVal Original_DateAssigned As Global.System.Nullable(Of Date),  _
-                    ByVal VSTaskID As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal VSID As Integer, ByVal Task As String, ByVal AssignedTo As Global.System.Nullable(Of Integer), ByVal DateDue As Date, ByVal DateCompleted As Global.System.Nullable(Of Date), ByVal DateAssigned As Global.System.Nullable(Of Date), ByVal Notes As String, ByVal Original_VSTaskID As Integer, ByVal VSTaskID As Integer) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(VSID,Integer)
-            If (IsComplete.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(IsComplete.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
             If (Task Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Task")
             Else
-                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Task,String)
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Task,String)
             End If
             If (AssignedTo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(AssignedTo.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(AssignedTo.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(BeginDate,Date)
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(DateDue,Date)
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(DateDue,Date)
             If (DateCompleted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(DateCompleted.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(DateCompleted.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
             If (DateAssigned.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(DateAssigned.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(DateAssigned.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
             If (Notes Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Notes,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Notes,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_VSTaskID,Integer)
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_VSID,Integer)
-            If (Original_IsComplete.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_IsComplete.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            If (Original_Task Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Original_Task")
-            Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Task,String)
-            End If
-            If (Original_AssignedTo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_AssignedTo.Value,Integer)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_BeginDate,Date)
-            Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_DateDue,Date)
-            If (Original_DateCompleted.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_DateCompleted.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DateAssigned.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_DateAssigned.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
-            End If
-            Me.Adapter.UpdateCommand.Parameters(22).Value = CType(VSTaskID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_VSTaskID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(VSTaskID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -17488,32 +17275,6 @@ Namespace AKRODataSetTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal VSID As Integer,  _
-                    ByVal IsComplete As Global.System.Nullable(Of Boolean),  _
-                    ByVal Task As String,  _
-                    ByVal AssignedTo As Global.System.Nullable(Of Integer),  _
-                    ByVal BeginDate As Date,  _
-                    ByVal DateDue As Date,  _
-                    ByVal DateCompleted As Global.System.Nullable(Of Date),  _
-                    ByVal DateAssigned As Global.System.Nullable(Of Date),  _
-                    ByVal Notes As String,  _
-                    ByVal Original_VSTaskID As Integer,  _
-                    ByVal Original_VSID As Integer,  _
-                    ByVal Original_IsComplete As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_Task As String,  _
-                    ByVal Original_AssignedTo As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_BeginDate As Date,  _
-                    ByVal Original_DateDue As Date,  _
-                    ByVal Original_DateCompleted As Global.System.Nullable(Of Date),  _
-                    ByVal Original_DateAssigned As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(VSID, IsComplete, Task, AssignedTo, BeginDate, DateDue, DateCompleted, DateAssigned, Notes, Original_VSTaskID, Original_VSID, Original_IsComplete, Original_Task, Original_AssignedTo, Original_BeginDate, Original_DateDue, Original_DateCompleted, Original_DateAssigned, Original_VSTaskID)
         End Function
     End Class
     
@@ -18440,9 +18201,9 @@ Namespace AKRODataSetTableAdapters
                 ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         DQSReferenceCode = @DQSReferenceCode, PIPSourceRefere"& _ 
                 "nceCode = @PIPSourceReferenceCode, QAPReferenceCode = @QAPReferenceCode, DateNar"& _ 
                 "rativePublished = @DateNarrativePublished"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (ProtocolID = @Original_"& _ 
-                "ProtocolID);      "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProtocolTitle, ProtocolCitation, Version, IRMAReferen"& _ 
-                "ceCode, Notes, DocumentID, RecordInsertedDate, RecordInsertedBy, VSID, ProtocolI"& _ 
-                "D FROM tblVitalSignProtocols WHERE (ProtocolID = @ProtocolID)"
+                "ProtocolID);       "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProtocolTitle, ProtocolCitation, Version, IRMARefere"& _ 
+                "nceCode, Notes, DocumentID, RecordInsertedDate, RecordInsertedBy, VSID, Protocol"& _ 
+                "ID FROM tblVitalSignProtocols WHERE (ProtocolID = @ProtocolID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolTitle", Global.System.Data.SqlDbType.VarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolTitle", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolCitation", Global.System.Data.SqlDbType.VarChar, 500, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolCitation", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -18454,7 +18215,7 @@ Namespace AKRODataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DQSReferenceCode", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "DQSReferenceCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@PIPSourceReferenceCode", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "PIPSourceReferenceCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@QAPReferenceCode", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "QAPReferenceCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateNarrativePublished", Global.System.Data.SqlDbType.VarChar, 3, Global.System.Data.ParameterDirection.Input, 0, 0, "DateNarrativePublished", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateNarrativePublished", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DateNarrativePublished", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
@@ -18655,7 +18416,7 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ProtocolTitle As String, ByVal ProtocolCitation As String, ByVal Version As Decimal, ByVal IRMAReferenceCode As Global.System.Nullable(Of Integer), ByVal Notes As String, ByVal DocumentID As Global.System.Nullable(Of Integer), ByVal VSID As Integer, ByVal DQSReferenceCode As Global.System.Nullable(Of Integer), ByVal PIPSourceReferenceCode As Global.System.Nullable(Of Integer), ByVal QAPReferenceCode As Global.System.Nullable(Of Integer), ByVal DateNarrativePublished As String, ByVal Original_ProtocolID As Integer, ByVal ProtocolID As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal ProtocolTitle As String, ByVal ProtocolCitation As String, ByVal Version As Decimal, ByVal IRMAReferenceCode As Global.System.Nullable(Of Integer), ByVal Notes As String, ByVal DocumentID As Global.System.Nullable(Of Integer), ByVal VSID As Integer, ByVal DQSReferenceCode As Global.System.Nullable(Of Integer), ByVal PIPSourceReferenceCode As Global.System.Nullable(Of Integer), ByVal QAPReferenceCode As Global.System.Nullable(Of Integer), ByVal DateNarrativePublished As Global.System.Nullable(Of Date), ByVal Original_ProtocolID As Integer, ByVal ProtocolID As Integer) As Integer
             If (ProtocolTitle Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("ProtocolTitle")
             Else
@@ -18698,10 +18459,10 @@ Namespace AKRODataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
-            If (DateNarrativePublished Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+            If (DateNarrativePublished.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(DateNarrativePublished.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(DateNarrativePublished,String)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
             Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_ProtocolID,Integer)
             Me.Adapter.UpdateCommand.Parameters(12).Value = CType(ProtocolID,Integer)
