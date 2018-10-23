@@ -962,6 +962,7 @@ Partial Class Form1
         Me.TblVitalSignTasksGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
         Me.TblVitalSignTasksGridEX.RecordNavigator = True
         Me.TblVitalSignTasksGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignTasksGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
         Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(777, 618)
         Me.TblVitalSignTasksGridEX.TabIndex = 0
         '

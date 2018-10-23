@@ -34,6 +34,13 @@ Public Class Form1
         List.Add("PI,DM", "PI,DM")
 
 
+        'load the tasks GridEX contacts dropdown
+        Try
+            Me.TblVitalSignTasksGridEX.DropDowns("ContactsDropDown").SetDataBinding(AKRODataSet, "tblContacts")
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+
         'refresh the work log report
         Me.WorkLogReportViewer.RefreshReport()
     End Sub
@@ -302,13 +309,15 @@ Public Class Form1
 
     Private Sub TblVitalSignTasksGridEX_SelectionChanged(sender As Object, e As EventArgs) Handles TblVitalSignTasksGridEX.SelectionChanged
         'set default values
+        Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
         Try
-            Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
             GridEX.RootTable.Columns("DateAssigned").DefaultValue = Now
             GridEX.RootTable.Columns("DateDue").DefaultValue = Now.AddDays(30)
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
+
+
     End Sub
 
     Private Sub GenerateDeliverablesDirectoriesCreationScriptButton_Click(sender As Object, e As EventArgs) Handles GenerateDeliverablesDirectoriesCreationScriptButton.Click
