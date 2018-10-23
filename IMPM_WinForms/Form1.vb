@@ -305,7 +305,6 @@ Public Class Form1
         Try
             Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
             GridEX.RootTable.Columns("DateAssigned").DefaultValue = Now
-            GridEX.RootTable.Columns("BeginDate").DefaultValue = Now
             GridEX.RootTable.Columns("DateDue").DefaultValue = Now.AddDays(30)
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
