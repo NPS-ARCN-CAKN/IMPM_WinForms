@@ -1,9 +1,8 @@
 ﻿Public Class VitalSignTasksMasterForm
-    Private Sub TblVitalSignTasksBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
+    Private Sub Save()
         Me.Validate()
         Me.TblVitalSignTasksBindingSource.EndEdit()
         Me.TableAdapterManager.UpdateAll(Me.AKRODataSet)
-
     End Sub
 
     Private Sub VitalSignTasksMasterForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -22,5 +21,17 @@
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
 
+    End Sub
+
+    Private Sub SaveToolStripButton_Click(sender As Object, e As EventArgs) Handles SaveToolStripButton.Click
+        Save()
+    End Sub
+
+    Private Sub VitalSignTasksMasterForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If Me.AKRODataSet.HasChanges = True Then
+            If MsgBox("You have unsaved changes. Save changes to the database?", MsgBoxStyle.YesNo, "Save changes?") = MsgBoxResult.Yes Then
+                Save()
+            End If
+        End If
     End Sub
 End Class

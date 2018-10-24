@@ -146,7 +146,7 @@ Public Class Form1
             '.FilterRowFormatStyle = FilterRowFormatStyle
             .Font = MyFont
             .RowHeaders = InheritableBoolean.True
-            .NewRowPosition = NewRowPosition.BottomRow
+            '.NewRowPosition = NewRowPosition.BottomRow
             .SelectOnExpand = False
             .SaveSettings = True
         End With

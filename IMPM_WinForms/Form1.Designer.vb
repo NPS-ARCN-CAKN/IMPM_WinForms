@@ -143,13 +143,13 @@ Partial Class Form1
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NetworkTasksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.VitalSignTasksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainToolStrip = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
         Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
-        Me.VitalSignTasksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         ProtocolAvailableLabel = New System.Windows.Forms.Label()
         DataAvailableLabel = New System.Windows.Forms.Label()
         DeliverablesScheduleLabel = New System.Windows.Forms.Label()
@@ -1039,6 +1039,7 @@ Partial Class Form1
         '
         Me.TblVitalSignWorkLogGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignWorkLogGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignWorkLogGridEX.AlternatingColors = True
         Me.TblVitalSignWorkLogGridEX.ColumnAutoResize = True
         Me.TblVitalSignWorkLogGridEX.ColumnAutoSizeMode = Janus.Windows.GridEX.ColumnAutoSizeMode.AllCells
         Me.TblVitalSignWorkLogGridEX.DataSource = Me.TblVitalSignWorkLogBindingSource
@@ -1255,6 +1256,12 @@ Partial Class Form1
         Me.NetworkTasksToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.NetworkTasksToolStripMenuItem.Text = "Network tasks..."
         '
+        'VitalSignTasksToolStripMenuItem
+        '
+        Me.VitalSignTasksToolStripMenuItem.Name = "VitalSignTasksToolStripMenuItem"
+        Me.VitalSignTasksToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.VitalSignTasksToolStripMenuItem.Text = "Vital Sign tasks..."
+        '
         'MainToolStrip
         '
         Me.MainToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
@@ -1294,12 +1301,6 @@ Partial Class Form1
         'DataManagementMilestonesTableAdapter
         '
         Me.DataManagementMilestonesTableAdapter.ClearBeforeFill = True
-        '
-        'VitalSignTasksToolStripMenuItem
-        '
-        Me.VitalSignTasksToolStripMenuItem.Name = "VitalSignTasksToolStripMenuItem"
-        Me.VitalSignTasksToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.VitalSignTasksToolStripMenuItem.Text = "Vital Sign tasks..."
         '
         'Form1
         '

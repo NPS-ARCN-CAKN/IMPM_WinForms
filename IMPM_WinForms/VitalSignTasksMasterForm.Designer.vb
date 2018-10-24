@@ -36,12 +36,15 @@ Partial Class VitalSignTasksMasterForm
         Me.TblContactsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwVitalSignOverviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwVitalSignOverviewTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignOverviewTableAdapter()
+        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.SaveToolStripButton = New System.Windows.Forms.ToolStripButton()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignTasksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignTasksGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'AKRODataSet
@@ -62,7 +65,7 @@ Partial Class VitalSignTasksMasterForm
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager.DataManagementMilestonesTableAdapter = Nothing
-        Me.TableAdapterManager.tblContactsTableAdapter = Me.TblContactsTableAdapter
+        Me.TableAdapterManager.tblContactsTableAdapter = Nothing
         Me.TableAdapterManager.tblNetworksTableAdapter = Nothing
         Me.TableAdapterManager.tblNetworkTasksTableAdapter = Nothing
         Me.TableAdapterManager.tblProtocolDeliverablesTableAdapter = Nothing
@@ -70,7 +73,7 @@ Partial Class VitalSignTasksMasterForm
         Me.TableAdapterManager.tblVitalSignDataManagementSummaryTableAdapter = Nothing
         Me.TableAdapterManager.tblVitalSignObjectivesTableAdapter = Nothing
         Me.TableAdapterManager.tblVitalSignProtocolsTableAdapter = Nothing
-        Me.TableAdapterManager.tblVitalSignsTableAdapter = Me.TblVitalSignsTableAdapter
+        Me.TableAdapterManager.tblVitalSignsTableAdapter = Nothing
         Me.TableAdapterManager.tblVitalSignTasksTableAdapter = Me.TblVitalSignTasksTableAdapter
         Me.TableAdapterManager.tblVitalSignWorkLogTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = IMPM.AKRODataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
@@ -85,14 +88,20 @@ Partial Class VitalSignTasksMasterForm
         '
         'TblVitalSignTasksGridEX
         '
+        Me.TblVitalSignTasksGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignTasksGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignTasksGridEX.AlternatingColors = True
         Me.TblVitalSignTasksGridEX.DataSource = Me.TblVitalSignTasksBindingSource
         TblVitalSignTasksGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignTasksGridEX_DesignTimeLayout.LayoutString")
         Me.TblVitalSignTasksGridEX.DesignTimeLayout = TblVitalSignTasksGridEX_DesignTimeLayout
-        Me.TblVitalSignTasksGridEX.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TblVitalSignTasksGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TblVitalSignTasksGridEX.Location = New System.Drawing.Point(0, 0)
+        Me.TblVitalSignTasksGridEX.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TblVitalSignTasksGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TblVitalSignTasksGridEX.Location = New System.Drawing.Point(0, 25)
         Me.TblVitalSignTasksGridEX.Name = "TblVitalSignTasksGridEX"
-        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(1342, 414)
+        Me.TblVitalSignTasksGridEX.RecordNavigator = True
+        Me.TblVitalSignTasksGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
+        Me.TblVitalSignTasksGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable
+        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(1342, 699)
         Me.TblVitalSignTasksGridEX.TabIndex = 1
         '
         'TblVitalSignsBindingSource
@@ -114,21 +123,42 @@ Partial Class VitalSignTasksMasterForm
         '
         Me.VwVitalSignOverviewTableAdapter.ClearBeforeFill = True
         '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripButton})
+        Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1342, 25)
+        Me.ToolStrip1.TabIndex = 2
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'SaveToolStripButton
+        '
+        Me.SaveToolStripButton.Image = CType(resources.GetObject("SaveToolStripButton.Image"), System.Drawing.Image)
+        Me.SaveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.SaveToolStripButton.Name = "SaveToolStripButton"
+        Me.SaveToolStripButton.Size = New System.Drawing.Size(51, 22)
+        Me.SaveToolStripButton.Text = "Save"
+        '
         'VitalSignTasksMasterForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1342, 724)
         Me.Controls.Add(Me.TblVitalSignTasksGridEX)
+        Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "VitalSignTasksMasterForm"
-        Me.Text = "VitalSignTasksMasterForm"
+        Me.Text = "Vital Sign Tasks"
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblVitalSignTasksBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblVitalSignTasksGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblVitalSignsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -143,4 +173,6 @@ Partial Class VitalSignTasksMasterForm
     Friend WithEvents TblContactsBindingSource As BindingSource
     Friend WithEvents VwVitalSignOverviewBindingSource As BindingSource
     Friend WithEvents VwVitalSignOverviewTableAdapter As AKRODataSetTableAdapters.vwVitalSignOverviewTableAdapter
+    Friend WithEvents ToolStrip1 As ToolStrip
+    Friend WithEvents SaveToolStripButton As ToolStripButton
 End Class
