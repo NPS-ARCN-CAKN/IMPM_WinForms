@@ -149,6 +149,7 @@ Partial Class Form1
         Me.RefreshToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
         Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
+        Me.VitalSignTasksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         ProtocolAvailableLabel = New System.Windows.Forms.Label()
         DataAvailableLabel = New System.Windows.Forms.Label()
         DeliverablesScheduleLabel = New System.Windows.Forms.Label()
@@ -1243,7 +1244,7 @@ Partial Class Form1
         '
         'ViewsToolStripMenuItem
         '
-        Me.ViewsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NetworkTasksToolStripMenuItem})
+        Me.ViewsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NetworkTasksToolStripMenuItem, Me.VitalSignTasksToolStripMenuItem})
         Me.ViewsToolStripMenuItem.Name = "ViewsToolStripMenuItem"
         Me.ViewsToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
         Me.ViewsToolStripMenuItem.Text = "Views"
@@ -1251,7 +1252,7 @@ Partial Class Form1
         'NetworkTasksToolStripMenuItem
         '
         Me.NetworkTasksToolStripMenuItem.Name = "NetworkTasksToolStripMenuItem"
-        Me.NetworkTasksToolStripMenuItem.Size = New System.Drawing.Size(157, 22)
+        Me.NetworkTasksToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.NetworkTasksToolStripMenuItem.Text = "Network tasks..."
         '
         'MainToolStrip
@@ -1293,6 +1294,12 @@ Partial Class Form1
         'DataManagementMilestonesTableAdapter
         '
         Me.DataManagementMilestonesTableAdapter.ClearBeforeFill = True
+        '
+        'VitalSignTasksToolStripMenuItem
+        '
+        Me.VitalSignTasksToolStripMenuItem.Name = "VitalSignTasksToolStripMenuItem"
+        Me.VitalSignTasksToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.VitalSignTasksToolStripMenuItem.Text = "Vital Sign tasks..."
         '
         'Form1
         '
@@ -1476,4 +1483,5 @@ Partial Class Form1
     Friend WithEvents OpenProgramManagerReportServerURLToolStripButton As ToolStripButton
     Friend WithEvents ViewsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NetworkTasksToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VitalSignTasksToolStripMenuItem As ToolStripMenuItem
 End Class

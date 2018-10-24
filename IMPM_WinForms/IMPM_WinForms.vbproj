@@ -158,6 +158,12 @@
     <Compile Include="SplashScreen.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="VitalSignTasksMasterForm.Designer.vb">
+      <DependentUpon>VitalSignTasksMasterForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VitalSignTasksMasterForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="WorkLogForm.Designer.vb">
       <DependentUpon>WorkLogForm.vb</DependentUpon>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VitalSignTasksMasterForm.resx">
+      <DependentUpon>VitalSignTasksMasterForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkLogForm.resx">
       <DependentUpon>WorkLogForm.vb</DependentUpon>

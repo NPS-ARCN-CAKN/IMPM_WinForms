@@ -738,4 +738,9 @@ Public Class Form1
             MsgBox(ex.Message & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
     End Sub
+
+    Private Sub VitalSignTasksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VitalSignTasksToolStripMenuItem.Click
+        Dim VSTasksForm As New VitalSignTasksMasterForm
+        VSTasksForm.ShowDialog()
+    End Sub
 End Class
