@@ -4501,6 +4501,8 @@ Partial Public Class AKRODataSet
         
         Private columnIRMAProjectReference As Global.System.Data.DataColumn
         
+        Private columnVitalSign As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -4769,6 +4771,14 @@ Partial Public Class AKRODataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property VitalSignColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnVitalSign
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4834,9 +4844,10 @@ Partial Public Class AKRODataSet
                     ByVal Telephone As String,  _
                     ByVal StatusAndTrends As String,  _
                     ByVal Importance As String,  _
-                    ByVal IRMAProjectReference As Integer) As vwVitalSignOverviewRow
+                    ByVal IRMAProjectReference As Integer,  _
+                    ByVal VitalSign As String) As vwVitalSignOverviewRow
             Dim rowvwVitalSignOverviewRow As vwVitalSignOverviewRow = CType(Me.NewRow,vwVitalSignOverviewRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, NetworkVSName, ProjectLeadContactID, ProjectLeadLastname, ProjectLeadFirstname, ProjectLeadEmail, ProjectLeadTelephone, ProjectLeadOrganization, GrabberTitle, Overview, Status, SamplingFrequency, URLMoreInfo, SamplingTiming, PDSWritten, ProtocolsWritten, PeerReviewed, ImplementationDate, SamplingDesign, FilesDirectory, Acronym, Network, Website, Address, Telephone, StatusAndTrends, Importance, IRMAProjectReference}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, NetworkVSName, ProjectLeadContactID, ProjectLeadLastname, ProjectLeadFirstname, ProjectLeadEmail, ProjectLeadTelephone, ProjectLeadOrganization, GrabberTitle, Overview, Status, SamplingFrequency, URLMoreInfo, SamplingTiming, PDSWritten, ProtocolsWritten, PeerReviewed, ImplementationDate, SamplingDesign, FilesDirectory, Acronym, Network, Website, Address, Telephone, StatusAndTrends, Importance, IRMAProjectReference, VitalSign}
             If (Not (parenttblNetworksRowBytblNetworks_vwVitalSignOverview) Is Nothing) Then
                 columnValuesArray(0) = parenttblNetworksRowBytblNetworks_vwVitalSignOverview(0)
             End If
@@ -4900,6 +4911,7 @@ Partial Public Class AKRODataSet
             Me.columnStatusAndTrends = MyBase.Columns("StatusAndTrends")
             Me.columnImportance = MyBase.Columns("Importance")
             Me.columnIRMAProjectReference = MyBase.Columns("IRMAProjectReference")
+            Me.columnVitalSign = MyBase.Columns("VitalSign")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4963,6 +4975,8 @@ Partial Public Class AKRODataSet
             MyBase.Columns.Add(Me.columnImportance)
             Me.columnIRMAProjectReference = New Global.System.Data.DataColumn("IRMAProjectReference", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIRMAProjectReference)
+            Me.columnVitalSign = New Global.System.Data.DataColumn("VitalSign", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnVitalSign)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnVSID}, true))
             Me.columnNetworkID.AllowDBNull = false
             Me.columnVSID.AllowDBNull = false
@@ -4990,6 +5004,8 @@ Partial Public Class AKRODataSet
             Me.columnTelephone.MaxLength = 50
             Me.columnStatusAndTrends.MaxLength = 2147483647
             Me.columnImportance.MaxLength = 2147483647
+            Me.columnVitalSign.ReadOnly = true
+            Me.columnVitalSign.MaxLength = 260
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10523,6 +10539,21 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property VitalSign() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablevwVitalSignOverview.VitalSignColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'VitalSign' in table 'vwVitalSignOverview' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablevwVitalSignOverview.VitalSignColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property tblNetworksRow() As tblNetworksRow
             Get
                 Return CType(Me.GetParentRow(Me.Table.ParentRelations("tblNetworks_vwVitalSignOverview")),tblNetworksRow)
@@ -10841,6 +10872,18 @@ Partial Public Class AKRODataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetIRMAProjectReferenceNull()
             Me(Me.tablevwVitalSignOverview.IRMAProjectReferenceColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsVitalSignNull() As Boolean
+            Return Me.IsNull(Me.tablevwVitalSignOverview.VitalSignColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetVitalSignNull()
+            Me(Me.tablevwVitalSignOverview.VitalSignColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17776,6 +17819,7 @@ Namespace AKRODataSetTableAdapters
             tableMapping.ColumnMappings.Add("StatusAndTrends", "StatusAndTrends")
             tableMapping.ColumnMappings.Add("Importance", "Importance")
             tableMapping.ColumnMappings.Add("IRMAProjectReference", "IRMAProjectReference")
+            tableMapping.ColumnMappings.Add("VitalSign", "VitalSign")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -17792,12 +17836,14 @@ Namespace AKRODataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT NetworkID, VSID, NetworkVSName, ProjectLeadContactID, ProjectLeadLastname,"& _ 
-                " ProjectLeadFirstname, ProjectLeadEmail, ProjectLeadTelephone, ProjectLeadOrgani"& _ 
-                "zation, GrabberTitle, Overview, Status, SamplingFrequency, URLMoreInfo, Sampling"& _ 
-                "Timing, PDSWritten, ProtocolsWritten, PeerReviewed, ImplementationDate, Sampling"& _ 
-                "Design, FilesDirectory, Acronym, Network, Website, Address, Telephone, StatusAnd"& _ 
-                "Trends, Importance, IRMAProjectReference FROM dbo.vwVitalSignOverview"
+            Me._commandCollection(0).CommandText = "SELECT        NetworkID, VSID, NetworkVSName, ProjectLeadContactID, ProjectLeadLa"& _ 
+                "stname, ProjectLeadFirstname, ProjectLeadEmail, ProjectLeadTelephone, ProjectLea"& _ 
+                "dOrganization, GrabberTitle, Overview, Status, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Sampli"& _ 
+                "ngFrequency, URLMoreInfo, SamplingTiming, PDSWritten, ProtocolsWritten, PeerRevi"& _ 
+                "ewed, ImplementationDate, SamplingDesign, FilesDirectory, Acronym, Network, Webs"& _ 
+                "ite, Address, Telephone, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         StatusAndTrends, Importance,"& _ 
+                " IRMAProjectReference, Acronym + ' ' + NetworkVSName AS VitalSign"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         "& _ 
+                "   vwVitalSignOverview"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

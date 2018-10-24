@@ -29,16 +29,19 @@ Partial Class VitalSignTasksMasterForm
         Me.TblVitalSignTasksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TblVitalSignTasksTableAdapter = New IMPM.AKRODataSetTableAdapters.tblVitalSignTasksTableAdapter()
         Me.TableAdapterManager = New IMPM.AKRODataSetTableAdapters.TableAdapterManager()
+        Me.TblContactsTableAdapter = New IMPM.AKRODataSetTableAdapters.tblContactsTableAdapter()
+        Me.TblVitalSignsTableAdapter = New IMPM.AKRODataSetTableAdapters.tblVitalSignsTableAdapter()
         Me.TblVitalSignTasksGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TblVitalSignsTableAdapter = New IMPM.AKRODataSetTableAdapters.tblVitalSignsTableAdapter()
         Me.TblContactsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TblContactsTableAdapter = New IMPM.AKRODataSetTableAdapters.tblContactsTableAdapter()
+        Me.VwVitalSignOverviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.VwVitalSignOverviewTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignOverviewTableAdapter()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignTasksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignTasksGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'AKRODataSet
@@ -72,16 +75,24 @@ Partial Class VitalSignTasksMasterForm
         Me.TableAdapterManager.tblVitalSignWorkLogTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = IMPM.AKRODataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'TblContactsTableAdapter
+        '
+        Me.TblContactsTableAdapter.ClearBeforeFill = True
+        '
+        'TblVitalSignsTableAdapter
+        '
+        Me.TblVitalSignsTableAdapter.ClearBeforeFill = True
+        '
         'TblVitalSignTasksGridEX
         '
         Me.TblVitalSignTasksGridEX.DataSource = Me.TblVitalSignTasksBindingSource
         TblVitalSignTasksGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignTasksGridEX_DesignTimeLayout.LayoutString")
         Me.TblVitalSignTasksGridEX.DesignTimeLayout = TblVitalSignTasksGridEX_DesignTimeLayout
-        Me.TblVitalSignTasksGridEX.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TblVitalSignTasksGridEX.Dock = System.Windows.Forms.DockStyle.Top
         Me.TblVitalSignTasksGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TblVitalSignTasksGridEX.Location = New System.Drawing.Point(0, 0)
         Me.TblVitalSignTasksGridEX.Name = "TblVitalSignTasksGridEX"
-        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(1342, 724)
+        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(1342, 414)
         Me.TblVitalSignTasksGridEX.TabIndex = 1
         '
         'TblVitalSignsBindingSource
@@ -89,18 +100,19 @@ Partial Class VitalSignTasksMasterForm
         Me.TblVitalSignsBindingSource.DataMember = "tblVitalSigns"
         Me.TblVitalSignsBindingSource.DataSource = Me.AKRODataSet
         '
-        'TblVitalSignsTableAdapter
-        '
-        Me.TblVitalSignsTableAdapter.ClearBeforeFill = True
-        '
         'TblContactsBindingSource
         '
         Me.TblContactsBindingSource.DataMember = "tblContacts"
         Me.TblContactsBindingSource.DataSource = Me.AKRODataSet
         '
-        'TblContactsTableAdapter
+        'VwVitalSignOverviewBindingSource
         '
-        Me.TblContactsTableAdapter.ClearBeforeFill = True
+        Me.VwVitalSignOverviewBindingSource.DataMember = "vwVitalSignOverview"
+        Me.VwVitalSignOverviewBindingSource.DataSource = Me.AKRODataSet
+        '
+        'VwVitalSignOverviewTableAdapter
+        '
+        Me.VwVitalSignOverviewTableAdapter.ClearBeforeFill = True
         '
         'VitalSignTasksMasterForm
         '
@@ -115,6 +127,7 @@ Partial Class VitalSignTasksMasterForm
         CType(Me.TblVitalSignTasksGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblVitalSignsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -128,4 +141,6 @@ Partial Class VitalSignTasksMasterForm
     Friend WithEvents TblVitalSignsBindingSource As BindingSource
     Friend WithEvents TblContactsTableAdapter As AKRODataSetTableAdapters.tblContactsTableAdapter
     Friend WithEvents TblContactsBindingSource As BindingSource
+    Friend WithEvents VwVitalSignOverviewBindingSource As BindingSource
+    Friend WithEvents VwVitalSignOverviewTableAdapter As AKRODataSetTableAdapters.vwVitalSignOverviewTableAdapter
 End Class

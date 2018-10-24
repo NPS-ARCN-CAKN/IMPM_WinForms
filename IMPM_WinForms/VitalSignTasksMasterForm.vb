@@ -7,15 +7,17 @@
     End Sub
 
     Private Sub VitalSignTasksMasterForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'AKRODataSet.tblContacts' table. You can move, or remove it, as needed.
-        Me.TblContactsTableAdapter.Fill(Me.AKRODataSet.tblContacts)
+
         'load data from database
         Me.TblVitalSignsTableAdapter.Fill(Me.AKRODataSet.tblVitalSigns)
         Me.TblVitalSignTasksTableAdapter.Fill(Me.AKRODataSet.tblVitalSignTasks)
+        Me.TblContactsTableAdapter.Fill(Me.AKRODataSet.tblContacts)
+        Me.VwVitalSignOverviewTableAdapter.Fill(Me.AKRODataSet.vwVitalSignOverview)
 
         'set up ContactsDropDown using the GridEX designer, then set the data binding in code here to retrieve the records
         Try
             Me.TblVitalSignTasksGridEX.DropDowns("ContactsDropDown").SetDataBinding(AKRODataSet, "tblContacts")
+            Me.TblVitalSignTasksGridEX.DropDowns("VitalSignsDropDown").SetDataBinding(AKRODataSet, "vwVitalSignOverview")
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
