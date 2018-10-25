@@ -26,7 +26,7 @@ Public Class VitalSignTasksMasterForm
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
 
-
+        FormatOverDueTasks()
 
 
     End Sub
