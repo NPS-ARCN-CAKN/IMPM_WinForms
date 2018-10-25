@@ -6,6 +6,9 @@
     End Sub
 
     Private Sub VitalSignTasksMasterForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.TblVitalSignTasksBindingSource.Filter = "DateCompleted is NULL"
+        Me.ToggleCompletedToolStripButton.Text = "Show completed"
+        Me.TblVitalSignTasksBindingSource.Sort = "DateDue DESC"
 
         'load data from database
         Me.TblVitalSignsTableAdapter.Fill(Me.AKRODataSet.tblVitalSigns)
@@ -32,6 +35,16 @@
             If MsgBox("You have unsaved changes. Save changes to the database?", MsgBoxStyle.YesNo, "Save changes?") = MsgBoxResult.Yes Then
                 Save()
             End If
+        End If
+    End Sub
+
+    Private Sub ToggleCompletedToolStripButton_Click(sender As Object, e As EventArgs) Handles ToggleCompletedToolStripButton.Click
+        If Me.ToggleCompletedToolStripButton.Text = "Show completed" Then
+            Me.TblVitalSignTasksBindingSource.RemoveFilter()
+            Me.ToggleCompletedToolStripButton.Text = "Hide completed"
+        Else
+            Me.TblVitalSignTasksBindingSource.Filter = "DateCompleted is NULL"
+            Me.ToggleCompletedToolStripButton.Text = "Show completed"
         End If
     End Sub
 End Class

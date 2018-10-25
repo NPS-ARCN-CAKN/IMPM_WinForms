@@ -38,6 +38,8 @@ Partial Class VitalSignTasksMasterForm
         Me.VwVitalSignOverviewTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignOverviewTableAdapter()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.SaveToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToggleCompletedToolStripButton = New System.Windows.Forms.ToolStripButton()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignTasksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignTasksGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,10 +98,11 @@ Partial Class VitalSignTasksMasterForm
         Me.TblVitalSignTasksGridEX.DesignTimeLayout = TblVitalSignTasksGridEX_DesignTimeLayout
         Me.TblVitalSignTasksGridEX.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TblVitalSignTasksGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TblVitalSignTasksGridEX.GroupByBoxVisible = False
         Me.TblVitalSignTasksGridEX.Location = New System.Drawing.Point(0, 25)
         Me.TblVitalSignTasksGridEX.Name = "TblVitalSignTasksGridEX"
         Me.TblVitalSignTasksGridEX.RecordNavigator = True
-        Me.TblVitalSignTasksGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
+        Me.TblVitalSignTasksGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignTasksGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable
         Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(1342, 699)
         Me.TblVitalSignTasksGridEX.TabIndex = 1
@@ -125,7 +128,7 @@ Partial Class VitalSignTasksMasterForm
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripButton})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripButton, Me.ToolStripSeparator1, Me.ToggleCompletedToolStripButton})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(1342, 25)
@@ -139,6 +142,20 @@ Partial Class VitalSignTasksMasterForm
         Me.SaveToolStripButton.Name = "SaveToolStripButton"
         Me.SaveToolStripButton.Size = New System.Drawing.Size(51, 22)
         Me.SaveToolStripButton.Text = "Save"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
+        '
+        'ToggleCompletedToolStripButton
+        '
+        Me.ToggleCompletedToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.ToggleCompletedToolStripButton.Image = CType(resources.GetObject("ToggleCompletedToolStripButton.Image"), System.Drawing.Image)
+        Me.ToggleCompletedToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToggleCompletedToolStripButton.Name = "ToggleCompletedToolStripButton"
+        Me.ToggleCompletedToolStripButton.Size = New System.Drawing.Size(100, 22)
+        Me.ToggleCompletedToolStripButton.Text = "Show completed"
         '
         'VitalSignTasksMasterForm
         '
@@ -175,4 +192,6 @@ Partial Class VitalSignTasksMasterForm
     Friend WithEvents VwVitalSignOverviewTableAdapter As AKRODataSetTableAdapters.vwVitalSignOverviewTableAdapter
     Friend WithEvents ToolStrip1 As ToolStrip
     Friend WithEvents SaveToolStripButton As ToolStripButton
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToggleCompletedToolStripButton As ToolStripButton
 End Class
