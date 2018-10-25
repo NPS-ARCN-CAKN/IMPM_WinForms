@@ -711,7 +711,7 @@ Public Class Form1
 
     Private Sub NetworkTasksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NetworkTasksToolStripMenuItem.Click
         Dim NetworkTasksForm As New NetworkTasksForm
-        NetworkTasksForm.ShowDialog()
+        NetworkTasksForm.Show()
     End Sub
 
 
@@ -741,6 +741,6 @@ Public Class Form1
 
     Private Sub VitalSignTasksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VitalSignTasksToolStripMenuItem.Click
         Dim VSTasksForm As New VitalSignTasksMasterForm
-        VSTasksForm.ShowDialog()
+        VSTasksForm.Show()
     End Sub
 End Class
