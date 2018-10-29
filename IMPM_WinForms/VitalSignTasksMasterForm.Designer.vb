@@ -98,7 +98,6 @@ Partial Class VitalSignTasksMasterForm
         Me.TblVitalSignTasksGridEX.DesignTimeLayout = TblVitalSignTasksGridEX_DesignTimeLayout
         Me.TblVitalSignTasksGridEX.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TblVitalSignTasksGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.TblVitalSignTasksGridEX.GroupByBoxVisible = False
         Me.TblVitalSignTasksGridEX.Location = New System.Drawing.Point(0, 25)
         Me.TblVitalSignTasksGridEX.Name = "TblVitalSignTasksGridEX"
         Me.TblVitalSignTasksGridEX.RecordNavigator = True

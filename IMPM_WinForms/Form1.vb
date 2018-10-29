@@ -742,5 +742,7 @@ Public Class Form1
     Private Sub VitalSignTasksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VitalSignTasksToolStripMenuItem.Click
         Dim VSTasksForm As New VitalSignTasksMasterForm
         VSTasksForm.Show()
+        SaveDataset()
+        LoadDataset()
     End Sub
 End Class

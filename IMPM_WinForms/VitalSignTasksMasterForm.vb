@@ -33,19 +33,22 @@ Public Class VitalSignTasksMasterForm
 
     Private Sub FormatOverDueTasks()
         Try
+            'the group by problem needs fixing
             For Each Row As GridEXRow In Me.TblVitalSignTasksGridEX.GetRows
                 If Not Row.Cells("DateDue") Is Nothing Then
                     'finished tasks have DateDue not Null so eliminate finished tasks
                     If Not IsDBNull(Row.Cells("DateDue").Value) = True Then
-                        Dim DueDateString As String = Row.Cells("DateDue").Value
-                        Dim DueDate As DateTime = CDate(DueDateString)
-                        Row.BeginEdit()
-                        Row.Cells("Overdue").Value = DueDate < Now
-                        Row.EndEdit()
+                        If IsDate(Row.Cells("DateDue").Value) = True Then
+                            Dim DueDateString As String = Row.Cells("DateDue").Value
+                            Dim DueDate As DateTime = CDate(DueDateString)
+                            Row.BeginEdit()
+                            Row.Cells("Overdue").Value = DueDate < Now
+                            Row.EndEdit()
+                        End If
                     End If
                 End If
             Next
-            Me.TblVitalSignTasksBindingSource.EndEdit()
+            'Me.TblVitalSignTasksBindingSource.EndEdit()
 
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
