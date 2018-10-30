@@ -150,6 +150,8 @@ Partial Class Form1
         Me.RefreshToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
         Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
+        Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
         ProtocolAvailableLabel = New System.Windows.Forms.Label()
         DataAvailableLabel = New System.Windows.Forms.Label()
         DeliverablesScheduleLabel = New System.Windows.Forms.Label()
@@ -204,6 +206,7 @@ Partial Class Form1
         CType(Me.TblProtocolRemeasurementsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainMenuStrip.SuspendLayout()
         Me.MainToolStrip.SuspendLayout()
+        CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ProtocolAvailableLabel
@@ -919,7 +922,6 @@ Partial Class Form1
         Me.TblVitalSignDataManagementSummaryGridEX.Location = New System.Drawing.Point(2, 2)
         Me.TblVitalSignDataManagementSummaryGridEX.Margin = New System.Windows.Forms.Padding(2)
         Me.TblVitalSignDataManagementSummaryGridEX.Name = "TblVitalSignDataManagementSummaryGridEX"
-        Me.TblVitalSignDataManagementSummaryGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
         Me.TblVitalSignDataManagementSummaryGridEX.RecordNavigator = True
         Me.TblVitalSignDataManagementSummaryGridEX.RowFormatStyle.FontSize = 10.0!
         Me.TblVitalSignDataManagementSummaryGridEX.RowFormatStyle.LineAlignment = Janus.Windows.GridEX.TextAlignment.Near
@@ -960,7 +962,6 @@ Partial Class Form1
         Me.TblVitalSignTasksGridEX.Location = New System.Drawing.Point(2, 2)
         Me.TblVitalSignTasksGridEX.Margin = New System.Windows.Forms.Padding(2)
         Me.TblVitalSignTasksGridEX.Name = "TblVitalSignTasksGridEX"
-        Me.TblVitalSignTasksGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
         Me.TblVitalSignTasksGridEX.RecordNavigator = True
         Me.TblVitalSignTasksGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignTasksGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
@@ -1302,6 +1303,15 @@ Partial Class Form1
         '
         Me.DataManagementMilestonesTableAdapter.ClearBeforeFill = True
         '
+        'VwContactsLookupBindingSource
+        '
+        Me.VwContactsLookupBindingSource.DataMember = "vwContactsLookup"
+        Me.VwContactsLookupBindingSource.DataSource = Me.AKRODataSet
+        '
+        'VwContactsLookupTableAdapter
+        '
+        Me.VwContactsLookupTableAdapter.ClearBeforeFill = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1371,6 +1381,7 @@ Partial Class Form1
         Me.MainMenuStrip.PerformLayout()
         Me.MainToolStrip.ResumeLayout(False)
         Me.MainToolStrip.PerformLayout()
+        CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1485,4 +1496,6 @@ Partial Class Form1
     Friend WithEvents ViewsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents NetworkTasksToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VitalSignTasksToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents VwContactsLookupBindingSource As BindingSource
+    Friend WithEvents VwContactsLookupTableAdapter As AKRODataSetTableAdapters.vwContactsLookupTableAdapter
 End Class

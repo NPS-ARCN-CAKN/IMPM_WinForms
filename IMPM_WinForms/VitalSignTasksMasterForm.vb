@@ -8,6 +8,8 @@ Public Class VitalSignTasksMasterForm
     End Sub
 
     Private Sub VitalSignTasksMasterForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'AKRODataSet.vwContactsLookup' table. You can move, or remove it, as needed.
+        Me.VwContactsLookupTableAdapter.Fill(Me.AKRODataSet.vwContactsLookup)
         Me.TblVitalSignTasksBindingSource.Filter = "DateCompleted is NULL"
         Me.ToggleCompletedToolStripButton.Text = "Show completed"
         Me.TblVitalSignTasksBindingSource.Sort = "DateDue DESC"
@@ -20,7 +22,7 @@ Public Class VitalSignTasksMasterForm
 
         'set up ContactsDropDown using the GridEX designer, then set the data binding in code here to retrieve the records
         Try
-            Me.TblVitalSignTasksGridEX.DropDowns("ContactsDropDown").SetDataBinding(AKRODataSet, "tblContacts")
+            Me.TblVitalSignTasksGridEX.DropDowns("ContactsDropDown").SetDataBinding(AKRODataSet, "vwContactsLookup")
             Me.TblVitalSignTasksGridEX.DropDowns("VitalSignsDropDown").SetDataBinding(AKRODataSet, "vwVitalSignOverview")
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)

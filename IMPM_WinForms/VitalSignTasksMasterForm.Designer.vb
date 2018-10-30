@@ -40,6 +40,8 @@ Partial Class VitalSignTasksMasterForm
         Me.SaveToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToggleCompletedToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignTasksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignTasksGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,6 +49,7 @@ Partial Class VitalSignTasksMasterForm
         CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
+        CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'AKRODataSet
@@ -98,6 +101,13 @@ Partial Class VitalSignTasksMasterForm
         Me.TblVitalSignTasksGridEX.DesignTimeLayout = TblVitalSignTasksGridEX_DesignTimeLayout
         Me.TblVitalSignTasksGridEX.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TblVitalSignTasksGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.TblVitalSignTasksGridEX.GroupByBoxFormatStyle.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.TblVitalSignTasksGridEX.GroupByBoxFormatStyle.FontBold = Janus.Windows.GridEX.TriState.[True]
+        Me.TblVitalSignTasksGridEX.GroupByBoxInfoFormatStyle.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.TblVitalSignTasksGridEX.GroupByBoxInfoFormatStyle.FontBold = Janus.Windows.GridEX.TriState.[True]
+        Me.TblVitalSignTasksGridEX.GroupRowFormatStyle.Font = New System.Drawing.Font("Arial Narrow", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.TblVitalSignTasksGridEX.GroupRowFormatStyle.FontBold = Janus.Windows.GridEX.TriState.[True]
+        Me.TblVitalSignTasksGridEX.GroupRowVisualStyle = Janus.Windows.GridEX.GroupRowVisualStyle.UseRowStyle
         Me.TblVitalSignTasksGridEX.Location = New System.Drawing.Point(0, 25)
         Me.TblVitalSignTasksGridEX.Name = "TblVitalSignTasksGridEX"
         Me.TblVitalSignTasksGridEX.RecordNavigator = True
@@ -156,6 +166,15 @@ Partial Class VitalSignTasksMasterForm
         Me.ToggleCompletedToolStripButton.Size = New System.Drawing.Size(100, 22)
         Me.ToggleCompletedToolStripButton.Text = "Show completed"
         '
+        'VwContactsLookupBindingSource
+        '
+        Me.VwContactsLookupBindingSource.DataMember = "vwContactsLookup"
+        Me.VwContactsLookupBindingSource.DataSource = Me.AKRODataSet
+        '
+        'VwContactsLookupTableAdapter
+        '
+        Me.VwContactsLookupTableAdapter.ClearBeforeFill = True
+        '
         'VitalSignTasksMasterForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -173,6 +192,7 @@ Partial Class VitalSignTasksMasterForm
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
+        CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -193,4 +213,6 @@ Partial Class VitalSignTasksMasterForm
     Friend WithEvents SaveToolStripButton As ToolStripButton
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents ToggleCompletedToolStripButton As ToolStripButton
+    Friend WithEvents VwContactsLookupBindingSource As BindingSource
+    Friend WithEvents VwContactsLookupTableAdapter As AKRODataSetTableAdapters.vwContactsLookupTableAdapter
 End Class

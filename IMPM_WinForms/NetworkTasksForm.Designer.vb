@@ -38,12 +38,15 @@ Partial Class NetworkTasksForm
         Me.SaveToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.TblContactsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TblContactsTableAdapter = New IMPM.AKRODataSetTableAdapters.tblContactsTableAdapter()
+        Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblNetworkTasksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblNetworkTasksGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'AKRODataSet
@@ -151,6 +154,15 @@ Partial Class NetworkTasksForm
         '
         Me.TblContactsTableAdapter.ClearBeforeFill = True
         '
+        'VwContactsLookupBindingSource
+        '
+        Me.VwContactsLookupBindingSource.DataMember = "vwContactsLookup"
+        Me.VwContactsLookupBindingSource.DataSource = Me.AKRODataSet
+        '
+        'VwContactsLookupTableAdapter
+        '
+        Me.VwContactsLookupTableAdapter.ClearBeforeFill = True
+        '
         'NetworkTasksForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -170,6 +182,7 @@ Partial Class NetworkTasksForm
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -188,4 +201,6 @@ Partial Class NetworkTasksForm
     Friend WithEvents SaveToolStripButton As ToolStripButton
     Friend WithEvents TblContactsBindingSource As BindingSource
     Friend WithEvents TblContactsTableAdapter As AKRODataSetTableAdapters.tblContactsTableAdapter
+    Friend WithEvents VwContactsLookupBindingSource As BindingSource
+    Friend WithEvents VwContactsLookupTableAdapter As AKRODataSetTableAdapters.vwContactsLookupTableAdapter
 End Class

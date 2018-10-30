@@ -3,8 +3,7 @@ Imports Microsoft.Reporting.WinForms
 
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'AKRODataSet.DataManagementMilestones' table. You can move, or remove it, as needed.
-        Me.DataManagementMilestonesTableAdapter.Fill(Me.AKRODataSet.DataManagementMilestones)
+
 
         'load the dataset
         LoadDataset()
@@ -36,7 +35,7 @@ Public Class Form1
 
         'load the tasks GridEX contacts dropdown
         Try
-            Me.TblVitalSignTasksGridEX.DropDowns("ContactsDropDown").SetDataBinding(AKRODataSet, "tblContacts")
+            Me.TblVitalSignTasksGridEX.DropDowns("ContactsDropDown").SetDataBinding(AKRODataSet, "vwContactsLookup")
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
@@ -61,6 +60,7 @@ Public Class Form1
             Me.TblVitalSignObjectivesTableAdapter.Fill(Me.AKRODataSet.tblVitalSignObjectives)
             Me.TblContactsTableAdapter.Fill(Me.AKRODataSet.tblContacts)
             Me.DataManagementMilestonesTableAdapter.Fill(Me.AKRODataSet.DataManagementMilestones)
+            Me.VwContactsLookupTableAdapter.Fill(Me.AKRODataSet.vwContactsLookup)
 
             'load gridex dropdowns with values
             LoadDropDowns()
