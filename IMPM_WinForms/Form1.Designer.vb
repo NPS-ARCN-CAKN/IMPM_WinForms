@@ -39,7 +39,7 @@ Partial Class Form1
         Dim TblVitalSignProtocolsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignTasksGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim TblVitalSignWorkLogGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.vwVitalSignWorkLogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AKRODataSet = New IMPM.AKRODataSet()
@@ -212,7 +212,7 @@ Partial Class Form1
         'ProtocolAvailableLabel
         '
         ProtocolAvailableLabel.AutoSize = True
-        ProtocolAvailableLabel.Location = New System.Drawing.Point(27, 30)
+        ProtocolAvailableLabel.Location = New System.Drawing.Point(27, 33)
         ProtocolAvailableLabel.Name = "ProtocolAvailableLabel"
         ProtocolAvailableLabel.Size = New System.Drawing.Size(144, 17)
         ProtocolAvailableLabel.TabIndex = 0
@@ -248,7 +248,7 @@ Partial Class Form1
         'DMChapterWrittenLabel
         '
         DMChapterWrittenLabel.AutoSize = True
-        DMChapterWrittenLabel.Location = New System.Drawing.Point(27, 150)
+        DMChapterWrittenLabel.Location = New System.Drawing.Point(27, 152)
         DMChapterWrittenLabel.Name = "DMChapterWrittenLabel"
         DMChapterWrittenLabel.Size = New System.Drawing.Size(150, 17)
         DMChapterWrittenLabel.TabIndex = 8
@@ -257,7 +257,7 @@ Partial Class Form1
         'DMSystemPlanExistsLabel
         '
         DMSystemPlanExistsLabel.AutoSize = True
-        DMSystemPlanExistsLabel.Location = New System.Drawing.Point(27, 180)
+        DMSystemPlanExistsLabel.Location = New System.Drawing.Point(27, 182)
         DMSystemPlanExistsLabel.Name = "DMSystemPlanExistsLabel"
         DMSystemPlanExistsLabel.Size = New System.Drawing.Size(172, 17)
         DMSystemPlanExistsLabel.TabIndex = 10
@@ -769,8 +769,8 @@ Partial Class Form1
         '
         'OpenDataDirectoryButton
         '
-        Me.OpenDataDirectoryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OpenDataDirectoryButton.Location = New System.Drawing.Point(727, 258)
+        Me.OpenDataDirectoryButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.OpenDataDirectoryButton.Location = New System.Drawing.Point(698, 261)
         Me.OpenDataDirectoryButton.Name = "OpenDataDirectoryButton"
         Me.OpenDataDirectoryButton.Size = New System.Drawing.Size(75, 23)
         Me.OpenDataDirectoryButton.TabIndex = 21
@@ -779,8 +779,8 @@ Partial Class Form1
         '
         'OpenProtocolDirectoryButton
         '
-        Me.OpenProtocolDirectoryButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.OpenProtocolDirectoryButton.Location = New System.Drawing.Point(726, 235)
+        Me.OpenProtocolDirectoryButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.OpenProtocolDirectoryButton.Location = New System.Drawing.Point(698, 235)
         Me.OpenProtocolDirectoryButton.Name = "OpenProtocolDirectoryButton"
         Me.OpenProtocolDirectoryButton.Size = New System.Drawing.Size(75, 23)
         Me.OpenProtocolDirectoryButton.TabIndex = 20
@@ -790,7 +790,7 @@ Partial Class Form1
         'ProtocolAvailableCheckBox
         '
         Me.ProtocolAvailableCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "ProtocolAvailable", True))
-        Me.ProtocolAvailableCheckBox.Location = New System.Drawing.Point(149, 25)
+        Me.ProtocolAvailableCheckBox.Location = New System.Drawing.Point(213, 30)
         Me.ProtocolAvailableCheckBox.Name = "ProtocolAvailableCheckBox"
         Me.ProtocolAvailableCheckBox.Size = New System.Drawing.Size(104, 24)
         Me.ProtocolAvailableCheckBox.TabIndex = 1
@@ -804,7 +804,7 @@ Partial Class Form1
         'DataAvailableCheckBox
         '
         Me.DataAvailableCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DataAvailable", True))
-        Me.DataAvailableCheckBox.Location = New System.Drawing.Point(149, 55)
+        Me.DataAvailableCheckBox.Location = New System.Drawing.Point(213, 60)
         Me.DataAvailableCheckBox.Name = "DataAvailableCheckBox"
         Me.DataAvailableCheckBox.Size = New System.Drawing.Size(104, 24)
         Me.DataAvailableCheckBox.TabIndex = 3
@@ -813,7 +813,7 @@ Partial Class Form1
         'DeliverablesScheduleCheckBox
         '
         Me.DeliverablesScheduleCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DeliverablesSchedule", True))
-        Me.DeliverablesScheduleCheckBox.Location = New System.Drawing.Point(149, 85)
+        Me.DeliverablesScheduleCheckBox.Location = New System.Drawing.Point(213, 87)
         Me.DeliverablesScheduleCheckBox.Name = "DeliverablesScheduleCheckBox"
         Me.DeliverablesScheduleCheckBox.Size = New System.Drawing.Size(104, 24)
         Me.DeliverablesScheduleCheckBox.TabIndex = 5
@@ -822,7 +822,7 @@ Partial Class Form1
         'SOPsWrittenCheckBox
         '
         Me.SOPsWrittenCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "SOPsWritten", True))
-        Me.SOPsWrittenCheckBox.Location = New System.Drawing.Point(149, 115)
+        Me.SOPsWrittenCheckBox.Location = New System.Drawing.Point(213, 117)
         Me.SOPsWrittenCheckBox.Name = "SOPsWrittenCheckBox"
         Me.SOPsWrittenCheckBox.Size = New System.Drawing.Size(104, 24)
         Me.SOPsWrittenCheckBox.TabIndex = 7
@@ -831,7 +831,7 @@ Partial Class Form1
         'DMChapterWrittenCheckBox
         '
         Me.DMChapterWrittenCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DMChapterWritten", True))
-        Me.DMChapterWrittenCheckBox.Location = New System.Drawing.Point(149, 145)
+        Me.DMChapterWrittenCheckBox.Location = New System.Drawing.Point(213, 145)
         Me.DMChapterWrittenCheckBox.Name = "DMChapterWrittenCheckBox"
         Me.DMChapterWrittenCheckBox.Size = New System.Drawing.Size(104, 24)
         Me.DMChapterWrittenCheckBox.TabIndex = 9
@@ -840,7 +840,7 @@ Partial Class Form1
         'DMSystemPlanExistsCheckBox
         '
         Me.DMSystemPlanExistsCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DMSystemPlanExists", True))
-        Me.DMSystemPlanExistsCheckBox.Location = New System.Drawing.Point(149, 175)
+        Me.DMSystemPlanExistsCheckBox.Location = New System.Drawing.Point(213, 175)
         Me.DMSystemPlanExistsCheckBox.Name = "DMSystemPlanExistsCheckBox"
         Me.DMSystemPlanExistsCheckBox.Size = New System.Drawing.Size(104, 24)
         Me.DMSystemPlanExistsCheckBox.TabIndex = 11
@@ -849,7 +849,7 @@ Partial Class Form1
         'DMSystemBuiltCheckBox
         '
         Me.DMSystemBuiltCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DMSystemBuilt", True))
-        Me.DMSystemBuiltCheckBox.Location = New System.Drawing.Point(149, 205)
+        Me.DMSystemBuiltCheckBox.Location = New System.Drawing.Point(213, 205)
         Me.DMSystemBuiltCheckBox.Name = "DMSystemBuiltCheckBox"
         Me.DMSystemBuiltCheckBox.Size = New System.Drawing.Size(104, 24)
         Me.DMSystemBuiltCheckBox.TabIndex = 13
@@ -857,22 +857,20 @@ Partial Class Form1
         '
         'ProtocolDirectoryTextBox
         '
-        Me.ProtocolDirectoryTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ProtocolDirectoryTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.ProtocolDirectoryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "ProtocolDirectory", True))
-        Me.ProtocolDirectoryTextBox.Location = New System.Drawing.Point(149, 235)
+        Me.ProtocolDirectoryTextBox.Location = New System.Drawing.Point(177, 235)
         Me.ProtocolDirectoryTextBox.Name = "ProtocolDirectoryTextBox"
-        Me.ProtocolDirectoryTextBox.Size = New System.Drawing.Size(571, 23)
+        Me.ProtocolDirectoryTextBox.Size = New System.Drawing.Size(515, 23)
         Me.ProtocolDirectoryTextBox.TabIndex = 15
         '
         'DataDirectoryTextBox
         '
-        Me.DataDirectoryTextBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataDirectoryTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.DataDirectoryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "DataDirectory", True))
-        Me.DataDirectoryTextBox.Location = New System.Drawing.Point(149, 261)
+        Me.DataDirectoryTextBox.Location = New System.Drawing.Point(177, 261)
         Me.DataDirectoryTextBox.Name = "DataDirectoryTextBox"
-        Me.DataDirectoryTextBox.Size = New System.Drawing.Size(571, 23)
+        Me.DataDirectoryTextBox.Size = New System.Drawing.Size(515, 23)
         Me.DataDirectoryTextBox.TabIndex = 17
         '
         'CurrentStatusTextBox
@@ -1012,9 +1010,9 @@ Partial Class Form1
         'WorkLogReportViewer
         '
         Me.WorkLogReportViewer.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource1.Name = "WorkLogDataset"
-        ReportDataSource1.Value = Me.vwVitalSignWorkLogBindingSource
-        Me.WorkLogReportViewer.LocalReport.DataSources.Add(ReportDataSource1)
+        ReportDataSource2.Name = "WorkLogDataset"
+        ReportDataSource2.Value = Me.vwVitalSignWorkLogBindingSource
+        Me.WorkLogReportViewer.LocalReport.DataSources.Add(ReportDataSource2)
         Me.WorkLogReportViewer.LocalReport.DisplayName = "Work Log Report"
         Me.WorkLogReportViewer.LocalReport.ReportEmbeddedResource = "IMPM.WorkLogReport.rdlc"
         Me.WorkLogReportViewer.Location = New System.Drawing.Point(2, 2)
@@ -1051,8 +1049,10 @@ Partial Class Form1
         Me.TblVitalSignWorkLogGridEX.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic
         Me.TblVitalSignWorkLogGridEX.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.TblVitalSignWorkLogGridEX.FilterRowFormatStyle.FontItalic = Janus.Windows.GridEX.TriState.[True]
-        Me.TblVitalSignWorkLogGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TblVitalSignWorkLogGridEX.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TblVitalSignWorkLogGridEX.GroupByBoxVisible = False
+        Me.TblVitalSignWorkLogGridEX.HeaderFormatStyle.FontName = "microsoft sans serif"
+        Me.TblVitalSignWorkLogGridEX.HeaderFormatStyle.FontSize = 10.0!
         Me.TblVitalSignWorkLogGridEX.Location = New System.Drawing.Point(2, 27)
         Me.TblVitalSignWorkLogGridEX.Margin = New System.Windows.Forms.Padding(2)
         Me.TblVitalSignWorkLogGridEX.Name = "TblVitalSignWorkLogGridEX"
