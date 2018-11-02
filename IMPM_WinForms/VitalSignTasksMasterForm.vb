@@ -31,34 +31,12 @@ Public Class VitalSignTasksMasterForm
         'format the gridex
         SetUpGridEX(Me.TblVitalSignTasksGridEX)
 
-        FormatOverDueTasks()
+        FormatOverDueTasks(Me.TblVitalSignTasksGridEX)
 
 
     End Sub
 
-    Private Sub FormatOverDueTasks()
-        Try
-            'the group by problem needs fixing
-            For Each Row As GridEXRow In Me.TblVitalSignTasksGridEX.GetRows
-                If Not Row.Cells("DateDue") Is Nothing Then
-                    'finished tasks have DateDue not Null so eliminate finished tasks
-                    If Not IsDBNull(Row.Cells("DateDue").Value) = True Then
-                        If IsDate(Row.Cells("DateDue").Value) = True Then
-                            Dim DueDateString As String = Row.Cells("DateDue").Value
-                            Dim DueDate As DateTime = CDate(DueDateString)
-                            Row.BeginEdit()
-                            Row.Cells("Overdue").Value = DueDate < Now
-                            Row.EndEdit()
-                        End If
-                    End If
-                End If
-            Next
-            'Me.TblVitalSignTasksBindingSource.EndEdit()
 
-        Catch ex As Exception
-            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
-        End Try
-    End Sub
 
     Private Sub SaveToolStripButton_Click(sender As Object, e As EventArgs) Handles SaveToolStripButton.Click
         Save()
@@ -83,6 +61,6 @@ Public Class VitalSignTasksMasterForm
     End Sub
 
     Private Sub TblVitalSignTasksGridEX_Paint(sender As Object, e As PaintEventArgs) Handles TblVitalSignTasksGridEX.Paint
-        FormatOverDueTasks()
+        FormatOverDueTasks(Me.TblVitalSignTasksGridEX)
     End Sub
 End Class

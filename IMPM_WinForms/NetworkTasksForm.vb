@@ -15,14 +15,18 @@ Public Class NetworkTasksForm
     End Sub
 
     Private Sub NetworkTasksForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'AKRODataSet.vwContactsLookup' table. You can move, or remove it, as needed.
-        Me.VwContactsLookupTableAdapter.Fill(Me.AKRODataSet.vwContactsLookup)
+
+
         'load the data from the database into the table adapters
         Me.TblContactsTableAdapter.Fill(Me.AKRODataSet.tblContacts)
         Me.TblNetworkTasksTableAdapter.Fill(Me.AKRODataSet.tblNetworkTasks)
+        Me.VwContactsLookupTableAdapter.Fill(Me.AKRODataSet.vwContactsLookup)
 
         'maximize
         Me.WindowState = FormWindowState.Maximized
+
+        'set up the gridex
+        SetUpGridEX(Me.TblNetworkTasksGridEX)
 
         'set default values
         Dim GridEX As GridEX = Me.TblNetworkTasksGridEX
@@ -55,28 +59,7 @@ Public Class NetworkTasksForm
 
         'load the AssignedTo column dropdown
         Me.TblNetworkTasksGridEX.DropDowns("ContactsDropDown").SetDataBinding(AKRODataSet, "vwContactsLookup")
-        'Try
-        '    With GridEX.RootTable.Columns("AssignedTo")
-        '        .AutoSize()
-        '        .AllowSort = True
-        '        .AutoComplete = True
-        '        .Caption = "Assigned to"
-        '        .HasValueList = True
-        '        .LimitToList = True
-        '    End With
 
-        '    Dim AssignedToList As GridEXValueListItemCollection = GridEX.Tables("tblNetworkTasks").Columns("AssignedTo").ValueList
-        '    AssignedToList.Clear()
-        '    Dim ContactsDataView As DataView = Me.AKRODataSet.tblContacts.DefaultView
-        '    ContactsDataView.Sort = "Lastname,Firstname"
-        '    For Each Row As DataRowView In ContactsDataView
-        '        Dim ContactName As String = Row.Item("Lastname").ToString.Trim & ", " & Row.Item("Firstname").ToString.Trim
-        '        Dim ContactID As Integer = Row.Item("ContactID")
-        '        AssignedToList.Add(ContactID, ContactName)
-        '    Next
-        'Catch ex As Exception
-        '    MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
-        'End Try
     End Sub
 
     Private Sub SaveToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem1.Click
