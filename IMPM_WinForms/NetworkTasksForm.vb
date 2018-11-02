@@ -60,6 +60,8 @@ Public Class NetworkTasksForm
         'load the AssignedTo column dropdown
         Me.TblNetworkTasksGridEX.DropDowns("ContactsDropDown").SetDataBinding(AKRODataSet, "vwContactsLookup")
 
+        'format any overdue tasks
+        FormatOverDueTasks(Me.TblNetworkTasksGridEX)
     End Sub
 
     Private Sub SaveToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles SaveToolStripMenuItem1.Click
@@ -86,5 +88,9 @@ Public Class NetworkTasksForm
                 Save()
             End If
         End If
+    End Sub
+
+    Private Sub TblNetworkTasksGridEX_Paint(sender As Object, e As PaintEventArgs) Handles TblNetworkTasksGridEX.Paint
+        FormatOverDueTasks(Me.TblNetworkTasksGridEX)
     End Sub
 End Class

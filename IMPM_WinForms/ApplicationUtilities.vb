@@ -2,8 +2,9 @@
 
 Module ApplicationUtilities
     Public Sub SetUpGridEX(GridEX As GridEX)
-        'set up the gridex
-        Dim MyFont As New Font("Sans Serif", 10, FontStyle.Regular)
+        Try
+            'set up the gridex
+            Dim MyFont As New Font("Sans Serif", 10, FontStyle.Regular)
         Dim MyFormatStyle As New GridEXFormatStyle()
         With MyFormatStyle
             .Font = MyFont
@@ -41,10 +42,13 @@ Module ApplicationUtilities
             .SelectOnExpand = False
             .SaveSettings = True
         End With
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
     End Sub
 
     ''' <summary>
-    ''' 
+    ''' Compares the date value of of the DateDue column of each row in GridEX to Now and sets the OverDue cell value to True where the current date is greater than DateDue. GridEX must contain columns DateDue (Date) and Overdue (boolean)
     ''' </summary>
     ''' <param name="GridEX"></param>
     Public Sub FormatOverDueTasks(GridEX As GridEX)
@@ -52,7 +56,7 @@ Module ApplicationUtilities
             'loop through the tasks gridex
             For Each Row As GridEXRow In GridEX.GetRows
                 'make sure there is a DateDue column
-                If Not Row.Cells("DateDue") Is Nothing Then
+                If Not Row.Cells("DateDue") Is Nothing And Not Row.Cells("Overdue") Is Nothing Then
                     'finished tasks have DateDue filled in (not Null) so eliminate finished tasks
                     If Not IsDBNull(Row.Cells("DateDue").Value) = True Then
                         'make sure DueDate is actually a date
