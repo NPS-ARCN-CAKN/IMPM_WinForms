@@ -39,7 +39,7 @@ Partial Class Form1
         Dim TblVitalSignProtocolsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignTasksGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim TblVitalSignWorkLogGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.vwVitalSignWorkLogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AKRODataSet = New IMPM.AKRODataSet()
@@ -769,7 +769,6 @@ Partial Class Form1
         '
         'OpenDataDirectoryButton
         '
-        Me.OpenDataDirectoryButton.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.OpenDataDirectoryButton.Location = New System.Drawing.Point(698, 261)
         Me.OpenDataDirectoryButton.Name = "OpenDataDirectoryButton"
         Me.OpenDataDirectoryButton.Size = New System.Drawing.Size(75, 23)
@@ -779,7 +778,6 @@ Partial Class Form1
         '
         'OpenProtocolDirectoryButton
         '
-        Me.OpenProtocolDirectoryButton.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.OpenProtocolDirectoryButton.Location = New System.Drawing.Point(698, 235)
         Me.OpenProtocolDirectoryButton.Name = "OpenProtocolDirectoryButton"
         Me.OpenProtocolDirectoryButton.Size = New System.Drawing.Size(75, 23)
@@ -857,7 +855,6 @@ Partial Class Form1
         '
         'ProtocolDirectoryTextBox
         '
-        Me.ProtocolDirectoryTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.ProtocolDirectoryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "ProtocolDirectory", True))
         Me.ProtocolDirectoryTextBox.Location = New System.Drawing.Point(177, 235)
         Me.ProtocolDirectoryTextBox.Name = "ProtocolDirectoryTextBox"
@@ -866,7 +863,6 @@ Partial Class Form1
         '
         'DataDirectoryTextBox
         '
-        Me.DataDirectoryTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.DataDirectoryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "DataDirectory", True))
         Me.DataDirectoryTextBox.Location = New System.Drawing.Point(177, 261)
         Me.DataDirectoryTextBox.Name = "DataDirectoryTextBox"
@@ -880,10 +876,10 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CurrentStatusTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "CurrentStatus", True))
         Me.CurrentStatusTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CurrentStatusTextBox.Location = New System.Drawing.Point(149, 287)
+        Me.CurrentStatusTextBox.Location = New System.Drawing.Point(177, 287)
         Me.CurrentStatusTextBox.Multiline = True
         Me.CurrentStatusTextBox.Name = "CurrentStatusTextBox"
-        Me.CurrentStatusTextBox.Size = New System.Drawing.Size(653, 286)
+        Me.CurrentStatusTextBox.Size = New System.Drawing.Size(596, 327)
         Me.CurrentStatusTextBox.TabIndex = 19
         '
         'DataManagementOverviewTabPage
@@ -1010,9 +1006,9 @@ Partial Class Form1
         'WorkLogReportViewer
         '
         Me.WorkLogReportViewer.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource2.Name = "WorkLogDataset"
-        ReportDataSource2.Value = Me.vwVitalSignWorkLogBindingSource
-        Me.WorkLogReportViewer.LocalReport.DataSources.Add(ReportDataSource2)
+        ReportDataSource3.Name = "WorkLogDataset"
+        ReportDataSource3.Value = Me.vwVitalSignWorkLogBindingSource
+        Me.WorkLogReportViewer.LocalReport.DataSources.Add(ReportDataSource3)
         Me.WorkLogReportViewer.LocalReport.DisplayName = "Work Log Report"
         Me.WorkLogReportViewer.LocalReport.ReportEmbeddedResource = "IMPM.WorkLogReport.rdlc"
         Me.WorkLogReportViewer.Location = New System.Drawing.Point(2, 2)

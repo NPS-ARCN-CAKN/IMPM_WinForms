@@ -106,6 +106,7 @@
     <Compile Include="AKRODataSet.vb">
       <DependentUpon>AKRODataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationUtilities.vb" />
     <Compile Include="DeliverablesDirectoryGeneratorForm.Designer.vb">
       <DependentUpon>DeliverablesDirectoryGeneratorForm.vb</DependentUpon>
     </Compile>
