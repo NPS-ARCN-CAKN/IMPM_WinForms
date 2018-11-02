@@ -23,10 +23,20 @@ Public Class VitalSignTasksMasterForm
         Me.TblVitalSignTasksBindingSource.Sort = "DateDue DESC"
 
         'default values
+
         Try
             Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
             GridEX.Tables("tblVitalSignTasks").Columns("DateDue").DefaultValue = Now.AddDays(30)
             GridEX.Tables("tblVitalSignTasks").Columns("DateAssigned").DefaultValue = Now
+            GridEX.Tables("tblVitalSignTasks").Columns("RecordInsertedDate").DefaultValue = Now
+            GridEX.Tables("tblVitalSignTasks").Columns("RecordInsertedBy").DefaultValue = My.User.Name
+            GridEX.Tables("tblVitalSignTasks").Columns("RecordUpdatedDate").DefaultValue = Now
+            GridEX.Tables("tblVitalSignTasks").Columns("RecordUpdatedBy").DefaultValue = My.User.Name
+            'Me.TblVitalSignTasksTableAdapter.Adapter.UpdateCommand.Parameters("RecordUpdatedDate").Value = Now
+            'Me.TblVitalSignTasksTableAdapter.Adapter.UpdateCommand.Parameters("RecordUpdatedBy").Value = My.User.Name
+            If My.User.Name = "SDMiller" Then
+                GridEX.Tables("tblVitalSignTasks").Columns("AssignedTo").DefaultValue = 3
+            End If
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
@@ -74,5 +84,10 @@ Public Class VitalSignTasksMasterForm
 
     Private Sub TblVitalSignTasksGridEX_Paint(sender As Object, e As PaintEventArgs) Handles TblVitalSignTasksGridEX.Paint
         FormatOverDueTasks(Me.TblVitalSignTasksGridEX)
+    End Sub
+
+    Private Sub TblVitalSignTasksGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignTasksGridEX.CellEdited
+        'update the RecordUpdatedDate and RecordUpdatedBy cells
+        UpdateRecordUpdatedFields(Me.TblVitalSignTasksGridEX)
     End Sub
 End Class

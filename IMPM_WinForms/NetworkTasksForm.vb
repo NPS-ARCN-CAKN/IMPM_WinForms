@@ -95,4 +95,9 @@ Public Class NetworkTasksForm
     Private Sub TblNetworkTasksGridEX_Paint(sender As Object, e As PaintEventArgs) Handles TblNetworkTasksGridEX.Paint
         FormatOverDueTasks(Me.TblNetworkTasksGridEX)
     End Sub
+
+    Private Sub TblNetworkTasksGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles TblNetworkTasksGridEX.CellEdited
+        'update the RecordUpdatedDate and RecordUpdatedBy cells
+        UpdateRecordUpdatedFields(Me.TblNetworkTasksGridEX)
+    End Sub
 End Class

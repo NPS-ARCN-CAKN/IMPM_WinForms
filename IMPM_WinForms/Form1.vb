@@ -703,4 +703,9 @@ Public Class Form1
         SaveDataset()
         LoadDataset()
     End Sub
+
+    Private Sub TblVitalSignsGridEX_CellUpdated(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignsGridEX.CellUpdated
+        'update the RecordUpdatedDate and RecordUpdatedBy cells
+        UpdateRecordUpdatedFields(Me.TblVitalSignsGridEX)
+    End Sub
 End Class

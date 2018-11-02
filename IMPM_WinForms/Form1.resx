@@ -153,9 +153,6 @@
   <metadata name="AKRODataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="AKRODataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="VwVitalSignOverviewBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>167, 17</value>
   </metadata>
@@ -195,21 +192,6 @@
   <data name="VwVitalSignOverviewGridEX_DesignTimeLayout.LayoutString" xml:space="preserve">
     <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Key&gt;vwVitalSignOverview&lt;/Key&gt;&lt;Caption&gt;vwVitalSignOverview&lt;/Caption&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="Acronym"&gt;&lt;Caption&gt;Acronym&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Acronym&lt;/DataMember&gt;&lt;Key&gt;Acronym&lt;/Key&gt;&lt;MaxLength&gt;4&lt;/MaxLength&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Width&gt;98&lt;/Width&gt;&lt;/Column0&gt;&lt;Column1 ID="NetworkVSName"&gt;&lt;Caption&gt;Vital Sign&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;TypeNameEmptyStringValue&gt;System.String&lt;/TypeNameEmptyStringValue&gt;&lt;EmptyStringValue /&gt;&lt;DataMember&gt;NetworkVSName&lt;/DataMember&gt;&lt;Key&gt;NetworkVSName&lt;/Key&gt;&lt;MaxLength&gt;255&lt;/MaxLength&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;Width&gt;307&lt;/Width&gt;&lt;/Column1&gt;&lt;Column2 ID="ProjectLeadLastname"&gt;&lt;Caption&gt;Project Lead Lastname&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;ProjectLeadLastname&lt;/DataMember&gt;&lt;Key&gt;ProjectLeadLastname&lt;/Key&gt;&lt;MaxLength&gt;255&lt;/MaxLength&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;Width&gt;207&lt;/Width&gt;&lt;/Column2&gt;&lt;Column3 ID="ProjectLeadFirstname"&gt;&lt;Caption&gt;Project Lead Firstname&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;ProjectLeadFirstname&lt;/DataMember&gt;&lt;Key&gt;ProjectLeadFirstname&lt;/Key&gt;&lt;MaxLength&gt;255&lt;/MaxLength&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;Width&gt;209&lt;/Width&gt;&lt;/Column3&gt;&lt;Column4 ID="Status"&gt;&lt;Caption&gt;Status&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;TypeNameEmptyStringValue&gt;System.String&lt;/TypeNameEmptyStringValue&gt;&lt;EmptyStringValue /&gt;&lt;DataMember&gt;Status&lt;/DataMember&gt;&lt;Key&gt;Status&lt;/Key&gt;&lt;MaxLength&gt;255&lt;/MaxLength&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;Width&gt;136&lt;/Width&gt;&lt;/Column4&gt;&lt;Column5 ID="SamplingFrequency"&gt;&lt;Caption&gt;Sampling Frequency&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;SamplingFrequency&lt;/DataMember&gt;&lt;Key&gt;SamplingFrequency&lt;/Key&gt;&lt;MaxLength&gt;255&lt;/MaxLength&gt;&lt;Position&gt;5&lt;/Position&gt;&lt;Width&gt;215&lt;/Width&gt;&lt;/Column5&gt;&lt;Column6 ID="PDSWritten"&gt;&lt;Caption&gt;PDSWritten&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;PDSWritten&lt;/DataMember&gt;&lt;Key&gt;PDSWritten&lt;/Key&gt;&lt;Position&gt;6&lt;/Position&gt;&lt;Width&gt;112&lt;/Width&gt;&lt;/Column6&gt;&lt;Column7 ID="ProtocolsWritten"&gt;&lt;Caption&gt;Protocols Written&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;ProtocolsWritten&lt;/DataMember&gt;&lt;Key&gt;ProtocolsWritten&lt;/Key&gt;&lt;Position&gt;7&lt;/Position&gt;&lt;Width&gt;155&lt;/Width&gt;&lt;/Column7&gt;&lt;Column8 ID="PeerReviewed"&gt;&lt;Caption&gt;Peer Reviewed&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;PeerReviewed&lt;/DataMember&gt;&lt;Key&gt;PeerReviewed&lt;/Key&gt;&lt;Position&gt;8&lt;/Position&gt;&lt;Width&gt;132&lt;/Width&gt;&lt;/Column8&gt;&lt;Column9 ID="ImplementationDate"&gt;&lt;Caption&gt;Implementation Date&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;ImplementationDate&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;ImplementationDate&lt;/Key&gt;&lt;Position&gt;9&lt;/Position&gt;&lt;Width&gt;170&lt;/Width&gt;&lt;/Column9&gt;&lt;Column10 ID="FilesDirectory"&gt;&lt;Caption&gt;Files Directory&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;FilesDirectory&lt;/DataMember&gt;&lt;Key&gt;FilesDirectory&lt;/Key&gt;&lt;MaxLength&gt;500&lt;/MaxLength&gt;&lt;Position&gt;10&lt;/Position&gt;&lt;Width&gt;637&lt;/Width&gt;&lt;/Column10&gt;&lt;Column11 ID="IRMAProjectReference"&gt;&lt;Caption&gt;IRMAProject Reference&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;IRMAProjectReference&lt;/DataMember&gt;&lt;Key&gt;IRMAProjectReference&lt;/Key&gt;&lt;Position&gt;11&lt;/Position&gt;&lt;Width&gt;201&lt;/Width&gt;&lt;/Column11&gt;&lt;Column12 ID="ProjectLeadContactID"&gt;&lt;Caption&gt;Project Lead Contact ID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;ProjectLeadContactID&lt;/DataMember&gt;&lt;EditType&gt;DropDownList&lt;/EditType&gt;&lt;Key&gt;ProjectLeadContactID&lt;/Key&gt;&lt;Position&gt;12&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;Width&gt;287&lt;/Width&gt;&lt;/Column12&gt;&lt;Column13 ID="VSID"&gt;&lt;Caption&gt;VSID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;TypeNameEmptyStringValue&gt;NULL&lt;/TypeNameEmptyStringValue&gt;&lt;EmptyStringValue /&gt;&lt;DataMember&gt;VSID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSID&lt;/Key&gt;&lt;Position&gt;13&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;Width&gt;216&lt;/Width&gt;&lt;/Column13&gt;&lt;Column14 ID="NetworkID"&gt;&lt;Caption&gt;Network ID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;TypeNameEmptyStringValue&gt;NULL&lt;/TypeNameEmptyStringValue&gt;&lt;EmptyStringValue /&gt;&lt;DataMember&gt;NetworkID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;NetworkID&lt;/Key&gt;&lt;Position&gt;14&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;Width&gt;235&lt;/Width&gt;&lt;/Column14&gt;&lt;/Columns&gt;&lt;SortKeys Collection="true" ElementName="SortKey"&gt;&lt;SortKey0 ID="SortKey0"&gt;&lt;ColIndex&gt;0&lt;/ColIndex&gt;&lt;/SortKey0&gt;&lt;SortKey1 ID="SortKey1"&gt;&lt;ColIndex&gt;1&lt;/ColIndex&gt;&lt;/SortKey1&gt;&lt;/SortKeys&gt;&lt;FormatConditions Collection="true" ElementName="Condition"&gt;&lt;Condition0 ID="FormatConditionStatusDeferred"&gt;&lt;ColIndex&gt;4&lt;/ColIndex&gt;&lt;FormatStyle&gt;&lt;BackColor&gt;255, 224, 192&lt;/BackColor&gt;&lt;ForeColor&gt;Gray&lt;/ForeColor&gt;&lt;FontItalic&gt;True&lt;/FontItalic&gt;&lt;/FormatStyle&gt;&lt;TargetColIndex&gt;1&lt;/TargetColIndex&gt;&lt;Key&gt;FormatConditionStatusDeferred&lt;/Key&gt;&lt;FilterCondition&gt;&lt;ColumnIndex&gt;4&lt;/ColumnIndex&gt;&lt;Value1&gt;Deferred&lt;/Value1&gt;&lt;/FilterCondition&gt;&lt;/Condition0&gt;&lt;Condition1 ID="FormatConditionStatusMonitoring"&gt;&lt;ColIndex&gt;4&lt;/ColIndex&gt;&lt;FormatStyle&gt;&lt;BackColor&gt;192, 255, 192&lt;/BackColor&gt;&lt;/FormatStyle&gt;&lt;TargetColIndex&gt;1&lt;/TargetColIndex&gt;&lt;Key&gt;FormatConditionStatusMonitoring&lt;/Key&gt;&lt;FilterCondition&gt;&lt;ColumnIndex&gt;4&lt;/ColumnIndex&gt;&lt;Value1&gt;Monitoring&lt;/Value1&gt;&lt;/FilterCondition&gt;&lt;/Condition1&gt;&lt;Condition2 ID="FormatConditionStatusInReviewOrDevelopment"&gt;&lt;ColIndex&gt;4&lt;/ColIndex&gt;&lt;FormatStyle&gt;&lt;BackColor&gt;255, 255, 192&lt;/BackColor&gt;&lt;/FormatStyle&gt;&lt;TargetColIndex&gt;1&lt;/TargetColIndex&gt;&lt;Key&gt;FormatConditionStatusInReviewOrDevelopment&lt;/Key&gt;&lt;FilterCondition&gt;&lt;ColumnIndex&gt;4&lt;/ColumnIndex&gt;&lt;Value1&gt;In review&lt;/Value1&gt;&lt;Conditions Collection="true" ElementName="FilterCondition"&gt;&lt;FilterCondition0&gt;&lt;ColumnIndex&gt;4&lt;/ColumnIndex&gt;&lt;LogicalOperator&gt;Or&lt;/LogicalOperator&gt;&lt;Value1&gt;In development&lt;/Value1&gt;&lt;/FilterCondition0&gt;&lt;/Conditions&gt;&lt;/FilterCondition&gt;&lt;/Condition2&gt;&lt;/FormatConditions&gt;&lt;GroupCondition /&gt;&lt;/RootTable&gt;&lt;/GridEXLayoutData&gt;</value>
   </data>
-  <metadata name="ToolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>940, 138</value>
-  </metadata>
-  <metadata name="tblVitalSignObjectivesBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 177</value>
-  </metadata>
-  <metadata name="DataManagementMilestonesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>667, 177</value>
-  </metadata>
-  <metadata name="DataManagementMilestonesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>667, 177</value>
-  </metadata>
-  <metadata name="VitalSignOverviewToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1047, 138</value>
-  </metadata>
   <metadata name="TblVitalSignsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1286, 17</value>
   </metadata>
@@ -265,22 +247,19 @@
   <data name="CreateDeliverablesDirectoriesToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
-  <metadata name="TblVitalSignObjectivesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1246, 138</value>
-  </metadata>
   <metadata name="TblVitalSignObjectivesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1246, 138</value>
   </metadata>
@@ -351,6 +330,9 @@
         8l/FYwIYQ4UGBWBgAAC+0b+zuQxOnAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="DataManagementMilestonesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>667, 177</value>
+  </metadata>
   <metadata name="TblVitalSignDataManagementSummaryBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1102, 99</value>
   </metadata>
@@ -361,11 +343,8 @@
     <value>17, 138</value>
   </metadata>
   <data name="TblVitalSignTasksGridEX_DesignTimeLayout.LayoutString" xml:space="preserve">
-    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Key&gt;IBindingList&lt;/Key&gt;&lt;Caption&gt;IBindingList&lt;/Caption&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="Task"&gt;&lt;Caption&gt;Task&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Task&lt;/DataMember&gt;&lt;Key&gt;Task&lt;/Key&gt;&lt;MaxLines&gt;50&lt;/MaxLines&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Width&gt;537&lt;/Width&gt;&lt;WordWrap&gt;True&lt;/WordWrap&gt;&lt;/Column0&gt;&lt;Column1 ID="AssignedTo"&gt;&lt;CompareTarget&gt;Text&lt;/CompareTarget&gt;&lt;Caption&gt;Assigned To&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;AssignedTo&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Text&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;MultiColumnCombo&lt;/EditType&gt;&lt;Key&gt;AssignedTo&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;DropDownIndex&gt;0&lt;/DropDownIndex&gt;&lt;/Column1&gt;&lt;Column2 ID="DateDue"&gt;&lt;Caption&gt;Date Due&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;DateDue&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;DateDue&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;/Column2&gt;&lt;Column3 ID="DateCompleted"&gt;&lt;Caption&gt;Date Completed&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;DateCompleted&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;DateCompleted&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;/Column3&gt;&lt;Column4 ID="Notes"&gt;&lt;Caption&gt;Notes&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Notes&lt;/DataMember&gt;&lt;Key&gt;Notes&lt;/Key&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;Width&gt;1000&lt;/Width&gt;&lt;/Column4&gt;&lt;Column5 ID="DateAssigned"&gt;&lt;Caption&gt;Date Assigned&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;DateAssigned&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;DateAssigned&lt;/Key&gt;&lt;Position&gt;5&lt;/Position&gt;&lt;/Column5&gt;&lt;Column6 ID="VSID"&gt;&lt;Caption&gt;VSID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSID&lt;/Key&gt;&lt;Position&gt;6&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column6&gt;&lt;Column7 ID="VSTaskID"&gt;&lt;Caption&gt;VSTask ID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSTaskID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSTaskID&lt;/Key&gt;&lt;Position&gt;7&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column7&gt;&lt;/Columns&gt;&lt;SortKeys Collection="true" ElementName="SortKey"&gt;&lt;SortKey0 ID="SortKey0"&gt;&lt;ColIndex&gt;2&lt;/ColIndex&gt;&lt;SortOrder&gt;Descending&lt;/SortOrder&gt;&lt;/SortKey0&gt;&lt;/SortKeys&gt;&lt;FormatConditions Collection="true" ElementName="Condition"&gt;&lt;Condition0 ID="FinishedFormatCondition"&gt;&lt;ColIndex&gt;3&lt;/ColIndex&gt;&lt;ConditionOperator&gt;NotIsNull&lt;/ConditionOperator&gt;&lt;FormatStyle&gt;&lt;ForeColor&gt;Gray&lt;/ForeColor&gt;&lt;FontItalic&gt;True&lt;/FontItalic&gt;&lt;/FormatStyle&gt;&lt;TargetColIndex&gt;0&lt;/TargetColIndex&gt;&lt;Key&gt;FinishedFormatCondition&lt;/Key&gt;&lt;/Condition0&gt;&lt;/FormatConditions&gt;&lt;GroupCondition /&gt;&lt;StoredFilters Collection="true" ElementName="StoredFilter"&gt;&lt;StoredFilter0 ID="OutstandingTasksFilter"&gt;&lt;Description&gt;Outstanding tasks filter&lt;/Description&gt;&lt;FilterCondition&gt;&lt;TypeNameValue1&gt;System.Boolean&lt;/TypeNameValue1&gt;&lt;Value1&gt;False&lt;/Value1&gt;&lt;/FilterCondition&gt;&lt;Key&gt;OutstandingTasksFilter&lt;/Key&gt;&lt;/StoredFilter0&gt;&lt;/StoredFilters&gt;&lt;/RootTable&gt;&lt;DropDowns Collection="true" ElementName="DropDown"&gt;&lt;DropDown0 ID="ContactsDropDown"&gt;&lt;RootTable&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="Name"&gt;&lt;Caption&gt;Name&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Name&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;MaxLength&gt;512&lt;/MaxLength&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;/Column0&gt;&lt;/Columns&gt;&lt;GroupCondition /&gt;&lt;/RootTable&gt;&lt;RowWithErrorsFormatStyle&gt;&lt;PredefinedStyle&gt;RowWithErrorsFormatStyle&lt;/PredefinedStyle&gt;&lt;/RowWithErrorsFormatStyle&gt;&lt;LinkFormatStyle&gt;&lt;PredefinedStyle&gt;LinkFormatStyle&lt;/PredefinedStyle&gt;&lt;/LinkFormatStyle&gt;&lt;CardCaptionFormatStyle&gt;&lt;PredefinedStyle&gt;CardCaptionFormatStyle&lt;/PredefinedStyle&gt;&lt;/CardCaptionFormatStyle&gt;&lt;GroupByBoxFormatStyle&gt;&lt;PredefinedStyle&gt;GroupByBoxFormatStyle&lt;/PredefinedStyle&gt;&lt;/GroupByBoxFormatStyle&gt;&lt;GroupByBoxInfoFormatStyle&gt;&lt;PredefinedStyle&gt;GroupByBoxInfoFormatStyle&lt;/PredefinedStyle&gt;&lt;/GroupByBoxInfoFormatStyle&gt;&lt;GroupRowFormatStyle&gt;&lt;PredefinedStyle&gt;GroupRowFormatStyle&lt;/PredefinedStyle&gt;&lt;/GroupRowFormatStyle&gt;&lt;HeaderFormatStyle&gt;&lt;PredefinedStyle&gt;HeaderFormatStyle&lt;/PredefinedStyle&gt;&lt;/HeaderFormatStyle&gt;&lt;PreviewRowFormatStyle&gt;&lt;PredefinedStyle&gt;PreviewRowFormatStyle&lt;/PredefinedStyle&gt;&lt;/PreviewRowFormatStyle&gt;&lt;RowFormatStyle&gt;&lt;PredefinedStyle&gt;RowFormatStyle&lt;/PredefinedStyle&gt;&lt;/RowFormatStyle&gt;&lt;SelectedFormatStyle&gt;&lt;PredefinedStyle&gt;SelectedFormatStyle&lt;/PredefinedStyle&gt;&lt;/SelectedFormatStyle&gt;&lt;SelectedInactiveFormatStyle&gt;&lt;PredefinedStyle&gt;SelectedInactiveFormatStyle&lt;/PredefinedStyle&gt;&lt;/SelectedInactiveFormatStyle&gt;&lt;WatermarkImage /&gt;&lt;VisualStyle&gt;Standard&lt;/VisualStyle&gt;&lt;AllowEdit&gt;False&lt;/AllowEdit&gt;&lt;ExpandableGroups&gt;False&lt;/ExpandableGroups&gt;&lt;GroupByBoxVisible&gt;False&lt;/GroupByBoxVisible&gt;&lt;HideSelection&gt;Highlight&lt;/HideSelection&gt;&lt;Key&gt;ContactsDropDown&lt;/Key&gt;&lt;DisplayMember&gt;Name&lt;/DisplayMember&gt;&lt;ValueMember&gt;ContactID&lt;/ValueMember&gt;&lt;/DropDown0&gt;&lt;/DropDowns&gt;&lt;/GridEXLayoutData&gt;</value>
+    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Key&gt;IBindingList&lt;/Key&gt;&lt;Caption&gt;IBindingList&lt;/Caption&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="Task"&gt;&lt;Caption&gt;Task&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Task&lt;/DataMember&gt;&lt;Key&gt;Task&lt;/Key&gt;&lt;MaxLines&gt;50&lt;/MaxLines&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Width&gt;537&lt;/Width&gt;&lt;WordWrap&gt;True&lt;/WordWrap&gt;&lt;/Column0&gt;&lt;Column1 ID="AssignedTo"&gt;&lt;CompareTarget&gt;Text&lt;/CompareTarget&gt;&lt;Caption&gt;Assigned To&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;AssignedTo&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Text&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;MultiColumnCombo&lt;/EditType&gt;&lt;Key&gt;AssignedTo&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;DropDownIndex&gt;0&lt;/DropDownIndex&gt;&lt;/Column1&gt;&lt;Column2 ID="DateDue"&gt;&lt;Caption&gt;Date Due&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;DateDue&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;DateDue&lt;/Key&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;/Column2&gt;&lt;Column3 ID="DateCompleted"&gt;&lt;Caption&gt;Date Completed&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;DateCompleted&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;DateCompleted&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;/Column3&gt;&lt;Column4 ID="Notes"&gt;&lt;Caption&gt;Notes&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Notes&lt;/DataMember&gt;&lt;Key&gt;Notes&lt;/Key&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;Width&gt;1000&lt;/Width&gt;&lt;/Column4&gt;&lt;Column5 ID="DateAssigned"&gt;&lt;Caption&gt;Date Assigned&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;DateAssigned&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;DateAssigned&lt;/Key&gt;&lt;Position&gt;5&lt;/Position&gt;&lt;/Column5&gt;&lt;Column6 ID="VSID"&gt;&lt;Caption&gt;VSID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSID&lt;/Key&gt;&lt;Position&gt;6&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column6&gt;&lt;Column7 ID="VSTaskID"&gt;&lt;Caption&gt;VSTask ID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSTaskID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSTaskID&lt;/Key&gt;&lt;Position&gt;7&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column7&gt;&lt;/Columns&gt;&lt;SortKeys Collection="true" ElementName="SortKey"&gt;&lt;SortKey0 ID="SortKey0"&gt;&lt;ColIndex&gt;2&lt;/ColIndex&gt;&lt;SortOrder&gt;Descending&lt;/SortOrder&gt;&lt;/SortKey0&gt;&lt;/SortKeys&gt;&lt;FormatConditions Collection="true" ElementName="Condition"&gt;&lt;Condition0 ID="FinishedFormatCondition"&gt;&lt;ColIndex&gt;3&lt;/ColIndex&gt;&lt;ConditionOperator&gt;NotIsNull&lt;/ConditionOperator&gt;&lt;FormatStyle&gt;&lt;ForeColor&gt;Gray&lt;/ForeColor&gt;&lt;FontItalic&gt;True&lt;/FontItalic&gt;&lt;/FormatStyle&gt;&lt;TargetColIndex&gt;0&lt;/TargetColIndex&gt;&lt;Key&gt;FinishedFormatCondition&lt;/Key&gt;&lt;/Condition0&gt;&lt;/FormatConditions&gt;&lt;GroupCondition /&gt;&lt;StoredFilters Collection="true" ElementName="StoredFilter"&gt;&lt;StoredFilter0 ID="OutstandingTasksFilter"&gt;&lt;Description&gt;Outstanding tasks filter&lt;/Description&gt;&lt;FilterCondition&gt;&lt;TypeNameValue1&gt;System.Boolean&lt;/TypeNameValue1&gt;&lt;Value1&gt;False&lt;/Value1&gt;&lt;/FilterCondition&gt;&lt;Key&gt;OutstandingTasksFilter&lt;/Key&gt;&lt;/StoredFilter0&gt;&lt;/StoredFilters&gt;&lt;/RootTable&gt;&lt;DropDowns Collection="true" ElementName="DropDown"&gt;&lt;DropDown0 ID="ContactsDropDown"&gt;&lt;RootTable&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="Name"&gt;&lt;Caption&gt;Name&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Name&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;MaxLength&gt;512&lt;/MaxLength&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;/Column0&gt;&lt;/Columns&gt;&lt;GroupCondition /&gt;&lt;/RootTable&gt;&lt;RowWithErrorsFormatStyle&gt;&lt;PredefinedStyle&gt;RowWithErrorsFormatStyle&lt;/PredefinedStyle&gt;&lt;/RowWithErrorsFormatStyle&gt;&lt;LinkFormatStyle&gt;&lt;PredefinedStyle&gt;LinkFormatStyle&lt;/PredefinedStyle&gt;&lt;/LinkFormatStyle&gt;&lt;CardCaptionFormatStyle&gt;&lt;PredefinedStyle&gt;CardCaptionFormatStyle&lt;/PredefinedStyle&gt;&lt;/CardCaptionFormatStyle&gt;&lt;GroupByBoxFormatStyle&gt;&lt;PredefinedStyle&gt;GroupByBoxFormatStyle&lt;/PredefinedStyle&gt;&lt;/GroupByBoxFormatStyle&gt;&lt;GroupByBoxInfoFormatStyle&gt;&lt;PredefinedStyle&gt;GroupByBoxInfoFormatStyle&lt;/PredefinedStyle&gt;&lt;/GroupByBoxInfoFormatStyle&gt;&lt;GroupRowFormatStyle&gt;&lt;PredefinedStyle&gt;GroupRowFormatStyle&lt;/PredefinedStyle&gt;&lt;/GroupRowFormatStyle&gt;&lt;HeaderFormatStyle&gt;&lt;PredefinedStyle&gt;HeaderFormatStyle&lt;/PredefinedStyle&gt;&lt;/HeaderFormatStyle&gt;&lt;PreviewRowFormatStyle&gt;&lt;PredefinedStyle&gt;PreviewRowFormatStyle&lt;/PredefinedStyle&gt;&lt;/PreviewRowFormatStyle&gt;&lt;RowFormatStyle&gt;&lt;PredefinedStyle&gt;RowFormatStyle&lt;/PredefinedStyle&gt;&lt;/RowFormatStyle&gt;&lt;SelectedFormatStyle&gt;&lt;PredefinedStyle&gt;SelectedFormatStyle&lt;/PredefinedStyle&gt;&lt;/SelectedFormatStyle&gt;&lt;SelectedInactiveFormatStyle&gt;&lt;PredefinedStyle&gt;SelectedInactiveFormatStyle&lt;/PredefinedStyle&gt;&lt;/SelectedInactiveFormatStyle&gt;&lt;WatermarkImage /&gt;&lt;Font&gt;Microsoft Sans Serif, 8.25pt&lt;/Font&gt;&lt;VisualStyle&gt;Standard&lt;/VisualStyle&gt;&lt;AllowEdit&gt;False&lt;/AllowEdit&gt;&lt;ExpandableGroups&gt;False&lt;/ExpandableGroups&gt;&lt;GroupByBoxVisible&gt;False&lt;/GroupByBoxVisible&gt;&lt;HideSelection&gt;Highlight&lt;/HideSelection&gt;&lt;Key&gt;ContactsDropDown&lt;/Key&gt;&lt;DisplayMember&gt;Name&lt;/DisplayMember&gt;&lt;ValueMember&gt;ContactID&lt;/ValueMember&gt;&lt;/DropDown0&gt;&lt;/DropDowns&gt;&lt;/GridEXLayoutData&gt;</value>
   </data>
-  <metadata name="WorkLogToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>258, 47</value>
-  </metadata>
   <metadata name="TblVitalSignWorkLogBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>252, 60</value>
   </metadata>
@@ -390,19 +369,22 @@
         TgDQASA1MVpwzwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="VitalSignOverviewToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1047, 138</value>
+  </metadata>
   <data name="OpenProjectDirectoryToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIRSURBVDhP3Y/NaxNBHIbn4L03/wQP1tSP2Kh48CKIIHgR
-        PagnEbQElAgFRdAe0kbESGnqQaRFLBVsrfgJ4mERD42t7abN2myTtDZtDd1gs9/fm32dbVdpPHgVHOZh
-        Zg7P+/6G/Cdr7k00V3l1wln+g9K7gwvl523bF55FW5r4EG1hmCPbQp2Q7JOY5fsNAD7dAZt316xhlemw
-        V8bPWr+oTl0xK+OJCv9y3+lQJ4R70S75nglrNQ19sRf60iCMyih8V6RZGnxPpcibb7cOQRBsfizGhToh
-        xeG9SsORqZyBVu6D8rUL6xMdqE3GIeaTEGdvQ8zdQJ3tpCToZAKKY/vVUKcBI+2Oa6xB5DKoT6cgfLwG
-        Q/hMW5WwPTil3xME32NHdpuhHkxwwNn4f8OiGICnb4iewcOqZmCuJGF864ReugSNPwdPK4Ad2hqQidm+
-        Z8BTsnDF93B+jMJee0TFuzCWbsIox6HPn4c2dxJq/ig8NQf2/paA7MOY1XAUOOuvYQtDtLUf5jJtXQxa
-        L0IrnIHKHYcycxjy9B64ypfmgODhOyKVH8P63guz0kXlBPTiBSqfoq3HoOQOQZ5qgzS5gwZMNAfM34lU
-        DYmTGOZpQysNQC0+gMqnoRa6oXC3oOSvQ55NQM7FIbOX8entPZ9LR6VQJ4Tvbr3Kp3YNcz07a2wqYv6V
-        nog5k4rIfLK1L9T/6SLkJzA45t79OarWAAAAAElFTkSuQmCC
+        PagnEbQElAgFRdAe0kaFSGnqQaRFLBVsrVhFEA/RU2Nru9tmbbZJWpu2hm6w2e/vzb7Otqs0HrwKDvMw
+        M4fnfX9D/pM1/zbKVsZPOSt/UHp3eLH8sm3n4otoSxMfoi3Z7LEdoU5I7lnM8v0GAJ/ugK27a9awlu2w
+        VyfOW7+oTl8zKxOJCv/6wNlQJ4R71S75nglrLQ19qRf68iCMyih8V6RZGnxPpchbb7cOQRBsfizGhToh
+        xeH9SsORqZyBVu6D8rULG5MdqE3FIeaTEOfuQmRvoc50UhJ0MgHFsYNqqNOAkXbHNdYhchnUZ1IQPt2A
+        IXymrUrYHpzS7wmC7zEje81QDyY45Gz+v2FRDMDTN0XP4GFVMzBXkzC+dUIvXYHGX4CnFcAMbQ/IxGzf
+        M+ApObjiezg/RmGvP6HiAxjLt2GU49AXLkKbPw01fxyeyoJ5uC0g9zhmNRwFzsYb2MIQbe2HuUJbl4LW
+        y9AK56ByJ6HMHoU8sw+u8qU5IHj4jkjlp7C+98KsdFE5Ab14icpnaOsJKOwRyNNtkKZ20YDJ5oCFe5Gq
+        IXFSNvu8oZUGoBYfQeXTUAvdULg7UPI3Ic8lILNxyMxVfBy/73PpqBTqhPDdrdf51J5hrmd3jUlFzL/S
+        EzFnUxGZT7b2hfo/XYT8BCj65tW7EO/UAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="OpenWebProfileToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -443,35 +425,35 @@
   <data name="OpenProtocolTrackerToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJYSURBVDhPpZLtS1NhGMbPf9D3CII+9EXCf6EXiIxARwaS
-        5D4sJHD5NtbcpEBE1MQym9pMS9IasykYakZsmlvZprU5dZtt6dJ2jmPzbGfb2TIbV885G5EVhHXBj/t5
-        u6/n5n4e6r8lqTZUtI/4k/V6PzRPCEMfoH7kxbWBFSgfLEPR70JtrwPVuveo6p6HXGuDptuaFPJEgybj
-        u0zniy3sF2nHdEY0EG7+F8rbZiAaaIZ8SKVS+0bWbMoaqAdXwfM8kiJJJJMEMrZYLL+xYNLC+7gEvrEm
-        OPtPw9mVV0YJDYvH4yhpdP0gQeZCws/i6TEwZhVirnEgEUTUZcTszTNblNDtGMeBixG4WC5yewx4egKs
-        uwE7m8/AzLQhtTSKbwErHLfL05TwVCwbRTQaFaNIlCWRJWsswmskefk6MikrUh/l2LZfhWdQBpuOcLfo
-        KKXoW0QkEkE4hzCOhCNiBXZTF9glNTLpOfB+KdIbpYi7NQgMFKHyRl+2iVU9CwiFQnt6IMynR1vBzKty
-        yWVIf7oIbrkea73nwHisKFYaswaVWjsYhiFs5SIDz5shuKeUpOxZpNdl+LJxCTFSiV93Fl85WjxzXjGc
-        NZB3vkUwSBOCoAm2iR6sTGqw+LwDn20XwK+XYttZB9/9QmyuOkDTwjkaklpD1kBSozdcuWURf9blFjOG
-        W08B8QC8vcUwaw7i9b0CTDYcR4VaR8p+Sm42QFIjoDeIBr+qUXp4d2dOix3bHdiaTuCh9FBiSpWXn9v+
-        uwrzD6SbiclIS8Huy/aTr8brjh3Jbf1BFPUdfXKXW6HDrYoAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJZSURBVDhPpZLtS1NhGMbPf9D3CII+9EXCf6EXiIxARwaS
+        5T4sJHD5Nkx3pEBkqIlmNrUtLcmVbJlgqBnhS25lZ0rqfJm2pabtHIfzbGeec9aycfWcsxFZQVgX/Lif
+        t/t6bu7nof5bmmJ7QcMzv1jZ7Qf9hGD7AOOjJVzvXEDZg3kYOjwotU6j2PIeRa2T0JsZ0K0uUclTDUw9
+        7kTzy03sl0tNownVQLn5X8ivH4NqQNt8kGV53+hqhpMGxq5lSJIEUUWEKBLI2Ol0/sbUsBlLj3Pg6zNh
+        puM0ZlrS8iilYdFoFDnVnh/skLmS8LMktg/cSDkinn5gJ4Cwpwfjt85sUkq3I4IAIUIQIqko7DGQ2AHw
+        i1WIbzwHN1YPea4X39ZcmL6dH6OUp+L5MMLhsBpVwjyJPFnjsbVCkudvICG7IH/UY9t9Dd4uHRgL4W7W
+        UcrQPotQKIStFMo4tBVSK3APt4CfMyIRm4Dk1yK2novoIo21ziwU3mxPNrGobQrBYHBPD5T5aG8duMny
+        VHIeYp8uQpivxIr1HDivC9llPUmDQrMbHMcRNlORg/etDYtDZaTsccRWdfiyfhkRUonfchZfBVY9c97g
+        SBrom98hEGAJAbAEZqANC4M0Zl804TNzAdJqLrZnKuC7n4mN5WmwrHKOhabUnjTQlHTbrzY61Z91pXYE
+        jrpTQHQNS9ZsjNAH8eZeBgarjqPAaCFlPyU326EpUei2qwa/qlp7eDc+YUacuQPGdAIPtYd2hsrT0lPb
+        f1dm+oFYDTFx1Gbsvmo4+bq/4tiR1NYfRFHfAWhal1IhMCv+AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="OpenProgramManagerReportServerURLToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK+SURBVDhPVZLJTxNxFMfnpH8KiVHqdjDxYkhaBU2IIiZe
-        lKUsiVHRxIOJRIKYQMCDa0xMjCcPXjBQFmkLAdrSyqZ0VZHSAqV0ofv82s4MX99MB4q/5JM3k8z3M++9
-        GU4+2ifTDVf67cbaAfuursvOU2UKL+TqYLX9c6ymz+o6/2j25bH6L0eU0OFT/dwyG0mzWDAcE+PZPOKZ
-        MrG0DIM3lEbnUBA3B3y5S3dHj6rR0rnca42EIrvi3HoRjoAAR1CAfV2A1V/A9J88xj1Z5AXA4OPR+TWA
-        5lcu/j+J7ukEn8oVsLghYmlDoCpgXpEUMLOax4QnRwIJiyERjq0iekaDqHo8+VmNUwd9NiYLlknwY1PA
-        8qaoyL4HirD8LcD0i4d/J6uMkmECdhI5aB/OCGq8JEhmC3DSG1yEc1vCT0Uid1FUujBSFyOuDIZXUkjS
-        nnTdFqbGOa6m18YSJPBu78FDYTfhCklYIdkC7WTOX5KYf/Mw0h4S2SJ0z2xlQTUJ4iTwhfcUvISHZM6t
-        UieKhDqZpXFkUZwE2u5Dgos9NhbLFOA5CEsHncgSeS8LNI7ciY2IpIuo6jok0HZbWZS+t/zW/bAioDH2
-        u1gMipiXPzGRpkWe6bCWBVVdVhZO5eHeKrVdgpZJyOElCi8QDvo37CRgRQma+9NlwYUOCwslGeoNedww
-        MFwfYaij67qhPK4NM4WrQwy1KrmCSILhsuAk2TbiDPdmJHzyAR+9wAcP8J7qO6pviTdu4LULaJkUkKUR
-        NG2DZcG5B1M5p39nr31KQptZVB7ST4oKTXTfbBbQaBLQIN+bRMQSKenEbUNGjXPc6XbTWiCVSzvXo9Ja
-        lMdahMeqSjRTVJA3n2EiwrGkxPN8suLWmFuNc9zZ9m93NPpx06lWY1zTOsgOaClRuY9+kFXoxxLHm8bM
-        lY2jzRzHcf8A0wnSb3DDFYIAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK9SURBVDhPVZLJTxNxFMfnpH8KiVGqxoOJF0PSKmhCFDHx
+        oixlSYw2HjyYSCCICQQ8uMbExHjy4AUCZdG2EKAtraxCNxUobWmhG93n13Zm+PpmWij+kk/eTDLfz7z3
+        Zjj5qJ/PNt0ctBnqh2wHmm4bT5UpvJKrndUPLrC6AYvjytP512cav51SQidP7UvzfCTNYt5gWIxn84hn
+        KsTSMgzuUBpdo37cG/Lkrj+aOF2Ols6NfksksBcVF3aKsPsE2P0CbDsCLN4CZv/mMeXKIi8Aeg+PrhEf
+        Wt84+P8kmu4pPpUrYDkgYiUgUBWwqEgKmNvM44crRwIJyyER9mARfRN+1Dyb/lqOUwcDViYLVkmwtitg
+        dVdUZD99RZi3CjD+5uENZ5VRMkxAOJGDWjcnlOMlQTJbwAa9wUFs7En4pUjkLopKFwbqYtyRwdh6Ckna
+        k6bXzMpxjqvrt7IECdx7h3BR2Ek4QhLWSbZEO1nwliSmPzwMtIdEtgjNC2tFUEuCOAk8+4cKbsJFso1g
+        qRNFQp3M0ziyKE4Cde8JwbU+K4tlCnAdh6XjTmSJvJclGkfuxEpE0kXU9JwQqHstLErfW37rUVgR0BhH
+        XSz7RSzKn5hI0yLP6ywVQU2Phe2n8nAGS22XoGUScniFwkuEnf4NGwlYUYJKN1sRXNWZWSjJ0KjP466e
+        4c44QwNdN4zmcXuMKdwaZagvkyuIJBipCGRbIM7weE7CFw/w2Q18cgEfqX6g+p545wTeOoC2aQFZGkHV
+        MVwRXH4yk1vbDB12zkjoMInKQ9ppUaGF7ltNApqNAprke6OIcOxAOvdAnynHOe5ip3Hbl8ql17b2pe0o
+        j+0Ij80y0UxRQd58hokIhuMSz/PJqvuTznKc4y51fn+o0k4ZL7Qb4qr2YXZMW4nqI7TDrEo7mTjbMmmq
+        bp5o5TiO+wdgr9IqKLKrLAAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="TblContactsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

@@ -78,4 +78,19 @@ Module ApplicationUtilities
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Updates GridEX's RecordUpdatedDate and RecordUpdatedBy current cells with the current date and user name.  Fire on CellEdited event.
+    ''' </summary>
+    ''' <param name="GridEX"></param>
+    Public Sub UpdateRecordUpdatedFields(GridEX As GridEX)
+        Try
+            If Not GridEX.CurrentRow.Cells("RecordUpdatedDate") Is Nothing And Not GridEX.CurrentRow.Cells("RecordUpdatedBy") Is Nothing Then
+                GridEX.CurrentRow.Cells("RecordUpdatedDate").Value = Now
+                GridEX.CurrentRow.Cells("RecordUpdatedBy").Value = My.User.Name
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
 End Module

@@ -17653,10 +17653,10 @@ Namespace AKRODataSetTableAdapters
                 "signedTo = @AssignedTo, DateDue = @DateDue, DateCompleted = @DateCompleted, Date"& _ 
                 "Assigned = @DateAssigned, Notes = @Notes, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RecordUpdat"& _ 
                 "edDate = @RecordUpdatedDate, RecordUpdatedBy = @RecordUpdatedBy"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (V"& _ 
-                "STaskID = @Original_VSTaskID); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSTaskID, VSID, Task, AssignedTo, DateDu"& _ 
-                "e, DateCompleted, DateAssigned, Notes, RecordUpdatedDate, RecordUpdatedBy, Recor"& _ 
-                "dInsertedDate, RecordInsertedBy FROM tblVitalSignTasks WHERE (VSTaskID = @VSTask"& _ 
-                "ID)"
+                "STaskID = @Original_VSTaskID);   "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSTaskID, VSID, Task, AssignedTo, Date"& _ 
+                "Due, DateCompleted, DateAssigned, Notes, RecordUpdatedDate, RecordUpdatedBy, Rec"& _ 
+                "ordInsertedDate, RecordInsertedBy FROM tblVitalSignTasks WHERE (VSTaskID = @VSTa"& _ 
+                "skID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Task", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "Task", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
