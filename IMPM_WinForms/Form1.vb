@@ -33,6 +33,22 @@ Public Class Form1
         List.Add("PI,DM", "PI,DM")
 
 
+        'vital sign tasks default values
+        Try
+            Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
+            GridEX.Tables("tblVitalSignTasks").Columns("DateDue").DefaultValue = Now.AddDays(30)
+            GridEX.Tables("tblVitalSignTasks").Columns("DateAssigned").DefaultValue = Now
+            GridEX.Tables("tblVitalSignTasks").Columns("RecordInsertedDate").DefaultValue = Now
+            GridEX.Tables("tblVitalSignTasks").Columns("RecordInsertedBy").DefaultValue = My.User.Name
+            GridEX.Tables("tblVitalSignTasks").Columns("RecordUpdatedDate").DefaultValue = Now
+            GridEX.Tables("tblVitalSignTasks").Columns("RecordUpdatedBy").DefaultValue = My.User.Name
+            If My.User.Name = "SDMiller" Then
+                GridEX.Tables("tblVitalSignTasks").Columns("AssignedTo").DefaultValue = 3
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+
         'load the tasks GridEX contacts dropdown
         Try
             Me.TblVitalSignTasksGridEX.DropDowns("ContactsDropDown").SetDataBinding(AKRODataSet, "vwContactsLookup")
@@ -707,5 +723,10 @@ Public Class Form1
     Private Sub TblVitalSignsGridEX_CellUpdated(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignsGridEX.CellUpdated
         'update the RecordUpdatedDate and RecordUpdatedBy cells
         UpdateRecordUpdatedFields(Me.TblVitalSignsGridEX)
+    End Sub
+
+    Private Sub TblVitalSignTasksGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignTasksGridEX.CellEdited
+        'update the RecordUpdatedDate and RecordUpdatedBy cells
+        UpdateRecordUpdatedFields(Me.TblVitalSignTasksGridEX)
     End Sub
 End Class

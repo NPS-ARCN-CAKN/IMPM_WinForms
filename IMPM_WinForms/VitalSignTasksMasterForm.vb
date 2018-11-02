@@ -23,7 +23,6 @@ Public Class VitalSignTasksMasterForm
         Me.TblVitalSignTasksBindingSource.Sort = "DateDue DESC"
 
         'default values
-
         Try
             Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
             GridEX.Tables("tblVitalSignTasks").Columns("DateDue").DefaultValue = Now.AddDays(30)
@@ -32,8 +31,6 @@ Public Class VitalSignTasksMasterForm
             GridEX.Tables("tblVitalSignTasks").Columns("RecordInsertedBy").DefaultValue = My.User.Name
             GridEX.Tables("tblVitalSignTasks").Columns("RecordUpdatedDate").DefaultValue = Now
             GridEX.Tables("tblVitalSignTasks").Columns("RecordUpdatedBy").DefaultValue = My.User.Name
-            'Me.TblVitalSignTasksTableAdapter.Adapter.UpdateCommand.Parameters("RecordUpdatedDate").Value = Now
-            'Me.TblVitalSignTasksTableAdapter.Adapter.UpdateCommand.Parameters("RecordUpdatedBy").Value = My.User.Name
             If My.User.Name = "SDMiller" Then
                 GridEX.Tables("tblVitalSignTasks").Columns("AssignedTo").DefaultValue = 3
             End If
