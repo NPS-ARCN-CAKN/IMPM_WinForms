@@ -3800,6 +3800,14 @@ Partial Public Class AKRODataSet
         
         Private columnNotes As Global.System.Data.DataColumn
         
+        Private columnRecordUpdatedDate As Global.System.Data.DataColumn
+        
+        Private columnRecordUpdatedBy As Global.System.Data.DataColumn
+        
+        Private columnRecordInsertedDate As Global.System.Data.DataColumn
+        
+        Private columnRecordInsertedBy As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -3900,6 +3908,38 @@ Partial Public Class AKRODataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RecordUpdatedDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRecordUpdatedDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RecordUpdatedByColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRecordUpdatedBy
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RecordInsertedDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRecordInsertedDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property RecordInsertedByColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnRecordInsertedBy
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3936,9 +3976,9 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddtblVitalSignTasksRow(ByVal parenttblVitalSignsRowByFK_tblVitalSignTracking_tblVitalSigns As tblVitalSignsRow, ByVal Task As String, ByVal parenttblContactsRowByFK_tblVitalSignTasks_tblContacts As tblContactsRow, ByVal DateDue As Date, ByVal DateCompleted As Date, ByVal DateAssigned As Date, ByVal Notes As String) As tblVitalSignTasksRow
+        Public Overloads Function AddtblVitalSignTasksRow(ByVal parenttblVitalSignsRowByFK_tblVitalSignTracking_tblVitalSigns As tblVitalSignsRow, ByVal Task As String, ByVal parenttblContactsRowByFK_tblVitalSignTasks_tblContacts As tblContactsRow, ByVal DateDue As Date, ByVal DateCompleted As Date, ByVal DateAssigned As Date, ByVal Notes As String, ByVal RecordUpdatedDate As Date, ByVal RecordUpdatedBy As String, ByVal RecordInsertedDate As Date, ByVal RecordInsertedBy As String) As tblVitalSignTasksRow
             Dim rowtblVitalSignTasksRow As tblVitalSignTasksRow = CType(Me.NewRow,tblVitalSignTasksRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Task, Nothing, DateDue, DateCompleted, DateAssigned, Notes}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Task, Nothing, DateDue, DateCompleted, DateAssigned, Notes, RecordUpdatedDate, RecordUpdatedBy, RecordInsertedDate, RecordInsertedBy}
             If (Not (parenttblVitalSignsRowByFK_tblVitalSignTracking_tblVitalSigns) Is Nothing) Then
                 columnValuesArray(1) = parenttblVitalSignsRowByFK_tblVitalSignTracking_tblVitalSigns(0)
             End If
@@ -3981,6 +4021,10 @@ Partial Public Class AKRODataSet
             Me.columnDateCompleted = MyBase.Columns("DateCompleted")
             Me.columnDateAssigned = MyBase.Columns("DateAssigned")
             Me.columnNotes = MyBase.Columns("Notes")
+            Me.columnRecordUpdatedDate = MyBase.Columns("RecordUpdatedDate")
+            Me.columnRecordUpdatedBy = MyBase.Columns("RecordUpdatedBy")
+            Me.columnRecordInsertedDate = MyBase.Columns("RecordInsertedDate")
+            Me.columnRecordInsertedBy = MyBase.Columns("RecordInsertedBy")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4002,6 +4046,14 @@ Partial Public Class AKRODataSet
             MyBase.Columns.Add(Me.columnDateAssigned)
             Me.columnNotes = New Global.System.Data.DataColumn("Notes", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNotes)
+            Me.columnRecordUpdatedDate = New Global.System.Data.DataColumn("RecordUpdatedDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRecordUpdatedDate)
+            Me.columnRecordUpdatedBy = New Global.System.Data.DataColumn("RecordUpdatedBy", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRecordUpdatedBy)
+            Me.columnRecordInsertedDate = New Global.System.Data.DataColumn("RecordInsertedDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRecordInsertedDate)
+            Me.columnRecordInsertedBy = New Global.System.Data.DataColumn("RecordInsertedBy", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnRecordInsertedBy)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnVSTaskID}, true))
             Me.columnVSTaskID.AutoIncrement = true
             Me.columnVSTaskID.AutoIncrementSeed = -1
@@ -4013,7 +4065,12 @@ Partial Public Class AKRODataSet
             Me.columnTask.AllowDBNull = false
             Me.columnTask.MaxLength = 255
             Me.columnDateDue.AllowDBNull = false
+            Me.columnDateAssigned.AllowDBNull = false
             Me.columnNotes.MaxLength = 2147483647
+            Me.columnRecordUpdatedBy.MaxLength = 50
+            Me.columnRecordInsertedDate.AllowDBNull = false
+            Me.columnRecordInsertedBy.AllowDBNull = false
+            Me.columnRecordInsertedBy.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10218,11 +10275,7 @@ Partial Public Class AKRODataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property DateAssigned() As Date
             Get
-                Try 
-                    Return CType(Me(Me.tabletblVitalSignTasks.DateAssignedColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'DateAssigned' in table 'tblVitalSignTasks' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tabletblVitalSignTasks.DateAssignedColumn),Date)
             End Get
             Set
                 Me(Me.tabletblVitalSignTasks.DateAssignedColumn) = value
@@ -10241,6 +10294,58 @@ Partial Public Class AKRODataSet
             End Get
             Set
                 Me(Me.tabletblVitalSignTasks.NotesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RecordUpdatedDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tabletblVitalSignTasks.RecordUpdatedDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'RecordUpdatedDate' in table 'tblVitalSignTasks' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletblVitalSignTasks.RecordUpdatedDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RecordUpdatedBy() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabletblVitalSignTasks.RecordUpdatedByColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'RecordUpdatedBy' in table 'tblVitalSignTasks' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletblVitalSignTasks.RecordUpdatedByColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RecordInsertedDate() As Date
+            Get
+                Return CType(Me(Me.tabletblVitalSignTasks.RecordInsertedDateColumn),Date)
+            End Get
+            Set
+                Me(Me.tabletblVitalSignTasks.RecordInsertedDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property RecordInsertedBy() As String
+            Get
+                Return CType(Me(Me.tabletblVitalSignTasks.RecordInsertedByColumn),String)
+            End Get
+            Set
+                Me(Me.tabletblVitalSignTasks.RecordInsertedByColumn) = value
             End Set
         End Property
         
@@ -10303,18 +10408,6 @@ Partial Public Class AKRODataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsDateAssignedNull() As Boolean
-            Return Me.IsNull(Me.tabletblVitalSignTasks.DateAssignedColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetDateAssignedNull()
-            Me(Me.tabletblVitalSignTasks.DateAssignedColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsNotesNull() As Boolean
             Return Me.IsNull(Me.tabletblVitalSignTasks.NotesColumn)
         End Function
@@ -10323,6 +10416,30 @@ Partial Public Class AKRODataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetNotesNull()
             Me(Me.tabletblVitalSignTasks.NotesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRecordUpdatedDateNull() As Boolean
+            Return Me.IsNull(Me.tabletblVitalSignTasks.RecordUpdatedDateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRecordUpdatedDateNull()
+            Me(Me.tabletblVitalSignTasks.RecordUpdatedDateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsRecordUpdatedByNull() As Boolean
+            Return Me.IsNull(Me.tabletblVitalSignTasks.RecordUpdatedByColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetRecordUpdatedByNull()
+            Me(Me.tabletblVitalSignTasks.RecordUpdatedByColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -17498,6 +17615,10 @@ Namespace AKRODataSetTableAdapters
             tableMapping.ColumnMappings.Add("DateCompleted", "DateCompleted")
             tableMapping.ColumnMappings.Add("DateAssigned", "DateAssigned")
             tableMapping.ColumnMappings.Add("Notes", "Notes")
+            tableMapping.ColumnMappings.Add("RecordUpdatedDate", "RecordUpdatedDate")
+            tableMapping.ColumnMappings.Add("RecordUpdatedBy", "RecordUpdatedBy")
+            tableMapping.ColumnMappings.Add("RecordInsertedDate", "RecordInsertedDate")
+            tableMapping.ColumnMappings.Add("RecordInsertedBy", "RecordInsertedBy")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -17507,10 +17628,13 @@ Namespace AKRODataSetTableAdapters
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO tblVitalSignTasks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         (VSID, Task, AssignedTo, "& _ 
-                "DateDue, DateCompleted, DateAssigned, Notes)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@VSID,@Task,@Assign"& _ 
-                "edTo,@DateDue,@DateCompleted,@DateAssigned,@Notes); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSTaskID, VSID, Tas"& _ 
-                "k, AssignedTo, DateDue, DateCompleted, DateAssigned, Notes FROM tblVitalSignTask"& _ 
-                "s WHERE (VSTaskID = SCOPE_IDENTITY())"
+                "DateDue, DateCompleted, DateAssigned, Notes, RecordUpdatedDate, RecordUpdatedBy,"& _ 
+                " RecordInsertedDate, RecordInsertedBy)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"VALUES        (@VSID,@Task,@AssignedTo,@"& _ 
+                "DateDue,@DateCompleted,@DateAssigned,@Notes,@RecordUpdatedDate,@RecordUpdatedBy,"& _ 
+                "@RecordInsertedDate,@RecordInsertedBy); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSTaskID, VSID, Task, AssignedT"& _ 
+                "o, DateDue, DateCompleted, DateAssigned, Notes, RecordUpdatedDate, RecordUpdated"& _ 
+                "By, RecordInsertedDate, RecordInsertedBy FROM tblVitalSignTasks WHERE (VSTaskID "& _ 
+                "= SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Task", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "Task", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17519,13 +17643,20 @@ Namespace AKRODataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateCompleted", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DateCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateAssigned", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DateAssigned", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordUpdatedDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordUpdatedBy", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordInsertedBy", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordInsertedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE       tblVitalSignTasks"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET                VSID = @VSID, Task = @Task, As"& _ 
                 "signedTo = @AssignedTo, DateDue = @DateDue, DateCompleted = @DateCompleted, Date"& _ 
-                "Assigned = @DateAssigned, Notes = @Notes"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (VSTaskID = @Original_VST"& _ 
-                "askID); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSTaskID, VSID, Task, AssignedTo, DateDue, DateCompleted, DateA"& _ 
-                "ssigned, Notes FROM tblVitalSignTasks WHERE (VSTaskID = @VSTaskID)"
+                "Assigned = @DateAssigned, Notes = @Notes, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         RecordUpdat"& _ 
+                "edDate = @RecordUpdatedDate, RecordUpdatedBy = @RecordUpdatedBy"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (V"& _ 
+                "STaskID = @Original_VSTaskID); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT VSTaskID, VSID, Task, AssignedTo, DateDu"& _ 
+                "e, DateCompleted, DateAssigned, Notes, RecordUpdatedDate, RecordUpdatedBy, Recor"& _ 
+                "dInsertedDate, RecordInsertedBy FROM tblVitalSignTasks WHERE (VSTaskID = @VSTask"& _ 
+                "ID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Task", Global.System.Data.SqlDbType.NVarChar, 255, Global.System.Data.ParameterDirection.Input, 0, 0, "Task", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -17534,6 +17665,8 @@ Namespace AKRODataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateCompleted", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DateCompleted", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DateAssigned", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "DateAssigned", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Notes", Global.System.Data.SqlDbType.NVarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "Notes", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordUpdatedDate", Global.System.Data.SqlDbType.DateTime, 8, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RecordUpdatedBy", Global.System.Data.SqlDbType.NVarChar, 50, Global.System.Data.ParameterDirection.Input, 0, 0, "RecordUpdatedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSTaskID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSTaskID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSTaskID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "VSTaskID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
@@ -17552,7 +17685,8 @@ Namespace AKRODataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        VSTaskID, VSID, Task, AssignedTo, DateDue, DateCompleted, DateAssig"& _ 
-                "ned, Notes"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            tblVitalSignTasks"
+                "ned, Notes, RecordUpdatedDate, RecordUpdatedBy, RecordInsertedDate, RecordInsert"& _ 
+                "edBy"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            tblVitalSignTasks"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -17633,7 +17767,7 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal VSID As Integer, ByVal Task As String, ByVal AssignedTo As Global.System.Nullable(Of Integer), ByVal DateDue As Date, ByVal DateCompleted As Global.System.Nullable(Of Date), ByVal DateAssigned As Global.System.Nullable(Of Date), ByVal Notes As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal VSID As Integer, ByVal Task As String, ByVal AssignedTo As Global.System.Nullable(Of Integer), ByVal DateDue As Date, ByVal DateCompleted As Global.System.Nullable(Of Date), ByVal DateAssigned As Date, ByVal Notes As String, ByVal RecordUpdatedDate As Global.System.Nullable(Of Date), ByVal RecordUpdatedBy As String, ByVal RecordInsertedDate As Date, ByVal RecordInsertedBy As String) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(VSID,Integer)
             If (Task Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Task")
@@ -17651,15 +17785,27 @@ Namespace AKRODataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (DateAssigned.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(5).Value = CType(DateAssigned.Value,Date)
-            Else
-                Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.InsertCommand.Parameters(5).Value = CType(DateAssigned,Date)
             If (Notes Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.InsertCommand.Parameters(6).Value = CType(Notes,String)
+            End If
+            If (RecordUpdatedDate.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(RecordUpdatedDate.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (RecordUpdatedBy Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(RecordUpdatedBy,String)
+            End If
+            Me.Adapter.InsertCommand.Parameters(9).Value = CType(RecordInsertedDate,Date)
+            If (RecordInsertedBy Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("RecordInsertedBy")
+            Else
+                Me.Adapter.InsertCommand.Parameters(10).Value = CType(RecordInsertedBy,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -17680,7 +17826,7 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal VSID As Integer, ByVal Task As String, ByVal AssignedTo As Global.System.Nullable(Of Integer), ByVal DateDue As Date, ByVal DateCompleted As Global.System.Nullable(Of Date), ByVal DateAssigned As Global.System.Nullable(Of Date), ByVal Notes As String, ByVal Original_VSTaskID As Integer, ByVal VSTaskID As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal VSID As Integer, ByVal Task As String, ByVal AssignedTo As Global.System.Nullable(Of Integer), ByVal DateDue As Date, ByVal DateCompleted As Global.System.Nullable(Of Date), ByVal DateAssigned As Date, ByVal Notes As String, ByVal RecordUpdatedDate As Global.System.Nullable(Of Date), ByVal RecordUpdatedBy As String, ByVal Original_VSTaskID As Integer, ByVal VSTaskID As Integer) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(VSID,Integer)
             If (Task Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Task")
@@ -17698,18 +17844,24 @@ Namespace AKRODataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            If (DateAssigned.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(DateAssigned.Value,Date)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(DateAssigned,Date)
             If (Notes Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Notes,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_VSTaskID,Integer)
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(VSTaskID,Integer)
+            If (RecordUpdatedDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(RecordUpdatedDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            End If
+            If (RecordUpdatedBy Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(RecordUpdatedBy,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_VSTaskID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(VSTaskID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then

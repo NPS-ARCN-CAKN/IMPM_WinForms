@@ -25,8 +25,7 @@ Public Class NetworkTasksForm
         'maximize
         Me.WindowState = FormWindowState.Maximized
 
-        'set up the gridex
-        SetUpGridEX(Me.TblNetworkTasksGridEX)
+
 
         'set default values
         Dim GridEX As GridEX = Me.TblNetworkTasksGridEX
@@ -59,6 +58,9 @@ Public Class NetworkTasksForm
 
         'load the AssignedTo column dropdown
         Me.TblNetworkTasksGridEX.DropDowns("ContactsDropDown").SetDataBinding(AKRODataSet, "vwContactsLookup")
+
+        'set up the gridex
+        SetUpGridEX(Me.TblNetworkTasksGridEX)
 
         'format any overdue tasks
         FormatOverDueTasks(Me.TblNetworkTasksGridEX)

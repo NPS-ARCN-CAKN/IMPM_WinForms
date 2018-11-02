@@ -8,17 +8,29 @@ Public Class VitalSignTasksMasterForm
     End Sub
 
     Private Sub VitalSignTasksMasterForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'AKRODataSet.vwContactsLookup' table. You can move, or remove it, as needed.
-        Me.VwContactsLookupTableAdapter.Fill(Me.AKRODataSet.vwContactsLookup)
-        Me.TblVitalSignTasksBindingSource.Filter = "DateCompleted is NULL"
-        Me.ToggleCompletedToolStripButton.Text = "Show completed"
-        Me.TblVitalSignTasksBindingSource.Sort = "DateDue DESC"
+
 
         'load data from database
         Me.TblVitalSignsTableAdapter.Fill(Me.AKRODataSet.tblVitalSigns)
         Me.TblVitalSignTasksTableAdapter.Fill(Me.AKRODataSet.tblVitalSignTasks)
         Me.TblContactsTableAdapter.Fill(Me.AKRODataSet.tblContacts)
         Me.VwVitalSignOverviewTableAdapter.Fill(Me.AKRODataSet.vwVitalSignOverview)
+
+        'filter
+        Me.VwContactsLookupTableAdapter.Fill(Me.AKRODataSet.vwContactsLookup)
+        Me.TblVitalSignTasksBindingSource.Filter = "DateCompleted is NULL"
+        Me.ToggleCompletedToolStripButton.Text = "Show completed"
+        Me.TblVitalSignTasksBindingSource.Sort = "DateDue DESC"
+
+        'default values
+        Try
+            Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
+            GridEX.Tables("tblVitalSignTasks").Columns("DateDue").DefaultValue = Now.AddDays(30)
+            GridEX.Tables("tblVitalSignTasks").Columns("DateAssigned").DefaultValue = Now
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+
 
         'set up ContactsDropDown using the GridEX designer, then set the data binding in code here to retrieve the records
         Try
