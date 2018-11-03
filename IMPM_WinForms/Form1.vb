@@ -36,14 +36,14 @@ Public Class Form1
         'vital sign tasks default values
         Try
             Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
-            GridEX.Tables("tblVitalSignTasks").Columns("DateDue").DefaultValue = Now.AddDays(30)
-            GridEX.Tables("tblVitalSignTasks").Columns("DateAssigned").DefaultValue = Now
-            GridEX.Tables("tblVitalSignTasks").Columns("RecordInsertedDate").DefaultValue = Now
-            GridEX.Tables("tblVitalSignTasks").Columns("RecordInsertedBy").DefaultValue = My.User.Name
-            GridEX.Tables("tblVitalSignTasks").Columns("RecordUpdatedDate").DefaultValue = Now
-            GridEX.Tables("tblVitalSignTasks").Columns("RecordUpdatedBy").DefaultValue = My.User.Name
+            GridEX.RootTable.Columns("DateDue").DefaultValue = Now.AddDays(30)
+            GridEX.RootTable.Columns("DateAssigned").DefaultValue = Now
+            GridEX.RootTable.Columns("RecordInsertedDate").DefaultValue = Now
+            GridEX.RootTable.Columns("RecordInsertedBy").DefaultValue = My.User.Name
+            GridEX.RootTable.Columns("RecordUpdatedDate").DefaultValue = Now
+            GridEX.RootTable.Columns("RecordUpdatedBy").DefaultValue = My.User.Name
             If My.User.Name = "SDMiller" Then
-                GridEX.Tables("tblVitalSignTasks").Columns("AssignedTo").DefaultValue = 3
+                GridEX.RootTable.Columns("AssignedTo").DefaultValue = 3
             End If
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
@@ -52,6 +52,8 @@ Public Class Form1
         'load the tasks GridEX contacts dropdown
         Try
             Me.TblVitalSignTasksGridEX.DropDowns("ContactsDropDown").SetDataBinding(AKRODataSet, "vwContactsLookup")
+            Me.TblVitalSignsGridEX.DropDowns("ContactsDropDown").SetDataBinding(AKRODataSet, "vwContactsLookup")
+            Me.VwVitalSignOverviewGridEX.DropDowns("ContactsDropDown").SetDataBinding(AKRODataSet, "vwContactsLookup")
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
@@ -179,25 +181,32 @@ Public Class Form1
         If AKRODataSet.HasChanges = True Then
             'If MsgBox("Save changes to database?", MsgBoxStyle.YesNo, "Dataset has changes") = MsgBoxResult.Yes Then
             Try
-                    Me.TblVitalSignsBindingSource.EndEdit()
-                    Me.TblVitalSignWorkLogBindingSource.EndEdit()
-                    Me.TblVitalSignProtocolsBindingSource.EndEdit()
-                    Me.TblProtocolDeliverablesBindingSource.EndEdit()
-                    Me.TblProtocolRemeasurementsBindingSource.EndEdit()
-                    Me.TblVitalSignDataManagementSummaryBindingSource.EndEdit()
-                    Me.TblVitalSignTasksBindingSource.EndEdit()
-                    Me.TblVitalSignObjectivesBindingSource.EndEdit()
-                    Me.TableAdapterManager.UpdateAll(Me.AKRODataSet)
+                Me.TblVitalSignsBindingSource.EndEdit()
+                Me.TblVitalSignWorkLogBindingSource.EndEdit()
+                Me.TblVitalSignProtocolsBindingSource.EndEdit()
+                Me.TblProtocolDeliverablesBindingSource.EndEdit()
+                Me.TblProtocolRemeasurementsBindingSource.EndEdit()
+                Me.TblVitalSignDataManagementSummaryBindingSource.EndEdit()
+                Me.TblVitalSignTasksBindingSource.EndEdit()
+                Me.TblVitalSignObjectivesBindingSource.EndEdit()
+                Me.TblContactsBindingSource.EndEdit()
+                Me.VwVitalSignOverviewBindingSource.EndEdit()
+                Me.DataManagementMilestonesBindingSource.EndEdit()
+                Me.TableAdapterManager.UpdateAll(Me.AKRODataSet)
                 Catch ex As Exception
-                    Me.TblVitalSignsBindingSource.CancelEdit()
-                    Me.TblVitalSignWorkLogBindingSource.CancelEdit()
-                    Me.TblVitalSignProtocolsBindingSource.CancelEdit()
-                    Me.TblProtocolDeliverablesBindingSource.CancelEdit()
-                    Me.TblProtocolRemeasurementsBindingSource.CancelEdit()
-                    Me.TblVitalSignDataManagementSummaryBindingSource.CancelEdit()
-                    Me.TblVitalSignTasksBindingSource.CancelEdit()
-                    Me.TblVitalSignObjectivesBindingSource.CancelEdit()
-                    MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+                Me.TblVitalSignsBindingSource.CancelEdit()
+                Me.TblVitalSignWorkLogBindingSource.CancelEdit()
+                Me.TblVitalSignProtocolsBindingSource.CancelEdit()
+                Me.TblProtocolDeliverablesBindingSource.CancelEdit()
+                Me.TblProtocolRemeasurementsBindingSource.CancelEdit()
+                Me.TblVitalSignDataManagementSummaryBindingSource.CancelEdit()
+                Me.TblVitalSignTasksBindingSource.CancelEdit()
+                Me.TblVitalSignObjectivesBindingSource.CancelEdit()
+                Me.TblContactsBindingSource.CancelEdit()
+                Me.VwVitalSignOverviewBindingSource.CancelEdit()
+                Me.DataManagementMilestonesBindingSource.CancelEdit()
+                Me.TableAdapterManager.UpdateAll(Me.AKRODataSet)
+                MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
                 End Try
             'End If
         End If
@@ -500,11 +509,12 @@ Public Class Form1
         'get the current VSDMLogID and submit it to a WorkLogForm
         Dim VSDMLogID As Integer = GetCurrentWorkLogID()
         If VSDMLogID > 0 Then
+            Me.TblVitalSignWorkLogBindingSource.EndEdit()
             Dim LogEntryDataRow() As Data.DataRow
             LogEntryDataRow = Me.AKRODataSet.Tables("tblVitalSignWorkLog").Select("VSDMLogID = " & VSDMLogID)
             Dim WorkLogForm As New WorkLogForm(LogEntryDataRow(0))
             WorkLogForm.ShowDialog()
-            Me.TblVitalSignWorkLogBindingSource.EndEdit()
+
         End If
     End Sub
 
@@ -728,5 +738,12 @@ Public Class Form1
     Private Sub TblVitalSignTasksGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignTasksGridEX.CellEdited
         'update the RecordUpdatedDate and RecordUpdatedBy cells
         UpdateRecordUpdatedFields(Me.TblVitalSignTasksGridEX)
+    End Sub
+
+    Private Sub ContactsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContactsToolStripMenuItem.Click
+        Dim ContactsForm As New ContactsForm
+        ContactsForm.ShowDialog()
+        SaveDataset()
+        LoadDataset()
     End Sub
 End Class

@@ -107,6 +107,12 @@
       <DependentUpon>AKRODataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ApplicationUtilities.vb" />
+    <Compile Include="ContactsForm.Designer.vb">
+      <DependentUpon>ContactsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ContactsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DeliverablesDirectoryGeneratorForm.Designer.vb">
       <DependentUpon>DeliverablesDirectoryGeneratorForm.vb</DependentUpon>
     </Compile>
@@ -173,6 +179,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ContactsForm.resx">
+      <DependentUpon>ContactsForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeliverablesDirectoryGeneratorForm.resx">
       <DependentUpon>DeliverablesDirectoryGeneratorForm.vb</DependentUpon>
     </EmbeddedResource>

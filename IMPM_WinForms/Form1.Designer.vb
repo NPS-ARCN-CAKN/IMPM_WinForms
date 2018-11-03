@@ -152,6 +152,7 @@ Partial Class Form1
         Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
         Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
+        Me.ContactsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         ProtocolAvailableLabel = New System.Windows.Forms.Label()
         DataAvailableLabel = New System.Windows.Forms.Label()
         DeliverablesScheduleLabel = New System.Windows.Forms.Label()
@@ -1242,7 +1243,7 @@ Partial Class Form1
         '
         'ViewsToolStripMenuItem
         '
-        Me.ViewsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NetworkTasksToolStripMenuItem, Me.VitalSignTasksToolStripMenuItem})
+        Me.ViewsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NetworkTasksToolStripMenuItem, Me.VitalSignTasksToolStripMenuItem, Me.ContactsToolStripMenuItem})
         Me.ViewsToolStripMenuItem.Name = "ViewsToolStripMenuItem"
         Me.ViewsToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
         Me.ViewsToolStripMenuItem.Text = "Views"
@@ -1307,6 +1308,12 @@ Partial Class Form1
         'VwContactsLookupTableAdapter
         '
         Me.VwContactsLookupTableAdapter.ClearBeforeFill = True
+        '
+        'ContactsToolStripMenuItem
+        '
+        Me.ContactsToolStripMenuItem.Name = "ContactsToolStripMenuItem"
+        Me.ContactsToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.ContactsToolStripMenuItem.Text = "Contacts..."
         '
         'Form1
         '
@@ -1494,4 +1501,5 @@ Partial Class Form1
     Friend WithEvents VitalSignTasksToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents VwContactsLookupBindingSource As BindingSource
     Friend WithEvents VwContactsLookupTableAdapter As AKRODataSetTableAdapters.vwContactsLookupTableAdapter
+    Friend WithEvents ContactsToolStripMenuItem As ToolStripMenuItem
 End Class
