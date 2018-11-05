@@ -144,6 +144,7 @@ Partial Class Form1
         Me.ViewsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NetworkTasksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VitalSignTasksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContactsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainToolStrip = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -152,7 +153,6 @@ Partial Class Form1
         Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
         Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
-        Me.ContactsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         ProtocolAvailableLabel = New System.Windows.Forms.Label()
         DataAvailableLabel = New System.Windows.Forms.Label()
         DeliverablesScheduleLabel = New System.Windows.Forms.Label()
@@ -1260,6 +1260,12 @@ Partial Class Form1
         Me.VitalSignTasksToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
         Me.VitalSignTasksToolStripMenuItem.Text = "Vital Sign tasks..."
         '
+        'ContactsToolStripMenuItem
+        '
+        Me.ContactsToolStripMenuItem.Name = "ContactsToolStripMenuItem"
+        Me.ContactsToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.ContactsToolStripMenuItem.Text = "Contacts..."
+        '
         'MainToolStrip
         '
         Me.MainToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
@@ -1308,12 +1314,6 @@ Partial Class Form1
         'VwContactsLookupTableAdapter
         '
         Me.VwContactsLookupTableAdapter.ClearBeforeFill = True
-        '
-        'ContactsToolStripMenuItem
-        '
-        Me.ContactsToolStripMenuItem.Name = "ContactsToolStripMenuItem"
-        Me.ContactsToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.ContactsToolStripMenuItem.Text = "Contacts..."
         '
         'Form1
         '
