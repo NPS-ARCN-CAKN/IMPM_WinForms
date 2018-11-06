@@ -888,7 +888,7 @@ FROM            vwVitalSignOverview</CommandText>
               <DbSource ConnectionRef="AKROConnectionString (MySettings)" DbObjectName="AKRO.dbo.vwVitalSignWorkLog" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT Acronym, Network, NetworkVSName, LogDate, Username, LogEntry, NetworkID, VSID, VSDMLogID FROM dbo.vwVitalSignWorkLog</CommandText>
+                    <CommandText>SELECT Acronym, Network, NetworkVSName, LogDate, Username, LogEntry, NetworkID, VSID FROM vwVitalSignWorkLog</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -903,7 +903,6 @@ FROM            vwVitalSignOverview</CommandText>
               <Mapping SourceColumn="LogEntry" DataSetColumn="LogEntry" />
               <Mapping SourceColumn="NetworkID" DataSetColumn="NetworkID" />
               <Mapping SourceColumn="VSID" DataSetColumn="VSID" />
-              <Mapping SourceColumn="VSDMLogID" DataSetColumn="VSDMLogID" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -2160,7 +2159,6 @@ ORDER BY Name</CommandText>
               </xs:element>
               <xs:element name="NetworkID" msprop:Generator_ColumnVarNameInTable="columnNetworkID" msprop:Generator_ColumnPropNameInRow="NetworkID" msprop:Generator_ColumnPropNameInTable="NetworkIDColumn" msprop:Generator_UserColumnName="NetworkID" type="xs:int" />
               <xs:element name="VSID" msprop:Generator_ColumnVarNameInTable="columnVSID" msprop:Generator_ColumnPropNameInRow="VSID" msprop:Generator_ColumnPropNameInTable="VSIDColumn" msprop:Generator_UserColumnName="VSID" type="xs:int" />
-              <xs:element name="VSDMLogID" msprop:Generator_ColumnVarNameInTable="columnVSDMLogID" msprop:Generator_ColumnPropNameInRow="VSDMLogID" msprop:Generator_ColumnPropNameInTable="VSDMLogIDColumn" msprop:Generator_UserColumnName="VSDMLogID" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -2477,11 +2475,10 @@ ORDER BY Name</CommandText>
       <xs:selector xpath=".//mstns:vwVitalSignOverview" />
       <xs:field xpath="mstns:VSID" />
     </xs:unique>
-    <xs:unique name="vwVitalSignWorkLog_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+    <xs:unique name="Constraint3" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:vwVitalSignWorkLog" />
       <xs:field xpath="mstns:NetworkID" />
       <xs:field xpath="mstns:VSID" />
-      <xs:field xpath="mstns:VSDMLogID" />
     </xs:unique>
     <xs:unique name="tblVitalSignProtocols_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:tblVitalSignProtocols" />
@@ -2544,8 +2541,8 @@ ORDER BY Name</CommandText>
       <msdata:Relationship name="tblVitalSigns_vwVitalSignWorkLog" msdata:parent="tblVitalSigns" msdata:child="vwVitalSignWorkLog" msdata:parentkey="VSID" msdata:childkey="VSID" msprop:Generator_UserChildTable="vwVitalSignWorkLog" msprop:Generator_ChildPropName="GetvwVitalSignWorkLogRows" msprop:Generator_UserRelationName="tblVitalSigns_vwVitalSignWorkLog" msprop:Generator_RelationVarName="relationtblVitalSigns_vwVitalSignWorkLog" msprop:Generator_UserParentTable="tblVitalSigns" msprop:Generator_ParentPropName="tblVitalSignsRow" />
       <msdata:Relationship name="vwVitalSignOverview_vwVitalSignWorkLog" msdata:parent="vwVitalSignOverview" msdata:child="vwVitalSignWorkLog" msdata:parentkey="VSID" msdata:childkey="VSID" msprop:Generator_UserChildTable="vwVitalSignWorkLog" msprop:Generator_ChildPropName="GetvwVitalSignWorkLogRows" msprop:Generator_UserRelationName="vwVitalSignOverview_vwVitalSignWorkLog" msprop:Generator_RelationVarName="relationvwVitalSignOverview_vwVitalSignWorkLog" msprop:Generator_UserParentTable="vwVitalSignOverview" msprop:Generator_ParentPropName="vwVitalSignOverviewRow" />
       <msdata:Relationship name="FK_DataManagementMilestones_tblVitalSigns" msdata:parent="tblVitalSigns" msdata:child="DataManagementMilestones" msdata:parentkey="VSID" msdata:childkey="VSID" msprop:Generator_UserChildTable="DataManagementMilestones" msprop:Generator_ChildPropName="GetDataManagementMilestonesRows" msprop:Generator_UserRelationName="FK_DataManagementMilestones_tblVitalSigns" msprop:Generator_RelationVarName="relationFK_DataManagementMilestones_tblVitalSigns" msprop:Generator_UserParentTable="tblVitalSigns" msprop:Generator_ParentPropName="tblVitalSignsRow" />
-      <msdata:Relationship name="vwVitalSignWorkLog_tblVitalSigns" msdata:parent="vwVitalSignWorkLog" msdata:child="tblVitalSigns" msdata:parentkey="VSID" msdata:childkey="VSID" msprop:Generator_UserChildTable="tblVitalSigns" msprop:Generator_ChildPropName="GettblVitalSignsRows" msprop:Generator_UserRelationName="vwVitalSignWorkLog_tblVitalSigns" msprop:Generator_ParentPropName="vwVitalSignWorkLogRow" msprop:Generator_RelationVarName="relationvwVitalSignWorkLog_tblVitalSigns" msprop:Generator_UserParentTable="vwVitalSignWorkLog" />
       <msdata:Relationship name="FK_tblNetworkTasks_tblNetworks" msdata:parent="tblNetworks" msdata:child="tblNetworkTasks" msdata:parentkey="NetworkID" msdata:childkey="NetworkID" msprop:Generator_UserChildTable="tblNetworkTasks" msprop:Generator_ChildPropName="GettblNetworkTasksRows" msprop:Generator_UserRelationName="FK_tblNetworkTasks_tblNetworks" msprop:Generator_RelationVarName="relationFK_tblNetworkTasks_tblNetworks" msprop:Generator_UserParentTable="tblNetworks" msprop:Generator_ParentPropName="tblNetworksRow" />
+      <msdata:Relationship name="vwVitalSignWorkLog_tblVitalSigns" msdata:parent="vwVitalSignWorkLog" msdata:child="tblVitalSigns" msdata:parentkey="VSID" msdata:childkey="VSID" msprop:Generator_UserChildTable="tblVitalSigns" msprop:Generator_ChildPropName="GettblVitalSignsRows" msprop:Generator_UserRelationName="vwVitalSignWorkLog_tblVitalSigns" msprop:Generator_RelationVarName="relationvwVitalSignWorkLog_tblVitalSigns" msprop:Generator_UserParentTable="vwVitalSignWorkLog" msprop:Generator_ParentPropName="vwVitalSignWorkLogRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

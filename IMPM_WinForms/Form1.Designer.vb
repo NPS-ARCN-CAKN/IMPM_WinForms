@@ -982,8 +982,8 @@ Partial Class Form1
         '
         'WorkLogTabControl
         '
-        Me.WorkLogTabControl.Controls.Add(Me.WorkLogReportTabPage)
         Me.WorkLogTabControl.Controls.Add(Me.WorkLogEditorTabPage)
+        Me.WorkLogTabControl.Controls.Add(Me.WorkLogReportTabPage)
         Me.WorkLogTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WorkLogTabControl.Location = New System.Drawing.Point(2, 2)
         Me.WorkLogTabControl.Margin = New System.Windows.Forms.Padding(2)
