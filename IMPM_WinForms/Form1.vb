@@ -33,21 +33,9 @@ Public Class Form1
         List.Add("PI,DM", "PI,DM")
 
 
-        'vital sign tasks default values
-        Try
-            Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
-            GridEX.RootTable.Columns("DateDue").DefaultValue = Now.AddDays(30)
-            GridEX.RootTable.Columns("DateAssigned").DefaultValue = Now
-            GridEX.RootTable.Columns("RecordInsertedDate").DefaultValue = Now
-            GridEX.RootTable.Columns("RecordInsertedBy").DefaultValue = My.User.Name
-            GridEX.RootTable.Columns("RecordUpdatedDate").DefaultValue = Now
-            GridEX.RootTable.Columns("RecordUpdatedBy").DefaultValue = My.User.Name
-            If My.User.Name = "SDMiller" Then
-                GridEX.RootTable.Columns("AssignedTo").DefaultValue = 3
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
-        End Try
+        'set default values
+        SetVitalSignTasksGridEXDefaultValues()
+        SetVitalSignWorkLogGridEXDefaultValues()
 
         'load the tasks GridEX contacts dropdown
         Try
@@ -61,6 +49,8 @@ Public Class Form1
         'refresh the work log report
         Me.WorkLogReportViewer.RefreshReport()
     End Sub
+
+
 
     Private Sub LoadDataset()
         Me.AKRODataSet.Clear()
@@ -181,7 +171,6 @@ Public Class Form1
     ''' </summary>
     Private Sub SaveDataset()
         If AKRODataSet.HasChanges = True Then
-            'If MsgBox("Save changes to database?", MsgBoxStyle.YesNo, "Dataset has changes") = MsgBoxResult.Yes Then
             Try
                 Me.TblVitalSignsBindingSource.EndEdit()
                 Me.TblVitalSignWorkLogBindingSource.EndEdit()
@@ -195,7 +184,7 @@ Public Class Form1
                 Me.VwVitalSignOverviewBindingSource.EndEdit()
                 Me.DataManagementMilestonesBindingSource.EndEdit()
                 Me.TableAdapterManager.UpdateAll(Me.AKRODataSet)
-                Catch ex As Exception
+            Catch ex As Exception
                 Me.TblVitalSignsBindingSource.CancelEdit()
                 Me.TblVitalSignWorkLogBindingSource.CancelEdit()
                 Me.TblVitalSignProtocolsBindingSource.CancelEdit()
@@ -207,20 +196,14 @@ Public Class Form1
                 Me.TblContactsBindingSource.CancelEdit()
                 Me.VwVitalSignOverviewBindingSource.CancelEdit()
                 Me.DataManagementMilestonesBindingSource.CancelEdit()
-                Me.TableAdapterManager.UpdateAll(Me.AKRODataSet)
                 MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
-                End Try
-            'End If
+            End Try
         End If
 
     End Sub
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         SaveDataset()
-    End Sub
-
-    Private Sub SaveSettings()
-
     End Sub
 
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs)
@@ -267,10 +250,9 @@ Public Class Form1
     End Sub
 
     Private Sub TblVitalSignWorkLogGridEX_SelectionChanged(sender As Object, e As EventArgs) Handles TblVitalSignWorkLogGridEX.SelectionChanged
-        'set default values
+        'commit the change
         Try
-            Me.TblVitalSignWorkLogGridEX.RootTable.Columns("LogDate").DefaultValue = Now
-            Me.TblVitalSignWorkLogGridEX.RootTable.Columns("UserName").DefaultValue = My.User.Name
+            Me.TblVitalSignWorkLogBindingSource.EndEdit()
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
@@ -292,18 +274,7 @@ Public Class Form1
 
 
 
-    Private Sub TblVitalSignTasksGridEX_SelectionChanged(sender As Object, e As EventArgs) Handles TblVitalSignTasksGridEX.SelectionChanged
-        'set default values
-        Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
-        Try
-            GridEX.RootTable.Columns("DateAssigned").DefaultValue = Now
-            GridEX.RootTable.Columns("DateDue").DefaultValue = Now.AddDays(30)
-        Catch ex As Exception
-            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
-        End Try
 
-
-    End Sub
 
     Private Sub GenerateDeliverablesDirectoriesCreationScriptButton_Click(sender As Object, e As EventArgs) Handles GenerateDeliverablesDirectoriesCreationScriptButton.Click
         Try
@@ -737,15 +708,64 @@ Public Class Form1
         UpdateRecordUpdatedFields(Me.TblVitalSignsGridEX)
     End Sub
 
-    Private Sub TblVitalSignTasksGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignTasksGridEX.CellEdited
-        'update the RecordUpdatedDate and RecordUpdatedBy cells
-        UpdateRecordUpdatedFields(Me.TblVitalSignTasksGridEX)
-    End Sub
+
 
     Private Sub ContactsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ContactsToolStripMenuItem.Click
         Dim ContactsForm As New ContactsForm
         ContactsForm.ShowDialog()
         SaveDataset()
         LoadDataset()
+    End Sub
+
+    Private Sub TblVitalSignWorkLogGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignWorkLogGridEX.CellEdited
+        'set the default values
+        SetVitalSignWorkLogGridEXDefaultValues()
+    End Sub
+
+    Private Sub TblVitalSignTasksGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignTasksGridEX.CellEdited
+        'set the default values
+        'Me.TblVitalSignWorkLogGridEX.RootTable.Columns("LogDate").DefaultValue = Now
+        'Me.TblVitalSignWorkLogGridEX.RootTable.Columns("UserName").DefaultValue = My.User.Name
+        SetVitalSignTasksGridEXDefaultValues()
+        'update the RecordUpdatedDate and RecordUpdatedBy cells
+        UpdateRecordUpdatedFields(Me.TblVitalSignTasksGridEX)
+    End Sub
+
+    ''' <summary>
+    ''' Revises the default values for the Vital Sign tasks gridex
+    ''' </summary>
+    Private Sub SetVitalSignTasksGridEXDefaultValues()
+        Try
+            Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
+            GridEX.RootTable.Columns("DateDue").DefaultValue = Now.AddDays(30)
+            GridEX.RootTable.Columns("DateAssigned").DefaultValue = Now
+            GridEX.RootTable.Columns("RecordInsertedDate").DefaultValue = Now
+            GridEX.RootTable.Columns("RecordInsertedBy").DefaultValue = My.User.Name
+            GridEX.RootTable.Columns("RecordUpdatedDate").DefaultValue = Now
+            GridEX.RootTable.Columns("RecordUpdatedBy").DefaultValue = My.User.Name
+            If My.User.Name = "SDMiller" Then
+                GridEX.RootTable.Columns("AssignedTo").DefaultValue = 3
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Revises the default values for the Vital Sign work log gridex
+    ''' </summary>
+    Private Sub SetVitalSignWorkLogGridEXDefaultValues()
+        'set default values
+        Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
+        Try
+            GridEX.RootTable.Columns("DateAssigned").DefaultValue = Now
+            GridEX.RootTable.Columns("DateDue").DefaultValue = Now.AddDays(30)
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    Private Sub LogEntryRichTextBox_TextChanged(sender As Object, e As EventArgs) Handles LogEntryRichTextBox.TextChanged
+        SetVitalSignWorkLogGridEXDefaultValues()
     End Sub
 End Class

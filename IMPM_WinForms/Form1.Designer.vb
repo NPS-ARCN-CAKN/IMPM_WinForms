@@ -39,8 +39,8 @@ Partial Class Form1
         Dim TblVitalSignProtocolsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignTasksGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim TblVitalSignWorkLogGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.vwVitalSignWorkLogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AKRODataSet = New IMPM.AKRODataSet()
         Me.VwVitalSignOverviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -113,13 +113,15 @@ Partial Class Form1
         Me.TblVitalSignTasksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VSWorkLogTabPage = New System.Windows.Forms.TabPage()
         Me.WorkLogTabControl = New System.Windows.Forms.TabControl()
-        Me.WorkLogReportTabPage = New System.Windows.Forms.TabPage()
-        Me.WorkLogReportViewer = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.WorkLogEditorTabPage = New System.Windows.Forms.TabPage()
+        Me.WorkLogSplitContainer = New System.Windows.Forms.SplitContainer()
         Me.TblVitalSignWorkLogGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignWorkLogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.LogEntryRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.WorkLogToolStrip = New System.Windows.Forms.ToolStrip()
         Me.EditLogEntryToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.WorkLogReportTabPage = New System.Windows.Forms.TabPage()
+        Me.WorkLogReportViewer = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.SitesTabPage = New System.Windows.Forms.TabPage()
         Me.VitalSignOverviewToolStrip = New System.Windows.Forms.ToolStrip()
         Me.OpenProjectDirectoryToolStripButton = New System.Windows.Forms.ToolStripButton()
@@ -195,11 +197,15 @@ Partial Class Form1
         CType(Me.TblVitalSignTasksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VSWorkLogTabPage.SuspendLayout()
         Me.WorkLogTabControl.SuspendLayout()
-        Me.WorkLogReportTabPage.SuspendLayout()
         Me.WorkLogEditorTabPage.SuspendLayout()
+        CType(Me.WorkLogSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.WorkLogSplitContainer.Panel1.SuspendLayout()
+        Me.WorkLogSplitContainer.Panel2.SuspendLayout()
+        Me.WorkLogSplitContainer.SuspendLayout()
         CType(Me.TblVitalSignWorkLogGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WorkLogToolStrip.SuspendLayout()
+        Me.WorkLogReportTabPage.SuspendLayout()
         Me.VitalSignOverviewToolStrip.SuspendLayout()
         Me.VitalSignHeaderPanel.SuspendLayout()
         CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -992,6 +998,102 @@ Partial Class Form1
         Me.WorkLogTabControl.Size = New System.Drawing.Size(777, 618)
         Me.WorkLogTabControl.TabIndex = 2
         '
+        'WorkLogEditorTabPage
+        '
+        Me.WorkLogEditorTabPage.Controls.Add(Me.WorkLogSplitContainer)
+        Me.WorkLogEditorTabPage.Controls.Add(Me.WorkLogToolStrip)
+        Me.WorkLogEditorTabPage.Location = New System.Drawing.Point(4, 25)
+        Me.WorkLogEditorTabPage.Margin = New System.Windows.Forms.Padding(2)
+        Me.WorkLogEditorTabPage.Name = "WorkLogEditorTabPage"
+        Me.WorkLogEditorTabPage.Padding = New System.Windows.Forms.Padding(2)
+        Me.WorkLogEditorTabPage.Size = New System.Drawing.Size(769, 589)
+        Me.WorkLogEditorTabPage.TabIndex = 1
+        Me.WorkLogEditorTabPage.Text = "Edit work log"
+        Me.WorkLogEditorTabPage.UseVisualStyleBackColor = True
+        '
+        'WorkLogSplitContainer
+        '
+        Me.WorkLogSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.WorkLogSplitContainer.Location = New System.Drawing.Point(2, 27)
+        Me.WorkLogSplitContainer.Name = "WorkLogSplitContainer"
+        '
+        'WorkLogSplitContainer.Panel1
+        '
+        Me.WorkLogSplitContainer.Panel1.Controls.Add(Me.TblVitalSignWorkLogGridEX)
+        '
+        'WorkLogSplitContainer.Panel2
+        '
+        Me.WorkLogSplitContainer.Panel2.Controls.Add(Me.LogEntryRichTextBox)
+        Me.WorkLogSplitContainer.Size = New System.Drawing.Size(765, 560)
+        Me.WorkLogSplitContainer.SplitterDistance = 255
+        Me.WorkLogSplitContainer.TabIndex = 2
+        '
+        'TblVitalSignWorkLogGridEX
+        '
+        Me.TblVitalSignWorkLogGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignWorkLogGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignWorkLogGridEX.AlternatingColors = True
+        Me.TblVitalSignWorkLogGridEX.ColumnAutoResize = True
+        Me.TblVitalSignWorkLogGridEX.ColumnAutoSizeMode = Janus.Windows.GridEX.ColumnAutoSizeMode.AllCells
+        Me.TblVitalSignWorkLogGridEX.DataSource = Me.TblVitalSignWorkLogBindingSource
+        TblVitalSignWorkLogGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignWorkLogGridEX_DesignTimeLayout.LayoutString")
+        Me.TblVitalSignWorkLogGridEX.DesignTimeLayout = TblVitalSignWorkLogGridEX_DesignTimeLayout
+        Me.TblVitalSignWorkLogGridEX.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TblVitalSignWorkLogGridEX.DynamicFiltering = True
+        Me.TblVitalSignWorkLogGridEX.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic
+        Me.TblVitalSignWorkLogGridEX.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TblVitalSignWorkLogGridEX.FilterRowFormatStyle.FontItalic = Janus.Windows.GridEX.TriState.[True]
+        Me.TblVitalSignWorkLogGridEX.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TblVitalSignWorkLogGridEX.GroupByBoxVisible = False
+        Me.TblVitalSignWorkLogGridEX.HeaderFormatStyle.FontName = "microsoft sans serif"
+        Me.TblVitalSignWorkLogGridEX.HeaderFormatStyle.FontSize = 10.0!
+        Me.TblVitalSignWorkLogGridEX.Location = New System.Drawing.Point(0, 0)
+        Me.TblVitalSignWorkLogGridEX.Margin = New System.Windows.Forms.Padding(2)
+        Me.TblVitalSignWorkLogGridEX.Name = "TblVitalSignWorkLogGridEX"
+        Me.TblVitalSignWorkLogGridEX.RecordNavigator = True
+        Me.TblVitalSignWorkLogGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignWorkLogGridEX.SaveSettings = True
+        Me.TblVitalSignWorkLogGridEX.SelectOnExpand = False
+        Me.TblVitalSignWorkLogGridEX.SettingsKey = "TblVitalSignWorkLogGridEX"
+        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(255, 560)
+        Me.TblVitalSignWorkLogGridEX.TabIndex = 0
+        '
+        'TblVitalSignWorkLogBindingSource
+        '
+        Me.TblVitalSignWorkLogBindingSource.DataMember = "FK_tblVitalSignDataManagementLog_tblVitalSigns"
+        Me.TblVitalSignWorkLogBindingSource.DataSource = Me.TblVitalSignsBindingSource
+        Me.TblVitalSignWorkLogBindingSource.Sort = "LogDate DESC"
+        '
+        'LogEntryRichTextBox
+        '
+        Me.LogEntryRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblVitalSignWorkLogBindingSource, "LogEntry", True))
+        Me.LogEntryRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LogEntryRichTextBox.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LogEntryRichTextBox.Location = New System.Drawing.Point(0, 0)
+        Me.LogEntryRichTextBox.Name = "LogEntryRichTextBox"
+        Me.LogEntryRichTextBox.Size = New System.Drawing.Size(506, 560)
+        Me.LogEntryRichTextBox.TabIndex = 0
+        Me.LogEntryRichTextBox.Text = ""
+        '
+        'WorkLogToolStrip
+        '
+        Me.WorkLogToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.WorkLogToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditLogEntryToolStripButton})
+        Me.WorkLogToolStrip.Location = New System.Drawing.Point(2, 2)
+        Me.WorkLogToolStrip.Name = "WorkLogToolStrip"
+        Me.WorkLogToolStrip.Size = New System.Drawing.Size(765, 25)
+        Me.WorkLogToolStrip.TabIndex = 1
+        Me.WorkLogToolStrip.Text = "ToolStrip1"
+        '
+        'EditLogEntryToolStripButton
+        '
+        Me.EditLogEntryToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.EditLogEntryToolStripButton.Image = CType(resources.GetObject("EditLogEntryToolStripButton.Image"), System.Drawing.Image)
+        Me.EditLogEntryToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.EditLogEntryToolStripButton.Name = "EditLogEntryToolStripButton"
+        Me.EditLogEntryToolStripButton.Size = New System.Drawing.Size(90, 22)
+        Me.EditLogEntryToolStripButton.Text = "Edit log entry..."
+        '
         'WorkLogReportTabPage
         '
         Me.WorkLogReportTabPage.Controls.Add(Me.WorkLogReportViewer)
@@ -1017,73 +1119,6 @@ Partial Class Form1
         Me.WorkLogReportViewer.Name = "WorkLogReportViewer"
         Me.WorkLogReportViewer.Size = New System.Drawing.Size(765, 585)
         Me.WorkLogReportViewer.TabIndex = 1
-        '
-        'WorkLogEditorTabPage
-        '
-        Me.WorkLogEditorTabPage.Controls.Add(Me.TblVitalSignWorkLogGridEX)
-        Me.WorkLogEditorTabPage.Controls.Add(Me.WorkLogToolStrip)
-        Me.WorkLogEditorTabPage.Location = New System.Drawing.Point(4, 25)
-        Me.WorkLogEditorTabPage.Margin = New System.Windows.Forms.Padding(2)
-        Me.WorkLogEditorTabPage.Name = "WorkLogEditorTabPage"
-        Me.WorkLogEditorTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.WorkLogEditorTabPage.Size = New System.Drawing.Size(769, 589)
-        Me.WorkLogEditorTabPage.TabIndex = 1
-        Me.WorkLogEditorTabPage.Text = "Edit work log"
-        Me.WorkLogEditorTabPage.UseVisualStyleBackColor = True
-        '
-        'TblVitalSignWorkLogGridEX
-        '
-        Me.TblVitalSignWorkLogGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblVitalSignWorkLogGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblVitalSignWorkLogGridEX.AlternatingColors = True
-        Me.TblVitalSignWorkLogGridEX.ColumnAutoResize = True
-        Me.TblVitalSignWorkLogGridEX.ColumnAutoSizeMode = Janus.Windows.GridEX.ColumnAutoSizeMode.AllCells
-        Me.TblVitalSignWorkLogGridEX.DataSource = Me.TblVitalSignWorkLogBindingSource
-        TblVitalSignWorkLogGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignWorkLogGridEX_DesignTimeLayout.LayoutString")
-        Me.TblVitalSignWorkLogGridEX.DesignTimeLayout = TblVitalSignWorkLogGridEX_DesignTimeLayout
-        Me.TblVitalSignWorkLogGridEX.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TblVitalSignWorkLogGridEX.DynamicFiltering = True
-        Me.TblVitalSignWorkLogGridEX.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic
-        Me.TblVitalSignWorkLogGridEX.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TblVitalSignWorkLogGridEX.FilterRowFormatStyle.FontItalic = Janus.Windows.GridEX.TriState.[True]
-        Me.TblVitalSignWorkLogGridEX.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TblVitalSignWorkLogGridEX.GroupByBoxVisible = False
-        Me.TblVitalSignWorkLogGridEX.HeaderFormatStyle.FontName = "microsoft sans serif"
-        Me.TblVitalSignWorkLogGridEX.HeaderFormatStyle.FontSize = 10.0!
-        Me.TblVitalSignWorkLogGridEX.Location = New System.Drawing.Point(2, 27)
-        Me.TblVitalSignWorkLogGridEX.Margin = New System.Windows.Forms.Padding(2)
-        Me.TblVitalSignWorkLogGridEX.Name = "TblVitalSignWorkLogGridEX"
-        Me.TblVitalSignWorkLogGridEX.RecordNavigator = True
-        Me.TblVitalSignWorkLogGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblVitalSignWorkLogGridEX.SaveSettings = True
-        Me.TblVitalSignWorkLogGridEX.SelectOnExpand = False
-        Me.TblVitalSignWorkLogGridEX.SettingsKey = "TblVitalSignWorkLogGridEX"
-        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(765, 560)
-        Me.TblVitalSignWorkLogGridEX.TabIndex = 0
-        '
-        'TblVitalSignWorkLogBindingSource
-        '
-        Me.TblVitalSignWorkLogBindingSource.DataMember = "FK_tblVitalSignDataManagementLog_tblVitalSigns"
-        Me.TblVitalSignWorkLogBindingSource.DataSource = Me.TblVitalSignsBindingSource
-        '
-        'WorkLogToolStrip
-        '
-        Me.WorkLogToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.WorkLogToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditLogEntryToolStripButton})
-        Me.WorkLogToolStrip.Location = New System.Drawing.Point(2, 2)
-        Me.WorkLogToolStrip.Name = "WorkLogToolStrip"
-        Me.WorkLogToolStrip.Size = New System.Drawing.Size(765, 25)
-        Me.WorkLogToolStrip.TabIndex = 1
-        Me.WorkLogToolStrip.Text = "ToolStrip1"
-        '
-        'EditLogEntryToolStripButton
-        '
-        Me.EditLogEntryToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.EditLogEntryToolStripButton.Image = CType(resources.GetObject("EditLogEntryToolStripButton.Image"), System.Drawing.Image)
-        Me.EditLogEntryToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.EditLogEntryToolStripButton.Name = "EditLogEntryToolStripButton"
-        Me.EditLogEntryToolStripButton.Size = New System.Drawing.Size(90, 22)
-        Me.EditLogEntryToolStripButton.Text = "Edit log entry..."
         '
         'SitesTabPage
         '
@@ -1365,14 +1400,18 @@ Partial Class Form1
         CType(Me.TblVitalSignTasksBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.VSWorkLogTabPage.ResumeLayout(False)
         Me.WorkLogTabControl.ResumeLayout(False)
-        Me.WorkLogReportTabPage.ResumeLayout(False)
         Me.WorkLogEditorTabPage.ResumeLayout(False)
         Me.WorkLogEditorTabPage.PerformLayout()
+        Me.WorkLogSplitContainer.Panel1.ResumeLayout(False)
+        Me.WorkLogSplitContainer.Panel2.ResumeLayout(False)
+        CType(Me.WorkLogSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.WorkLogSplitContainer.ResumeLayout(False)
         CType(Me.TblVitalSignWorkLogGridEX, System.Configuration.IPersistComponentSettings).LoadComponentSettings()
         CType(Me.TblVitalSignWorkLogGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.WorkLogToolStrip.ResumeLayout(False)
         Me.WorkLogToolStrip.PerformLayout()
+        Me.WorkLogReportTabPage.ResumeLayout(False)
         Me.VitalSignOverviewToolStrip.ResumeLayout(False)
         Me.VitalSignOverviewToolStrip.PerformLayout()
         Me.VitalSignHeaderPanel.ResumeLayout(False)
@@ -1502,4 +1541,6 @@ Partial Class Form1
     Friend WithEvents VwContactsLookupBindingSource As BindingSource
     Friend WithEvents VwContactsLookupTableAdapter As AKRODataSetTableAdapters.vwContactsLookupTableAdapter
     Friend WithEvents ContactsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents WorkLogSplitContainer As SplitContainer
+    Friend WithEvents LogEntryRichTextBox As RichTextBox
 End Class
