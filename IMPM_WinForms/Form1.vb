@@ -720,6 +720,7 @@ Public Class Form1
     Private Sub TblVitalSignWorkLogGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignWorkLogGridEX.CellEdited
         'set the default values
         SetVitalSignWorkLogGridEXDefaultValues()
+        UpdateRecordUpdatedFields(Me.TblVitalSignWorkLogGridEX)
     End Sub
 
     Private Sub TblVitalSignTasksGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignTasksGridEX.CellEdited
@@ -758,8 +759,8 @@ Public Class Form1
         'set default values
         Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
         Try
-            GridEX.RootTable.Columns("DateAssigned").DefaultValue = Now
-            GridEX.RootTable.Columns("DateDue").DefaultValue = Now.AddDays(30)
+            GridEX.RootTable.Columns("LogDate").DefaultValue = Now
+            GridEX.RootTable.Columns("Username").DefaultValue = My.User.Name
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
@@ -767,5 +768,7 @@ Public Class Form1
 
     Private Sub LogEntryRichTextBox_TextChanged(sender As Object, e As EventArgs) Handles LogEntryRichTextBox.TextChanged
         SetVitalSignWorkLogGridEXDefaultValues()
+        UpdateRecordUpdatedFields(Me.TblVitalSignWorkLogGridEX)
     End Sub
+
 End Class

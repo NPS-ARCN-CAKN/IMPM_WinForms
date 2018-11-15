@@ -247,17 +247,17 @@
   <data name="CreateDeliverablesDirectoriesToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJRSURBVDhP3ZFBTNNwFMZ78L6bcYmJV6PigkjxpBcTLyQe
+        JGqCB0BRs2E0GDmoiS4RNmQywU0TQzRGgokgBlgwDJLFE6DRLVBZHQMZ4EIXoaPb2q7r+vlvKUS46NmX
+        fnl9h9/3vddS/0nNBMoiicFKZXGHZoePzcXfHd4997bMsk2jZZZQ6MQuE6eoide0rGlFABp5dG28F6QU
+        lkP2/NJ4tbyp5JfrUmK8McEOHDlr4hTFvC9Pa6oEebkdufkO5BZeQkz0QSvwxCsLTc0QrW/MhTVwHJdn
+        +2nGxCkq1lMqFJV1AvuQjT+B8M2J1U92pD43gJ9uBj91H3zkNtbCTUSNZDMOsf6jGRMnBr3lSkFcAc/4
+        sPbVDe7jTYjcJEkVzHS9p7c20M8L99okE9c3qFCM+4sykQioOQNURRZy0gdpqRnijybkZq8iy16Amo0i
+        3P2ngY/Oa6oIVZhAgR+B8qsP+ZUuArZBXLgLMd6AwIdq3Hp2HpfbT6P24Sl0evYVTJz8hee0XFQEKKtD
+        yHPdJNUPaZGkzuup9egfqoKztxYBxo9IMgjvqB3nvCWgHVaPYRD22iRN4Qn8CvLPDkgJJ4EbkYtdRDZa
+        hbrWkxiYfoyBmU5yP+AZq4d37ApsDsvGGd9bS5JimklPht4Us7MvkIk9RYZtRybaAoG5h8o7pRhmugx4
+        swan/KhwWGEYsC0Hb7DuQz2M60Aq7C6Rdur4tb1oC9bBFawxYNdIzfYN/la03frgjGc/HgUvGcl61+et
+        b/AvRdv3uEsdVkFfW+/6TFEU9Rt42gGWFJVU6AAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="TblVitalSignObjectivesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -349,7 +349,7 @@
     <value>252, 60</value>
   </metadata>
   <data name="TblVitalSignWorkLogGridEX_DesignTimeLayout.LayoutString" xml:space="preserve">
-    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Key&gt;TblVitalSignWorkLog&lt;/Key&gt;&lt;Caption&gt;Work log&lt;/Caption&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="LogDate"&gt;&lt;Caption&gt;Log Date&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;LogDate&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;LogDate&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Width&gt;125&lt;/Width&gt;&lt;/Column0&gt;&lt;Column1 ID="Username"&gt;&lt;Caption&gt;Username&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Username&lt;/DataMember&gt;&lt;Key&gt;Username&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;Width&gt;108&lt;/Width&gt;&lt;/Column1&gt;&lt;Column2 ID="LogEntry"&gt;&lt;Caption&gt;Log Entry&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;LogEntry&lt;/DataMember&gt;&lt;Key&gt;LogEntry&lt;/Key&gt;&lt;MaxLength&gt;100000&lt;/MaxLength&gt;&lt;MaxLines&gt;100&lt;/MaxLines&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;SelectableCells&gt;All&lt;/SelectableCells&gt;&lt;TextAlignment&gt;Near&lt;/TextAlignment&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;Width&gt;192&lt;/Width&gt;&lt;ShowRowSelector&gt;True&lt;/ShowRowSelector&gt;&lt;/Column2&gt;&lt;Column3 ID="VSID"&gt;&lt;Caption&gt;VSID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSID&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column3&gt;&lt;Column4 ID="VSDMLogID"&gt;&lt;Caption&gt;VSDMLog ID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSDMLogID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSDMLogID&lt;/Key&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;/Column4&gt;&lt;/Columns&gt;&lt;SortKeys Collection="true" ElementName="SortKey"&gt;&lt;SortKey0 ID="SortKey0"&gt;&lt;ColIndex&gt;0&lt;/ColIndex&gt;&lt;SortOrder&gt;Descending&lt;/SortOrder&gt;&lt;/SortKey0&gt;&lt;/SortKeys&gt;&lt;GroupCondition /&gt;&lt;/RootTable&gt;&lt;SearchColumnIndex&gt;2&lt;/SearchColumnIndex&gt;&lt;/GridEXLayoutData&gt;</value>
+    <value>&lt;GridEXLayoutData&gt;&lt;RootTable&gt;&lt;Key&gt;TblVitalSignWorkLog&lt;/Key&gt;&lt;Caption&gt;Work log&lt;/Caption&gt;&lt;Columns Collection="true" ElementName="Column"&gt;&lt;Column0 ID="LogDate"&gt;&lt;Caption&gt;Log Date&lt;/Caption&gt;&lt;DataTypeCode&gt;DateTime&lt;/DataTypeCode&gt;&lt;DataMember&gt;LogDate&lt;/DataMember&gt;&lt;DefaultGroupInterval&gt;Date&lt;/DefaultGroupInterval&gt;&lt;EditType&gt;CalendarCombo&lt;/EditType&gt;&lt;FormatString&gt;d&lt;/FormatString&gt;&lt;Key&gt;LogDate&lt;/Key&gt;&lt;Position&gt;0&lt;/Position&gt;&lt;Width&gt;125&lt;/Width&gt;&lt;/Column0&gt;&lt;Column1 ID="Username"&gt;&lt;Caption&gt;Username&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;Username&lt;/DataMember&gt;&lt;Key&gt;Username&lt;/Key&gt;&lt;Position&gt;1&lt;/Position&gt;&lt;Width&gt;108&lt;/Width&gt;&lt;/Column1&gt;&lt;Column2 ID="LogEntry"&gt;&lt;Caption&gt;Log Entry&lt;/Caption&gt;&lt;DataTypeCode&gt;String&lt;/DataTypeCode&gt;&lt;DataMember&gt;LogEntry&lt;/DataMember&gt;&lt;Key&gt;LogEntry&lt;/Key&gt;&lt;MaxLength&gt;100000&lt;/MaxLength&gt;&lt;MaxLines&gt;100&lt;/MaxLines&gt;&lt;Position&gt;2&lt;/Position&gt;&lt;SelectableCells&gt;All&lt;/SelectableCells&gt;&lt;TextAlignment&gt;Near&lt;/TextAlignment&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;Width&gt;1000&lt;/Width&gt;&lt;ShowRowSelector&gt;True&lt;/ShowRowSelector&gt;&lt;/Column2&gt;&lt;Column3 ID="VSID"&gt;&lt;Caption&gt;VSID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSID&lt;/Key&gt;&lt;Position&gt;3&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;Width&gt;50&lt;/Width&gt;&lt;/Column3&gt;&lt;Column4 ID="VSDMLogID"&gt;&lt;Caption&gt;VSDMLog ID&lt;/Caption&gt;&lt;DataTypeCode&gt;Int32&lt;/DataTypeCode&gt;&lt;DataMember&gt;VSDMLogID&lt;/DataMember&gt;&lt;EditType&gt;NoEdit&lt;/EditType&gt;&lt;Key&gt;VSDMLogID&lt;/Key&gt;&lt;Position&gt;4&lt;/Position&gt;&lt;Visible&gt;False&lt;/Visible&gt;&lt;Width&gt;50&lt;/Width&gt;&lt;/Column4&gt;&lt;/Columns&gt;&lt;SortKeys Collection="true" ElementName="SortKey"&gt;&lt;SortKey0 ID="SortKey0"&gt;&lt;ColIndex&gt;0&lt;/ColIndex&gt;&lt;SortOrder&gt;Descending&lt;/SortOrder&gt;&lt;/SortKey0&gt;&lt;/SortKeys&gt;&lt;GroupCondition /&gt;&lt;/RootTable&gt;&lt;SearchColumnIndex&gt;2&lt;/SearchColumnIndex&gt;&lt;/GridEXLayoutData&gt;</value>
   </data>
   <metadata name="WorkLogToolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>258, 47</value>
@@ -375,16 +375,16 @@
   <data name="OpenProjectDirectoryToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIRSURBVDhP3Y/LaxNBHMfn4L03/wQP1tRH2qh48CKIIHgR
-        PagnEbQElAgFRdAiaSNCpDR6EKmIpYKpFR8IxcPiqbG13bRZm22S1qatoRts9v3Ivr7Otqs0HrwKDvNh
-        Zg6f7/c35D9Z8++j+erbk/bKH5Q/HFqsvOrYufgy2tbCx2gbwxzdEeqE5J7HLN/3APh0B2zdHbOONaa7
-        uTpxzvpFbfqqWZ1IVPk3B86EOiHc6y7Jd01Ya2noSwPQl5/CqI7Cd0SapcF3VYq89XYaEAShyY/FuFAn
-        pDSyX/FsmcoZaJVBKF97sTHZjfpUHGIhCXHuDsT8TTTYHkqCTiagNNaphjoNyHbZjrEOkcugMZOC8Ok6
-        DOEzbVXC9uCUfk8QfI/N7jVDPZjgoL35f8+iGICrb4quwcOqZWCuJmF864FevgyNPw9XK4Id3h6QiTV9
-        14Cr5OCI47B/jKK5/oSK92Es34JRiUNfuABt/hTUwjG4ah7sg20Buccxy7MV2Bvv0BSGaetDmCu0dSlo
-        vQSteBYqdwLK7BHIM/vgKF9aA4KHb4tUfgbr+wDMai+VE9BLF6l8mrYeh5I/DHm6A9LULhow2RqwcC9S
-        MyROYpgXnlYeglp6BJVPQy32QeFuQyncgDyXgJyPQ2avYDx71+fSUSnUCeH72q/xqT0jXP/uOpuKmH+l
-        P2LOpiIyn2wfDPV/ugj5CRgU5sDJPLh9AAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIRSURBVDhP3Y/NaxNBHIbn4L03/wQP1tSP2Kh48CKIIHgR
+        PagnEbQElAgFRdAKaSNCpDT1INIilgptrfiBKB6Cp8bWdrfN2myTtDZtDd1gs9/fm32dbVdpPHgVHOZh
+        Zg7P+/6G/Cdr/m2Urbw+5az8Qend4cXyi7adiyPRliY+Rluy2WM7Qp2Q3LOY5fsNAD7dAVt316xhLdth
+        r06ct35Rnb5mViYSFf7VgbOhTgj3sl3yPRPWWhr6Ui/05UEYlTH4rkizNPieSpG33m4dgiDY/HiMC3VC
+        isP7lYYjUzkDrdwH5WsXNiY7UJuKQ8wnIc7dhcjeQp3ppCToZAKK4wfVUKcBo+2Oa6xD5DKoz6QgfLoB
+        Q/hMW5WwPTil3xME32NG95qhHkxwyNn8f8OiGICnb4qewcOqZmCuJmF864ReugKNvwBPK4AZ2h6Qidm+
+        Z8BTcnDFD3B+jMFef0LFBzCWb8Mox6EvXIQ2fxpq/jg8lQXzcFtA7nHMajgKnI03sIUh2toPc4W2LgWt
+        l6EVzkHlTkKZPQp5Zh9c5UtzQPDwHZHKT2F974VZ6aJyAnrxEpXP0NYTUNgjkKfbIE3togGTzQEL9yNV
+        Q+KkbPZ5QysNQC0+gsqnoRa6oXB3oORvQp5LQGbjkJmreD9yz+fSUSnUCeG7W6/zqT3DXM/uGpOKmH+l
+        J2LOpiIyn2ztC/V/ugj5CRWq5r1/dC4CAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="OpenWebProfileToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -425,35 +425,35 @@
   <data name="OpenProtocolTrackerToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="OpenProgramManagerReportServerURLToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK5SURBVDhPVZJLTxNhFIZnpT+FxChE48LEjSFpFTQhipi4
-        US4FmhglLlyYSCCICQRdeI2JiXHlwg0GykXbQoC2tHJT6E3FlhZaoFB7n6+dC6/nmxZav+TJmUnmfeac
-        MyPwo3s003xlyGlueOr8q+9xilSZxjNeXaxhaJ7VD9rd5x/MPT/R9OmYFqo8dU9sc7E02/cHwko8m0c8
-        U2Y/zWHwRdPoHgnj5lN/7tLd8eOlaPFcHrDH1je2lPkNCa6QDFdYhnNDhj1YwMzvPCa9WeRlwOQX0f05
-        hLYXbvE/ib5nUkzlCljaVLC8KVOVsaBJCphdz+OrN0cCFUtRBa6IhP7xMGofTn0sxamDQQfjghUSfN+S
-        sbKlaLJvIQm2PwVYfooI7ma1UTJMxm4iB51xVi7Fi4JktoA1eoObWNtW8UOT8C4krQszdTHmzmB0NYUk
-        7UnfZ2OluCDUDzhYggS+7QN4Kewh3FEVqyRbpJ3MB4sS6y8RZtpDIitB/9hRFtSRIE4C/86Bho/wkmwt
-        UuxEk1AnczQOF8VJoOurEFzsd7D9TAHeo7B61AmX8L0s0ji8EwcRS0uo7a0Q6PrsbI++N3/rYVgT0BiH
-        XSyFFSzwT0ykaZE1XfayoLbXznZSeXgixbaL0DIJHl6m8CLhon/DSQImqSSYKQsudNlYNMnQZMrjhonh
-        +hhDI103juRxbZRpXB1haCiRKygkGC4LuG0zznBvVsUHP/DeB7zzAm+pvqH6mnjlAV66gfYpGVk+QmeF
-        4Nz96ZzLEzwwTqvotCraQ4YpRaOV7tusMlosMpr5vUVBOLKtnrptypTignDGaAmEUrm0yxtSA3siAjER
-        6yX2MpIG33yGKQiEo6ooismqWxOeUlwQzhq/3KkxTFpOd5jjNR3D7Ij2ItWHGIZZlWEicbJ1wlrdMt4m
-        CILwD4bP0aNtd+nNAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK6SURBVDhPVZLJTxNhGIfnpH8KiVGIxoOJF0PSKmhCFDHx
+        oixlSYwSDx5MJBDEBIIeXGNiYjx58IKBsmhbCNCWVjaFbspS2tIChdp9vnYWfr7ftND6JU/emWR+z7zv
+        OyPwo3sy3Xht0GGqe+74q+92iFSZxgtenaxucI7VDthcFx/NvjzV8OWEFio/Nc+ss9EUO/BuBJRYJodY
+        usRBisPgjaTQNRzE7ee+7JX7YyeL0cK52m+LrvlDytyWBGdAhjMow7Elw+bPY3othwlPBjkZMPpEdH0N
+        oOWVS/xPou+eEJPZPBZDCpZCMlUZ85okj5n1HL57siRQsRhR4AxL6BsLovrx5OdinDoYsDMuWCbBz20Z
+        y9uKJvsRkGDdyMP8W4R/L6ONkmYy9uJZ6Npn5GK8IEhk8lilN7iI1R0VvzQJ70LSujBRF6OuNEZWkkjQ
+        nvS9VlaMC0Jtv53FSeDdOYSHwm7CFVGxQrIF2smcvyCx/BFhoj3EMxL0T+0lQQ0JYiTw7R5qeAkPyVbD
+        hU40CXUyS+NwUYwEut4yweU+OztI5+E5DqvHnXAJ38sCjcM7sRPRlITqnjKBrtfG9ul787cehTUBjXHU
+        xWJQwTz/xESKFlnVaSsJqntsbDeZgztcaLsALZPg4SUKLxBO+jccJGCSSoLpkuBSp5VFEgwNxhxuGRlu
+        jjLU03X9cA43RpjG9WGGuiLZvEKCoZKA20IxhgczKj75gI9e4IMHeE/1HdW3xBs38NoFtE7KyPAR2ssE
+        Fx5OZR2uzcOOKRXtFkV7yDCpaDTTfYtFRpNZRiO/NysIbEfUM3eN6WJcEM51mDcDyWzK4d5SN/dFbEZF
+        rBfZT0safPNppmAjEFZFUUxU3Bl3F+OCcL7j270qw4T5bJspVtU2xI5pLVB5hGGIVRjG46ebxy2VTWMt
+        giAI/wBoENGQWiS9MgAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="TblContactsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
