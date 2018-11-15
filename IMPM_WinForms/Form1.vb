@@ -757,7 +757,7 @@ Public Class Form1
     ''' </summary>
     Private Sub SetVitalSignWorkLogGridEXDefaultValues()
         'set default values
-        Dim GridEX As GridEX = Me.TblVitalSignTasksGridEX
+        Dim GridEX As GridEX = Me.TblVitalSignWorkLogGridEX
         Try
             GridEX.RootTable.Columns("LogDate").DefaultValue = Now
             GridEX.RootTable.Columns("Username").DefaultValue = My.User.Name
@@ -768,6 +768,7 @@ Public Class Form1
 
     Private Sub LogEntryRichTextBox_TextChanged(sender As Object, e As EventArgs) Handles LogEntryRichTextBox.TextChanged
         SetVitalSignWorkLogGridEXDefaultValues()
+
         UpdateRecordUpdatedFields(Me.TblVitalSignWorkLogGridEX)
     End Sub
 
