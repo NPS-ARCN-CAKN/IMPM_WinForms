@@ -42,6 +42,8 @@ Partial Class VitalSignTasksMasterForm
         Me.ToggleCompletedToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
+        Me.TasksSplitContainer = New System.Windows.Forms.SplitContainer()
+        Me.NotesRichTextBox = New System.Windows.Forms.RichTextBox()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignTasksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignTasksGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,6 +52,10 @@ Partial Class VitalSignTasksMasterForm
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TasksSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TasksSplitContainer.Panel1.SuspendLayout()
+        Me.TasksSplitContainer.Panel2.SuspendLayout()
+        Me.TasksSplitContainer.SuspendLayout()
         Me.SuspendLayout()
         '
         'AKRODataSet
@@ -111,12 +117,12 @@ Partial Class VitalSignTasksMasterForm
         Me.TblVitalSignTasksGridEX.GroupRowFormatStyle.FontBold = Janus.Windows.GridEX.TriState.[True]
         Me.TblVitalSignTasksGridEX.GroupRowFormatStyle.FontSize = 20.0!
         Me.TblVitalSignTasksGridEX.GroupRowFormatStyle.ForeColor = System.Drawing.Color.Black
-        Me.TblVitalSignTasksGridEX.Location = New System.Drawing.Point(0, 25)
+        Me.TblVitalSignTasksGridEX.Location = New System.Drawing.Point(0, 0)
         Me.TblVitalSignTasksGridEX.Name = "TblVitalSignTasksGridEX"
         Me.TblVitalSignTasksGridEX.RecordNavigator = True
         Me.TblVitalSignTasksGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignTasksGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelectionSameTable
-        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(1342, 699)
+        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(955, 699)
         Me.TblVitalSignTasksGridEX.TabIndex = 1
         '
         'TblVitalSignsBindingSource
@@ -178,12 +184,41 @@ Partial Class VitalSignTasksMasterForm
         '
         Me.VwContactsLookupTableAdapter.ClearBeforeFill = True
         '
+        'TasksSplitContainer
+        '
+        Me.TasksSplitContainer.DataBindings.Add(New System.Windows.Forms.Binding("Tag", Me.TblVitalSignTasksBindingSource, "Notes", True))
+        Me.TasksSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TasksSplitContainer.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TasksSplitContainer.Location = New System.Drawing.Point(0, 25)
+        Me.TasksSplitContainer.Name = "TasksSplitContainer"
+        '
+        'TasksSplitContainer.Panel1
+        '
+        Me.TasksSplitContainer.Panel1.Controls.Add(Me.TblVitalSignTasksGridEX)
+        '
+        'TasksSplitContainer.Panel2
+        '
+        Me.TasksSplitContainer.Panel2.Controls.Add(Me.NotesRichTextBox)
+        Me.TasksSplitContainer.Size = New System.Drawing.Size(1342, 699)
+        Me.TasksSplitContainer.SplitterDistance = 955
+        Me.TasksSplitContainer.TabIndex = 3
+        '
+        'NotesRichTextBox
+        '
+        Me.NotesRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblVitalSignTasksBindingSource, "Notes", True))
+        Me.NotesRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.NotesRichTextBox.Location = New System.Drawing.Point(0, 0)
+        Me.NotesRichTextBox.Name = "NotesRichTextBox"
+        Me.NotesRichTextBox.Size = New System.Drawing.Size(383, 699)
+        Me.NotesRichTextBox.TabIndex = 0
+        Me.NotesRichTextBox.Text = ""
+        '
         'VitalSignTasksMasterForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1342, 724)
-        Me.Controls.Add(Me.TblVitalSignTasksGridEX)
+        Me.Controls.Add(Me.TasksSplitContainer)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Name = "VitalSignTasksMasterForm"
         Me.Text = "Vital Sign Tasks"
@@ -196,6 +231,10 @@ Partial Class VitalSignTasksMasterForm
         Me.ToolStrip1.ResumeLayout(False)
         Me.ToolStrip1.PerformLayout()
         CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TasksSplitContainer.Panel1.ResumeLayout(False)
+        Me.TasksSplitContainer.Panel2.ResumeLayout(False)
+        CType(Me.TasksSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TasksSplitContainer.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -218,4 +257,6 @@ Partial Class VitalSignTasksMasterForm
     Friend WithEvents ToggleCompletedToolStripButton As ToolStripButton
     Friend WithEvents VwContactsLookupBindingSource As BindingSource
     Friend WithEvents VwContactsLookupTableAdapter As AKRODataSetTableAdapters.vwContactsLookupTableAdapter
+    Friend WithEvents TasksSplitContainer As SplitContainer
+    Friend WithEvents NotesRichTextBox As RichTextBox
 End Class

@@ -84,6 +84,15 @@ Public Class VitalSignTasksMasterForm
     End Sub
 
     Private Sub TblVitalSignTasksGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignTasksGridEX.CellEdited
+
+    End Sub
+
+    Private Sub TblVitalSignTasksGridEX_Validated(sender As Object, e As EventArgs) Handles TblVitalSignTasksGridEX.Validated
+        'update the RecordUpdatedDate and RecordUpdatedBy cells
+        UpdateRecordUpdatedFields(Me.TblVitalSignTasksGridEX)
+    End Sub
+
+    Private Sub NotesRichTextBox_Validated(sender As Object, e As EventArgs) Handles NotesRichTextBox.Validated
         'update the RecordUpdatedDate and RecordUpdatedBy cells
         UpdateRecordUpdatedFields(Me.TblVitalSignTasksGridEX)
     End Sub
