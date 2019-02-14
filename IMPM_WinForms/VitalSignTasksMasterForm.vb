@@ -84,7 +84,7 @@ Public Class VitalSignTasksMasterForm
     End Sub
 
     Private Sub TblVitalSignTasksGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignTasksGridEX.CellEdited
-
+        AddCompletedTaskToWorkLog()
     End Sub
 
     Private Sub TblVitalSignTasksGridEX_Validated(sender As Object, e As EventArgs) Handles TblVitalSignTasksGridEX.Validated
@@ -96,4 +96,37 @@ Public Class VitalSignTasksMasterForm
         'update the RecordUpdatedDate and RecordUpdatedBy cells
         UpdateRecordUpdatedFields(Me.TblVitalSignTasksGridEX)
     End Sub
+
+    Private Sub AddCompletedTaskToWorkLog()
+        ' Dim CellName As String = Me.TblVitalSignTasksGridEX.RootTable.Columns(e.Column.Index).Key
+        'Dim CellValue As Date = GetCurrentDateCompleted()
+        'MsgBox(CellValue)
+        'NOTE I WANTED TO LOG THE COMPLETED TASK IN THE WORK LOG HERE BUT GOT NO FURTHER
+    End Sub
+
+    ''' <summary>
+    ''' Returns the value of the currently selected row's DateCompleted value
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function GetCurrentDateCompleted() As Date
+        Dim DateCompleted As Date
+        Try
+            'get the current row of the  GridEX
+            If Not Me.TblVitalSignTasksGridEX.CurrentRow Is Nothing Then
+                Dim CurrentRow As GridEXRow = Me.TblVitalSignTasksGridEX.CurrentRow
+                'loop through the columns and look for the DateCompleted column
+                For i As Integer = 0 To CurrentRow.Cells.Count - 1
+                    If CurrentRow.Cells(i).Column.Key = "DateCompleted" Then
+                        'if there is a value
+                        If Not IsDBNull(CurrentRow.Cells(i).Value) Then
+                            DateCompleted = CurrentRow.Cells(i).Value
+                        End If
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+        Return DateCompleted
+    End Function
 End Class
