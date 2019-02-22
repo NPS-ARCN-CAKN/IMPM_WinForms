@@ -40,7 +40,7 @@ Partial Class Form1
         Dim TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignTasksGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignWorkLogGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Me.vwVitalSignWorkLogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AKRODataSet = New IMPM.AKRODataSet()
         Me.VwVitalSignOverviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -155,6 +155,8 @@ Partial Class Form1
         Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
         Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.WorkLogFontToolStripButton = New System.Windows.Forms.ToolStripButton()
         ProtocolAvailableLabel = New System.Windows.Forms.Label()
         DataAvailableLabel = New System.Windows.Forms.Label()
         DeliverablesScheduleLabel = New System.Windows.Forms.Label()
@@ -1068,7 +1070,7 @@ Partial Class Form1
         '
         Me.LogEntryRichTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.TblVitalSignWorkLogBindingSource, "LogEntry", True))
         Me.LogEntryRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LogEntryRichTextBox.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LogEntryRichTextBox.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LogEntryRichTextBox.Location = New System.Drawing.Point(0, 0)
         Me.LogEntryRichTextBox.Name = "LogEntryRichTextBox"
         Me.LogEntryRichTextBox.Size = New System.Drawing.Size(506, 560)
@@ -1078,7 +1080,7 @@ Partial Class Form1
         'WorkLogToolStrip
         '
         Me.WorkLogToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.WorkLogToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditLogEntryToolStripButton})
+        Me.WorkLogToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditLogEntryToolStripButton, Me.ToolStripSeparator9, Me.WorkLogFontToolStripButton})
         Me.WorkLogToolStrip.Location = New System.Drawing.Point(2, 2)
         Me.WorkLogToolStrip.Name = "WorkLogToolStrip"
         Me.WorkLogToolStrip.Size = New System.Drawing.Size(765, 25)
@@ -1109,9 +1111,9 @@ Partial Class Form1
         'WorkLogReportViewer
         '
         Me.WorkLogReportViewer.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource1.Name = "WorkLogDataset"
-        ReportDataSource1.Value = Me.vwVitalSignWorkLogBindingSource
-        Me.WorkLogReportViewer.LocalReport.DataSources.Add(ReportDataSource1)
+        ReportDataSource2.Name = "WorkLogDataset"
+        ReportDataSource2.Value = Me.vwVitalSignWorkLogBindingSource
+        Me.WorkLogReportViewer.LocalReport.DataSources.Add(ReportDataSource2)
         Me.WorkLogReportViewer.LocalReport.DisplayName = "Work Log Report"
         Me.WorkLogReportViewer.LocalReport.ReportEmbeddedResource = "IMPM.WorkLogReport.rdlc"
         Me.WorkLogReportViewer.Location = New System.Drawing.Point(2, 2)
@@ -1350,6 +1352,20 @@ Partial Class Form1
         '
         Me.VwContactsLookupTableAdapter.ClearBeforeFill = True
         '
+        'ToolStripSeparator9
+        '
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 25)
+        '
+        'WorkLogFontToolStripButton
+        '
+        Me.WorkLogFontToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.WorkLogFontToolStripButton.Image = CType(resources.GetObject("WorkLogFontToolStripButton.Image"), System.Drawing.Image)
+        Me.WorkLogFontToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.WorkLogFontToolStripButton.Name = "WorkLogFontToolStripButton"
+        Me.WorkLogFontToolStripButton.Size = New System.Drawing.Size(44, 22)
+        Me.WorkLogFontToolStripButton.Text = "Font..."
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1543,4 +1559,6 @@ Partial Class Form1
     Friend WithEvents ContactsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents WorkLogSplitContainer As SplitContainer
     Friend WithEvents LogEntryRichTextBox As RichTextBox
+    Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
+    Friend WithEvents WorkLogFontToolStripButton As ToolStripButton
 End Class

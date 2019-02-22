@@ -53,25 +53,26 @@ Public Class Form1
 
 
     Private Sub LoadDataset()
-        Me.AKRODataSet.Clear()
-
-        Me.TblVitalSignsTableAdapter.Fill(Me.AKRODataSet.tblVitalSigns)
-        Me.VwVitalSignOverviewTableAdapter.Fill(Me.AKRODataSet.vwVitalSignOverview)
-        Me.TblContactsTableAdapter.Fill(Me.AKRODataSet.tblContacts)
-        Me.VwContactsLookupTableAdapter.Fill(Me.AKRODataSet.vwContactsLookup)
-        Me.TblVitalSignObjectivesTableAdapter.Fill(Me.AKRODataSet.tblVitalSignObjectives)
-        Me.TblVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.tblVitalSignWorkLog)
-        Me.TblVitalSignTasksTableAdapter.Fill(Me.AKRODataSet.tblVitalSignTasks)
-        Me.TblVitalSignDataManagementSummaryTableAdapter.Fill(Me.AKRODataSet.tblVitalSignDataManagementSummary)
-        Me.TblVitalSignProtocolsTableAdapter.Fill(Me.AKRODataSet.tblVitalSignProtocols)
-        Me.TblProtocolRemeasurementsTableAdapter.Fill(Me.AKRODataSet.tblProtocolRemeasurements)
-        Me.TblProtocolDeliverablesTableAdapter.Fill(Me.AKRODataSet.tblProtocolDeliverables)
-        'this table adapter load is causing constraint errors and I can't figure out wwy
-        'Me.vwVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.vwVitalSignWorkLog)
-        Me.DataManagementMilestonesTableAdapter.Fill(Me.AKRODataSet.DataManagementMilestones)
-
-
         Try
+            Me.AKRODataSet.Clear()
+
+            Me.TblVitalSignsTableAdapter.Fill(Me.AKRODataSet.tblVitalSigns)
+            Me.VwVitalSignOverviewTableAdapter.Fill(Me.AKRODataSet.vwVitalSignOverview)
+            Me.TblContactsTableAdapter.Fill(Me.AKRODataSet.tblContacts)
+            Me.VwContactsLookupTableAdapter.Fill(Me.AKRODataSet.vwContactsLookup)
+            Me.TblVitalSignObjectivesTableAdapter.Fill(Me.AKRODataSet.tblVitalSignObjectives)
+            Me.TblVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.tblVitalSignWorkLog)
+            Me.TblVitalSignTasksTableAdapter.Fill(Me.AKRODataSet.tblVitalSignTasks)
+            Me.TblVitalSignDataManagementSummaryTableAdapter.Fill(Me.AKRODataSet.tblVitalSignDataManagementSummary)
+            Me.TblVitalSignProtocolsTableAdapter.Fill(Me.AKRODataSet.tblVitalSignProtocols)
+            Me.TblProtocolRemeasurementsTableAdapter.Fill(Me.AKRODataSet.tblProtocolRemeasurements)
+            Me.TblProtocolDeliverablesTableAdapter.Fill(Me.AKRODataSet.tblProtocolDeliverables)
+            'this table adapter load is causing constraint errors and I can't figure out wwy
+            'Me.vwVitalSignWorkLogTableAdapter.Fill(Me.AKRODataSet.vwVitalSignWorkLog)
+            Me.DataManagementMilestonesTableAdapter.Fill(Me.AKRODataSet.DataManagementMilestones)
+
+
+
             'load gridex dropdowns with values
             LoadDropDowns()
 
@@ -744,9 +745,7 @@ Public Class Form1
             GridEX.RootTable.Columns("RecordInsertedBy").DefaultValue = My.User.Name
             GridEX.RootTable.Columns("RecordUpdatedDate").DefaultValue = Now
             GridEX.RootTable.Columns("RecordUpdatedBy").DefaultValue = My.User.Name
-            If My.User.Name = "SDMiller" Then
-                GridEX.RootTable.Columns("AssignedTo").DefaultValue = 3
-            End If
+            GridEX.RootTable.Columns("AssignedTo").DefaultValue = 3
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try
@@ -772,4 +771,11 @@ Public Class Form1
         'UpdateRecordUpdatedFields(Me.TblVitalSignWorkLogGridEX)
     End Sub
 
+    Private Sub WorkLogFontToolStripButton_Click(sender As Object, e As EventArgs) Handles WorkLogFontToolStripButton.Click
+        Dim FD As New FontDialog()
+        FD.Font = Me.LogEntryRichTextBox.Font
+        FD.ShowDialog()
+        Dim WorkLogFont As Font = FD.Font
+        Me.LogEntryRichTextBox.Font = WorkLogFont
+    End Sub
 End Class
