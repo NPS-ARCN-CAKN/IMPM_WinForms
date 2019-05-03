@@ -1024,7 +1024,7 @@ Partial Class Form1
         '
         Me.WorkLogSplitContainer.Panel2.Controls.Add(Me.LogEntryRichTextBox)
         Me.WorkLogSplitContainer.Size = New System.Drawing.Size(1170, 947)
-        Me.WorkLogSplitContainer.SplitterDistance = 665
+        Me.WorkLogSplitContainer.SplitterDistance = 327
         Me.WorkLogSplitContainer.SplitterWidth = 6
         Me.WorkLogSplitContainer.TabIndex = 2
         '
@@ -1042,7 +1042,7 @@ Partial Class Form1
         Me.LogEntryRichTextBox.Location = New System.Drawing.Point(0, 0)
         Me.LogEntryRichTextBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.LogEntryRichTextBox.Name = "LogEntryRichTextBox"
-        Me.LogEntryRichTextBox.Size = New System.Drawing.Size(499, 947)
+        Me.LogEntryRichTextBox.Size = New System.Drawing.Size(837, 947)
         Me.LogEntryRichTextBox.TabIndex = 0
         Me.LogEntryRichTextBox.Text = ""
         '
@@ -1330,13 +1330,12 @@ Partial Class Form1
         TblVitalSignWorkLogGridEX1_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignWorkLogGridEX1_DesignTimeLayout.LayoutString")
         Me.TblVitalSignWorkLogGridEX.DesignTimeLayout = TblVitalSignWorkLogGridEX1_DesignTimeLayout
         Me.TblVitalSignWorkLogGridEX.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TblVitalSignWorkLogGridEX.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic
         Me.TblVitalSignWorkLogGridEX.GroupByBoxVisible = False
         Me.TblVitalSignWorkLogGridEX.Location = New System.Drawing.Point(0, 0)
         Me.TblVitalSignWorkLogGridEX.Name = "TblVitalSignWorkLogGridEX"
         Me.TblVitalSignWorkLogGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
         Me.TblVitalSignWorkLogGridEX.RecordNavigator = True
-        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(665, 947)
+        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(327, 947)
         Me.TblVitalSignWorkLogGridEX.TabIndex = 1
         Me.TblVitalSignWorkLogGridEX.TotalRow = Janus.Windows.GridEX.InheritableBoolean.[True]
         '

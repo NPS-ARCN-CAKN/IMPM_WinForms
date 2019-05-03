@@ -34,9 +34,8 @@ Module ApplicationUtilities
         With GridEX
             .AlternatingColors = True
             .ColumnAutoSizeMode = ColumnAutoSizeMode.DiaplayedCells
-            '.ColumnAutoResize = True
-            '.FilterRowFormatStyle = FilterRowFormatStyle
-            .Font = MyFont
+                '.ColumnAutoResize = True
+                .Font = MyFont
             .RowHeaders = InheritableBoolean.True
             .NewRowPosition = NewRowPosition.TopRow
             .SelectOnExpand = False
