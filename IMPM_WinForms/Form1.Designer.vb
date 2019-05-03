@@ -39,8 +39,7 @@ Partial Class Form1
         Dim TblVitalSignProtocolsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignTasksGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim TblVitalSignWorkLogGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim TblVitalSignWorkLogGridEX1_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.vwVitalSignWorkLogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AKRODataSet = New IMPM.AKRODataSet()
         Me.VwVitalSignOverviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -113,15 +112,13 @@ Partial Class Form1
         Me.TblVitalSignTasksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VSWorkLogTabPage = New System.Windows.Forms.TabPage()
         Me.WorkLogTabControl = New System.Windows.Forms.TabControl()
-        Me.WorkLogEditorTabPage = New System.Windows.Forms.TabPage()
         Me.WorkLogSplitContainer = New System.Windows.Forms.SplitContainer()
-        Me.TblVitalSignWorkLogGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignWorkLogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LogEntryRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.WorkLogToolStrip = New System.Windows.Forms.ToolStrip()
         Me.EditLogEntryToolStripButton = New System.Windows.Forms.ToolStripButton()
-        Me.WorkLogReportTabPage = New System.Windows.Forms.TabPage()
-        Me.WorkLogReportViewer = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.WorkLogFontToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.SitesTabPage = New System.Windows.Forms.TabPage()
         Me.VitalSignOverviewToolStrip = New System.Windows.Forms.ToolStrip()
         Me.OpenProjectDirectoryToolStripButton = New System.Windows.Forms.ToolStripButton()
@@ -155,8 +152,8 @@ Partial Class Form1
         Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
         Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
-        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
-        Me.WorkLogFontToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.WorkLogEditorTabPage = New System.Windows.Forms.TabPage()
+        Me.TblVitalSignWorkLogGridEX = New Janus.Windows.GridEX.GridEX()
         ProtocolAvailableLabel = New System.Windows.Forms.Label()
         DataAvailableLabel = New System.Windows.Forms.Label()
         DeliverablesScheduleLabel = New System.Windows.Forms.Label()
@@ -199,15 +196,12 @@ Partial Class Form1
         CType(Me.TblVitalSignTasksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VSWorkLogTabPage.SuspendLayout()
         Me.WorkLogTabControl.SuspendLayout()
-        Me.WorkLogEditorTabPage.SuspendLayout()
         CType(Me.WorkLogSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WorkLogSplitContainer.Panel1.SuspendLayout()
         Me.WorkLogSplitContainer.Panel2.SuspendLayout()
         Me.WorkLogSplitContainer.SuspendLayout()
-        CType(Me.TblVitalSignWorkLogGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WorkLogToolStrip.SuspendLayout()
-        Me.WorkLogReportTabPage.SuspendLayout()
         Me.VitalSignOverviewToolStrip.SuspendLayout()
         Me.VitalSignHeaderPanel.SuspendLayout()
         CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -216,95 +210,106 @@ Partial Class Form1
         Me.MainMenuStrip.SuspendLayout()
         Me.MainToolStrip.SuspendLayout()
         CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblVitalSignWorkLogGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ProtocolAvailableLabel
         '
         ProtocolAvailableLabel.AutoSize = True
-        ProtocolAvailableLabel.Location = New System.Drawing.Point(27, 33)
+        ProtocolAvailableLabel.Location = New System.Drawing.Point(40, 51)
+        ProtocolAvailableLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ProtocolAvailableLabel.Name = "ProtocolAvailableLabel"
-        ProtocolAvailableLabel.Size = New System.Drawing.Size(144, 17)
+        ProtocolAvailableLabel.Size = New System.Drawing.Size(193, 25)
         ProtocolAvailableLabel.TabIndex = 0
         ProtocolAvailableLabel.Text = "Protocol Available:"
         '
         'DataAvailableLabel
         '
         DataAvailableLabel.AutoSize = True
-        DataAvailableLabel.Location = New System.Drawing.Point(27, 60)
+        DataAvailableLabel.Location = New System.Drawing.Point(40, 92)
+        DataAvailableLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DataAvailableLabel.Name = "DataAvailableLabel"
-        DataAvailableLabel.Size = New System.Drawing.Size(118, 17)
+        DataAvailableLabel.Size = New System.Drawing.Size(159, 25)
         DataAvailableLabel.TabIndex = 2
         DataAvailableLabel.Text = "Data Available:"
         '
         'DeliverablesScheduleLabel
         '
         DeliverablesScheduleLabel.AutoSize = True
-        DeliverablesScheduleLabel.Location = New System.Drawing.Point(27, 90)
+        DeliverablesScheduleLabel.Location = New System.Drawing.Point(40, 138)
+        DeliverablesScheduleLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DeliverablesScheduleLabel.Name = "DeliverablesScheduleLabel"
-        DeliverablesScheduleLabel.Size = New System.Drawing.Size(175, 17)
+        DeliverablesScheduleLabel.Size = New System.Drawing.Size(235, 25)
         DeliverablesScheduleLabel.TabIndex = 4
         DeliverablesScheduleLabel.Text = "Deliverables Schedule:"
         '
         'SOPsWrittenLabel
         '
         SOPsWrittenLabel.AutoSize = True
-        SOPsWrittenLabel.Location = New System.Drawing.Point(27, 120)
+        SOPsWrittenLabel.Location = New System.Drawing.Point(40, 185)
+        SOPsWrittenLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         SOPsWrittenLabel.Name = "SOPsWrittenLabel"
-        SOPsWrittenLabel.Size = New System.Drawing.Size(110, 17)
+        SOPsWrittenLabel.Size = New System.Drawing.Size(151, 25)
         SOPsWrittenLabel.TabIndex = 6
         SOPsWrittenLabel.Text = "SOPs Written:"
         '
         'DMChapterWrittenLabel
         '
         DMChapterWrittenLabel.AutoSize = True
-        DMChapterWrittenLabel.Location = New System.Drawing.Point(27, 152)
+        DMChapterWrittenLabel.Location = New System.Drawing.Point(40, 234)
+        DMChapterWrittenLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DMChapterWrittenLabel.Name = "DMChapterWrittenLabel"
-        DMChapterWrittenLabel.Size = New System.Drawing.Size(150, 17)
+        DMChapterWrittenLabel.Size = New System.Drawing.Size(204, 25)
         DMChapterWrittenLabel.TabIndex = 8
         DMChapterWrittenLabel.Text = "DMChapter Written:"
         '
         'DMSystemPlanExistsLabel
         '
         DMSystemPlanExistsLabel.AutoSize = True
-        DMSystemPlanExistsLabel.Location = New System.Drawing.Point(27, 182)
+        DMSystemPlanExistsLabel.Location = New System.Drawing.Point(40, 280)
+        DMSystemPlanExistsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DMSystemPlanExistsLabel.Name = "DMSystemPlanExistsLabel"
-        DMSystemPlanExistsLabel.Size = New System.Drawing.Size(172, 17)
+        DMSystemPlanExistsLabel.Size = New System.Drawing.Size(237, 25)
         DMSystemPlanExistsLabel.TabIndex = 10
         DMSystemPlanExistsLabel.Text = "DMSystem Plan Exists:"
         '
         'DMSystemBuiltLabel
         '
         DMSystemBuiltLabel.AutoSize = True
-        DMSystemBuiltLabel.Location = New System.Drawing.Point(27, 210)
+        DMSystemBuiltLabel.Location = New System.Drawing.Point(40, 323)
+        DMSystemBuiltLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DMSystemBuiltLabel.Name = "DMSystemBuiltLabel"
-        DMSystemBuiltLabel.Size = New System.Drawing.Size(125, 17)
+        DMSystemBuiltLabel.Size = New System.Drawing.Size(172, 25)
         DMSystemBuiltLabel.TabIndex = 12
         DMSystemBuiltLabel.Text = "DMSystem Built:"
         '
         'ProtocolDirectoryLabel
         '
         ProtocolDirectoryLabel.AutoSize = True
-        ProtocolDirectoryLabel.Location = New System.Drawing.Point(27, 238)
+        ProtocolDirectoryLabel.Location = New System.Drawing.Point(40, 366)
+        ProtocolDirectoryLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ProtocolDirectoryLabel.Name = "ProtocolDirectoryLabel"
-        ProtocolDirectoryLabel.Size = New System.Drawing.Size(144, 17)
+        ProtocolDirectoryLabel.Size = New System.Drawing.Size(190, 25)
         ProtocolDirectoryLabel.TabIndex = 14
         ProtocolDirectoryLabel.Text = "Protocol Directory:"
         '
         'DataDirectoryLabel
         '
         DataDirectoryLabel.AutoSize = True
-        DataDirectoryLabel.Location = New System.Drawing.Point(27, 264)
+        DataDirectoryLabel.Location = New System.Drawing.Point(40, 406)
+        DataDirectoryLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DataDirectoryLabel.Name = "DataDirectoryLabel"
-        DataDirectoryLabel.Size = New System.Drawing.Size(118, 17)
+        DataDirectoryLabel.Size = New System.Drawing.Size(156, 25)
         DataDirectoryLabel.TabIndex = 16
         DataDirectoryLabel.Text = "Data Directory:"
         '
         'CurrentStatusLabel
         '
         CurrentStatusLabel.AutoSize = True
-        CurrentStatusLabel.Location = New System.Drawing.Point(27, 290)
+        CurrentStatusLabel.Location = New System.Drawing.Point(40, 446)
+        CurrentStatusLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CurrentStatusLabel.Name = "CurrentStatusLabel"
-        CurrentStatusLabel.Size = New System.Drawing.Size(118, 17)
+        CurrentStatusLabel.Size = New System.Drawing.Size(159, 25)
         CurrentStatusLabel.TabIndex = 18
         CurrentStatusLabel.Text = "Current Status:"
         '
@@ -391,22 +396,20 @@ Partial Class Form1
         Me.VwVitalSignOverviewGridEX.FilterRowFormatStyle.FontItalic = Janus.Windows.GridEX.TriState.[True]
         Me.VwVitalSignOverviewGridEX.FilterRowFormatStyle.ForeColor = System.Drawing.Color.Gray
         Me.VwVitalSignOverviewGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.VwVitalSignOverviewGridEX.Location = New System.Drawing.Point(0, 32)
-        Me.VwVitalSignOverviewGridEX.Margin = New System.Windows.Forms.Padding(2)
+        Me.VwVitalSignOverviewGridEX.Location = New System.Drawing.Point(0, 49)
         Me.VwVitalSignOverviewGridEX.Name = "VwVitalSignOverviewGridEX"
         Me.VwVitalSignOverviewGridEX.RecordNavigator = True
         Me.VwVitalSignOverviewGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.VwVitalSignOverviewGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
         Me.VwVitalSignOverviewGridEX.SelectOnExpand = False
         Me.VwVitalSignOverviewGridEX.SettingsKey = "VwVitalSignOverviewGridEX"
-        Me.VwVitalSignOverviewGridEX.Size = New System.Drawing.Size(392, 678)
+        Me.VwVitalSignOverviewGridEX.Size = New System.Drawing.Size(588, 1055)
         Me.VwVitalSignOverviewGridEX.TabIndex = 1
         '
         'MainSplitContainer
         '
         Me.MainSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.MainSplitContainer.Location = New System.Drawing.Point(0, 51)
-        Me.MainSplitContainer.Margin = New System.Windows.Forms.Padding(2)
+        Me.MainSplitContainer.Location = New System.Drawing.Point(0, 67)
         Me.MainSplitContainer.Name = "MainSplitContainer"
         '
         'MainSplitContainer.Panel1
@@ -419,9 +422,8 @@ Partial Class Form1
         Me.MainSplitContainer.Panel2.Controls.Add(Me.VitalSignTabControl)
         Me.MainSplitContainer.Panel2.Controls.Add(Me.VitalSignOverviewToolStrip)
         Me.MainSplitContainer.Panel2.Controls.Add(Me.VitalSignHeaderPanel)
-        Me.MainSplitContainer.Size = New System.Drawing.Size(1184, 710)
-        Me.MainSplitContainer.SplitterDistance = 392
-        Me.MainSplitContainer.SplitterWidth = 3
+        Me.MainSplitContainer.Size = New System.Drawing.Size(1776, 1104)
+        Me.MainSplitContainer.SplitterDistance = 588
         Me.MainSplitContainer.TabIndex = 2
         '
         'VitalSignPanel
@@ -430,19 +432,17 @@ Partial Class Form1
         Me.VitalSignPanel.Controls.Add(Me.Label1)
         Me.VitalSignPanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.VitalSignPanel.Location = New System.Drawing.Point(0, 0)
-        Me.VitalSignPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.VitalSignPanel.Name = "VitalSignPanel"
-        Me.VitalSignPanel.Size = New System.Drawing.Size(392, 32)
+        Me.VitalSignPanel.Size = New System.Drawing.Size(588, 49)
         Me.VitalSignPanel.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(11, 8)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(16, 12)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(192, 19)
+        Me.Label1.Size = New System.Drawing.Size(287, 29)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "ARCN/CAKN Vital Signs"
         '
@@ -458,37 +458,34 @@ Partial Class Form1
         Me.VitalSignTabControl.Controls.Add(Me.SitesTabPage)
         Me.VitalSignTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.VitalSignTabControl.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.VitalSignTabControl.Location = New System.Drawing.Point(0, 59)
-        Me.VitalSignTabControl.Margin = New System.Windows.Forms.Padding(2)
+        Me.VitalSignTabControl.Location = New System.Drawing.Point(0, 81)
         Me.VitalSignTabControl.Name = "VitalSignTabControl"
         Me.VitalSignTabControl.SelectedIndex = 0
-        Me.VitalSignTabControl.Size = New System.Drawing.Size(789, 651)
+        Me.VitalSignTabControl.Size = New System.Drawing.Size(1184, 1023)
         Me.VitalSignTabControl.TabIndex = 0
         '
         'OverviewTabPage
         '
         Me.OverviewTabPage.Controls.Add(Me.TblVitalSignsGridEX)
-        Me.OverviewTabPage.Location = New System.Drawing.Point(4, 25)
-        Me.OverviewTabPage.Margin = New System.Windows.Forms.Padding(2)
+        Me.OverviewTabPage.Location = New System.Drawing.Point(4, 34)
         Me.OverviewTabPage.Name = "OverviewTabPage"
-        Me.OverviewTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.OverviewTabPage.Size = New System.Drawing.Size(781, 622)
+        Me.OverviewTabPage.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.OverviewTabPage.Size = New System.Drawing.Size(1176, 985)
         Me.OverviewTabPage.TabIndex = 0
         Me.OverviewTabPage.Text = "Overview"
         Me.OverviewTabPage.UseVisualStyleBackColor = True
         '
         'TblVitalSignsGridEX
         '
-        Me.TblVitalSignsGridEX.CardWidth = 749
+        Me.TblVitalSignsGridEX.CardWidth = 1142
         Me.TblVitalSignsGridEX.DataSource = Me.TblVitalSignsBindingSource
         TblVitalSignsGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignsGridEX_DesignTimeLayout.LayoutString")
         Me.TblVitalSignsGridEX.DesignTimeLayout = TblVitalSignsGridEX_DesignTimeLayout
         Me.TblVitalSignsGridEX.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TblVitalSignsGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.TblVitalSignsGridEX.Location = New System.Drawing.Point(2, 2)
-        Me.TblVitalSignsGridEX.Margin = New System.Windows.Forms.Padding(2)
+        Me.TblVitalSignsGridEX.Location = New System.Drawing.Point(3, 3)
         Me.TblVitalSignsGridEX.Name = "TblVitalSignsGridEX"
-        Me.TblVitalSignsGridEX.Size = New System.Drawing.Size(777, 618)
+        Me.TblVitalSignsGridEX.Size = New System.Drawing.Size(1170, 979)
         Me.TblVitalSignsGridEX.TabIndex = 0
         Me.TblVitalSignsGridEX.View = Janus.Windows.GridEX.View.SingleCard
         '
@@ -501,11 +498,10 @@ Partial Class Form1
         '
         Me.ProtocolsTabPage.Controls.Add(Me.TblVitalSignProtocolsGridEX)
         Me.ProtocolsTabPage.Controls.Add(Me.ToolStrip2)
-        Me.ProtocolsTabPage.Location = New System.Drawing.Point(4, 25)
-        Me.ProtocolsTabPage.Margin = New System.Windows.Forms.Padding(2)
+        Me.ProtocolsTabPage.Location = New System.Drawing.Point(4, 34)
         Me.ProtocolsTabPage.Name = "ProtocolsTabPage"
-        Me.ProtocolsTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.ProtocolsTabPage.Size = New System.Drawing.Size(781, 622)
+        Me.ProtocolsTabPage.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.ProtocolsTabPage.Size = New System.Drawing.Size(1176, 956)
         Me.ProtocolsTabPage.TabIndex = 2
         Me.ProtocolsTabPage.Text = "Protocols, deliverables and remeasurements"
         Me.ProtocolsTabPage.UseVisualStyleBackColor = True
@@ -521,14 +517,13 @@ Partial Class Form1
         Me.TblVitalSignProtocolsGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TblVitalSignProtocolsGridEX.GroupByBoxVisible = False
         Me.TblVitalSignProtocolsGridEX.Hierarchical = True
-        Me.TblVitalSignProtocolsGridEX.Location = New System.Drawing.Point(2, 29)
-        Me.TblVitalSignProtocolsGridEX.Margin = New System.Windows.Forms.Padding(2)
+        Me.TblVitalSignProtocolsGridEX.Location = New System.Drawing.Point(3, 35)
         Me.TblVitalSignProtocolsGridEX.Name = "TblVitalSignProtocolsGridEX"
         Me.TblVitalSignProtocolsGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
         Me.TblVitalSignProtocolsGridEX.RecordNavigator = True
         Me.TblVitalSignProtocolsGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignProtocolsGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
-        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(777, 591)
+        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(1170, 918)
         Me.TblVitalSignProtocolsGridEX.TabIndex = 0
         Me.TblVitalSignProtocolsGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
         '
@@ -541,9 +536,10 @@ Partial Class Form1
         '
         Me.ToolStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateDeliverablesDirectoriesCreationScriptButton, Me.ToolStripSeparator4, Me.OpenDeliverablesScheduleFormToolStripButton, Me.ToolStripSeparator5, Me.CreateDeliverablesDirectoriesToolStripButton, Me.ToolStripSeparator6})
-        Me.ToolStrip2.Location = New System.Drawing.Point(2, 2)
+        Me.ToolStrip2.Location = New System.Drawing.Point(3, 3)
         Me.ToolStrip2.Name = "ToolStrip2"
-        Me.ToolStrip2.Size = New System.Drawing.Size(777, 27)
+        Me.ToolStrip2.Padding = New System.Windows.Forms.Padding(0, 0, 2, 0)
+        Me.ToolStrip2.Size = New System.Drawing.Size(1170, 32)
         Me.ToolStrip2.TabIndex = 1
         Me.ToolStrip2.Text = "ToolStrip2"
         '
@@ -552,13 +548,13 @@ Partial Class Form1
         Me.GenerateDeliverablesDirectoriesCreationScriptButton.Image = CType(resources.GetObject("GenerateDeliverablesDirectoriesCreationScriptButton.Image"), System.Drawing.Image)
         Me.GenerateDeliverablesDirectoriesCreationScriptButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.GenerateDeliverablesDirectoriesCreationScriptButton.Name = "GenerateDeliverablesDirectoriesCreationScriptButton"
-        Me.GenerateDeliverablesDirectoriesCreationScriptButton.Size = New System.Drawing.Size(302, 24)
+        Me.GenerateDeliverablesDirectoriesCreationScriptButton.Size = New System.Drawing.Size(441, 29)
         Me.GenerateDeliverablesDirectoriesCreationScriptButton.Text = "Generate deliverables directories generation script..."
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 27)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 32)
         '
         'OpenDeliverablesScheduleFormToolStripButton
         '
@@ -566,35 +562,36 @@ Partial Class Form1
         Me.OpenDeliverablesScheduleFormToolStripButton.Image = CType(resources.GetObject("OpenDeliverablesScheduleFormToolStripButton.Image"), System.Drawing.Image)
         Me.OpenDeliverablesScheduleFormToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.OpenDeliverablesScheduleFormToolStripButton.Name = "OpenDeliverablesScheduleFormToolStripButton"
-        Me.OpenDeliverablesScheduleFormToolStripButton.Size = New System.Drawing.Size(133, 24)
+        Me.OpenDeliverablesScheduleFormToolStripButton.Size = New System.Drawing.Size(197, 29)
         Me.OpenDeliverablesScheduleFormToolStripButton.Text = "Deliverables schedule..."
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 27)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(6, 32)
         '
         'CreateDeliverablesDirectoriesToolStripButton
         '
         Me.CreateDeliverablesDirectoriesToolStripButton.Image = CType(resources.GetObject("CreateDeliverablesDirectoriesToolStripButton.Image"), System.Drawing.Image)
         Me.CreateDeliverablesDirectoriesToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.CreateDeliverablesDirectoriesToolStripButton.Name = "CreateDeliverablesDirectoriesToolStripButton"
-        Me.CreateDeliverablesDirectoriesToolStripButton.Size = New System.Drawing.Size(197, 24)
+        Me.CreateDeliverablesDirectoriesToolStripButton.Size = New System.Drawing.Size(283, 29)
         Me.CreateDeliverablesDirectoriesToolStripButton.Text = "Create deliverables directories..."
         '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 27)
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 32)
         '
         'ObjectivesTabPage
         '
         Me.ObjectivesTabPage.AutoScroll = True
         Me.ObjectivesTabPage.Controls.Add(Me.TblVitalSignObjectivesDataGridView)
         Me.ObjectivesTabPage.Controls.Add(Me.tblVitalSignObjectivesBindingNavigator)
-        Me.ObjectivesTabPage.Location = New System.Drawing.Point(4, 25)
+        Me.ObjectivesTabPage.Location = New System.Drawing.Point(4, 34)
+        Me.ObjectivesTabPage.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ObjectivesTabPage.Name = "ObjectivesTabPage"
-        Me.ObjectivesTabPage.Size = New System.Drawing.Size(781, 622)
+        Me.ObjectivesTabPage.Size = New System.Drawing.Size(1176, 956)
         Me.ObjectivesTabPage.TabIndex = 5
         Me.ObjectivesTabPage.Text = "Objectives"
         Me.ObjectivesTabPage.UseVisualStyleBackColor = True
@@ -608,8 +605,9 @@ Partial Class Form1
         Me.TblVitalSignObjectivesDataGridView.DataSource = Me.TblVitalSignObjectivesBindingSource
         Me.TblVitalSignObjectivesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TblVitalSignObjectivesDataGridView.Location = New System.Drawing.Point(0, 0)
+        Me.TblVitalSignObjectivesDataGridView.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TblVitalSignObjectivesDataGridView.Name = "TblVitalSignObjectivesDataGridView"
-        Me.TblVitalSignObjectivesDataGridView.Size = New System.Drawing.Size(781, 597)
+        Me.TblVitalSignObjectivesDataGridView.Size = New System.Drawing.Size(1176, 925)
         Me.TblVitalSignObjectivesDataGridView.TabIndex = 0
         '
         'DataGridViewTextBoxColumn3
@@ -646,15 +644,17 @@ Partial Class Form1
         Me.tblVitalSignObjectivesBindingNavigator.CountItem = Me.BindingNavigatorCountItem
         Me.tblVitalSignObjectivesBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
         Me.tblVitalSignObjectivesBindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.tblVitalSignObjectivesBindingNavigator.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.tblVitalSignObjectivesBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem})
-        Me.tblVitalSignObjectivesBindingNavigator.Location = New System.Drawing.Point(0, 597)
+        Me.tblVitalSignObjectivesBindingNavigator.Location = New System.Drawing.Point(0, 925)
         Me.tblVitalSignObjectivesBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.tblVitalSignObjectivesBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
         Me.tblVitalSignObjectivesBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
         Me.tblVitalSignObjectivesBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
         Me.tblVitalSignObjectivesBindingNavigator.Name = "tblVitalSignObjectivesBindingNavigator"
+        Me.tblVitalSignObjectivesBindingNavigator.Padding = New System.Windows.Forms.Padding(0, 0, 2, 0)
         Me.tblVitalSignObjectivesBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.tblVitalSignObjectivesBindingNavigator.Size = New System.Drawing.Size(781, 25)
+        Me.tblVitalSignObjectivesBindingNavigator.Size = New System.Drawing.Size(1176, 31)
         Me.tblVitalSignObjectivesBindingNavigator.TabIndex = 1
         Me.tblVitalSignObjectivesBindingNavigator.Text = "BindingNavigator1"
         '
@@ -664,13 +664,13 @@ Partial Class Form1
         Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
         Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(28, 28)
         Me.BindingNavigatorAddNewItem.Text = "Add new"
         '
         'BindingNavigatorCountItem
         '
         Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(54, 28)
         Me.BindingNavigatorCountItem.Text = "of {0}"
         Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
@@ -680,7 +680,7 @@ Partial Class Form1
         Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
         Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(28, 28)
         Me.BindingNavigatorDeleteItem.Text = "Delete"
         '
         'BindingNavigatorMoveFirstItem
@@ -689,7 +689,7 @@ Partial Class Form1
         Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
         Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(28, 28)
         Me.BindingNavigatorMoveFirstItem.Text = "Move first"
         '
         'BindingNavigatorMovePreviousItem
@@ -698,27 +698,27 @@ Partial Class Form1
         Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
         Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(28, 28)
         Me.BindingNavigatorMovePreviousItem.Text = "Move previous"
         '
         'BindingNavigatorSeparator
         '
         Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
+        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 31)
         '
         'BindingNavigatorPositionItem
         '
         Me.BindingNavigatorPositionItem.AccessibleName = "Position"
         Me.BindingNavigatorPositionItem.AutoSize = False
         Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 23)
+        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(73, 31)
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
         '
         'BindingNavigatorSeparator1
         '
         Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
+        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 31)
         '
         'BindingNavigatorMoveNextItem
         '
@@ -726,7 +726,7 @@ Partial Class Form1
         Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
         Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(28, 28)
         Me.BindingNavigatorMoveNextItem.Text = "Move next"
         '
         'BindingNavigatorMoveLastItem
@@ -735,13 +735,13 @@ Partial Class Form1
         Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
         Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
         Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(28, 28)
         Me.BindingNavigatorMoveLastItem.Text = "Move last"
         '
         'BindingNavigatorSeparator2
         '
         Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
+        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 31)
         '
         'DataManagementMilestonesTabPage
         '
@@ -768,28 +768,31 @@ Partial Class Form1
         Me.DataManagementMilestonesTabPage.Controls.Add(Me.DataDirectoryTextBox)
         Me.DataManagementMilestonesTabPage.Controls.Add(CurrentStatusLabel)
         Me.DataManagementMilestonesTabPage.Controls.Add(Me.CurrentStatusTextBox)
-        Me.DataManagementMilestonesTabPage.Location = New System.Drawing.Point(4, 25)
+        Me.DataManagementMilestonesTabPage.Location = New System.Drawing.Point(4, 34)
+        Me.DataManagementMilestonesTabPage.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DataManagementMilestonesTabPage.Name = "DataManagementMilestonesTabPage"
-        Me.DataManagementMilestonesTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.DataManagementMilestonesTabPage.Size = New System.Drawing.Size(781, 622)
+        Me.DataManagementMilestonesTabPage.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.DataManagementMilestonesTabPage.Size = New System.Drawing.Size(1176, 985)
         Me.DataManagementMilestonesTabPage.TabIndex = 6
         Me.DataManagementMilestonesTabPage.Text = "Data management milestones"
         Me.DataManagementMilestonesTabPage.UseVisualStyleBackColor = True
         '
         'OpenDataDirectoryButton
         '
-        Me.OpenDataDirectoryButton.Location = New System.Drawing.Point(698, 261)
+        Me.OpenDataDirectoryButton.Location = New System.Drawing.Point(1047, 402)
+        Me.OpenDataDirectoryButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.OpenDataDirectoryButton.Name = "OpenDataDirectoryButton"
-        Me.OpenDataDirectoryButton.Size = New System.Drawing.Size(75, 23)
+        Me.OpenDataDirectoryButton.Size = New System.Drawing.Size(112, 35)
         Me.OpenDataDirectoryButton.TabIndex = 21
         Me.OpenDataDirectoryButton.Text = "Open..."
         Me.OpenDataDirectoryButton.UseVisualStyleBackColor = True
         '
         'OpenProtocolDirectoryButton
         '
-        Me.OpenProtocolDirectoryButton.Location = New System.Drawing.Point(698, 235)
+        Me.OpenProtocolDirectoryButton.Location = New System.Drawing.Point(1047, 362)
+        Me.OpenProtocolDirectoryButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.OpenProtocolDirectoryButton.Name = "OpenProtocolDirectoryButton"
-        Me.OpenProtocolDirectoryButton.Size = New System.Drawing.Size(75, 23)
+        Me.OpenProtocolDirectoryButton.Size = New System.Drawing.Size(112, 35)
         Me.OpenProtocolDirectoryButton.TabIndex = 20
         Me.OpenProtocolDirectoryButton.Text = "Open..."
         Me.OpenProtocolDirectoryButton.UseVisualStyleBackColor = True
@@ -797,9 +800,10 @@ Partial Class Form1
         'ProtocolAvailableCheckBox
         '
         Me.ProtocolAvailableCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "ProtocolAvailable", True))
-        Me.ProtocolAvailableCheckBox.Location = New System.Drawing.Point(213, 30)
+        Me.ProtocolAvailableCheckBox.Location = New System.Drawing.Point(320, 46)
+        Me.ProtocolAvailableCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ProtocolAvailableCheckBox.Name = "ProtocolAvailableCheckBox"
-        Me.ProtocolAvailableCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.ProtocolAvailableCheckBox.Size = New System.Drawing.Size(156, 37)
         Me.ProtocolAvailableCheckBox.TabIndex = 1
         Me.ProtocolAvailableCheckBox.UseVisualStyleBackColor = True
         '
@@ -811,71 +815,79 @@ Partial Class Form1
         'DataAvailableCheckBox
         '
         Me.DataAvailableCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DataAvailable", True))
-        Me.DataAvailableCheckBox.Location = New System.Drawing.Point(213, 60)
+        Me.DataAvailableCheckBox.Location = New System.Drawing.Point(320, 92)
+        Me.DataAvailableCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DataAvailableCheckBox.Name = "DataAvailableCheckBox"
-        Me.DataAvailableCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.DataAvailableCheckBox.Size = New System.Drawing.Size(156, 37)
         Me.DataAvailableCheckBox.TabIndex = 3
         Me.DataAvailableCheckBox.UseVisualStyleBackColor = True
         '
         'DeliverablesScheduleCheckBox
         '
         Me.DeliverablesScheduleCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DeliverablesSchedule", True))
-        Me.DeliverablesScheduleCheckBox.Location = New System.Drawing.Point(213, 87)
+        Me.DeliverablesScheduleCheckBox.Location = New System.Drawing.Point(320, 134)
+        Me.DeliverablesScheduleCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DeliverablesScheduleCheckBox.Name = "DeliverablesScheduleCheckBox"
-        Me.DeliverablesScheduleCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.DeliverablesScheduleCheckBox.Size = New System.Drawing.Size(156, 37)
         Me.DeliverablesScheduleCheckBox.TabIndex = 5
         Me.DeliverablesScheduleCheckBox.UseVisualStyleBackColor = True
         '
         'SOPsWrittenCheckBox
         '
         Me.SOPsWrittenCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "SOPsWritten", True))
-        Me.SOPsWrittenCheckBox.Location = New System.Drawing.Point(213, 117)
+        Me.SOPsWrittenCheckBox.Location = New System.Drawing.Point(320, 180)
+        Me.SOPsWrittenCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SOPsWrittenCheckBox.Name = "SOPsWrittenCheckBox"
-        Me.SOPsWrittenCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.SOPsWrittenCheckBox.Size = New System.Drawing.Size(156, 37)
         Me.SOPsWrittenCheckBox.TabIndex = 7
         Me.SOPsWrittenCheckBox.UseVisualStyleBackColor = True
         '
         'DMChapterWrittenCheckBox
         '
         Me.DMChapterWrittenCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DMChapterWritten", True))
-        Me.DMChapterWrittenCheckBox.Location = New System.Drawing.Point(213, 145)
+        Me.DMChapterWrittenCheckBox.Location = New System.Drawing.Point(320, 223)
+        Me.DMChapterWrittenCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DMChapterWrittenCheckBox.Name = "DMChapterWrittenCheckBox"
-        Me.DMChapterWrittenCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.DMChapterWrittenCheckBox.Size = New System.Drawing.Size(156, 37)
         Me.DMChapterWrittenCheckBox.TabIndex = 9
         Me.DMChapterWrittenCheckBox.UseVisualStyleBackColor = True
         '
         'DMSystemPlanExistsCheckBox
         '
         Me.DMSystemPlanExistsCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DMSystemPlanExists", True))
-        Me.DMSystemPlanExistsCheckBox.Location = New System.Drawing.Point(213, 175)
+        Me.DMSystemPlanExistsCheckBox.Location = New System.Drawing.Point(320, 269)
+        Me.DMSystemPlanExistsCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DMSystemPlanExistsCheckBox.Name = "DMSystemPlanExistsCheckBox"
-        Me.DMSystemPlanExistsCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.DMSystemPlanExistsCheckBox.Size = New System.Drawing.Size(156, 37)
         Me.DMSystemPlanExistsCheckBox.TabIndex = 11
         Me.DMSystemPlanExistsCheckBox.UseVisualStyleBackColor = True
         '
         'DMSystemBuiltCheckBox
         '
         Me.DMSystemBuiltCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DMSystemBuilt", True))
-        Me.DMSystemBuiltCheckBox.Location = New System.Drawing.Point(213, 205)
+        Me.DMSystemBuiltCheckBox.Location = New System.Drawing.Point(320, 315)
+        Me.DMSystemBuiltCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DMSystemBuiltCheckBox.Name = "DMSystemBuiltCheckBox"
-        Me.DMSystemBuiltCheckBox.Size = New System.Drawing.Size(104, 24)
+        Me.DMSystemBuiltCheckBox.Size = New System.Drawing.Size(156, 37)
         Me.DMSystemBuiltCheckBox.TabIndex = 13
         Me.DMSystemBuiltCheckBox.UseVisualStyleBackColor = True
         '
         'ProtocolDirectoryTextBox
         '
         Me.ProtocolDirectoryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "ProtocolDirectory", True))
-        Me.ProtocolDirectoryTextBox.Location = New System.Drawing.Point(177, 235)
+        Me.ProtocolDirectoryTextBox.Location = New System.Drawing.Point(266, 362)
+        Me.ProtocolDirectoryTextBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ProtocolDirectoryTextBox.Name = "ProtocolDirectoryTextBox"
-        Me.ProtocolDirectoryTextBox.Size = New System.Drawing.Size(515, 23)
+        Me.ProtocolDirectoryTextBox.Size = New System.Drawing.Size(770, 30)
         Me.ProtocolDirectoryTextBox.TabIndex = 15
         '
         'DataDirectoryTextBox
         '
         Me.DataDirectoryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "DataDirectory", True))
-        Me.DataDirectoryTextBox.Location = New System.Drawing.Point(177, 261)
+        Me.DataDirectoryTextBox.Location = New System.Drawing.Point(266, 402)
+        Me.DataDirectoryTextBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DataDirectoryTextBox.Name = "DataDirectoryTextBox"
-        Me.DataDirectoryTextBox.Size = New System.Drawing.Size(515, 23)
+        Me.DataDirectoryTextBox.Size = New System.Drawing.Size(770, 30)
         Me.DataDirectoryTextBox.TabIndex = 17
         '
         'CurrentStatusTextBox
@@ -885,20 +897,20 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CurrentStatusTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "CurrentStatus", True))
         Me.CurrentStatusTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CurrentStatusTextBox.Location = New System.Drawing.Point(177, 287)
+        Me.CurrentStatusTextBox.Location = New System.Drawing.Point(266, 442)
+        Me.CurrentStatusTextBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CurrentStatusTextBox.Multiline = True
         Me.CurrentStatusTextBox.Name = "CurrentStatusTextBox"
-        Me.CurrentStatusTextBox.Size = New System.Drawing.Size(596, 327)
+        Me.CurrentStatusTextBox.Size = New System.Drawing.Size(892, 501)
         Me.CurrentStatusTextBox.TabIndex = 19
         '
         'DataManagementOverviewTabPage
         '
         Me.DataManagementOverviewTabPage.Controls.Add(Me.TblVitalSignDataManagementSummaryGridEX)
-        Me.DataManagementOverviewTabPage.Location = New System.Drawing.Point(4, 25)
-        Me.DataManagementOverviewTabPage.Margin = New System.Windows.Forms.Padding(2)
+        Me.DataManagementOverviewTabPage.Location = New System.Drawing.Point(4, 34)
         Me.DataManagementOverviewTabPage.Name = "DataManagementOverviewTabPage"
-        Me.DataManagementOverviewTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.DataManagementOverviewTabPage.Size = New System.Drawing.Size(781, 622)
+        Me.DataManagementOverviewTabPage.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.DataManagementOverviewTabPage.Size = New System.Drawing.Size(1176, 956)
         Me.DataManagementOverviewTabPage.TabIndex = 4
         Me.DataManagementOverviewTabPage.Text = "Data management summary"
         Me.DataManagementOverviewTabPage.UseVisualStyleBackColor = True
@@ -922,15 +934,14 @@ Partial Class Form1
         Me.TblVitalSignDataManagementSummaryGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TblVitalSignDataManagementSummaryGridEX.FrozenColumns = -1
         Me.TblVitalSignDataManagementSummaryGridEX.GroupByBoxVisible = False
-        Me.TblVitalSignDataManagementSummaryGridEX.Location = New System.Drawing.Point(2, 2)
-        Me.TblVitalSignDataManagementSummaryGridEX.Margin = New System.Windows.Forms.Padding(2)
+        Me.TblVitalSignDataManagementSummaryGridEX.Location = New System.Drawing.Point(3, 3)
         Me.TblVitalSignDataManagementSummaryGridEX.Name = "TblVitalSignDataManagementSummaryGridEX"
         Me.TblVitalSignDataManagementSummaryGridEX.RecordNavigator = True
         Me.TblVitalSignDataManagementSummaryGridEX.RowFormatStyle.FontSize = 10.0!
         Me.TblVitalSignDataManagementSummaryGridEX.RowFormatStyle.LineAlignment = Janus.Windows.GridEX.TextAlignment.Near
         Me.TblVitalSignDataManagementSummaryGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignDataManagementSummaryGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
-        Me.TblVitalSignDataManagementSummaryGridEX.Size = New System.Drawing.Size(777, 618)
+        Me.TblVitalSignDataManagementSummaryGridEX.Size = New System.Drawing.Size(1170, 950)
         Me.TblVitalSignDataManagementSummaryGridEX.TabIndex = 0
         Me.TblVitalSignDataManagementSummaryGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
         '
@@ -942,11 +953,10 @@ Partial Class Form1
         'TasksTabPage
         '
         Me.TasksTabPage.Controls.Add(Me.TblVitalSignTasksGridEX)
-        Me.TasksTabPage.Location = New System.Drawing.Point(4, 25)
-        Me.TasksTabPage.Margin = New System.Windows.Forms.Padding(2)
+        Me.TasksTabPage.Location = New System.Drawing.Point(4, 34)
         Me.TasksTabPage.Name = "TasksTabPage"
-        Me.TasksTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.TasksTabPage.Size = New System.Drawing.Size(781, 622)
+        Me.TasksTabPage.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TasksTabPage.Size = New System.Drawing.Size(1176, 956)
         Me.TasksTabPage.TabIndex = 3
         Me.TasksTabPage.Text = "Tasks"
         Me.TasksTabPage.UseVisualStyleBackColor = True
@@ -962,13 +972,12 @@ Partial Class Form1
         Me.TblVitalSignTasksGridEX.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TblVitalSignTasksGridEX.FilterMode = Janus.Windows.GridEX.FilterMode.Manual
         Me.TblVitalSignTasksGridEX.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TblVitalSignTasksGridEX.Location = New System.Drawing.Point(2, 2)
-        Me.TblVitalSignTasksGridEX.Margin = New System.Windows.Forms.Padding(2)
+        Me.TblVitalSignTasksGridEX.Location = New System.Drawing.Point(3, 3)
         Me.TblVitalSignTasksGridEX.Name = "TblVitalSignTasksGridEX"
         Me.TblVitalSignTasksGridEX.RecordNavigator = True
         Me.TblVitalSignTasksGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignTasksGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
-        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(777, 618)
+        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(1170, 950)
         Me.TblVitalSignTasksGridEX.TabIndex = 0
         '
         'TblVitalSignTasksBindingSource
@@ -978,12 +987,13 @@ Partial Class Form1
         '
         'VSWorkLogTabPage
         '
+        Me.VSWorkLogTabPage.Controls.Add(Me.WorkLogSplitContainer)
+        Me.VSWorkLogTabPage.Controls.Add(Me.WorkLogToolStrip)
         Me.VSWorkLogTabPage.Controls.Add(Me.WorkLogTabControl)
-        Me.VSWorkLogTabPage.Location = New System.Drawing.Point(4, 25)
-        Me.VSWorkLogTabPage.Margin = New System.Windows.Forms.Padding(2)
+        Me.VSWorkLogTabPage.Location = New System.Drawing.Point(4, 34)
         Me.VSWorkLogTabPage.Name = "VSWorkLogTabPage"
-        Me.VSWorkLogTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.VSWorkLogTabPage.Size = New System.Drawing.Size(781, 622)
+        Me.VSWorkLogTabPage.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.VSWorkLogTabPage.Size = New System.Drawing.Size(1176, 985)
         Me.VSWorkLogTabPage.TabIndex = 1
         Me.VSWorkLogTabPage.Text = "Work log"
         Me.VSWorkLogTabPage.UseVisualStyleBackColor = True
@@ -991,74 +1001,32 @@ Partial Class Form1
         'WorkLogTabControl
         '
         Me.WorkLogTabControl.Controls.Add(Me.WorkLogEditorTabPage)
-        Me.WorkLogTabControl.Controls.Add(Me.WorkLogReportTabPage)
         Me.WorkLogTabControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WorkLogTabControl.Location = New System.Drawing.Point(2, 2)
-        Me.WorkLogTabControl.Margin = New System.Windows.Forms.Padding(2)
+        Me.WorkLogTabControl.Location = New System.Drawing.Point(3, 3)
         Me.WorkLogTabControl.Name = "WorkLogTabControl"
         Me.WorkLogTabControl.SelectedIndex = 0
-        Me.WorkLogTabControl.Size = New System.Drawing.Size(777, 618)
+        Me.WorkLogTabControl.Size = New System.Drawing.Size(1170, 979)
         Me.WorkLogTabControl.TabIndex = 2
-        '
-        'WorkLogEditorTabPage
-        '
-        Me.WorkLogEditorTabPage.Controls.Add(Me.WorkLogSplitContainer)
-        Me.WorkLogEditorTabPage.Controls.Add(Me.WorkLogToolStrip)
-        Me.WorkLogEditorTabPage.Location = New System.Drawing.Point(4, 25)
-        Me.WorkLogEditorTabPage.Margin = New System.Windows.Forms.Padding(2)
-        Me.WorkLogEditorTabPage.Name = "WorkLogEditorTabPage"
-        Me.WorkLogEditorTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.WorkLogEditorTabPage.Size = New System.Drawing.Size(769, 589)
-        Me.WorkLogEditorTabPage.TabIndex = 1
-        Me.WorkLogEditorTabPage.Text = "Edit work log"
-        Me.WorkLogEditorTabPage.UseVisualStyleBackColor = True
         '
         'WorkLogSplitContainer
         '
         Me.WorkLogSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WorkLogSplitContainer.Location = New System.Drawing.Point(2, 27)
+        Me.WorkLogSplitContainer.Location = New System.Drawing.Point(3, 35)
+        Me.WorkLogSplitContainer.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.WorkLogSplitContainer.Name = "WorkLogSplitContainer"
         '
         'WorkLogSplitContainer.Panel1
         '
+        Me.WorkLogSplitContainer.Panel1.AutoScroll = True
         Me.WorkLogSplitContainer.Panel1.Controls.Add(Me.TblVitalSignWorkLogGridEX)
         '
         'WorkLogSplitContainer.Panel2
         '
         Me.WorkLogSplitContainer.Panel2.Controls.Add(Me.LogEntryRichTextBox)
-        Me.WorkLogSplitContainer.Size = New System.Drawing.Size(765, 560)
-        Me.WorkLogSplitContainer.SplitterDistance = 255
+        Me.WorkLogSplitContainer.Size = New System.Drawing.Size(1170, 947)
+        Me.WorkLogSplitContainer.SplitterDistance = 665
+        Me.WorkLogSplitContainer.SplitterWidth = 6
         Me.WorkLogSplitContainer.TabIndex = 2
-        '
-        'TblVitalSignWorkLogGridEX
-        '
-        Me.TblVitalSignWorkLogGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblVitalSignWorkLogGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblVitalSignWorkLogGridEX.AlternatingColors = True
-        Me.TblVitalSignWorkLogGridEX.ColumnAutoResize = True
-        Me.TblVitalSignWorkLogGridEX.ColumnAutoSizeMode = Janus.Windows.GridEX.ColumnAutoSizeMode.DisplayedCellsAndHeader
-        Me.TblVitalSignWorkLogGridEX.DataSource = Me.TblVitalSignWorkLogBindingSource
-        TblVitalSignWorkLogGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignWorkLogGridEX_DesignTimeLayout.LayoutString")
-        Me.TblVitalSignWorkLogGridEX.DesignTimeLayout = TblVitalSignWorkLogGridEX_DesignTimeLayout
-        Me.TblVitalSignWorkLogGridEX.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TblVitalSignWorkLogGridEX.DynamicFiltering = True
-        Me.TblVitalSignWorkLogGridEX.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic
-        Me.TblVitalSignWorkLogGridEX.FilterRowFormatStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TblVitalSignWorkLogGridEX.FilterRowFormatStyle.FontItalic = Janus.Windows.GridEX.TriState.[True]
-        Me.TblVitalSignWorkLogGridEX.Font = New System.Drawing.Font("Times New Roman", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TblVitalSignWorkLogGridEX.GroupByBoxVisible = False
-        Me.TblVitalSignWorkLogGridEX.HeaderFormatStyle.FontName = "microsoft sans serif"
-        Me.TblVitalSignWorkLogGridEX.HeaderFormatStyle.FontSize = 10.0!
-        Me.TblVitalSignWorkLogGridEX.Location = New System.Drawing.Point(0, 0)
-        Me.TblVitalSignWorkLogGridEX.Margin = New System.Windows.Forms.Padding(2)
-        Me.TblVitalSignWorkLogGridEX.Name = "TblVitalSignWorkLogGridEX"
-        Me.TblVitalSignWorkLogGridEX.RecordNavigator = True
-        Me.TblVitalSignWorkLogGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblVitalSignWorkLogGridEX.SaveSettings = True
-        Me.TblVitalSignWorkLogGridEX.SelectOnExpand = False
-        Me.TblVitalSignWorkLogGridEX.SettingsKey = "TblVitalSignWorkLogGridEX"
-        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(255, 560)
-        Me.TblVitalSignWorkLogGridEX.TabIndex = 0
         '
         'TblVitalSignWorkLogBindingSource
         '
@@ -1072,8 +1040,9 @@ Partial Class Form1
         Me.LogEntryRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LogEntryRichTextBox.Font = New System.Drawing.Font("Times New Roman", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LogEntryRichTextBox.Location = New System.Drawing.Point(0, 0)
+        Me.LogEntryRichTextBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.LogEntryRichTextBox.Name = "LogEntryRichTextBox"
-        Me.LogEntryRichTextBox.Size = New System.Drawing.Size(506, 560)
+        Me.LogEntryRichTextBox.Size = New System.Drawing.Size(499, 947)
         Me.LogEntryRichTextBox.TabIndex = 0
         Me.LogEntryRichTextBox.Text = ""
         '
@@ -1081,9 +1050,10 @@ Partial Class Form1
         '
         Me.WorkLogToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.WorkLogToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditLogEntryToolStripButton, Me.ToolStripSeparator9, Me.WorkLogFontToolStripButton})
-        Me.WorkLogToolStrip.Location = New System.Drawing.Point(2, 2)
+        Me.WorkLogToolStrip.Location = New System.Drawing.Point(3, 3)
         Me.WorkLogToolStrip.Name = "WorkLogToolStrip"
-        Me.WorkLogToolStrip.Size = New System.Drawing.Size(765, 25)
+        Me.WorkLogToolStrip.Padding = New System.Windows.Forms.Padding(0, 0, 2, 0)
+        Me.WorkLogToolStrip.Size = New System.Drawing.Size(1170, 32)
         Me.WorkLogToolStrip.TabIndex = 1
         Me.WorkLogToolStrip.Text = "ToolStrip1"
         '
@@ -1093,40 +1063,29 @@ Partial Class Form1
         Me.EditLogEntryToolStripButton.Image = CType(resources.GetObject("EditLogEntryToolStripButton.Image"), System.Drawing.Image)
         Me.EditLogEntryToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.EditLogEntryToolStripButton.Name = "EditLogEntryToolStripButton"
-        Me.EditLogEntryToolStripButton.Size = New System.Drawing.Size(90, 22)
+        Me.EditLogEntryToolStripButton.Size = New System.Drawing.Size(134, 29)
         Me.EditLogEntryToolStripButton.Text = "Edit log entry..."
         '
-        'WorkLogReportTabPage
+        'ToolStripSeparator9
         '
-        Me.WorkLogReportTabPage.Controls.Add(Me.WorkLogReportViewer)
-        Me.WorkLogReportTabPage.Location = New System.Drawing.Point(4, 25)
-        Me.WorkLogReportTabPage.Margin = New System.Windows.Forms.Padding(2)
-        Me.WorkLogReportTabPage.Name = "WorkLogReportTabPage"
-        Me.WorkLogReportTabPage.Padding = New System.Windows.Forms.Padding(2)
-        Me.WorkLogReportTabPage.Size = New System.Drawing.Size(769, 589)
-        Me.WorkLogReportTabPage.TabIndex = 0
-        Me.WorkLogReportTabPage.Text = "Report"
-        Me.WorkLogReportTabPage.UseVisualStyleBackColor = True
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 32)
         '
-        'WorkLogReportViewer
+        'WorkLogFontToolStripButton
         '
-        Me.WorkLogReportViewer.Dock = System.Windows.Forms.DockStyle.Fill
-        ReportDataSource2.Name = "WorkLogDataset"
-        ReportDataSource2.Value = Me.vwVitalSignWorkLogBindingSource
-        Me.WorkLogReportViewer.LocalReport.DataSources.Add(ReportDataSource2)
-        Me.WorkLogReportViewer.LocalReport.DisplayName = "Work Log Report"
-        Me.WorkLogReportViewer.LocalReport.ReportEmbeddedResource = "IMPM.WorkLogReport.rdlc"
-        Me.WorkLogReportViewer.Location = New System.Drawing.Point(2, 2)
-        Me.WorkLogReportViewer.Margin = New System.Windows.Forms.Padding(2)
-        Me.WorkLogReportViewer.Name = "WorkLogReportViewer"
-        Me.WorkLogReportViewer.Size = New System.Drawing.Size(765, 585)
-        Me.WorkLogReportViewer.TabIndex = 1
+        Me.WorkLogFontToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.WorkLogFontToolStripButton.Image = CType(resources.GetObject("WorkLogFontToolStripButton.Image"), System.Drawing.Image)
+        Me.WorkLogFontToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.WorkLogFontToolStripButton.Name = "WorkLogFontToolStripButton"
+        Me.WorkLogFontToolStripButton.Size = New System.Drawing.Size(64, 29)
+        Me.WorkLogFontToolStripButton.Text = "Font..."
         '
         'SitesTabPage
         '
-        Me.SitesTabPage.Location = New System.Drawing.Point(4, 25)
+        Me.SitesTabPage.Location = New System.Drawing.Point(4, 34)
+        Me.SitesTabPage.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.SitesTabPage.Name = "SitesTabPage"
-        Me.SitesTabPage.Size = New System.Drawing.Size(781, 622)
+        Me.SitesTabPage.Size = New System.Drawing.Size(1176, 985)
         Me.SitesTabPage.TabIndex = 7
         Me.SitesTabPage.Text = "Sites"
         Me.SitesTabPage.UseVisualStyleBackColor = True
@@ -1136,9 +1095,10 @@ Partial Class Form1
         Me.VitalSignOverviewToolStrip.BackColor = System.Drawing.Color.White
         Me.VitalSignOverviewToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.VitalSignOverviewToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenProjectDirectoryToolStripButton, Me.ToolStripSeparator2, Me.OpenWebProfileToolStripButton, Me.ToolStripSeparator3, Me.OpenProjectReferenceToolStripButton, Me.ToolStripSeparator7, Me.OpenProtocolTrackerToolStripButton, Me.ToolStripSeparator8, Me.OpenProgramManagerReportServerURLToolStripButton})
-        Me.VitalSignOverviewToolStrip.Location = New System.Drawing.Point(0, 32)
+        Me.VitalSignOverviewToolStrip.Location = New System.Drawing.Point(0, 49)
         Me.VitalSignOverviewToolStrip.Name = "VitalSignOverviewToolStrip"
-        Me.VitalSignOverviewToolStrip.Size = New System.Drawing.Size(789, 27)
+        Me.VitalSignOverviewToolStrip.Padding = New System.Windows.Forms.Padding(0, 0, 2, 0)
+        Me.VitalSignOverviewToolStrip.Size = New System.Drawing.Size(1184, 32)
         Me.VitalSignOverviewToolStrip.TabIndex = 1
         Me.VitalSignOverviewToolStrip.Text = "ToolStrip3"
         '
@@ -1147,59 +1107,59 @@ Partial Class Form1
         Me.OpenProjectDirectoryToolStripButton.Image = CType(resources.GetObject("OpenProjectDirectoryToolStripButton.Image"), System.Drawing.Image)
         Me.OpenProjectDirectoryToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.OpenProjectDirectoryToolStripButton.Name = "OpenProjectDirectoryToolStripButton"
-        Me.OpenProjectDirectoryToolStripButton.Size = New System.Drawing.Size(150, 24)
+        Me.OpenProjectDirectoryToolStripButton.Size = New System.Drawing.Size(215, 29)
         Me.OpenProjectDirectoryToolStripButton.Text = "Open project directory"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 27)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 32)
         '
         'OpenWebProfileToolStripButton
         '
         Me.OpenWebProfileToolStripButton.Image = CType(resources.GetObject("OpenWebProfileToolStripButton.Image"), System.Drawing.Image)
         Me.OpenWebProfileToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.OpenWebProfileToolStripButton.Name = "OpenWebProfileToolStripButton"
-        Me.OpenWebProfileToolStripButton.Size = New System.Drawing.Size(131, 24)
+        Me.OpenWebProfileToolStripButton.Size = New System.Drawing.Size(186, 29)
         Me.OpenWebProfileToolStripButton.Text = "Open web profile..."
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 27)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 32)
         '
         'OpenProjectReferenceToolStripButton
         '
         Me.OpenProjectReferenceToolStripButton.Image = CType(resources.GetObject("OpenProjectReferenceToolStripButton.Image"), System.Drawing.Image)
         Me.OpenProjectReferenceToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.OpenProjectReferenceToolStripButton.Name = "OpenProjectReferenceToolStripButton"
-        Me.OpenProjectReferenceToolStripButton.Size = New System.Drawing.Size(166, 24)
+        Me.OpenProjectReferenceToolStripButton.Size = New System.Drawing.Size(239, 29)
         Me.OpenProjectReferenceToolStripButton.Text = "Open Data Store Project..."
         '
         'ToolStripSeparator7
         '
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 27)
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(6, 32)
         '
         'OpenProtocolTrackerToolStripButton
         '
         Me.OpenProtocolTrackerToolStripButton.Image = CType(resources.GetObject("OpenProtocolTrackerToolStripButton.Image"), System.Drawing.Image)
         Me.OpenProtocolTrackerToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.OpenProtocolTrackerToolStripButton.Name = "OpenProtocolTrackerToolStripButton"
-        Me.OpenProtocolTrackerToolStripButton.Size = New System.Drawing.Size(156, 24)
+        Me.OpenProtocolTrackerToolStripButton.Size = New System.Drawing.Size(223, 29)
         Me.OpenProtocolTrackerToolStripButton.Text = "Open protocol tracker..."
         '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 27)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(6, 32)
         '
         'OpenProgramManagerReportServerURLToolStripButton
         '
         Me.OpenProgramManagerReportServerURLToolStripButton.Image = CType(resources.GetObject("OpenProgramManagerReportServerURLToolStripButton.Image"), System.Drawing.Image)
         Me.OpenProgramManagerReportServerURLToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.OpenProgramManagerReportServerURLToolStripButton.Name = "OpenProgramManagerReportServerURLToolStripButton"
-        Me.OpenProgramManagerReportServerURLToolStripButton.Size = New System.Drawing.Size(56, 24)
+        Me.OpenProgramManagerReportServerURLToolStripButton.Size = New System.Drawing.Size(77, 29)
         Me.OpenProgramManagerReportServerURLToolStripButton.Text = "SSRS"
         '
         'VitalSignHeaderPanel
@@ -1208,9 +1168,8 @@ Partial Class Form1
         Me.VitalSignHeaderPanel.Controls.Add(Me.VitalSignHeaderLabel)
         Me.VitalSignHeaderPanel.Dock = System.Windows.Forms.DockStyle.Top
         Me.VitalSignHeaderPanel.Location = New System.Drawing.Point(0, 0)
-        Me.VitalSignHeaderPanel.Margin = New System.Windows.Forms.Padding(2)
         Me.VitalSignHeaderPanel.Name = "VitalSignHeaderPanel"
-        Me.VitalSignHeaderPanel.Size = New System.Drawing.Size(789, 32)
+        Me.VitalSignHeaderPanel.Size = New System.Drawing.Size(1184, 49)
         Me.VitalSignHeaderPanel.TabIndex = 1
         '
         'VitalSignHeaderLabel
@@ -1219,10 +1178,9 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.VitalSignHeaderLabel.AutoSize = True
         Me.VitalSignHeaderLabel.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.VitalSignHeaderLabel.Location = New System.Drawing.Point(11, 8)
-        Me.VitalSignHeaderLabel.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.VitalSignHeaderLabel.Location = New System.Drawing.Point(16, 12)
         Me.VitalSignHeaderLabel.Name = "VitalSignHeaderLabel"
-        Me.VitalSignHeaderLabel.Size = New System.Drawing.Size(174, 19)
+        Me.VitalSignHeaderLabel.Size = New System.Drawing.Size(260, 29)
         Me.VitalSignHeaderLabel.TabIndex = 0
         Me.VitalSignHeaderLabel.Text = "VitalSignHeaderLabel"
         '
@@ -1247,8 +1205,8 @@ Partial Class Form1
         Me.MainMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FunctionsToolStripMenuItem, Me.ViewsToolStripMenuItem})
         Me.MainMenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MainMenuStrip.Name = "MainMenuStrip"
-        Me.MainMenuStrip.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
-        Me.MainMenuStrip.Size = New System.Drawing.Size(1184, 24)
+        Me.MainMenuStrip.Padding = New System.Windows.Forms.Padding(6, 3, 0, 3)
+        Me.MainMenuStrip.Size = New System.Drawing.Size(1776, 35)
         Me.MainMenuStrip.TabIndex = 2
         Me.MainMenuStrip.Text = "MenuStrip1"
         '
@@ -1256,60 +1214,61 @@ Partial Class Form1
         '
         Me.FunctionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripMenuItem, Me.ExitToolStripMenuItem, Me.SettingsToolStripMenuItem})
         Me.FunctionsToolStripMenuItem.Name = "FunctionsToolStripMenuItem"
-        Me.FunctionsToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
+        Me.FunctionsToolStripMenuItem.Size = New System.Drawing.Size(100, 29)
         Me.FunctionsToolStripMenuItem.Text = "Functions"
         '
         'SaveToolStripMenuItem
         '
         Me.SaveToolStripMenuItem.Image = CType(resources.GetObject("SaveToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(232, 30)
         Me.SaveToolStripMenuItem.Text = "Save to database"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(232, 30)
         Me.ExitToolStripMenuItem.Text = "Exit"
         '
         'SettingsToolStripMenuItem
         '
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
-        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(232, 30)
         Me.SettingsToolStripMenuItem.Text = "Settings..."
         '
         'ViewsToolStripMenuItem
         '
         Me.ViewsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NetworkTasksToolStripMenuItem, Me.VitalSignTasksToolStripMenuItem, Me.ContactsToolStripMenuItem})
         Me.ViewsToolStripMenuItem.Name = "ViewsToolStripMenuItem"
-        Me.ViewsToolStripMenuItem.Size = New System.Drawing.Size(49, 20)
+        Me.ViewsToolStripMenuItem.Size = New System.Drawing.Size(69, 29)
         Me.ViewsToolStripMenuItem.Text = "Views"
         '
         'NetworkTasksToolStripMenuItem
         '
         Me.NetworkTasksToolStripMenuItem.Name = "NetworkTasksToolStripMenuItem"
-        Me.NetworkTasksToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.NetworkTasksToolStripMenuItem.Size = New System.Drawing.Size(227, 30)
         Me.NetworkTasksToolStripMenuItem.Text = "Network tasks..."
         '
         'VitalSignTasksToolStripMenuItem
         '
         Me.VitalSignTasksToolStripMenuItem.Name = "VitalSignTasksToolStripMenuItem"
-        Me.VitalSignTasksToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.VitalSignTasksToolStripMenuItem.Size = New System.Drawing.Size(227, 30)
         Me.VitalSignTasksToolStripMenuItem.Text = "Vital Sign tasks..."
         '
         'ContactsToolStripMenuItem
         '
         Me.ContactsToolStripMenuItem.Name = "ContactsToolStripMenuItem"
-        Me.ContactsToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.ContactsToolStripMenuItem.Size = New System.Drawing.Size(227, 30)
         Me.ContactsToolStripMenuItem.Text = "Contacts..."
         '
         'MainToolStrip
         '
         Me.MainToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MainToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripSeparator1, Me.RefreshToolStripButton})
-        Me.MainToolStrip.Location = New System.Drawing.Point(0, 24)
+        Me.MainToolStrip.Location = New System.Drawing.Point(0, 35)
         Me.MainToolStrip.Name = "MainToolStrip"
-        Me.MainToolStrip.Size = New System.Drawing.Size(1184, 27)
+        Me.MainToolStrip.Padding = New System.Windows.Forms.Padding(0, 0, 2, 0)
+        Me.MainToolStrip.Size = New System.Drawing.Size(1776, 32)
         Me.MainToolStrip.TabIndex = 3
         Me.MainToolStrip.Text = "ToolStrip2"
         '
@@ -1318,13 +1277,13 @@ Partial Class Form1
         Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
         Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(119, 24)
+        Me.ToolStripButton1.Size = New System.Drawing.Size(172, 29)
         Me.ToolStripButton1.Text = "Save to database"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 27)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 32)
         '
         'RefreshToolStripButton
         '
@@ -1332,7 +1291,7 @@ Partial Class Form1
         Me.RefreshToolStripButton.Image = CType(resources.GetObject("RefreshToolStripButton.Image"), System.Drawing.Image)
         Me.RefreshToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.RefreshToolStripButton.Name = "RefreshToolStripButton"
-        Me.RefreshToolStripButton.Size = New System.Drawing.Size(91, 24)
+        Me.RefreshToolStripButton.Size = New System.Drawing.Size(137, 29)
         Me.RefreshToolStripButton.Text = "Refresh dataset"
         '
         'vwVitalSignWorkLogTableAdapter
@@ -1352,29 +1311,43 @@ Partial Class Form1
         '
         Me.VwContactsLookupTableAdapter.ClearBeforeFill = True
         '
-        'ToolStripSeparator9
+        'WorkLogEditorTabPage
         '
-        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(6, 25)
+        Me.WorkLogEditorTabPage.Location = New System.Drawing.Point(4, 34)
+        Me.WorkLogEditorTabPage.Name = "WorkLogEditorTabPage"
+        Me.WorkLogEditorTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.WorkLogEditorTabPage.Size = New System.Drawing.Size(1162, 941)
+        Me.WorkLogEditorTabPage.TabIndex = 1
+        Me.WorkLogEditorTabPage.Text = "Edit work log"
+        Me.WorkLogEditorTabPage.UseVisualStyleBackColor = True
         '
-        'WorkLogFontToolStripButton
+        'TblVitalSignWorkLogGridEX
         '
-        Me.WorkLogFontToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.WorkLogFontToolStripButton.Image = CType(resources.GetObject("WorkLogFontToolStripButton.Image"), System.Drawing.Image)
-        Me.WorkLogFontToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.WorkLogFontToolStripButton.Name = "WorkLogFontToolStripButton"
-        Me.WorkLogFontToolStripButton.Size = New System.Drawing.Size(44, 22)
-        Me.WorkLogFontToolStripButton.Text = "Font..."
+        Me.TblVitalSignWorkLogGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignWorkLogGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignWorkLogGridEX.AlternatingColors = True
+        Me.TblVitalSignWorkLogGridEX.DataSource = Me.TblVitalSignWorkLogBindingSource
+        TblVitalSignWorkLogGridEX1_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignWorkLogGridEX1_DesignTimeLayout.LayoutString")
+        Me.TblVitalSignWorkLogGridEX.DesignTimeLayout = TblVitalSignWorkLogGridEX1_DesignTimeLayout
+        Me.TblVitalSignWorkLogGridEX.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TblVitalSignWorkLogGridEX.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic
+        Me.TblVitalSignWorkLogGridEX.GroupByBoxVisible = False
+        Me.TblVitalSignWorkLogGridEX.Location = New System.Drawing.Point(0, 0)
+        Me.TblVitalSignWorkLogGridEX.Name = "TblVitalSignWorkLogGridEX"
+        Me.TblVitalSignWorkLogGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
+        Me.TblVitalSignWorkLogGridEX.RecordNavigator = True
+        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(665, 947)
+        Me.TblVitalSignWorkLogGridEX.TabIndex = 1
+        Me.TblVitalSignWorkLogGridEX.TotalRow = Janus.Windows.GridEX.InheritableBoolean.[True]
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1184, 761)
+        Me.ClientSize = New System.Drawing.Size(1776, 1171)
         Me.Controls.Add(Me.MainSplitContainer)
         Me.Controls.Add(Me.MainToolStrip)
         Me.Controls.Add(Me.MainMenuStrip)
-        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Form1"
         Me.Text = "Program Manager: NPS Arctic and Central Alaska Inventory and Monitoring Networks"
         CType(Me.vwVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1415,19 +1388,15 @@ Partial Class Form1
         CType(Me.TblVitalSignTasksGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblVitalSignTasksBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.VSWorkLogTabPage.ResumeLayout(False)
+        Me.VSWorkLogTabPage.PerformLayout()
         Me.WorkLogTabControl.ResumeLayout(False)
-        Me.WorkLogEditorTabPage.ResumeLayout(False)
-        Me.WorkLogEditorTabPage.PerformLayout()
         Me.WorkLogSplitContainer.Panel1.ResumeLayout(False)
         Me.WorkLogSplitContainer.Panel2.ResumeLayout(False)
         CType(Me.WorkLogSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
         Me.WorkLogSplitContainer.ResumeLayout(False)
-        CType(Me.TblVitalSignWorkLogGridEX, System.Configuration.IPersistComponentSettings).LoadComponentSettings()
-        CType(Me.TblVitalSignWorkLogGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.WorkLogToolStrip.ResumeLayout(False)
         Me.WorkLogToolStrip.PerformLayout()
-        Me.WorkLogReportTabPage.ResumeLayout(False)
         Me.VitalSignOverviewToolStrip.ResumeLayout(False)
         Me.VitalSignOverviewToolStrip.PerformLayout()
         Me.VitalSignHeaderPanel.ResumeLayout(False)
@@ -1440,6 +1409,7 @@ Partial Class Form1
         Me.MainToolStrip.ResumeLayout(False)
         Me.MainToolStrip.PerformLayout()
         CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblVitalSignWorkLogGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1461,7 +1431,6 @@ Partial Class Form1
     Friend WithEvents VitalSignHeaderLabel As Label
     Friend WithEvents TblVitalSignWorkLogTableAdapter As AKRODataSetTableAdapters.tblVitalSignWorkLogTableAdapter
     Friend WithEvents TblVitalSignWorkLogBindingSource As BindingSource
-    Friend WithEvents TblVitalSignWorkLogGridEX As Janus.Windows.GridEX.GridEX
     Friend WithEvents ProtocolsTabPage As TabPage
     Friend WithEvents TblVitalSignProtocolsBindingSource As BindingSource
     Friend WithEvents TblVitalSignProtocolsTableAdapter As AKRODataSetTableAdapters.tblVitalSignProtocolsTableAdapter
@@ -1484,12 +1453,9 @@ Partial Class Form1
     Friend WithEvents TblVitalSignTasksBindingSource As BindingSource
     Friend WithEvents TblVitalSignTasksTableAdapter As AKRODataSetTableAdapters.tblVitalSignTasksTableAdapter
     Friend WithEvents TblVitalSignTasksGridEX As Janus.Windows.GridEX.GridEX
-    Friend WithEvents WorkLogReportViewer As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents vwVitalSignWorkLogBindingSource As BindingSource
     Friend WithEvents vwVitalSignWorkLogTableAdapter As AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter
     Friend WithEvents WorkLogTabControl As TabControl
-    Friend WithEvents WorkLogReportTabPage As TabPage
-    Friend WithEvents WorkLogEditorTabPage As TabPage
     Friend WithEvents ToolStrip2 As ToolStrip
     Friend WithEvents GenerateDeliverablesDirectoriesCreationScriptButton As ToolStripButton
     Friend WithEvents VitalSignPanel As Panel
@@ -1561,4 +1527,6 @@ Partial Class Form1
     Friend WithEvents LogEntryRichTextBox As RichTextBox
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
     Friend WithEvents WorkLogFontToolStripButton As ToolStripButton
+    Friend WithEvents WorkLogEditorTabPage As TabPage
+    Friend WithEvents TblVitalSignWorkLogGridEX As Janus.Windows.GridEX.GridEX
 End Class

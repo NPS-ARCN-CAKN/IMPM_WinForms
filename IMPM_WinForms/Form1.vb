@@ -47,7 +47,7 @@ Public Class Form1
         End Try
 
         'refresh the work log report
-        Me.WorkLogReportViewer.RefreshReport()
+        'Me.WorkLogReportViewer.RefreshReport()
     End Sub
 
 
@@ -142,13 +142,13 @@ Public Class Form1
                 End If
                 Me.VitalSignHeaderLabel.Text = Acronym & " " & VSName
 
-                    'filter the worklog report to the current record
-                    Dim MyReportParameter As New ReportParameter("VSIDReportParameter", VSID)
-                    Me.WorkLogReportViewer.LocalReport.SetParameters(MyReportParameter)
-                    Me.WorkLogReportViewer.RefreshReport()
+                'filter the worklog report to the current record
+                'Dim MyReportParameter As New ReportParameter("VSIDReportParameter", VSID)
+                'Me.WorkLogReportViewer.LocalReport.SetParameters(MyReportParameter)
+                'Me.WorkLogReportViewer.RefreshReport()
 
-                    'set up the protocol remeasurement gridex's project column's default value to match the project
-                    If Not IsDBNull(ProjectIRMAReferenceCode) Then
+                'set up the protocol remeasurement gridex's project column's default value to match the project
+                If Not IsDBNull(ProjectIRMAReferenceCode) Then
                     With Me.TblVitalSignProtocolsGridEX.Tables("tblVitalSignRemeasurements").Columns("ProjectIRMAReferenceCode")
                         .AllowSort = True
                         .AutoComplete = True
@@ -250,7 +250,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub TblVitalSignWorkLogGridEX_SelectionChanged(sender As Object, e As EventArgs) Handles TblVitalSignWorkLogGridEX.SelectionChanged
+    Private Sub TblVitalSignWorkLogGridEX_SelectionChanged(sender As Object, e As EventArgs)
         'commit the change
         Try
             Me.TblVitalSignWorkLogBindingSource.EndEdit()
@@ -301,15 +301,15 @@ Public Class Form1
                 Script = Script & "REM Version: " & ProtocolVersion & vbNewLine
                 Script = Script & "REM Instructions: Put this batch file in a new empty deliverables directory and then execute it to create a subdirectory for each deliverable type." & vbNewLine
                 For Each Row As DataRowView In DeliverablesDataView
-                        Dim Identifier As String = Row.Item("DeliverableIdentifier")
-                        Dim Desc As String = Row.Item("Deliverable")
-                        Script = Script & "mkdir """ & Identifier & " " & Desc & """" & vbNewLine
-                    Next
-                    Dim ScriptForm As New DeliverablesDirectoryGeneratorForm()
-                    ScriptForm.Script = Script
-                    ScriptForm.ShowDialog()
-                Else
-                    MsgBox("Select a protocol")
+                    Dim Identifier As String = Row.Item("DeliverableIdentifier")
+                    Dim Desc As String = Row.Item("Deliverable")
+                    Script = Script & "mkdir """ & Identifier & " " & Desc & """" & vbNewLine
+                Next
+                Dim ScriptForm As New DeliverablesDirectoryGeneratorForm()
+                ScriptForm.Script = Script
+                ScriptForm.ShowDialog()
+            Else
+                MsgBox("Select a protocol")
             End If
 
         Catch ex As Exception
@@ -450,7 +450,7 @@ Public Class Form1
     End Sub
 
 
-    Private Sub TblVitalSignWorkLogGridEX_DoubleClick(sender As Object, e As EventArgs) Handles TblVitalSignWorkLogGridEX.DoubleClick
+    Private Sub TblVitalSignWorkLogGridEX_DoubleClick(sender As Object, e As EventArgs)
         ToggleGridEXView(TblVitalSignWorkLogGridEX)
     End Sub
     ''' <summary>
@@ -718,7 +718,7 @@ Public Class Form1
         LoadDataset()
     End Sub
 
-    Private Sub TblVitalSignWorkLogGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignWorkLogGridEX.CellEdited
+    Private Sub TblVitalSignWorkLogGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs)
         'set the default values
         SetVitalSignWorkLogGridEXDefaultValues()
         'UpdateRecordUpdatedFields(Me.TblVitalSignWorkLogGridEX)
@@ -726,8 +726,6 @@ Public Class Form1
 
     Private Sub TblVitalSignTasksGridEX_CellEdited(sender As Object, e As ColumnActionEventArgs) Handles TblVitalSignTasksGridEX.CellEdited
         'set the default values
-        'Me.TblVitalSignWorkLogGridEX.RootTable.Columns("LogDate").DefaultValue = Now
-        'Me.TblVitalSignWorkLogGridEX.RootTable.Columns("UserName").DefaultValue = My.User.Name
         SetVitalSignTasksGridEXDefaultValues()
         'update the RecordUpdatedDate and RecordUpdatedBy cells
         UpdateRecordUpdatedFields(Me.TblVitalSignTasksGridEX)
