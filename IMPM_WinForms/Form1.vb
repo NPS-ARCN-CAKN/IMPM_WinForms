@@ -473,6 +473,24 @@ Public Class Form1
         Return VSID
     End Function
 
+    ''' <summary>
+    ''' Returns the current Vital Sign name 
+    ''' </summary>
+    ''' <returns>Vital Sign name. String.</returns>
+    Private Function GetCurrentVSName() As String
+        Dim VSName As String = ""
+        Try
+            'get the current row of the  GridEX
+            If Not Me.TblVitalSignsGridEX.CurrentRow Is Nothing Then
+                If Not Me.TblVitalSignsGridEX.CurrentRow.Cells("NetworkVSName") Is Nothing Then
+                    VSName = Me.TblVitalSignsGridEX.CurrentRow.Cells("NetworkVSName").Value
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+        Return VSName
+    End Function
 
     ''' <summary>
     ''' Returns the current Vital Sign work log VSDMLogID value
@@ -801,7 +819,7 @@ Public Class Form1
     Private Sub WorkLogReportToolStripButton_Click(sender As Object, e As EventArgs) Handles WorkLogReportToolStripButton.Click
         Dim CurrentVSID As Integer = GetCurrentVSID()
         If CurrentVSID > 0 Then
-            Dim WorkLogReportForm As New WorkLogReportForm(AKRODataSet.tblVitalSignWorkLog, GetCurrentVSID)
+            Dim WorkLogReportForm As New WorkLogReportForm(AKRODataSet.tblVitalSignWorkLog, GetCurrentVSID, GetCurrentVSName() & " Work Log")
             WorkLogReportForm.ShowDialog()
         Else
             MsgBox("No Vital Sign is currently selected.")

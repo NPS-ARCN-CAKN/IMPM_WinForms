@@ -28,10 +28,11 @@ Partial Class WorkLogReportForm
         'WorkLogReportTextBox
         '
         Me.WorkLogReportTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WorkLogReportTextBox.Font = New System.Drawing.Font("Courier New", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WorkLogReportTextBox.Font = New System.Drawing.Font("Times New Roman", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WorkLogReportTextBox.Location = New System.Drawing.Point(0, 0)
         Me.WorkLogReportTextBox.Multiline = True
         Me.WorkLogReportTextBox.Name = "WorkLogReportTextBox"
+        Me.WorkLogReportTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.WorkLogReportTextBox.Size = New System.Drawing.Size(1178, 1144)
         Me.WorkLogReportTextBox.TabIndex = 0
         '
@@ -42,7 +43,7 @@ Partial Class WorkLogReportForm
         Me.ClientSize = New System.Drawing.Size(1178, 1144)
         Me.Controls.Add(Me.WorkLogReportTextBox)
         Me.Name = "WorkLogReportForm"
-        Me.Text = "WorkLogReportForm"
+        Me.Text = "Work log report"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
