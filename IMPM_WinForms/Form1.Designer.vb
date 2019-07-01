@@ -39,7 +39,7 @@ Partial Class Form1
         Dim TblVitalSignProtocolsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignTasksGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim TblVitalSignWorkLogGridEX1_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim TblVitalSignWorkLogGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.vwVitalSignWorkLogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AKRODataSet = New IMPM.AKRODataSet()
         Me.VwVitalSignOverviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -111,14 +111,17 @@ Partial Class Form1
         Me.TblVitalSignTasksGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignTasksBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VSWorkLogTabPage = New System.Windows.Forms.TabPage()
-        Me.WorkLogTabControl = New System.Windows.Forms.TabControl()
         Me.WorkLogSplitContainer = New System.Windows.Forms.SplitContainer()
+        Me.TblVitalSignWorkLogGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignWorkLogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LogEntryRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.WorkLogToolStrip = New System.Windows.Forms.ToolStrip()
         Me.EditLogEntryToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.WorkLogFontToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+        Me.WorkLogTabControl = New System.Windows.Forms.TabControl()
+        Me.WorkLogEditorTabPage = New System.Windows.Forms.TabPage()
         Me.SitesTabPage = New System.Windows.Forms.TabPage()
         Me.VitalSignOverviewToolStrip = New System.Windows.Forms.ToolStrip()
         Me.OpenProjectDirectoryToolStripButton = New System.Windows.Forms.ToolStripButton()
@@ -152,8 +155,7 @@ Partial Class Form1
         Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
         Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
-        Me.WorkLogEditorTabPage = New System.Windows.Forms.TabPage()
-        Me.TblVitalSignWorkLogGridEX = New Janus.Windows.GridEX.GridEX()
+        Me.WorkLogReportToolStripButton = New System.Windows.Forms.ToolStripButton()
         ProtocolAvailableLabel = New System.Windows.Forms.Label()
         DataAvailableLabel = New System.Windows.Forms.Label()
         DeliverablesScheduleLabel = New System.Windows.Forms.Label()
@@ -195,13 +197,14 @@ Partial Class Form1
         CType(Me.TblVitalSignTasksGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignTasksBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.VSWorkLogTabPage.SuspendLayout()
-        Me.WorkLogTabControl.SuspendLayout()
         CType(Me.WorkLogSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WorkLogSplitContainer.Panel1.SuspendLayout()
         Me.WorkLogSplitContainer.Panel2.SuspendLayout()
         Me.WorkLogSplitContainer.SuspendLayout()
+        CType(Me.TblVitalSignWorkLogGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.WorkLogToolStrip.SuspendLayout()
+        Me.WorkLogTabControl.SuspendLayout()
         Me.VitalSignOverviewToolStrip.SuspendLayout()
         Me.VitalSignHeaderPanel.SuspendLayout()
         CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -210,7 +213,6 @@ Partial Class Form1
         Me.MainMenuStrip.SuspendLayout()
         Me.MainToolStrip.SuspendLayout()
         CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblVitalSignWorkLogGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ProtocolAvailableLabel
@@ -469,7 +471,7 @@ Partial Class Form1
         Me.OverviewTabPage.Controls.Add(Me.TblVitalSignsGridEX)
         Me.OverviewTabPage.Location = New System.Drawing.Point(4, 34)
         Me.OverviewTabPage.Name = "OverviewTabPage"
-        Me.OverviewTabPage.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.OverviewTabPage.Padding = New System.Windows.Forms.Padding(3)
         Me.OverviewTabPage.Size = New System.Drawing.Size(1176, 985)
         Me.OverviewTabPage.TabIndex = 0
         Me.OverviewTabPage.Text = "Overview"
@@ -500,8 +502,8 @@ Partial Class Form1
         Me.ProtocolsTabPage.Controls.Add(Me.ToolStrip2)
         Me.ProtocolsTabPage.Location = New System.Drawing.Point(4, 34)
         Me.ProtocolsTabPage.Name = "ProtocolsTabPage"
-        Me.ProtocolsTabPage.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
-        Me.ProtocolsTabPage.Size = New System.Drawing.Size(1176, 956)
+        Me.ProtocolsTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.ProtocolsTabPage.Size = New System.Drawing.Size(1176, 985)
         Me.ProtocolsTabPage.TabIndex = 2
         Me.ProtocolsTabPage.Text = "Protocols, deliverables and remeasurements"
         Me.ProtocolsTabPage.UseVisualStyleBackColor = True
@@ -523,7 +525,7 @@ Partial Class Form1
         Me.TblVitalSignProtocolsGridEX.RecordNavigator = True
         Me.TblVitalSignProtocolsGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignProtocolsGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
-        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(1170, 918)
+        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(1170, 947)
         Me.TblVitalSignProtocolsGridEX.TabIndex = 0
         Me.TblVitalSignProtocolsGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
         '
@@ -591,7 +593,7 @@ Partial Class Form1
         Me.ObjectivesTabPage.Location = New System.Drawing.Point(4, 34)
         Me.ObjectivesTabPage.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ObjectivesTabPage.Name = "ObjectivesTabPage"
-        Me.ObjectivesTabPage.Size = New System.Drawing.Size(1176, 956)
+        Me.ObjectivesTabPage.Size = New System.Drawing.Size(1176, 985)
         Me.ObjectivesTabPage.TabIndex = 5
         Me.ObjectivesTabPage.Text = "Objectives"
         Me.ObjectivesTabPage.UseVisualStyleBackColor = True
@@ -607,7 +609,7 @@ Partial Class Form1
         Me.TblVitalSignObjectivesDataGridView.Location = New System.Drawing.Point(0, 0)
         Me.TblVitalSignObjectivesDataGridView.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TblVitalSignObjectivesDataGridView.Name = "TblVitalSignObjectivesDataGridView"
-        Me.TblVitalSignObjectivesDataGridView.Size = New System.Drawing.Size(1176, 925)
+        Me.TblVitalSignObjectivesDataGridView.Size = New System.Drawing.Size(1176, 954)
         Me.TblVitalSignObjectivesDataGridView.TabIndex = 0
         '
         'DataGridViewTextBoxColumn3
@@ -646,7 +648,7 @@ Partial Class Form1
         Me.tblVitalSignObjectivesBindingNavigator.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.tblVitalSignObjectivesBindingNavigator.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.tblVitalSignObjectivesBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem})
-        Me.tblVitalSignObjectivesBindingNavigator.Location = New System.Drawing.Point(0, 925)
+        Me.tblVitalSignObjectivesBindingNavigator.Location = New System.Drawing.Point(0, 954)
         Me.tblVitalSignObjectivesBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.tblVitalSignObjectivesBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
         Me.tblVitalSignObjectivesBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
@@ -909,8 +911,8 @@ Partial Class Form1
         Me.DataManagementOverviewTabPage.Controls.Add(Me.TblVitalSignDataManagementSummaryGridEX)
         Me.DataManagementOverviewTabPage.Location = New System.Drawing.Point(4, 34)
         Me.DataManagementOverviewTabPage.Name = "DataManagementOverviewTabPage"
-        Me.DataManagementOverviewTabPage.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
-        Me.DataManagementOverviewTabPage.Size = New System.Drawing.Size(1176, 956)
+        Me.DataManagementOverviewTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.DataManagementOverviewTabPage.Size = New System.Drawing.Size(1176, 985)
         Me.DataManagementOverviewTabPage.TabIndex = 4
         Me.DataManagementOverviewTabPage.Text = "Data management summary"
         Me.DataManagementOverviewTabPage.UseVisualStyleBackColor = True
@@ -941,7 +943,7 @@ Partial Class Form1
         Me.TblVitalSignDataManagementSummaryGridEX.RowFormatStyle.LineAlignment = Janus.Windows.GridEX.TextAlignment.Near
         Me.TblVitalSignDataManagementSummaryGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignDataManagementSummaryGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
-        Me.TblVitalSignDataManagementSummaryGridEX.Size = New System.Drawing.Size(1170, 950)
+        Me.TblVitalSignDataManagementSummaryGridEX.Size = New System.Drawing.Size(1170, 979)
         Me.TblVitalSignDataManagementSummaryGridEX.TabIndex = 0
         Me.TblVitalSignDataManagementSummaryGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
         '
@@ -955,8 +957,8 @@ Partial Class Form1
         Me.TasksTabPage.Controls.Add(Me.TblVitalSignTasksGridEX)
         Me.TasksTabPage.Location = New System.Drawing.Point(4, 34)
         Me.TasksTabPage.Name = "TasksTabPage"
-        Me.TasksTabPage.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
-        Me.TasksTabPage.Size = New System.Drawing.Size(1176, 956)
+        Me.TasksTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.TasksTabPage.Size = New System.Drawing.Size(1176, 985)
         Me.TasksTabPage.TabIndex = 3
         Me.TasksTabPage.Text = "Tasks"
         Me.TasksTabPage.UseVisualStyleBackColor = True
@@ -977,7 +979,7 @@ Partial Class Form1
         Me.TblVitalSignTasksGridEX.RecordNavigator = True
         Me.TblVitalSignTasksGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignTasksGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
-        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(1170, 950)
+        Me.TblVitalSignTasksGridEX.Size = New System.Drawing.Size(1170, 979)
         Me.TblVitalSignTasksGridEX.TabIndex = 0
         '
         'TblVitalSignTasksBindingSource
@@ -992,21 +994,11 @@ Partial Class Form1
         Me.VSWorkLogTabPage.Controls.Add(Me.WorkLogTabControl)
         Me.VSWorkLogTabPage.Location = New System.Drawing.Point(4, 34)
         Me.VSWorkLogTabPage.Name = "VSWorkLogTabPage"
-        Me.VSWorkLogTabPage.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.VSWorkLogTabPage.Padding = New System.Windows.Forms.Padding(3)
         Me.VSWorkLogTabPage.Size = New System.Drawing.Size(1176, 985)
         Me.VSWorkLogTabPage.TabIndex = 1
         Me.VSWorkLogTabPage.Text = "Work log"
         Me.VSWorkLogTabPage.UseVisualStyleBackColor = True
-        '
-        'WorkLogTabControl
-        '
-        Me.WorkLogTabControl.Controls.Add(Me.WorkLogEditorTabPage)
-        Me.WorkLogTabControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.WorkLogTabControl.Location = New System.Drawing.Point(3, 3)
-        Me.WorkLogTabControl.Name = "WorkLogTabControl"
-        Me.WorkLogTabControl.SelectedIndex = 0
-        Me.WorkLogTabControl.Size = New System.Drawing.Size(1170, 979)
-        Me.WorkLogTabControl.TabIndex = 2
         '
         'WorkLogSplitContainer
         '
@@ -1027,6 +1019,24 @@ Partial Class Form1
         Me.WorkLogSplitContainer.SplitterDistance = 327
         Me.WorkLogSplitContainer.SplitterWidth = 6
         Me.WorkLogSplitContainer.TabIndex = 2
+        '
+        'TblVitalSignWorkLogGridEX
+        '
+        Me.TblVitalSignWorkLogGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignWorkLogGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignWorkLogGridEX.AlternatingColors = True
+        Me.TblVitalSignWorkLogGridEX.DataSource = Me.TblVitalSignWorkLogBindingSource
+        TblVitalSignWorkLogGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignWorkLogGridEX_DesignTimeLayout.LayoutString")
+        Me.TblVitalSignWorkLogGridEX.DesignTimeLayout = TblVitalSignWorkLogGridEX_DesignTimeLayout
+        Me.TblVitalSignWorkLogGridEX.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TblVitalSignWorkLogGridEX.GroupByBoxVisible = False
+        Me.TblVitalSignWorkLogGridEX.Location = New System.Drawing.Point(0, 0)
+        Me.TblVitalSignWorkLogGridEX.Name = "TblVitalSignWorkLogGridEX"
+        Me.TblVitalSignWorkLogGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
+        Me.TblVitalSignWorkLogGridEX.RecordNavigator = True
+        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(327, 947)
+        Me.TblVitalSignWorkLogGridEX.TabIndex = 1
+        Me.TblVitalSignWorkLogGridEX.TotalRow = Janus.Windows.GridEX.InheritableBoolean.[True]
         '
         'TblVitalSignWorkLogBindingSource
         '
@@ -1049,7 +1059,7 @@ Partial Class Form1
         'WorkLogToolStrip
         '
         Me.WorkLogToolStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.WorkLogToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditLogEntryToolStripButton, Me.ToolStripSeparator9, Me.WorkLogFontToolStripButton})
+        Me.WorkLogToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EditLogEntryToolStripButton, Me.ToolStripSeparator9, Me.WorkLogFontToolStripButton, Me.ToolStripSeparator10, Me.WorkLogReportToolStripButton})
         Me.WorkLogToolStrip.Location = New System.Drawing.Point(3, 3)
         Me.WorkLogToolStrip.Name = "WorkLogToolStrip"
         Me.WorkLogToolStrip.Padding = New System.Windows.Forms.Padding(0, 0, 2, 0)
@@ -1079,6 +1089,31 @@ Partial Class Form1
         Me.WorkLogFontToolStripButton.Name = "WorkLogFontToolStripButton"
         Me.WorkLogFontToolStripButton.Size = New System.Drawing.Size(64, 29)
         Me.WorkLogFontToolStripButton.Text = "Font..."
+        '
+        'ToolStripSeparator10
+        '
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(6, 32)
+        '
+        'WorkLogTabControl
+        '
+        Me.WorkLogTabControl.Controls.Add(Me.WorkLogEditorTabPage)
+        Me.WorkLogTabControl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.WorkLogTabControl.Location = New System.Drawing.Point(3, 3)
+        Me.WorkLogTabControl.Name = "WorkLogTabControl"
+        Me.WorkLogTabControl.SelectedIndex = 0
+        Me.WorkLogTabControl.Size = New System.Drawing.Size(1170, 979)
+        Me.WorkLogTabControl.TabIndex = 2
+        '
+        'WorkLogEditorTabPage
+        '
+        Me.WorkLogEditorTabPage.Location = New System.Drawing.Point(4, 34)
+        Me.WorkLogEditorTabPage.Name = "WorkLogEditorTabPage"
+        Me.WorkLogEditorTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.WorkLogEditorTabPage.Size = New System.Drawing.Size(1162, 941)
+        Me.WorkLogEditorTabPage.TabIndex = 1
+        Me.WorkLogEditorTabPage.Text = "Edit work log"
+        Me.WorkLogEditorTabPage.UseVisualStyleBackColor = True
         '
         'SitesTabPage
         '
@@ -1311,33 +1346,14 @@ Partial Class Form1
         '
         Me.VwContactsLookupTableAdapter.ClearBeforeFill = True
         '
-        'WorkLogEditorTabPage
+        'WorkLogReportToolStripButton
         '
-        Me.WorkLogEditorTabPage.Location = New System.Drawing.Point(4, 34)
-        Me.WorkLogEditorTabPage.Name = "WorkLogEditorTabPage"
-        Me.WorkLogEditorTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.WorkLogEditorTabPage.Size = New System.Drawing.Size(1162, 941)
-        Me.WorkLogEditorTabPage.TabIndex = 1
-        Me.WorkLogEditorTabPage.Text = "Edit work log"
-        Me.WorkLogEditorTabPage.UseVisualStyleBackColor = True
-        '
-        'TblVitalSignWorkLogGridEX
-        '
-        Me.TblVitalSignWorkLogGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblVitalSignWorkLogGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblVitalSignWorkLogGridEX.AlternatingColors = True
-        Me.TblVitalSignWorkLogGridEX.DataSource = Me.TblVitalSignWorkLogBindingSource
-        TblVitalSignWorkLogGridEX1_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignWorkLogGridEX1_DesignTimeLayout.LayoutString")
-        Me.TblVitalSignWorkLogGridEX.DesignTimeLayout = TblVitalSignWorkLogGridEX1_DesignTimeLayout
-        Me.TblVitalSignWorkLogGridEX.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TblVitalSignWorkLogGridEX.GroupByBoxVisible = False
-        Me.TblVitalSignWorkLogGridEX.Location = New System.Drawing.Point(0, 0)
-        Me.TblVitalSignWorkLogGridEX.Name = "TblVitalSignWorkLogGridEX"
-        Me.TblVitalSignWorkLogGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
-        Me.TblVitalSignWorkLogGridEX.RecordNavigator = True
-        Me.TblVitalSignWorkLogGridEX.Size = New System.Drawing.Size(327, 947)
-        Me.TblVitalSignWorkLogGridEX.TabIndex = 1
-        Me.TblVitalSignWorkLogGridEX.TotalRow = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.WorkLogReportToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.WorkLogReportToolStripButton.Image = CType(resources.GetObject("WorkLogReportToolStripButton.Image"), System.Drawing.Image)
+        Me.WorkLogReportToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.WorkLogReportToolStripButton.Name = "WorkLogReportToolStripButton"
+        Me.WorkLogReportToolStripButton.Size = New System.Drawing.Size(155, 29)
+        Me.WorkLogReportToolStripButton.Text = "Work log report..."
         '
         'Form1
         '
@@ -1388,14 +1404,15 @@ Partial Class Form1
         CType(Me.TblVitalSignTasksBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.VSWorkLogTabPage.ResumeLayout(False)
         Me.VSWorkLogTabPage.PerformLayout()
-        Me.WorkLogTabControl.ResumeLayout(False)
         Me.WorkLogSplitContainer.Panel1.ResumeLayout(False)
         Me.WorkLogSplitContainer.Panel2.ResumeLayout(False)
         CType(Me.WorkLogSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
         Me.WorkLogSplitContainer.ResumeLayout(False)
+        CType(Me.TblVitalSignWorkLogGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.WorkLogToolStrip.ResumeLayout(False)
         Me.WorkLogToolStrip.PerformLayout()
+        Me.WorkLogTabControl.ResumeLayout(False)
         Me.VitalSignOverviewToolStrip.ResumeLayout(False)
         Me.VitalSignOverviewToolStrip.PerformLayout()
         Me.VitalSignHeaderPanel.ResumeLayout(False)
@@ -1408,7 +1425,6 @@ Partial Class Form1
         Me.MainToolStrip.ResumeLayout(False)
         Me.MainToolStrip.PerformLayout()
         CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblVitalSignWorkLogGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1528,4 +1544,6 @@ Partial Class Form1
     Friend WithEvents WorkLogFontToolStripButton As ToolStripButton
     Friend WithEvents WorkLogEditorTabPage As TabPage
     Friend WithEvents TblVitalSignWorkLogGridEX As Janus.Windows.GridEX.GridEX
+    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
+    Friend WithEvents WorkLogReportToolStripButton As ToolStripButton
 End Class

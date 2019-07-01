@@ -177,6 +177,12 @@
     <Compile Include="WorkLogForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="WorkLogReportForm.Designer.vb">
+      <DependentUpon>WorkLogReportForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WorkLogReportForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ContactsForm.resx">
@@ -214,6 +220,9 @@
       <DependentUpon>WorkLogForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WorkLogReport.rdlc" />
+    <EmbeddedResource Include="WorkLogReportForm.resx">
+      <DependentUpon>WorkLogReportForm.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="AKRODataSet.xsc">

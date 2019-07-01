@@ -453,6 +453,27 @@ Public Class Form1
     Private Sub TblVitalSignWorkLogGridEX_DoubleClick(sender As Object, e As EventArgs)
         ToggleGridEXView(TblVitalSignWorkLogGridEX)
     End Sub
+
+    ''' <summary>
+    ''' Returns the current Vital Sign ID (VSID) value 
+    ''' </summary>
+    ''' <returns>VSID. Integer.</returns>
+    Private Function GetCurrentVSID() As Integer
+        Dim VSID As Integer = 0
+        Try
+            'get the current row of the  GridEX
+            If Not Me.TblVitalSignsGridEX.CurrentRow Is Nothing Then
+                If Not Me.TblVitalSignsGridEX.CurrentRow.Cells("VSID") Is Nothing Then
+                    VSID = Me.TblVitalSignsGridEX.CurrentRow.Cells("VSID").Value
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+        Return VSID
+    End Function
+
+
     ''' <summary>
     ''' Returns the current Vital Sign work log VSDMLogID value
     ''' </summary>
@@ -775,5 +796,16 @@ Public Class Form1
         FD.ShowDialog()
         Dim WorkLogFont As Font = FD.Font
         Me.LogEntryRichTextBox.Font = WorkLogFont
+    End Sub
+
+    Private Sub WorkLogReportToolStripButton_Click(sender As Object, e As EventArgs) Handles WorkLogReportToolStripButton.Click
+        Dim CurrentVSID As Integer = GetCurrentVSID()
+        If CurrentVSID > 0 Then
+            Dim WorkLogReportForm As New WorkLogReportForm(AKRODataSet.tblVitalSignWorkLog, GetCurrentVSID)
+            WorkLogReportForm.ShowDialog()
+        Else
+            MsgBox("No Vital Sign is currently selected.")
+        End If
+
     End Sub
 End Class
