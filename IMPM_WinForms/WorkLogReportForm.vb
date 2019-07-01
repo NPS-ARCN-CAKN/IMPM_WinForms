@@ -25,8 +25,11 @@
                     Dim UserName As String = Row.Item("UserName").ToString
                     Dim LogDate As String = Row.Item("LogDate").ToString
                     Dim LogEntry As String = Row.Item("LogEntry").ToString
-                    Me.WorkLogReportTextBox.AppendText(LogEntry & vbNewLine)
-                    Me.WorkLogReportTextBox.AppendText("(" & LogDate & " " & UserName & ")" & vbNewLine & vbNewLine)
+                    With Me.WorkLogReportTextBox
+                        .AppendText("-------------------------------------------------------------" & vbNewLine)
+                        .AppendText(LogEntry & vbNewLine)
+                        .AppendText("(" & LogDate & " " & UserName & ")" & vbNewLine & vbNewLine)
+                    End With
                 Next
 
             End If
