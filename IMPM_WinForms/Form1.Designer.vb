@@ -72,6 +72,7 @@ Partial Class Form1
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.CreateDeliverablesDirectoriesToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
+        Me.EditDeliverableToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ObjectivesTabPage = New System.Windows.Forms.TabPage()
         Me.TblVitalSignObjectivesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -120,6 +121,7 @@ Partial Class Form1
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.WorkLogFontToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
+        Me.WorkLogReportToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.WorkLogTabControl = New System.Windows.Forms.TabControl()
         Me.WorkLogEditorTabPage = New System.Windows.Forms.TabPage()
         Me.SitesTabPage = New System.Windows.Forms.TabPage()
@@ -155,7 +157,6 @@ Partial Class Form1
         Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
         Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
-        Me.WorkLogReportToolStripButton = New System.Windows.Forms.ToolStripButton()
         ProtocolAvailableLabel = New System.Windows.Forms.Label()
         DataAvailableLabel = New System.Windows.Forms.Label()
         DeliverablesScheduleLabel = New System.Windows.Forms.Label()
@@ -537,7 +538,7 @@ Partial Class Form1
         'ToolStrip2
         '
         Me.ToolStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateDeliverablesDirectoriesCreationScriptButton, Me.ToolStripSeparator4, Me.OpenDeliverablesScheduleFormToolStripButton, Me.ToolStripSeparator5, Me.CreateDeliverablesDirectoriesToolStripButton, Me.ToolStripSeparator6})
+        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateDeliverablesDirectoriesCreationScriptButton, Me.ToolStripSeparator4, Me.OpenDeliverablesScheduleFormToolStripButton, Me.ToolStripSeparator5, Me.CreateDeliverablesDirectoriesToolStripButton, Me.ToolStripSeparator6, Me.EditDeliverableToolStripButton})
         Me.ToolStrip2.Location = New System.Drawing.Point(3, 3)
         Me.ToolStrip2.Name = "ToolStrip2"
         Me.ToolStrip2.Padding = New System.Windows.Forms.Padding(0, 0, 2, 0)
@@ -584,6 +585,16 @@ Partial Class Form1
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
         Me.ToolStripSeparator6.Size = New System.Drawing.Size(6, 32)
+        '
+        'EditDeliverableToolStripButton
+        '
+        Me.EditDeliverableToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.EditDeliverableToolStripButton.Enabled = False
+        Me.EditDeliverableToolStripButton.Image = CType(resources.GetObject("EditDeliverableToolStripButton.Image"), System.Drawing.Image)
+        Me.EditDeliverableToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.EditDeliverableToolStripButton.Name = "EditDeliverableToolStripButton"
+        Me.EditDeliverableToolStripButton.Size = New System.Drawing.Size(196, 29)
+        Me.EditDeliverableToolStripButton.Text = "Edit current deliverable"
         '
         'ObjectivesTabPage
         '
@@ -1095,6 +1106,15 @@ Partial Class Form1
         Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
         Me.ToolStripSeparator10.Size = New System.Drawing.Size(6, 32)
         '
+        'WorkLogReportToolStripButton
+        '
+        Me.WorkLogReportToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.WorkLogReportToolStripButton.Image = CType(resources.GetObject("WorkLogReportToolStripButton.Image"), System.Drawing.Image)
+        Me.WorkLogReportToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.WorkLogReportToolStripButton.Name = "WorkLogReportToolStripButton"
+        Me.WorkLogReportToolStripButton.Size = New System.Drawing.Size(155, 29)
+        Me.WorkLogReportToolStripButton.Text = "Work log report..."
+        '
         'WorkLogTabControl
         '
         Me.WorkLogTabControl.Controls.Add(Me.WorkLogEditorTabPage)
@@ -1346,15 +1366,6 @@ Partial Class Form1
         '
         Me.VwContactsLookupTableAdapter.ClearBeforeFill = True
         '
-        'WorkLogReportToolStripButton
-        '
-        Me.WorkLogReportToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.WorkLogReportToolStripButton.Image = CType(resources.GetObject("WorkLogReportToolStripButton.Image"), System.Drawing.Image)
-        Me.WorkLogReportToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.WorkLogReportToolStripButton.Name = "WorkLogReportToolStripButton"
-        Me.WorkLogReportToolStripButton.Size = New System.Drawing.Size(155, 29)
-        Me.WorkLogReportToolStripButton.Text = "Work log report..."
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -1546,4 +1557,5 @@ Partial Class Form1
     Friend WithEvents TblVitalSignWorkLogGridEX As Janus.Windows.GridEX.GridEX
     Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
     Friend WithEvents WorkLogReportToolStripButton As ToolStripButton
+    Friend WithEvents EditDeliverableToolStripButton As ToolStripButton
 End Class

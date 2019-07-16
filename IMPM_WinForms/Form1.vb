@@ -492,6 +492,27 @@ Public Class Form1
         Return VSName
     End Function
 
+
+    ''' <summary>
+    ''' Returns the DeliverableID of the currently selected deliverable in the protocols GridEX
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function GetCurrentDeliverableID() As String
+        Dim DeliverableID As Integer = 0
+        Try
+            'get the current row of the  GridEX
+            If Not Me.TblVitalSignProtocolsGridEX.CurrentRow Is Nothing Then
+                Dim CurrentDataRowView As DataRowView = Me.TblVitalSignProtocolsGridEX.CurrentRow.DataRow
+                If Not CurrentDataRowView.Item("DeliverableID") Is Nothing Then
+                    DeliverableID = CurrentDataRowView.Item("DeliverableID")
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+        Return DeliverableID
+    End Function
+
     ''' <summary>
     ''' Returns the current Vital Sign work log VSDMLogID value
     ''' </summary>
@@ -825,5 +846,12 @@ Public Class Form1
             MsgBox("No Vital Sign is currently selected.")
         End If
 
+    End Sub
+
+    Private Sub EditDeliverableToolStripButton_Click(sender As Object, e As EventArgs) Handles EditDeliverableToolStripButton.Click
+        'get the current deliverableid
+        Dim DeliverableForm As New DeliverableForm
+        DeliverableForm.Show()
+        'GetCurrentDeliverableID()
     End Sub
 End Class

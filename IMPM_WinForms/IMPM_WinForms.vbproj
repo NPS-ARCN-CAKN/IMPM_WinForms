@@ -113,6 +113,12 @@
     <Compile Include="ContactsForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DeliverableForm.Designer.vb">
+      <DependentUpon>DeliverableForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DeliverableForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DeliverablesDirectoryGeneratorForm.Designer.vb">
       <DependentUpon>DeliverablesDirectoryGeneratorForm.vb</DependentUpon>
     </Compile>
@@ -187,6 +193,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ContactsForm.resx">
       <DependentUpon>ContactsForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeliverableForm.resx">
+      <DependentUpon>DeliverableForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeliverablesDirectoryGeneratorForm.resx">
       <DependentUpon>DeliverablesDirectoryGeneratorForm.vb</DependentUpon>
