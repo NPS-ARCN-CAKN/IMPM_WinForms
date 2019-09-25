@@ -16,6 +16,9 @@ Public Class Form1
         SetUpGridEX(TblVitalSignProtocolsGridEX)
         SetUpGridEX(TblVitalSignTasksGridEX)
         SetUpGridEX(TblVitalSignDataManagementSummaryGridEX)
+        SetUpGridEX(TblProtocolDeliverablesGridEX)
+        SetUpGridEX(RemeasurementsGridEX)
+        SetUpGridEX(ProtocolDeliverablesCardViewGridEX)
 
         'maximize the form
         Me.WindowState = FormWindowState.Maximized
