@@ -17,7 +17,7 @@ Public Class Form1
         SetUpGridEX(TblVitalSignTasksGridEX)
         SetUpGridEX(TblVitalSignDataManagementSummaryGridEX)
         SetUpGridEX(TblProtocolDeliverablesGridEX)
-        SetUpGridEX(RemeasurementsGridEX)
+        SetUpGridEX(TblProtocolRemeasurementsGridEX)
         SetUpGridEX(ProtocolDeliverablesCardViewGridEX)
 
         'maximize the form
@@ -39,6 +39,9 @@ Public Class Form1
         'set default values
         SetVitalSignTasksGridEXDefaultValues()
         SetVitalSignWorkLogGridEXDefaultValues()
+        SetVitalSignProtocolsGridEXDefaultValues()
+        SetProtocolDeliverablesGridEXDefaultValues()
+        SetProtocolRemeasurementsGridexDefaultValues()
 
         'load the tasks GridEX contacts dropdown
         Try
@@ -215,20 +218,7 @@ Public Class Form1
     End Sub
 
     Private Sub TblVitalSignProtocolsGridEX_SelectionChanged(sender As Object, e As EventArgs) Handles TblVitalSignProtocolsGridEX.SelectionChanged
-        'set default values
-        Dim GridEX As GridEX = Me.TblVitalSignProtocolsGridEX
-        Try
-            GridEX.Tables("tblVitalSignProtocols").Columns("RecordInsertedDate").DefaultValue = Now
-            GridEX.Tables("tblVitalSignProtocols").Columns("RecordInsertedBy").DefaultValue = My.User.Name
-            GridEX.Tables("tblVitalSignProtocols").Columns("Version").DefaultValue = 0
-            GridEX.Tables("tblProtocolDeliverables").Columns("RecordInsertedDate").DefaultValue = Now
-            GridEX.Tables("tblProtocolDeliverables").Columns("RecordInsertedBy").DefaultValue = My.User.Name
-            GridEX.Tables("tblVitalSignRemeasurements").Columns("RecordInsertedDate").DefaultValue = Now
-            GridEX.Tables("tblVitalSignRemeasurements").Columns("RecordInsertedBy").DefaultValue = My.User.Name
-        Catch ex As Exception
-            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
-        End Try
-
+        SetVitalSignProtocolsGridEXDefaultValues()
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
@@ -821,6 +811,47 @@ Public Class Form1
         Try
             GridEX.RootTable.Columns("LogDate").DefaultValue = Now
             GridEX.RootTable.Columns("Username").DefaultValue = My.User.Name
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    ''' <summary>
+    ''' Revises the default values for the Vital Sign work log gridex
+    ''' </summary>
+    Private Sub SetVitalSignProtocolsGridEXDefaultValues()
+        'set default values
+        Dim GridEX As GridEX = Me.TblVitalSignProtocolsGridEX
+        Try
+            GridEX.Tables("tblVitalSignProtocols").Columns("RecordInsertedDate").DefaultValue = Now
+            GridEX.Tables("tblVitalSignProtocols").Columns("RecordInsertedBy").DefaultValue = My.User.Name
+            GridEX.Tables("tblVitalSignProtocols").Columns("Version").DefaultValue = 0
+            GridEX.Tables("tblProtocolDeliverables").Columns("RecordInsertedDate").DefaultValue = Now
+            GridEX.Tables("tblProtocolDeliverables").Columns("RecordInsertedBy").DefaultValue = My.User.Name
+            GridEX.Tables("tblVitalSignRemeasurements").Columns("RecordInsertedDate").DefaultValue = Now
+            GridEX.Tables("tblVitalSignRemeasurements").Columns("RecordInsertedBy").DefaultValue = My.User.Name
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    Private Sub SetProtocolRemeasurementsGridexDefaultValues()
+        'set default values
+        Dim GridEX As GridEX = Me.TblProtocolRemeasurementsGridEX
+        Try
+            GridEX.RootTable.Columns("RecordInsertedDate").DefaultValue = Now
+            GridEX.RootTable.Columns("RecordInsertedBy").DefaultValue = My.User.Name
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    Private Sub SetProtocolDeliverablesGridEXDefaultValues()
+        'set default values
+        Dim GridEX As GridEX = Me.TblProtocolDeliverablesGridEX
+        Try
+            GridEX.RootTable.Columns("RecordInsertedDate").DefaultValue = Now
+            GridEX.RootTable.Columns("RecordInsertedBy").DefaultValue = My.User.Name
         Catch ex As Exception
             MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Try

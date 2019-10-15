@@ -36,13 +36,13 @@ Partial Class Form1
         Dim VwVitalSignOverviewGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Dim TblVitalSignsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim TblProtocolDeliverablesGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim ProtocolDeliverablesCardViewGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim TblProtocolRemeasurementsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignProtocolsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignTasksGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignWorkLogGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim TblProtocolDeliverablesGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim ProtocolDeliverablesCardViewGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim RemeasurementsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.vwVitalSignWorkLogBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AKRODataSet = New IMPM.AKRODataSet()
         Me.VwVitalSignOverviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -66,8 +66,17 @@ Partial Class Form1
         Me.TblVitalSignsGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProtocolsTabPage = New System.Windows.Forms.TabPage()
-        Me.TblVitalSignProtocolsGridEX = New Janus.Windows.GridEX.GridEX()
+        Me.ProtocolTabControl = New System.Windows.Forms.TabControl()
+        Me.DeliverablesTabPage = New System.Windows.Forms.TabPage()
+        Me.ProtocolDeliverablesSplitContainer = New System.Windows.Forms.SplitContainer()
+        Me.TblProtocolDeliverablesGridEX = New Janus.Windows.GridEX.GridEX()
+        Me.TblProtocolDeliverablesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TblVitalSignProtocolsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ProtocolDeliverablesCardViewGridEX = New Janus.Windows.GridEX.GridEX()
+        Me.RemeasurementsTabPage = New System.Windows.Forms.TabPage()
+        Me.TblProtocolRemeasurementsGridEX = New Janus.Windows.GridEX.GridEX()
+        Me.TblProtocolRemeasurementsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TblVitalSignProtocolsGridEX = New Janus.Windows.GridEX.GridEX()
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
         Me.GenerateDeliverablesDirectoriesCreationScriptButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
@@ -141,8 +150,6 @@ Partial Class Form1
         Me.VitalSignHeaderPanel = New System.Windows.Forms.Panel()
         Me.VitalSignHeaderLabel = New System.Windows.Forms.Label()
         Me.TblContactsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TblProtocolDeliverablesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TblProtocolRemeasurementsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MainMenuStrip = New System.Windows.Forms.MenuStrip()
         Me.FunctionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -160,13 +167,6 @@ Partial Class Form1
         Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
         Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
-        Me.ProtocolDeliverablesSplitContainer = New System.Windows.Forms.SplitContainer()
-        Me.TblProtocolDeliverablesGridEX = New Janus.Windows.GridEX.GridEX()
-        Me.ProtocolDeliverablesCardViewGridEX = New Janus.Windows.GridEX.GridEX()
-        Me.ProtocolTabControl = New System.Windows.Forms.TabControl()
-        Me.DeliverablesTabPage = New System.Windows.Forms.TabPage()
-        Me.RemeasurementsTabPage = New System.Windows.Forms.TabPage()
-        Me.RemeasurementsGridEX = New Janus.Windows.GridEX.GridEX()
         ProtocolAvailableLabel = New System.Windows.Forms.Label()
         DataAvailableLabel = New System.Windows.Forms.Label()
         DeliverablesScheduleLabel = New System.Windows.Forms.Label()
@@ -191,8 +191,20 @@ Partial Class Form1
         CType(Me.TblVitalSignsGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProtocolsTabPage.SuspendLayout()
-        CType(Me.TblVitalSignProtocolsGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ProtocolTabControl.SuspendLayout()
+        Me.DeliverablesTabPage.SuspendLayout()
+        CType(Me.ProtocolDeliverablesSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ProtocolDeliverablesSplitContainer.Panel1.SuspendLayout()
+        Me.ProtocolDeliverablesSplitContainer.Panel2.SuspendLayout()
+        Me.ProtocolDeliverablesSplitContainer.SuspendLayout()
+        CType(Me.TblProtocolDeliverablesGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignProtocolsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProtocolDeliverablesCardViewGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.RemeasurementsTabPage.SuspendLayout()
+        CType(Me.TblProtocolRemeasurementsGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblProtocolRemeasurementsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblVitalSignProtocolsGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip2.SuspendLayout()
         Me.ObjectivesTabPage.SuspendLayout()
         CType(Me.TblVitalSignObjectivesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -219,21 +231,9 @@ Partial Class Form1
         Me.VitalSignOverviewToolStrip.SuspendLayout()
         Me.VitalSignHeaderPanel.SuspendLayout()
         CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblProtocolRemeasurementsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MainMenuStrip.SuspendLayout()
         Me.MainToolStrip.SuspendLayout()
         CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProtocolDeliverablesSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ProtocolDeliverablesSplitContainer.Panel1.SuspendLayout()
-        Me.ProtocolDeliverablesSplitContainer.Panel2.SuspendLayout()
-        Me.ProtocolDeliverablesSplitContainer.SuspendLayout()
-        CType(Me.TblProtocolDeliverablesGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProtocolDeliverablesCardViewGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ProtocolTabControl.SuspendLayout()
-        Me.DeliverablesTabPage.SuspendLayout()
-        Me.RemeasurementsTabPage.SuspendLayout()
-        CType(Me.RemeasurementsGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ProtocolAvailableLabel
@@ -530,6 +530,117 @@ Partial Class Form1
         Me.ProtocolsTabPage.Text = "Protocols, deliverables and remeasurements"
         Me.ProtocolsTabPage.UseVisualStyleBackColor = True
         '
+        'ProtocolTabControl
+        '
+        Me.ProtocolTabControl.Controls.Add(Me.DeliverablesTabPage)
+        Me.ProtocolTabControl.Controls.Add(Me.RemeasurementsTabPage)
+        Me.ProtocolTabControl.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ProtocolTabControl.Location = New System.Drawing.Point(3, 402)
+        Me.ProtocolTabControl.Name = "ProtocolTabControl"
+        Me.ProtocolTabControl.SelectedIndex = 0
+        Me.ProtocolTabControl.Size = New System.Drawing.Size(1170, 580)
+        Me.ProtocolTabControl.TabIndex = 1
+        '
+        'DeliverablesTabPage
+        '
+        Me.DeliverablesTabPage.Controls.Add(Me.ProtocolDeliverablesSplitContainer)
+        Me.DeliverablesTabPage.Location = New System.Drawing.Point(4, 34)
+        Me.DeliverablesTabPage.Name = "DeliverablesTabPage"
+        Me.DeliverablesTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.DeliverablesTabPage.Size = New System.Drawing.Size(1162, 542)
+        Me.DeliverablesTabPage.TabIndex = 0
+        Me.DeliverablesTabPage.Text = "Deliverables schedule"
+        Me.DeliverablesTabPage.UseVisualStyleBackColor = True
+        '
+        'ProtocolDeliverablesSplitContainer
+        '
+        Me.ProtocolDeliverablesSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ProtocolDeliverablesSplitContainer.Location = New System.Drawing.Point(3, 3)
+        Me.ProtocolDeliverablesSplitContainer.Name = "ProtocolDeliverablesSplitContainer"
+        '
+        'ProtocolDeliverablesSplitContainer.Panel1
+        '
+        Me.ProtocolDeliverablesSplitContainer.Panel1.AutoScroll = True
+        Me.ProtocolDeliverablesSplitContainer.Panel1.Controls.Add(Me.TblProtocolDeliverablesGridEX)
+        '
+        'ProtocolDeliverablesSplitContainer.Panel2
+        '
+        Me.ProtocolDeliverablesSplitContainer.Panel2.Controls.Add(Me.ProtocolDeliverablesCardViewGridEX)
+        Me.ProtocolDeliverablesSplitContainer.Size = New System.Drawing.Size(1156, 536)
+        Me.ProtocolDeliverablesSplitContainer.SplitterDistance = 385
+        Me.ProtocolDeliverablesSplitContainer.TabIndex = 2
+        '
+        'TblProtocolDeliverablesGridEX
+        '
+        Me.TblProtocolDeliverablesGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblProtocolDeliverablesGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblProtocolDeliverablesGridEX.DataSource = Me.TblProtocolDeliverablesBindingSource
+        TblProtocolDeliverablesGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblProtocolDeliverablesGridEX_DesignTimeLayout.LayoutString")
+        Me.TblProtocolDeliverablesGridEX.DesignTimeLayout = TblProtocolDeliverablesGridEX_DesignTimeLayout
+        Me.TblProtocolDeliverablesGridEX.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TblProtocolDeliverablesGridEX.GroupByBoxVisible = False
+        Me.TblProtocolDeliverablesGridEX.Location = New System.Drawing.Point(0, 0)
+        Me.TblProtocolDeliverablesGridEX.Name = "TblProtocolDeliverablesGridEX"
+        Me.TblProtocolDeliverablesGridEX.Size = New System.Drawing.Size(385, 536)
+        Me.TblProtocolDeliverablesGridEX.TabIndex = 0
+        '
+        'TblProtocolDeliverablesBindingSource
+        '
+        Me.TblProtocolDeliverablesBindingSource.DataMember = "FK_tblProtocolDeliverables_tblVitalSignProtocols"
+        Me.TblProtocolDeliverablesBindingSource.DataSource = Me.TblVitalSignProtocolsBindingSource
+        '
+        'TblVitalSignProtocolsBindingSource
+        '
+        Me.TblVitalSignProtocolsBindingSource.DataMember = "FK_tblVitalSignProtocols_tblVitalSigns"
+        Me.TblVitalSignProtocolsBindingSource.DataSource = Me.TblVitalSignsBindingSource
+        '
+        'ProtocolDeliverablesCardViewGridEX
+        '
+        Me.ProtocolDeliverablesCardViewGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.ProtocolDeliverablesCardViewGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.ProtocolDeliverablesCardViewGridEX.AlternatingColors = True
+        Me.ProtocolDeliverablesCardViewGridEX.CardWidth = 713
+        Me.ProtocolDeliverablesCardViewGridEX.DataSource = Me.TblProtocolDeliverablesBindingSource
+        ProtocolDeliverablesCardViewGridEX_DesignTimeLayout.LayoutString = resources.GetString("ProtocolDeliverablesCardViewGridEX_DesignTimeLayout.LayoutString")
+        Me.ProtocolDeliverablesCardViewGridEX.DesignTimeLayout = ProtocolDeliverablesCardViewGridEX_DesignTimeLayout
+        Me.ProtocolDeliverablesCardViewGridEX.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ProtocolDeliverablesCardViewGridEX.GroupByBoxVisible = False
+        Me.ProtocolDeliverablesCardViewGridEX.Location = New System.Drawing.Point(0, 0)
+        Me.ProtocolDeliverablesCardViewGridEX.Name = "ProtocolDeliverablesCardViewGridEX"
+        Me.ProtocolDeliverablesCardViewGridEX.Size = New System.Drawing.Size(767, 536)
+        Me.ProtocolDeliverablesCardViewGridEX.TabIndex = 0
+        Me.ProtocolDeliverablesCardViewGridEX.View = Janus.Windows.GridEX.View.SingleCard
+        '
+        'RemeasurementsTabPage
+        '
+        Me.RemeasurementsTabPage.Controls.Add(Me.TblProtocolRemeasurementsGridEX)
+        Me.RemeasurementsTabPage.Location = New System.Drawing.Point(4, 34)
+        Me.RemeasurementsTabPage.Name = "RemeasurementsTabPage"
+        Me.RemeasurementsTabPage.Padding = New System.Windows.Forms.Padding(3)
+        Me.RemeasurementsTabPage.Size = New System.Drawing.Size(1162, 542)
+        Me.RemeasurementsTabPage.TabIndex = 1
+        Me.RemeasurementsTabPage.Text = "Remeasurements"
+        Me.RemeasurementsTabPage.UseVisualStyleBackColor = True
+        '
+        'TblProtocolRemeasurementsGridEX
+        '
+        Me.TblProtocolRemeasurementsGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblProtocolRemeasurementsGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblProtocolRemeasurementsGridEX.DataSource = Me.TblProtocolRemeasurementsBindingSource
+        TblProtocolRemeasurementsGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblProtocolRemeasurementsGridEX_DesignTimeLayout.LayoutString")
+        Me.TblProtocolRemeasurementsGridEX.DesignTimeLayout = TblProtocolRemeasurementsGridEX_DesignTimeLayout
+        Me.TblProtocolRemeasurementsGridEX.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TblProtocolRemeasurementsGridEX.GroupByBoxVisible = False
+        Me.TblProtocolRemeasurementsGridEX.Location = New System.Drawing.Point(3, 3)
+        Me.TblProtocolRemeasurementsGridEX.Name = "TblProtocolRemeasurementsGridEX"
+        Me.TblProtocolRemeasurementsGridEX.Size = New System.Drawing.Size(1156, 536)
+        Me.TblProtocolRemeasurementsGridEX.TabIndex = 0
+        '
+        'TblProtocolRemeasurementsBindingSource
+        '
+        Me.TblProtocolRemeasurementsBindingSource.DataMember = "FK_tblVitalSignRemeasurements_tblVitalSignProtocols"
+        Me.TblProtocolRemeasurementsBindingSource.DataSource = Me.TblVitalSignProtocolsBindingSource
+        '
         'TblVitalSignProtocolsGridEX
         '
         Me.TblVitalSignProtocolsGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
@@ -550,11 +661,6 @@ Partial Class Form1
         Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(1170, 367)
         Me.TblVitalSignProtocolsGridEX.TabIndex = 0
         Me.TblVitalSignProtocolsGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
-        '
-        'TblVitalSignProtocolsBindingSource
-        '
-        Me.TblVitalSignProtocolsBindingSource.DataMember = "FK_tblVitalSignProtocols_tblVitalSigns"
-        Me.TblVitalSignProtocolsBindingSource.DataSource = Me.TblVitalSignsBindingSource
         '
         'ToolStrip2
         '
@@ -1265,16 +1371,6 @@ Partial Class Form1
         Me.TblContactsBindingSource.DataMember = "tblContacts"
         Me.TblContactsBindingSource.DataSource = Me.AKRODataSet
         '
-        'TblProtocolDeliverablesBindingSource
-        '
-        Me.TblProtocolDeliverablesBindingSource.DataMember = "FK_tblProtocolDeliverables_tblVitalSignProtocols"
-        Me.TblProtocolDeliverablesBindingSource.DataSource = Me.TblVitalSignProtocolsBindingSource
-        '
-        'TblProtocolRemeasurementsBindingSource
-        '
-        Me.TblProtocolRemeasurementsBindingSource.DataMember = "FK_tblVitalSignRemeasurements_tblVitalSignProtocols"
-        Me.TblProtocolRemeasurementsBindingSource.DataSource = Me.TblVitalSignProtocolsBindingSource
-        '
         'MainMenuStrip
         '
         Me.MainMenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
@@ -1387,101 +1483,6 @@ Partial Class Form1
         '
         Me.VwContactsLookupTableAdapter.ClearBeforeFill = True
         '
-        'ProtocolDeliverablesSplitContainer
-        '
-        Me.ProtocolDeliverablesSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ProtocolDeliverablesSplitContainer.Location = New System.Drawing.Point(3, 3)
-        Me.ProtocolDeliverablesSplitContainer.Name = "ProtocolDeliverablesSplitContainer"
-        '
-        'ProtocolDeliverablesSplitContainer.Panel1
-        '
-        Me.ProtocolDeliverablesSplitContainer.Panel1.AutoScroll = True
-        Me.ProtocolDeliverablesSplitContainer.Panel1.Controls.Add(Me.TblProtocolDeliverablesGridEX)
-        '
-        'ProtocolDeliverablesSplitContainer.Panel2
-        '
-        Me.ProtocolDeliverablesSplitContainer.Panel2.Controls.Add(Me.ProtocolDeliverablesCardViewGridEX)
-        Me.ProtocolDeliverablesSplitContainer.Size = New System.Drawing.Size(1156, 536)
-        Me.ProtocolDeliverablesSplitContainer.SplitterDistance = 385
-        Me.ProtocolDeliverablesSplitContainer.TabIndex = 2
-        '
-        'TblProtocolDeliverablesGridEX
-        '
-        Me.TblProtocolDeliverablesGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblProtocolDeliverablesGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblProtocolDeliverablesGridEX.DataSource = Me.TblProtocolDeliverablesBindingSource
-        TblProtocolDeliverablesGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblProtocolDeliverablesGridEX_DesignTimeLayout.LayoutString")
-        Me.TblProtocolDeliverablesGridEX.DesignTimeLayout = TblProtocolDeliverablesGridEX_DesignTimeLayout
-        Me.TblProtocolDeliverablesGridEX.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TblProtocolDeliverablesGridEX.GroupByBoxVisible = False
-        Me.TblProtocolDeliverablesGridEX.Location = New System.Drawing.Point(0, 0)
-        Me.TblProtocolDeliverablesGridEX.Name = "TblProtocolDeliverablesGridEX"
-        Me.TblProtocolDeliverablesGridEX.Size = New System.Drawing.Size(385, 536)
-        Me.TblProtocolDeliverablesGridEX.TabIndex = 0
-        '
-        'ProtocolDeliverablesCardViewGridEX
-        '
-        Me.ProtocolDeliverablesCardViewGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.ProtocolDeliverablesCardViewGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.ProtocolDeliverablesCardViewGridEX.AlternatingColors = True
-        Me.ProtocolDeliverablesCardViewGridEX.CardWidth = 713
-        Me.ProtocolDeliverablesCardViewGridEX.DataSource = Me.TblProtocolDeliverablesBindingSource
-        ProtocolDeliverablesCardViewGridEX_DesignTimeLayout.LayoutString = resources.GetString("ProtocolDeliverablesCardViewGridEX_DesignTimeLayout.LayoutString")
-        Me.ProtocolDeliverablesCardViewGridEX.DesignTimeLayout = ProtocolDeliverablesCardViewGridEX_DesignTimeLayout
-        Me.ProtocolDeliverablesCardViewGridEX.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ProtocolDeliverablesCardViewGridEX.GroupByBoxVisible = False
-        Me.ProtocolDeliverablesCardViewGridEX.Location = New System.Drawing.Point(0, 0)
-        Me.ProtocolDeliverablesCardViewGridEX.Name = "ProtocolDeliverablesCardViewGridEX"
-        Me.ProtocolDeliverablesCardViewGridEX.Size = New System.Drawing.Size(767, 536)
-        Me.ProtocolDeliverablesCardViewGridEX.TabIndex = 0
-        Me.ProtocolDeliverablesCardViewGridEX.View = Janus.Windows.GridEX.View.SingleCard
-        '
-        'ProtocolTabControl
-        '
-        Me.ProtocolTabControl.Controls.Add(Me.DeliverablesTabPage)
-        Me.ProtocolTabControl.Controls.Add(Me.RemeasurementsTabPage)
-        Me.ProtocolTabControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ProtocolTabControl.Location = New System.Drawing.Point(3, 402)
-        Me.ProtocolTabControl.Name = "ProtocolTabControl"
-        Me.ProtocolTabControl.SelectedIndex = 0
-        Me.ProtocolTabControl.Size = New System.Drawing.Size(1170, 580)
-        Me.ProtocolTabControl.TabIndex = 1
-        '
-        'DeliverablesTabPage
-        '
-        Me.DeliverablesTabPage.Controls.Add(Me.ProtocolDeliverablesSplitContainer)
-        Me.DeliverablesTabPage.Location = New System.Drawing.Point(4, 34)
-        Me.DeliverablesTabPage.Name = "DeliverablesTabPage"
-        Me.DeliverablesTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.DeliverablesTabPage.Size = New System.Drawing.Size(1162, 542)
-        Me.DeliverablesTabPage.TabIndex = 0
-        Me.DeliverablesTabPage.Text = "Deliverables schedule"
-        Me.DeliverablesTabPage.UseVisualStyleBackColor = True
-        '
-        'RemeasurementsTabPage
-        '
-        Me.RemeasurementsTabPage.Controls.Add(Me.RemeasurementsGridEX)
-        Me.RemeasurementsTabPage.Location = New System.Drawing.Point(4, 34)
-        Me.RemeasurementsTabPage.Name = "RemeasurementsTabPage"
-        Me.RemeasurementsTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.RemeasurementsTabPage.Size = New System.Drawing.Size(1162, 542)
-        Me.RemeasurementsTabPage.TabIndex = 1
-        Me.RemeasurementsTabPage.Text = "Remeasurements"
-        Me.RemeasurementsTabPage.UseVisualStyleBackColor = True
-        '
-        'RemeasurementsGridEX
-        '
-        Me.RemeasurementsGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.RemeasurementsGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.RemeasurementsGridEX.DataSource = Me.TblProtocolRemeasurementsBindingSource
-        RemeasurementsGridEX_DesignTimeLayout.LayoutString = resources.GetString("RemeasurementsGridEX_DesignTimeLayout.LayoutString")
-        Me.RemeasurementsGridEX.DesignTimeLayout = RemeasurementsGridEX_DesignTimeLayout
-        Me.RemeasurementsGridEX.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RemeasurementsGridEX.Location = New System.Drawing.Point(3, 3)
-        Me.RemeasurementsGridEX.Name = "RemeasurementsGridEX"
-        Me.RemeasurementsGridEX.Size = New System.Drawing.Size(1156, 536)
-        Me.RemeasurementsGridEX.TabIndex = 0
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -1509,8 +1510,20 @@ Partial Class Form1
         CType(Me.TblVitalSignsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ProtocolsTabPage.ResumeLayout(False)
         Me.ProtocolsTabPage.PerformLayout()
-        CType(Me.TblVitalSignProtocolsGridEX, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ProtocolTabControl.ResumeLayout(False)
+        Me.DeliverablesTabPage.ResumeLayout(False)
+        Me.ProtocolDeliverablesSplitContainer.Panel1.ResumeLayout(False)
+        Me.ProtocolDeliverablesSplitContainer.Panel2.ResumeLayout(False)
+        CType(Me.ProtocolDeliverablesSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ProtocolDeliverablesSplitContainer.ResumeLayout(False)
+        CType(Me.TblProtocolDeliverablesGridEX, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblVitalSignProtocolsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProtocolDeliverablesCardViewGridEX, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.RemeasurementsTabPage.ResumeLayout(False)
+        CType(Me.TblProtocolRemeasurementsGridEX, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblProtocolRemeasurementsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblVitalSignProtocolsGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip2.ResumeLayout(False)
         Me.ToolStrip2.PerformLayout()
         Me.ObjectivesTabPage.ResumeLayout(False)
@@ -1545,23 +1558,11 @@ Partial Class Form1
         Me.VitalSignHeaderPanel.ResumeLayout(False)
         Me.VitalSignHeaderPanel.PerformLayout()
         CType(Me.TblContactsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblProtocolRemeasurementsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MainMenuStrip.ResumeLayout(False)
         Me.MainMenuStrip.PerformLayout()
         Me.MainToolStrip.ResumeLayout(False)
         Me.MainToolStrip.PerformLayout()
         CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ProtocolDeliverablesSplitContainer.Panel1.ResumeLayout(False)
-        Me.ProtocolDeliverablesSplitContainer.Panel2.ResumeLayout(False)
-        CType(Me.ProtocolDeliverablesSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ProtocolDeliverablesSplitContainer.ResumeLayout(False)
-        CType(Me.TblProtocolDeliverablesGridEX, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProtocolDeliverablesCardViewGridEX, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ProtocolTabControl.ResumeLayout(False)
-        Me.DeliverablesTabPage.ResumeLayout(False)
-        Me.RemeasurementsTabPage.ResumeLayout(False)
-        CType(Me.RemeasurementsGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1690,5 +1691,5 @@ Partial Class Form1
     Friend WithEvents ProtocolTabControl As TabControl
     Friend WithEvents DeliverablesTabPage As TabPage
     Friend WithEvents RemeasurementsTabPage As TabPage
-    Friend WithEvents RemeasurementsGridEX As Janus.Windows.GridEX.GridEX
+    Friend WithEvents TblProtocolRemeasurementsGridEX As Janus.Windows.GridEX.GridEX
 End Class
