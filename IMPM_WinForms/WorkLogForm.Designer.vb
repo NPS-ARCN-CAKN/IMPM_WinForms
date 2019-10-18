@@ -35,7 +35,7 @@ Partial Class WorkLogForm
         Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveToolStripButton})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1024, 27)
+        Me.ToolStrip1.Size = New System.Drawing.Size(1152, 32)
         Me.ToolStrip1.TabIndex = 0
         Me.ToolStrip1.Text = "ToolStrip1"
         '
@@ -45,26 +45,28 @@ Partial Class WorkLogForm
         Me.SaveToolStripButton.Image = CType(resources.GetObject("SaveToolStripButton.Image"), System.Drawing.Image)
         Me.SaveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.SaveToolStripButton.Name = "SaveToolStripButton"
-        Me.SaveToolStripButton.Size = New System.Drawing.Size(44, 24)
+        Me.SaveToolStripButton.Size = New System.Drawing.Size(53, 29)
         Me.SaveToolStripButton.Text = "Save"
         '
         'LogEntryRichTextBox
         '
         Me.LogEntryRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LogEntryRichTextBox.Font = New System.Drawing.Font("Courier New", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LogEntryRichTextBox.Location = New System.Drawing.Point(0, 27)
+        Me.LogEntryRichTextBox.Location = New System.Drawing.Point(0, 32)
+        Me.LogEntryRichTextBox.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LogEntryRichTextBox.Name = "LogEntryRichTextBox"
-        Me.LogEntryRichTextBox.Size = New System.Drawing.Size(1024, 684)
+        Me.LogEntryRichTextBox.Size = New System.Drawing.Size(1152, 857)
         Me.LogEntryRichTextBox.TabIndex = 1
         Me.LogEntryRichTextBox.Text = ""
         '
         'WorkLogForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1024, 711)
+        Me.ClientSize = New System.Drawing.Size(1152, 889)
         Me.Controls.Add(Me.LogEntryRichTextBox)
         Me.Controls.Add(Me.ToolStrip1)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "WorkLogForm"
         Me.Text = "WorkLogForm"
         Me.ToolStrip1.ResumeLayout(False)

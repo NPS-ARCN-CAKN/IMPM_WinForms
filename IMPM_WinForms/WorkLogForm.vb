@@ -30,4 +30,8 @@
     Private Sub WorkLogForm_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         CommitEdit()
     End Sub
+
+    Private Sub WorkLogForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class
