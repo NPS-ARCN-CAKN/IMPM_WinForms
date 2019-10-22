@@ -20208,42 +20208,9 @@ Namespace AKRODataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[DataManagementMilestones] WHERE (((@IsNull_ProtocolAvailable ="& _ 
-                " 1 AND [ProtocolAvailable] IS NULL) OR ([ProtocolAvailable] = @Original_Protocol"& _ 
-                "Available)) AND ((@IsNull_DataAvailable = 1 AND [DataAvailable] IS NULL) OR ([Da"& _ 
-                "taAvailable] = @Original_DataAvailable)) AND ((@IsNull_DeliverablesSchedule = 1 "& _ 
-                "AND [DeliverablesSchedule] IS NULL) OR ([DeliverablesSchedule] = @Original_Deliv"& _ 
-                "erablesSchedule)) AND ((@IsNull_SOPsWritten = 1 AND [SOPsWritten] IS NULL) OR (["& _ 
-                "SOPsWritten] = @Original_SOPsWritten)) AND ((@IsNull_DMChapterWritten = 1 AND [D"& _ 
-                "MChapterWritten] IS NULL) OR ([DMChapterWritten] = @Original_DMChapterWritten)) "& _ 
-                "AND ((@IsNull_DMSystemPlanExists = 1 AND [DMSystemPlanExists] IS NULL) OR ([DMSy"& _ 
-                "stemPlanExists] = @Original_DMSystemPlanExists)) AND ((@IsNull_DMSystemBuilt = 1"& _ 
-                " AND [DMSystemBuilt] IS NULL) OR ([DMSystemBuilt] = @Original_DMSystemBuilt)) AN"& _ 
-                "D ((@IsNull_ProtocolDirectory = 1 AND [ProtocolDirectory] IS NULL) OR ([Protocol"& _ 
-                "Directory] = @Original_ProtocolDirectory)) AND ((@IsNull_DataDirectory = 1 AND ["& _ 
-                "DataDirectory] IS NULL) OR ([DataDirectory] = @Original_DataDirectory)) AND ([DM"& _ 
-                "MID] = @Original_DMMID) AND ([VSID] = @Original_VSID))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM DataManagementMilestones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (DMMID = @Original_DMMID)"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProtocolAvailable", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolAvailable", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolAvailable", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataAvailable", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataAvailable", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataAvailable", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DeliverablesSchedule", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesSchedule", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DeliverablesSchedule", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesSchedule", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SOPsWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SOPsWritten", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SOPsWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SOPsWritten", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DMChapterWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMChapterWritten", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMChapterWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMChapterWritten", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DMSystemPlanExists", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemPlanExists", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMSystemPlanExists", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemPlanExists", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DMSystemBuilt", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemBuilt", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMSystemBuilt", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemBuilt", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProtocolDirectory", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolDirectory", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolDirectory", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataDirectory", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataDirectory", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataDirectory", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMMID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMMID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMMID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "DMMID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[DataManagementMilestones] ([ProtocolAvailable], [DataAvailable"& _ 
@@ -20269,62 +20236,28 @@ Namespace AKRODataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[DataManagementMilestones] SET [ProtocolAvailable] = @ProtocolAvaila"& _ 
-                "ble, [DataAvailable] = @DataAvailable, [DeliverablesSchedule] = @DeliverablesSch"& _ 
-                "edule, [SOPsWritten] = @SOPsWritten, [DMChapterWritten] = @DMChapterWritten, [DM"& _ 
-                "SystemPlanExists] = @DMSystemPlanExists, [DMSystemBuilt] = @DMSystemBuilt, [Prot"& _ 
-                "ocolDirectory] = @ProtocolDirectory, [DataDirectory] = @DataDirectory, [CurrentS"& _ 
-                "tatus] = @CurrentStatus, [VSID] = @VSID WHERE (((@IsNull_ProtocolAvailable = 1 A"& _ 
-                "ND [ProtocolAvailable] IS NULL) OR ([ProtocolAvailable] = @Original_ProtocolAvai"& _ 
-                "lable)) AND ((@IsNull_DataAvailable = 1 AND [DataAvailable] IS NULL) OR ([DataAv"& _ 
-                "ailable] = @Original_DataAvailable)) AND ((@IsNull_DeliverablesSchedule = 1 AND "& _ 
-                "[DeliverablesSchedule] IS NULL) OR ([DeliverablesSchedule] = @Original_Deliverab"& _ 
-                "lesSchedule)) AND ((@IsNull_SOPsWritten = 1 AND [SOPsWritten] IS NULL) OR ([SOPs"& _ 
-                "Written] = @Original_SOPsWritten)) AND ((@IsNull_DMChapterWritten = 1 AND [DMCha"& _ 
-                "pterWritten] IS NULL) OR ([DMChapterWritten] = @Original_DMChapterWritten)) AND "& _ 
-                "((@IsNull_DMSystemPlanExists = 1 AND [DMSystemPlanExists] IS NULL) OR ([DMSystem"& _ 
-                "PlanExists] = @Original_DMSystemPlanExists)) AND ((@IsNull_DMSystemBuilt = 1 AND"& _ 
-                " [DMSystemBuilt] IS NULL) OR ([DMSystemBuilt] = @Original_DMSystemBuilt)) AND (("& _ 
-                "@IsNull_ProtocolDirectory = 1 AND [ProtocolDirectory] IS NULL) OR ([ProtocolDire"& _ 
-                "ctory] = @Original_ProtocolDirectory)) AND ((@IsNull_DataDirectory = 1 AND [Data"& _ 
-                "Directory] IS NULL) OR ([DataDirectory] = @Original_DataDirectory)) AND ([DMMID]"& _ 
-                " = @Original_DMMID) AND ([VSID] = @Original_VSID));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProtocolAvailable, D"& _ 
-                "ataAvailable, DeliverablesSchedule, SOPsWritten, DMChapterWritten, DMSystemPlanE"& _ 
-                "xists, DMSystemBuilt, ProtocolDirectory, DataDirectory, CurrentStatus, DMMID, VS"& _ 
-                "ID FROM DataManagementMilestones WHERE (DMMID = @DMMID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE DataManagementMilestones"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SET       ProtocolAvailable = @ProtocolAvailable"& _ 
+                ", DataAvailable = @DataAvailable, DeliverablesSchedule = @DeliverablesSchedule, "& _ 
+                "SOPsWritten = @SOPsWritten, DMChapterWritten = @DMChapterWritten, DMSystemPlanEx"& _ 
+                "ists = @DMSystemPlanExists, DMSystemBuilt = @DMSystemBuilt, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"             Proto"& _ 
+                "colDirectory = @ProtocolDirectory, DataDirectory = @DataDirectory, CurrentStatus"& _ 
+                " = @CurrentStatus"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE (DMMID = @Original_DMMID); "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT ProtocolAvailable, "& _ 
+                "DataAvailable, DeliverablesSchedule, SOPsWritten, DMChapterWritten, DMSystemPlan"& _ 
+                "Exists, DMSystemBuilt, ProtocolDirectory, DataDirectory, CurrentStatus, DMMID, V"& _ 
+                "SID FROM DataManagementMilestones WHERE (DMMID = @DMMID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolAvailable", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataAvailable", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DeliverablesSchedule", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesSchedule", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SOPsWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SOPsWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMChapterWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMChapterWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMSystemPlanExists", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemPlanExists", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMSystemBuilt", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemBuilt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolDirectory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataDirectory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CurrentStatus", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CurrentStatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProtocolAvailable", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolAvailable", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolAvailable", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataAvailable", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataAvailable", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataAvailable", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataAvailable", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DeliverablesSchedule", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesSchedule", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DeliverablesSchedule", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesSchedule", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_SOPsWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SOPsWritten", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_SOPsWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "SOPsWritten", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DMChapterWritten", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMChapterWritten", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMChapterWritten", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMChapterWritten", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DMSystemPlanExists", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemPlanExists", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMSystemPlanExists", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemPlanExists", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DMSystemBuilt", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemBuilt", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMSystemBuilt", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemBuilt", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ProtocolDirectory", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolDirectory", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProtocolDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolDirectory", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_DataDirectory", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataDirectory", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DataDirectory", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DataDirectory", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMMID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DMMID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_VSID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "VSID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMMID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "DMMID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolAvailable", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolAvailable", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataAvailable", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "DataAvailable", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DeliverablesSchedule", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "DeliverablesSchedule", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SOPsWritten", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "SOPsWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMChapterWritten", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "DMChapterWritten", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMSystemPlanExists", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemPlanExists", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMSystemBuilt", Global.System.Data.SqlDbType.Bit, 1, Global.System.Data.ParameterDirection.Input, 0, 0, "DMSystemBuilt", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProtocolDirectory", Global.System.Data.SqlDbType.VarChar, 1000, Global.System.Data.ParameterDirection.Input, 0, 0, "ProtocolDirectory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DataDirectory", Global.System.Data.SqlDbType.VarChar, 1000, Global.System.Data.ParameterDirection.Input, 0, 0, "DataDirectory", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CurrentStatus", Global.System.Data.SqlDbType.VarChar, 2147483647, Global.System.Data.ParameterDirection.Input, 0, 0, "CurrentStatus", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DMMID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "DMMID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DMMID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "DMMID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -20402,72 +20335,8 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ProtocolAvailable As Global.System.Nullable(Of Boolean), ByVal Original_DataAvailable As Global.System.Nullable(Of Boolean), ByVal Original_DeliverablesSchedule As Global.System.Nullable(Of Boolean), ByVal Original_SOPsWritten As Global.System.Nullable(Of Boolean), ByVal Original_DMChapterWritten As Global.System.Nullable(Of Boolean), ByVal Original_DMSystemPlanExists As Global.System.Nullable(Of Boolean), ByVal Original_DMSystemBuilt As Global.System.Nullable(Of Boolean), ByVal Original_ProtocolDirectory As String, ByVal Original_DataDirectory As String, ByVal Original_DMMID As Integer, ByVal Original_VSID As Integer) As Integer
-            If (Original_ProtocolAvailable.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_ProtocolAvailable.Value,Boolean)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(1).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DataAvailable.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_DataAvailable.Value,Boolean)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DeliverablesSchedule.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_DeliverablesSchedule.Value,Boolean)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
-            End If
-            If (Original_SOPsWritten.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_SOPsWritten.Value,Boolean)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(7).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DMChapterWritten.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(9).Value = CType(Original_DMChapterWritten.Value,Boolean)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(9).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DMSystemPlanExists.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(11).Value = CType(Original_DMSystemPlanExists.Value,Boolean)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(10).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(11).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DMSystemBuilt.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(Original_DMSystemBuilt.Value,Boolean)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(12).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(13).Value = Global.System.DBNull.Value
-            End If
-            If (Original_ProtocolDirectory Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(15).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(Original_ProtocolDirectory,String)
-            End If
-            If (Original_DataDirectory Is Nothing) Then
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(17).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(17).Value = CType(Original_DataDirectory,String)
-            End If
-            Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_DMMID,Integer)
-            Me.Adapter.DeleteCommand.Parameters(19).Value = CType(Original_VSID,Integer)
+        Public Overloads Overridable Function Delete(ByVal Original_DMMID As Integer) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_DMMID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -20558,30 +20427,7 @@ Namespace AKRODataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal ProtocolAvailable As Global.System.Nullable(Of Boolean),  _
-                    ByVal DataAvailable As Global.System.Nullable(Of Boolean),  _
-                    ByVal DeliverablesSchedule As Global.System.Nullable(Of Boolean),  _
-                    ByVal SOPsWritten As Global.System.Nullable(Of Boolean),  _
-                    ByVal DMChapterWritten As Global.System.Nullable(Of Boolean),  _
-                    ByVal DMSystemPlanExists As Global.System.Nullable(Of Boolean),  _
-                    ByVal DMSystemBuilt As Global.System.Nullable(Of Boolean),  _
-                    ByVal ProtocolDirectory As String,  _
-                    ByVal DataDirectory As String,  _
-                    ByVal CurrentStatus As String,  _
-                    ByVal VSID As Integer,  _
-                    ByVal Original_ProtocolAvailable As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_DataAvailable As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_DeliverablesSchedule As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_SOPsWritten As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_DMChapterWritten As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_DMSystemPlanExists As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_DMSystemBuilt As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_ProtocolDirectory As String,  _
-                    ByVal Original_DataDirectory As String,  _
-                    ByVal Original_DMMID As Integer,  _
-                    ByVal Original_VSID As Integer,  _
-                    ByVal DMMID As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal ProtocolAvailable As Global.System.Nullable(Of Boolean), ByVal DataAvailable As Global.System.Nullable(Of Boolean), ByVal DeliverablesSchedule As Global.System.Nullable(Of Boolean), ByVal SOPsWritten As Global.System.Nullable(Of Boolean), ByVal DMChapterWritten As Global.System.Nullable(Of Boolean), ByVal DMSystemPlanExists As Global.System.Nullable(Of Boolean), ByVal DMSystemBuilt As Global.System.Nullable(Of Boolean), ByVal ProtocolDirectory As String, ByVal DataDirectory As String, ByVal CurrentStatus As String, ByVal Original_DMMID As Integer, ByVal DMMID As Integer) As Integer
             If (ProtocolAvailable.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(ProtocolAvailable.Value,Boolean)
             Else
@@ -20632,73 +20478,8 @@ Namespace AKRODataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(9).Value = CType(CurrentStatus,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(VSID,Integer)
-            If (Original_ProtocolAvailable.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_ProtocolAvailable.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DataAvailable.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_DataAvailable.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DeliverablesSchedule.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_DeliverablesSchedule.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
-            End If
-            If (Original_SOPsWritten.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_SOPsWritten.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DMChapterWritten.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_DMChapterWritten.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DMSystemPlanExists.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_DMSystemPlanExists.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
-            End If
-            If (Original_DMSystemBuilt.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_DMSystemBuilt.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
-            End If
-            If (Original_ProtocolDirectory Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_ProtocolDirectory,String)
-            End If
-            If (Original_DataDirectory Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
-            Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_DataDirectory,String)
-            End If
-            Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_DMMID,Integer)
-            Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_VSID,Integer)
-            Me.Adapter.UpdateCommand.Parameters(31).Value = CType(DMMID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_DMMID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(DMMID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -20712,36 +20493,6 @@ Namespace AKRODataSetTableAdapters
                     Me.Adapter.UpdateCommand.Connection.Close
                 End If
             End Try
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update( _
-                    ByVal ProtocolAvailable As Global.System.Nullable(Of Boolean),  _
-                    ByVal DataAvailable As Global.System.Nullable(Of Boolean),  _
-                    ByVal DeliverablesSchedule As Global.System.Nullable(Of Boolean),  _
-                    ByVal SOPsWritten As Global.System.Nullable(Of Boolean),  _
-                    ByVal DMChapterWritten As Global.System.Nullable(Of Boolean),  _
-                    ByVal DMSystemPlanExists As Global.System.Nullable(Of Boolean),  _
-                    ByVal DMSystemBuilt As Global.System.Nullable(Of Boolean),  _
-                    ByVal ProtocolDirectory As String,  _
-                    ByVal DataDirectory As String,  _
-                    ByVal CurrentStatus As String,  _
-                    ByVal VSID As Integer,  _
-                    ByVal Original_ProtocolAvailable As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_DataAvailable As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_DeliverablesSchedule As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_SOPsWritten As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_DMChapterWritten As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_DMSystemPlanExists As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_DMSystemBuilt As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_ProtocolDirectory As String,  _
-                    ByVal Original_DataDirectory As String,  _
-                    ByVal Original_DMMID As Integer,  _
-                    ByVal Original_VSID As Integer) As Integer
-            Return Me.Update(ProtocolAvailable, DataAvailable, DeliverablesSchedule, SOPsWritten, DMChapterWritten, DMSystemPlanExists, DMSystemBuilt, ProtocolDirectory, DataDirectory, CurrentStatus, VSID, Original_ProtocolAvailable, Original_DataAvailable, Original_DeliverablesSchedule, Original_SOPsWritten, Original_DMChapterWritten, Original_DMSystemPlanExists, Original_DMSystemBuilt, Original_ProtocolDirectory, Original_DataDirectory, Original_DMMID, Original_VSID, Original_DMMID)
         End Function
     End Class
     

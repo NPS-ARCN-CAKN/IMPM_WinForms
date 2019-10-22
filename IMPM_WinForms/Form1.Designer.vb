@@ -358,7 +358,7 @@ Partial Class Form1
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.DataManagementMilestonesTableAdapter = Nothing
+        Me.TableAdapterManager.DataManagementMilestonesTableAdapter = Me.DataManagementMilestonesTableAdapter
         Me.TableAdapterManager.tblContactsTableAdapter = Me.TblContactsTableAdapter
         Me.TableAdapterManager.tblNetworksTableAdapter = Nothing
         Me.TableAdapterManager.tblNetworkTasksTableAdapter = Nothing
