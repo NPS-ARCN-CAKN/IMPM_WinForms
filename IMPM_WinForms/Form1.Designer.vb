@@ -571,7 +571,7 @@ Partial Class Form1
         Me.TblVitalSignProtocolsGridEX.DataSource = Me.TblVitalSignProtocolsBindingSource
         TblVitalSignProtocolsGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignProtocolsGridEX_DesignTimeLayout.LayoutString")
         Me.TblVitalSignProtocolsGridEX.DesignTimeLayout = TblVitalSignProtocolsGridEX_DesignTimeLayout
-        Me.TblVitalSignProtocolsGridEX.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TblVitalSignProtocolsGridEX.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TblVitalSignProtocolsGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TblVitalSignProtocolsGridEX.GroupByBoxVisible = False
         Me.TblVitalSignProtocolsGridEX.Hierarchical = True
@@ -581,7 +581,7 @@ Partial Class Form1
         Me.TblVitalSignProtocolsGridEX.RecordNavigator = True
         Me.TblVitalSignProtocolsGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.TblVitalSignProtocolsGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
-        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(1170, 367)
+        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(1170, 335)
         Me.TblVitalSignProtocolsGridEX.TabIndex = 0
         Me.TblVitalSignProtocolsGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
         '
