@@ -23,13 +23,6 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ProtocolAvailableLabel As System.Windows.Forms.Label
-        Dim DataAvailableLabel As System.Windows.Forms.Label
-        Dim DeliverablesScheduleLabel As System.Windows.Forms.Label
-        Dim SOPsWrittenLabel As System.Windows.Forms.Label
-        Dim DMChapterWrittenLabel As System.Windows.Forms.Label
-        Dim DMSystemPlanExistsLabel As System.Windows.Forms.Label
-        Dim DMSystemBuiltLabel As System.Windows.Forms.Label
         Dim ProtocolDirectoryLabel As System.Windows.Forms.Label
         Dim DataDirectoryLabel As System.Windows.Forms.Label
         Dim CurrentStatusLabel As System.Windows.Forms.Label
@@ -40,6 +33,7 @@ Partial Class Form1
         Dim ProtocolDeliverablesCardViewGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblProtocolRemeasurementsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignProtocolsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim GridEX1_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignTasksGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignWorkLogGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
@@ -48,6 +42,7 @@ Partial Class Form1
         Me.VwVitalSignOverviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwVitalSignOverviewTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignOverviewTableAdapter()
         Me.TableAdapterManager = New IMPM.AKRODataSetTableAdapters.TableAdapterManager()
+        Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
         Me.TblContactsTableAdapter = New IMPM.AKRODataSetTableAdapters.tblContactsTableAdapter()
         Me.TblProtocolDeliverablesTableAdapter = New IMPM.AKRODataSetTableAdapters.tblProtocolDeliverablesTableAdapter()
         Me.TblProtocolRemeasurementsTableAdapter = New IMPM.AKRODataSetTableAdapters.tblProtocolRemeasurementsTableAdapter()
@@ -104,16 +99,10 @@ Partial Class Form1
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.DataManagementMilestonesTabPage = New System.Windows.Forms.TabPage()
+        Me.GridEX1 = New Janus.Windows.GridEX.GridEX()
+        Me.DataManagementMilestonesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OpenDataDirectoryButton = New System.Windows.Forms.Button()
         Me.OpenProtocolDirectoryButton = New System.Windows.Forms.Button()
-        Me.ProtocolAvailableCheckBox = New System.Windows.Forms.CheckBox()
-        Me.DataManagementMilestonesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataAvailableCheckBox = New System.Windows.Forms.CheckBox()
-        Me.DeliverablesScheduleCheckBox = New System.Windows.Forms.CheckBox()
-        Me.SOPsWrittenCheckBox = New System.Windows.Forms.CheckBox()
-        Me.DMChapterWrittenCheckBox = New System.Windows.Forms.CheckBox()
-        Me.DMSystemPlanExistsCheckBox = New System.Windows.Forms.CheckBox()
-        Me.DMSystemBuiltCheckBox = New System.Windows.Forms.CheckBox()
         Me.ProtocolDirectoryTextBox = New System.Windows.Forms.TextBox()
         Me.DataDirectoryTextBox = New System.Windows.Forms.TextBox()
         Me.CurrentStatusTextBox = New System.Windows.Forms.TextBox()
@@ -164,16 +153,9 @@ Partial Class Form1
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
-        Me.DataManagementMilestonesTableAdapter = New IMPM.AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter()
         Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
-        ProtocolAvailableLabel = New System.Windows.Forms.Label()
-        DataAvailableLabel = New System.Windows.Forms.Label()
-        DeliverablesScheduleLabel = New System.Windows.Forms.Label()
-        SOPsWrittenLabel = New System.Windows.Forms.Label()
-        DMChapterWrittenLabel = New System.Windows.Forms.Label()
-        DMSystemPlanExistsLabel = New System.Windows.Forms.Label()
-        DMSystemBuiltLabel = New System.Windows.Forms.Label()
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer = New System.Windows.Forms.SplitContainer()
         ProtocolDirectoryLabel = New System.Windows.Forms.Label()
         DataDirectoryLabel = New System.Windows.Forms.Label()
         CurrentStatusLabel = New System.Windows.Forms.Label()
@@ -212,6 +194,7 @@ Partial Class Form1
         CType(Me.tblVitalSignObjectivesBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tblVitalSignObjectivesBindingNavigator.SuspendLayout()
         Me.DataManagementMilestonesTabPage.SuspendLayout()
+        CType(Me.GridEX1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataManagementMilestonesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DataManagementOverviewTabPage.SuspendLayout()
         CType(Me.TblVitalSignDataManagementSummaryGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -234,82 +217,16 @@ Partial Class Form1
         Me.MainMenuStrip.SuspendLayout()
         Me.MainToolStrip.SuspendLayout()
         CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProtocolsDeliverablesRemeasurementsSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel1.SuspendLayout()
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel2.SuspendLayout()
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'ProtocolAvailableLabel
-        '
-        ProtocolAvailableLabel.AutoSize = True
-        ProtocolAvailableLabel.Location = New System.Drawing.Point(40, 51)
-        ProtocolAvailableLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        ProtocolAvailableLabel.Name = "ProtocolAvailableLabel"
-        ProtocolAvailableLabel.Size = New System.Drawing.Size(193, 25)
-        ProtocolAvailableLabel.TabIndex = 0
-        ProtocolAvailableLabel.Text = "Protocol Available:"
-        '
-        'DataAvailableLabel
-        '
-        DataAvailableLabel.AutoSize = True
-        DataAvailableLabel.Location = New System.Drawing.Point(40, 92)
-        DataAvailableLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        DataAvailableLabel.Name = "DataAvailableLabel"
-        DataAvailableLabel.Size = New System.Drawing.Size(159, 25)
-        DataAvailableLabel.TabIndex = 2
-        DataAvailableLabel.Text = "Data Available:"
-        '
-        'DeliverablesScheduleLabel
-        '
-        DeliverablesScheduleLabel.AutoSize = True
-        DeliverablesScheduleLabel.Location = New System.Drawing.Point(40, 138)
-        DeliverablesScheduleLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        DeliverablesScheduleLabel.Name = "DeliverablesScheduleLabel"
-        DeliverablesScheduleLabel.Size = New System.Drawing.Size(235, 25)
-        DeliverablesScheduleLabel.TabIndex = 4
-        DeliverablesScheduleLabel.Text = "Deliverables Schedule:"
-        '
-        'SOPsWrittenLabel
-        '
-        SOPsWrittenLabel.AutoSize = True
-        SOPsWrittenLabel.Location = New System.Drawing.Point(40, 185)
-        SOPsWrittenLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        SOPsWrittenLabel.Name = "SOPsWrittenLabel"
-        SOPsWrittenLabel.Size = New System.Drawing.Size(151, 25)
-        SOPsWrittenLabel.TabIndex = 6
-        SOPsWrittenLabel.Text = "SOPs Written:"
-        '
-        'DMChapterWrittenLabel
-        '
-        DMChapterWrittenLabel.AutoSize = True
-        DMChapterWrittenLabel.Location = New System.Drawing.Point(40, 234)
-        DMChapterWrittenLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        DMChapterWrittenLabel.Name = "DMChapterWrittenLabel"
-        DMChapterWrittenLabel.Size = New System.Drawing.Size(204, 25)
-        DMChapterWrittenLabel.TabIndex = 8
-        DMChapterWrittenLabel.Text = "DMChapter Written:"
-        '
-        'DMSystemPlanExistsLabel
-        '
-        DMSystemPlanExistsLabel.AutoSize = True
-        DMSystemPlanExistsLabel.Location = New System.Drawing.Point(40, 280)
-        DMSystemPlanExistsLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        DMSystemPlanExistsLabel.Name = "DMSystemPlanExistsLabel"
-        DMSystemPlanExistsLabel.Size = New System.Drawing.Size(237, 25)
-        DMSystemPlanExistsLabel.TabIndex = 10
-        DMSystemPlanExistsLabel.Text = "DMSystem Plan Exists:"
-        '
-        'DMSystemBuiltLabel
-        '
-        DMSystemBuiltLabel.AutoSize = True
-        DMSystemBuiltLabel.Location = New System.Drawing.Point(40, 323)
-        DMSystemBuiltLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        DMSystemBuiltLabel.Name = "DMSystemBuiltLabel"
-        DMSystemBuiltLabel.Size = New System.Drawing.Size(172, 25)
-        DMSystemBuiltLabel.TabIndex = 12
-        DMSystemBuiltLabel.Text = "DMSystem Built:"
         '
         'ProtocolDirectoryLabel
         '
         ProtocolDirectoryLabel.AutoSize = True
-        ProtocolDirectoryLabel.Location = New System.Drawing.Point(40, 366)
+        ProtocolDirectoryLabel.Location = New System.Drawing.Point(36, 780)
         ProtocolDirectoryLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         ProtocolDirectoryLabel.Name = "ProtocolDirectoryLabel"
         ProtocolDirectoryLabel.Size = New System.Drawing.Size(190, 25)
@@ -319,7 +236,7 @@ Partial Class Form1
         'DataDirectoryLabel
         '
         DataDirectoryLabel.AutoSize = True
-        DataDirectoryLabel.Location = New System.Drawing.Point(40, 406)
+        DataDirectoryLabel.Location = New System.Drawing.Point(36, 820)
         DataDirectoryLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         DataDirectoryLabel.Name = "DataDirectoryLabel"
         DataDirectoryLabel.Size = New System.Drawing.Size(156, 25)
@@ -329,7 +246,7 @@ Partial Class Form1
         'CurrentStatusLabel
         '
         CurrentStatusLabel.AutoSize = True
-        CurrentStatusLabel.Location = New System.Drawing.Point(40, 446)
+        CurrentStatusLabel.Location = New System.Drawing.Point(36, 860)
         CurrentStatusLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         CurrentStatusLabel.Name = "CurrentStatusLabel"
         CurrentStatusLabel.Size = New System.Drawing.Size(159, 25)
@@ -371,6 +288,10 @@ Partial Class Form1
         Me.TableAdapterManager.tblVitalSignTasksTableAdapter = Me.TblVitalSignTasksTableAdapter
         Me.TableAdapterManager.tblVitalSignWorkLogTableAdapter = Me.TblVitalSignWorkLogTableAdapter
         Me.TableAdapterManager.UpdateOrder = IMPM.AKRODataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'DataManagementMilestonesTableAdapter
+        '
+        Me.DataManagementMilestonesTableAdapter.ClearBeforeFill = True
         '
         'TblContactsTableAdapter
         '
@@ -519,8 +440,7 @@ Partial Class Form1
         '
         'ProtocolsTabPage
         '
-        Me.ProtocolsTabPage.Controls.Add(Me.ProtocolTabControl)
-        Me.ProtocolsTabPage.Controls.Add(Me.TblVitalSignProtocolsGridEX)
+        Me.ProtocolsTabPage.Controls.Add(Me.ProtocolsDeliverablesRemeasurementsSplitContainer)
         Me.ProtocolsTabPage.Controls.Add(Me.ToolStrip2)
         Me.ProtocolsTabPage.Location = New System.Drawing.Point(4, 34)
         Me.ProtocolsTabPage.Name = "ProtocolsTabPage"
@@ -535,10 +455,10 @@ Partial Class Form1
         Me.ProtocolTabControl.Controls.Add(Me.DeliverablesTabPage)
         Me.ProtocolTabControl.Controls.Add(Me.RemeasurementsTabPage)
         Me.ProtocolTabControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ProtocolTabControl.Location = New System.Drawing.Point(3, 402)
+        Me.ProtocolTabControl.Location = New System.Drawing.Point(0, 0)
         Me.ProtocolTabControl.Name = "ProtocolTabControl"
         Me.ProtocolTabControl.SelectedIndex = 0
-        Me.ProtocolTabControl.Size = New System.Drawing.Size(1170, 580)
+        Me.ProtocolTabControl.Size = New System.Drawing.Size(1170, 608)
         Me.ProtocolTabControl.TabIndex = 1
         '
         'DeliverablesTabPage
@@ -547,7 +467,7 @@ Partial Class Form1
         Me.DeliverablesTabPage.Location = New System.Drawing.Point(4, 34)
         Me.DeliverablesTabPage.Name = "DeliverablesTabPage"
         Me.DeliverablesTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.DeliverablesTabPage.Size = New System.Drawing.Size(1162, 542)
+        Me.DeliverablesTabPage.Size = New System.Drawing.Size(1162, 570)
         Me.DeliverablesTabPage.TabIndex = 0
         Me.DeliverablesTabPage.Text = "Deliverables schedule"
         Me.DeliverablesTabPage.UseVisualStyleBackColor = True
@@ -566,7 +486,7 @@ Partial Class Form1
         'ProtocolDeliverablesSplitContainer.Panel2
         '
         Me.ProtocolDeliverablesSplitContainer.Panel2.Controls.Add(Me.ProtocolDeliverablesCardViewGridEX)
-        Me.ProtocolDeliverablesSplitContainer.Size = New System.Drawing.Size(1156, 536)
+        Me.ProtocolDeliverablesSplitContainer.Size = New System.Drawing.Size(1156, 564)
         Me.ProtocolDeliverablesSplitContainer.SplitterDistance = 385
         Me.ProtocolDeliverablesSplitContainer.TabIndex = 2
         '
@@ -581,7 +501,8 @@ Partial Class Form1
         Me.TblProtocolDeliverablesGridEX.GroupByBoxVisible = False
         Me.TblProtocolDeliverablesGridEX.Location = New System.Drawing.Point(0, 0)
         Me.TblProtocolDeliverablesGridEX.Name = "TblProtocolDeliverablesGridEX"
-        Me.TblProtocolDeliverablesGridEX.Size = New System.Drawing.Size(385, 536)
+        Me.TblProtocolDeliverablesGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
+        Me.TblProtocolDeliverablesGridEX.Size = New System.Drawing.Size(385, 564)
         Me.TblProtocolDeliverablesGridEX.TabIndex = 0
         '
         'TblProtocolDeliverablesBindingSource
@@ -607,7 +528,8 @@ Partial Class Form1
         Me.ProtocolDeliverablesCardViewGridEX.GroupByBoxVisible = False
         Me.ProtocolDeliverablesCardViewGridEX.Location = New System.Drawing.Point(0, 0)
         Me.ProtocolDeliverablesCardViewGridEX.Name = "ProtocolDeliverablesCardViewGridEX"
-        Me.ProtocolDeliverablesCardViewGridEX.Size = New System.Drawing.Size(767, 536)
+        Me.ProtocolDeliverablesCardViewGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
+        Me.ProtocolDeliverablesCardViewGridEX.Size = New System.Drawing.Size(767, 564)
         Me.ProtocolDeliverablesCardViewGridEX.TabIndex = 0
         Me.ProtocolDeliverablesCardViewGridEX.View = Janus.Windows.GridEX.View.SingleCard
         '
@@ -617,7 +539,7 @@ Partial Class Form1
         Me.RemeasurementsTabPage.Location = New System.Drawing.Point(4, 34)
         Me.RemeasurementsTabPage.Name = "RemeasurementsTabPage"
         Me.RemeasurementsTabPage.Padding = New System.Windows.Forms.Padding(3)
-        Me.RemeasurementsTabPage.Size = New System.Drawing.Size(1162, 542)
+        Me.RemeasurementsTabPage.Size = New System.Drawing.Size(1162, 570)
         Me.RemeasurementsTabPage.TabIndex = 1
         Me.RemeasurementsTabPage.Text = "Remeasurements"
         Me.RemeasurementsTabPage.UseVisualStyleBackColor = True
@@ -633,7 +555,8 @@ Partial Class Form1
         Me.TblProtocolRemeasurementsGridEX.GroupByBoxVisible = False
         Me.TblProtocolRemeasurementsGridEX.Location = New System.Drawing.Point(3, 3)
         Me.TblProtocolRemeasurementsGridEX.Name = "TblProtocolRemeasurementsGridEX"
-        Me.TblProtocolRemeasurementsGridEX.Size = New System.Drawing.Size(1156, 536)
+        Me.TblProtocolRemeasurementsGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
+        Me.TblProtocolRemeasurementsGridEX.Size = New System.Drawing.Size(1156, 564)
         Me.TblProtocolRemeasurementsGridEX.TabIndex = 0
         '
         'TblProtocolRemeasurementsBindingSource
@@ -652,7 +575,7 @@ Partial Class Form1
         Me.TblVitalSignProtocolsGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TblVitalSignProtocolsGridEX.GroupByBoxVisible = False
         Me.TblVitalSignProtocolsGridEX.Hierarchical = True
-        Me.TblVitalSignProtocolsGridEX.Location = New System.Drawing.Point(3, 35)
+        Me.TblVitalSignProtocolsGridEX.Location = New System.Drawing.Point(0, 0)
         Me.TblVitalSignProtocolsGridEX.Name = "TblVitalSignProtocolsGridEX"
         Me.TblVitalSignProtocolsGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
         Me.TblVitalSignProtocolsGridEX.RecordNavigator = True
@@ -886,22 +809,9 @@ Partial Class Form1
         'DataManagementMilestonesTabPage
         '
         Me.DataManagementMilestonesTabPage.AutoScroll = True
+        Me.DataManagementMilestonesTabPage.Controls.Add(Me.GridEX1)
         Me.DataManagementMilestonesTabPage.Controls.Add(Me.OpenDataDirectoryButton)
         Me.DataManagementMilestonesTabPage.Controls.Add(Me.OpenProtocolDirectoryButton)
-        Me.DataManagementMilestonesTabPage.Controls.Add(ProtocolAvailableLabel)
-        Me.DataManagementMilestonesTabPage.Controls.Add(Me.ProtocolAvailableCheckBox)
-        Me.DataManagementMilestonesTabPage.Controls.Add(DataAvailableLabel)
-        Me.DataManagementMilestonesTabPage.Controls.Add(Me.DataAvailableCheckBox)
-        Me.DataManagementMilestonesTabPage.Controls.Add(DeliverablesScheduleLabel)
-        Me.DataManagementMilestonesTabPage.Controls.Add(Me.DeliverablesScheduleCheckBox)
-        Me.DataManagementMilestonesTabPage.Controls.Add(SOPsWrittenLabel)
-        Me.DataManagementMilestonesTabPage.Controls.Add(Me.SOPsWrittenCheckBox)
-        Me.DataManagementMilestonesTabPage.Controls.Add(DMChapterWrittenLabel)
-        Me.DataManagementMilestonesTabPage.Controls.Add(Me.DMChapterWrittenCheckBox)
-        Me.DataManagementMilestonesTabPage.Controls.Add(DMSystemPlanExistsLabel)
-        Me.DataManagementMilestonesTabPage.Controls.Add(Me.DMSystemPlanExistsCheckBox)
-        Me.DataManagementMilestonesTabPage.Controls.Add(DMSystemBuiltLabel)
-        Me.DataManagementMilestonesTabPage.Controls.Add(Me.DMSystemBuiltCheckBox)
         Me.DataManagementMilestonesTabPage.Controls.Add(ProtocolDirectoryLabel)
         Me.DataManagementMilestonesTabPage.Controls.Add(Me.ProtocolDirectoryTextBox)
         Me.DataManagementMilestonesTabPage.Controls.Add(DataDirectoryLabel)
@@ -917,9 +827,30 @@ Partial Class Form1
         Me.DataManagementMilestonesTabPage.Text = "Data management milestones"
         Me.DataManagementMilestonesTabPage.UseVisualStyleBackColor = True
         '
+        'GridEX1
+        '
+        Me.GridEX1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GridEX1.CardWidth = 1086
+        Me.GridEX1.ColumnAutoSizeMode = Janus.Windows.GridEX.ColumnAutoSizeMode.DiaplayedCells
+        Me.GridEX1.DataSource = Me.DataManagementMilestonesBindingSource
+        GridEX1_DesignTimeLayout.LayoutString = resources.GetString("GridEX1_DesignTimeLayout.LayoutString")
+        Me.GridEX1.DesignTimeLayout = GridEX1_DesignTimeLayout
+        Me.GridEX1.GroupByBoxVisible = False
+        Me.GridEX1.Location = New System.Drawing.Point(17, 8)
+        Me.GridEX1.Name = "GridEX1"
+        Me.GridEX1.Size = New System.Drawing.Size(1114, 738)
+        Me.GridEX1.TabIndex = 22
+        Me.GridEX1.View = Janus.Windows.GridEX.View.SingleCard
+        '
+        'DataManagementMilestonesBindingSource
+        '
+        Me.DataManagementMilestonesBindingSource.DataMember = "FK_DataManagementMilestones_tblVitalSigns"
+        Me.DataManagementMilestonesBindingSource.DataSource = Me.TblVitalSignsBindingSource
+        '
         'OpenDataDirectoryButton
         '
-        Me.OpenDataDirectoryButton.Location = New System.Drawing.Point(1047, 402)
+        Me.OpenDataDirectoryButton.Location = New System.Drawing.Point(1043, 816)
         Me.OpenDataDirectoryButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.OpenDataDirectoryButton.Name = "OpenDataDirectoryButton"
         Me.OpenDataDirectoryButton.Size = New System.Drawing.Size(112, 35)
@@ -929,7 +860,7 @@ Partial Class Form1
         '
         'OpenProtocolDirectoryButton
         '
-        Me.OpenProtocolDirectoryButton.Location = New System.Drawing.Point(1047, 362)
+        Me.OpenProtocolDirectoryButton.Location = New System.Drawing.Point(1043, 776)
         Me.OpenProtocolDirectoryButton.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.OpenProtocolDirectoryButton.Name = "OpenProtocolDirectoryButton"
         Me.OpenProtocolDirectoryButton.Size = New System.Drawing.Size(112, 35)
@@ -937,85 +868,10 @@ Partial Class Form1
         Me.OpenProtocolDirectoryButton.Text = "Open..."
         Me.OpenProtocolDirectoryButton.UseVisualStyleBackColor = True
         '
-        'ProtocolAvailableCheckBox
-        '
-        Me.ProtocolAvailableCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "ProtocolAvailable", True))
-        Me.ProtocolAvailableCheckBox.Location = New System.Drawing.Point(320, 46)
-        Me.ProtocolAvailableCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.ProtocolAvailableCheckBox.Name = "ProtocolAvailableCheckBox"
-        Me.ProtocolAvailableCheckBox.Size = New System.Drawing.Size(156, 37)
-        Me.ProtocolAvailableCheckBox.TabIndex = 1
-        Me.ProtocolAvailableCheckBox.UseVisualStyleBackColor = True
-        '
-        'DataManagementMilestonesBindingSource
-        '
-        Me.DataManagementMilestonesBindingSource.DataMember = "FK_DataManagementMilestones_tblVitalSigns"
-        Me.DataManagementMilestonesBindingSource.DataSource = Me.TblVitalSignsBindingSource
-        '
-        'DataAvailableCheckBox
-        '
-        Me.DataAvailableCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DataAvailable", True))
-        Me.DataAvailableCheckBox.Location = New System.Drawing.Point(320, 92)
-        Me.DataAvailableCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.DataAvailableCheckBox.Name = "DataAvailableCheckBox"
-        Me.DataAvailableCheckBox.Size = New System.Drawing.Size(156, 37)
-        Me.DataAvailableCheckBox.TabIndex = 3
-        Me.DataAvailableCheckBox.UseVisualStyleBackColor = True
-        '
-        'DeliverablesScheduleCheckBox
-        '
-        Me.DeliverablesScheduleCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DeliverablesSchedule", True))
-        Me.DeliverablesScheduleCheckBox.Location = New System.Drawing.Point(320, 134)
-        Me.DeliverablesScheduleCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.DeliverablesScheduleCheckBox.Name = "DeliverablesScheduleCheckBox"
-        Me.DeliverablesScheduleCheckBox.Size = New System.Drawing.Size(156, 37)
-        Me.DeliverablesScheduleCheckBox.TabIndex = 5
-        Me.DeliverablesScheduleCheckBox.UseVisualStyleBackColor = True
-        '
-        'SOPsWrittenCheckBox
-        '
-        Me.SOPsWrittenCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "SOPsWritten", True))
-        Me.SOPsWrittenCheckBox.Location = New System.Drawing.Point(320, 180)
-        Me.SOPsWrittenCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.SOPsWrittenCheckBox.Name = "SOPsWrittenCheckBox"
-        Me.SOPsWrittenCheckBox.Size = New System.Drawing.Size(156, 37)
-        Me.SOPsWrittenCheckBox.TabIndex = 7
-        Me.SOPsWrittenCheckBox.UseVisualStyleBackColor = True
-        '
-        'DMChapterWrittenCheckBox
-        '
-        Me.DMChapterWrittenCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DMChapterWritten", True))
-        Me.DMChapterWrittenCheckBox.Location = New System.Drawing.Point(320, 223)
-        Me.DMChapterWrittenCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.DMChapterWrittenCheckBox.Name = "DMChapterWrittenCheckBox"
-        Me.DMChapterWrittenCheckBox.Size = New System.Drawing.Size(156, 37)
-        Me.DMChapterWrittenCheckBox.TabIndex = 9
-        Me.DMChapterWrittenCheckBox.UseVisualStyleBackColor = True
-        '
-        'DMSystemPlanExistsCheckBox
-        '
-        Me.DMSystemPlanExistsCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DMSystemPlanExists", True))
-        Me.DMSystemPlanExistsCheckBox.Location = New System.Drawing.Point(320, 269)
-        Me.DMSystemPlanExistsCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.DMSystemPlanExistsCheckBox.Name = "DMSystemPlanExistsCheckBox"
-        Me.DMSystemPlanExistsCheckBox.Size = New System.Drawing.Size(156, 37)
-        Me.DMSystemPlanExistsCheckBox.TabIndex = 11
-        Me.DMSystemPlanExistsCheckBox.UseVisualStyleBackColor = True
-        '
-        'DMSystemBuiltCheckBox
-        '
-        Me.DMSystemBuiltCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Me.DataManagementMilestonesBindingSource, "DMSystemBuilt", True))
-        Me.DMSystemBuiltCheckBox.Location = New System.Drawing.Point(320, 315)
-        Me.DMSystemBuiltCheckBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
-        Me.DMSystemBuiltCheckBox.Name = "DMSystemBuiltCheckBox"
-        Me.DMSystemBuiltCheckBox.Size = New System.Drawing.Size(156, 37)
-        Me.DMSystemBuiltCheckBox.TabIndex = 13
-        Me.DMSystemBuiltCheckBox.UseVisualStyleBackColor = True
-        '
         'ProtocolDirectoryTextBox
         '
         Me.ProtocolDirectoryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "ProtocolDirectory", True))
-        Me.ProtocolDirectoryTextBox.Location = New System.Drawing.Point(266, 362)
+        Me.ProtocolDirectoryTextBox.Location = New System.Drawing.Point(262, 776)
         Me.ProtocolDirectoryTextBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.ProtocolDirectoryTextBox.Name = "ProtocolDirectoryTextBox"
         Me.ProtocolDirectoryTextBox.Size = New System.Drawing.Size(770, 30)
@@ -1024,7 +880,7 @@ Partial Class Form1
         'DataDirectoryTextBox
         '
         Me.DataDirectoryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "DataDirectory", True))
-        Me.DataDirectoryTextBox.Location = New System.Drawing.Point(266, 402)
+        Me.DataDirectoryTextBox.Location = New System.Drawing.Point(262, 816)
         Me.DataDirectoryTextBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DataDirectoryTextBox.Name = "DataDirectoryTextBox"
         Me.DataDirectoryTextBox.Size = New System.Drawing.Size(770, 30)
@@ -1037,11 +893,11 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CurrentStatusTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "CurrentStatus", True))
         Me.CurrentStatusTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CurrentStatusTextBox.Location = New System.Drawing.Point(266, 442)
+        Me.CurrentStatusTextBox.Location = New System.Drawing.Point(262, 856)
         Me.CurrentStatusTextBox.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.CurrentStatusTextBox.Multiline = True
         Me.CurrentStatusTextBox.Name = "CurrentStatusTextBox"
-        Me.CurrentStatusTextBox.Size = New System.Drawing.Size(892, 501)
+        Me.CurrentStatusTextBox.Size = New System.Drawing.Size(892, 108)
         Me.CurrentStatusTextBox.TabIndex = 19
         '
         'DataManagementOverviewTabPage
@@ -1470,10 +1326,6 @@ Partial Class Form1
         '
         Me.vwVitalSignWorkLogTableAdapter.ClearBeforeFill = True
         '
-        'DataManagementMilestonesTableAdapter
-        '
-        Me.DataManagementMilestonesTableAdapter.ClearBeforeFill = True
-        '
         'VwContactsLookupBindingSource
         '
         Me.VwContactsLookupBindingSource.DataMember = "vwContactsLookup"
@@ -1482,6 +1334,24 @@ Partial Class Form1
         'VwContactsLookupTableAdapter
         '
         Me.VwContactsLookupTableAdapter.ClearBeforeFill = True
+        '
+        'ProtocolsDeliverablesRemeasurementsSplitContainer
+        '
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Location = New System.Drawing.Point(3, 35)
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Name = "ProtocolsDeliverablesRemeasurementsSplitContainer"
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'ProtocolsDeliverablesRemeasurementsSplitContainer.Panel1
+        '
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel1.Controls.Add(Me.TblVitalSignProtocolsGridEX)
+        '
+        'ProtocolsDeliverablesRemeasurementsSplitContainer.Panel2
+        '
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel2.Controls.Add(Me.ProtocolTabControl)
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Size = New System.Drawing.Size(1170, 947)
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.SplitterDistance = 335
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.TabIndex = 2
         '
         'Form1
         '
@@ -1535,6 +1405,7 @@ Partial Class Form1
         Me.tblVitalSignObjectivesBindingNavigator.PerformLayout()
         Me.DataManagementMilestonesTabPage.ResumeLayout(False)
         Me.DataManagementMilestonesTabPage.PerformLayout()
+        CType(Me.GridEX1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataManagementMilestonesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataManagementOverviewTabPage.ResumeLayout(False)
         CType(Me.TblVitalSignDataManagementSummaryGridEX, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1563,6 +1434,10 @@ Partial Class Form1
         Me.MainToolStrip.ResumeLayout(False)
         Me.MainToolStrip.PerformLayout()
         CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel1.ResumeLayout(False)
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel2.ResumeLayout(False)
+        CType(Me.ProtocolsDeliverablesRemeasurementsSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1651,13 +1526,6 @@ Partial Class Form1
     Friend WithEvents CreateDeliverablesDirectoriesToolStripButton As ToolStripButton
     Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
     Friend WithEvents DataManagementMilestonesTabPage As TabPage
-    Friend WithEvents ProtocolAvailableCheckBox As CheckBox
-    Friend WithEvents DataAvailableCheckBox As CheckBox
-    Friend WithEvents DeliverablesScheduleCheckBox As CheckBox
-    Friend WithEvents SOPsWrittenCheckBox As CheckBox
-    Friend WithEvents DMChapterWrittenCheckBox As CheckBox
-    Friend WithEvents DMSystemPlanExistsCheckBox As CheckBox
-    Friend WithEvents DMSystemBuiltCheckBox As CheckBox
     Friend WithEvents ProtocolDirectoryTextBox As TextBox
     Friend WithEvents DataDirectoryTextBox As TextBox
     Friend WithEvents CurrentStatusTextBox As TextBox
@@ -1692,4 +1560,6 @@ Partial Class Form1
     Friend WithEvents DeliverablesTabPage As TabPage
     Friend WithEvents RemeasurementsTabPage As TabPage
     Friend WithEvents TblProtocolRemeasurementsGridEX As Janus.Windows.GridEX.GridEX
+    Friend WithEvents GridEX1 As Janus.Windows.GridEX.GridEX
+    Friend WithEvents ProtocolsDeliverablesRemeasurementsSplitContainer As SplitContainer
 End Class
