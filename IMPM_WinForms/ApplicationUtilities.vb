@@ -37,8 +37,8 @@ Module ApplicationUtilities
                 '.ColumnAutoResize = True
                 .Font = MyFont
             .RowHeaders = InheritableBoolean.True
-            .NewRowPosition = NewRowPosition.TopRow
-            .SelectOnExpand = False
+                .NewRowPosition = NewRowPosition.BottomRow
+                .SelectOnExpand = False
             .SaveSettings = True
         End With
         Catch ex As Exception
