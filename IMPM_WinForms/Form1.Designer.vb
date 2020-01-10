@@ -156,6 +156,8 @@ Partial Class Form1
         Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
         Me.ProtocolsDeliverablesRemeasurementsSplitContainer = New System.Windows.Forms.SplitContainer()
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+        Me.GenerateProtocolSummaryToolStripButton = New System.Windows.Forms.ToolStripButton()
         ProtocolDirectoryLabel = New System.Windows.Forms.Label()
         DataDirectoryLabel = New System.Windows.Forms.Label()
         CurrentStatusLabel = New System.Windows.Forms.Label()
@@ -588,7 +590,7 @@ Partial Class Form1
         'ToolStrip2
         '
         Me.ToolStrip2.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateDeliverablesDirectoriesCreationScriptButton, Me.ToolStripSeparator4, Me.OpenDeliverablesScheduleFormToolStripButton, Me.ToolStripSeparator5, Me.CreateDeliverablesDirectoriesToolStripButton, Me.ToolStripSeparator6, Me.EditDeliverableToolStripButton})
+        Me.ToolStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.GenerateDeliverablesDirectoriesCreationScriptButton, Me.ToolStripSeparator4, Me.OpenDeliverablesScheduleFormToolStripButton, Me.ToolStripSeparator5, Me.CreateDeliverablesDirectoriesToolStripButton, Me.ToolStripSeparator6, Me.EditDeliverableToolStripButton, Me.ToolStripSeparator11, Me.GenerateProtocolSummaryToolStripButton})
         Me.ToolStrip2.Location = New System.Drawing.Point(3, 3)
         Me.ToolStrip2.Name = "ToolStrip2"
         Me.ToolStrip2.Padding = New System.Windows.Forms.Padding(0, 0, 2, 0)
@@ -1354,6 +1356,19 @@ Partial Class Form1
         Me.ProtocolsDeliverablesRemeasurementsSplitContainer.SplitterDistance = 335
         Me.ProtocolsDeliverablesRemeasurementsSplitContainer.TabIndex = 2
         '
+        'ToolStripSeparator11
+        '
+        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(6, 6)
+        '
+        'GenerateProtocolSummaryToolStripButton
+        '
+        Me.GenerateProtocolSummaryToolStripButton.Image = CType(resources.GetObject("GenerateProtocolSummaryToolStripButton.Image"), System.Drawing.Image)
+        Me.GenerateProtocolSummaryToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.GenerateProtocolSummaryToolStripButton.Name = "GenerateProtocolSummaryToolStripButton"
+        Me.GenerateProtocolSummaryToolStripButton.Size = New System.Drawing.Size(194, 29)
+        Me.GenerateProtocolSummaryToolStripButton.Text = "Protocol summary..."
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -1563,4 +1578,6 @@ Partial Class Form1
     Friend WithEvents TblProtocolRemeasurementsGridEX As Janus.Windows.GridEX.GridEX
     Friend WithEvents GridEX1 As Janus.Windows.GridEX.GridEX
     Friend WithEvents ProtocolsDeliverablesRemeasurementsSplitContainer As SplitContainer
+    Friend WithEvents ToolStripSeparator11 As ToolStripSeparator
+    Friend WithEvents GenerateProtocolSummaryToolStripButton As ToolStripButton
 End Class

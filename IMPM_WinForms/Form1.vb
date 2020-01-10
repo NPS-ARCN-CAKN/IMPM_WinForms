@@ -888,4 +888,14 @@ Public Class Form1
         DeliverableForm.Show()
         'GetCurrentDeliverableID()
     End Sub
+
+    Private Sub GenerateProtocolSummaryToolStripButton_Click(sender As Object, e As EventArgs) Handles GenerateProtocolSummaryToolStripButton.Click
+        Dim CurrentVSID As Integer = GetCurrentVSID()
+        Dim VSSummary As String = GetVitalSignSummary(CurrentVSID)
+        Dim ProtocolSummaryForm As New GenericOutputForm("Protocols summary", VSSummary)
+        ProtocolSummaryForm.ShowDialog()
+    End Sub
+
+
+
 End Class

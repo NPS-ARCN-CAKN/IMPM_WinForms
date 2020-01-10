@@ -272,6 +272,18 @@
         TgDQASA1MVpwzwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="GenerateProtocolSummaryToolStripButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAFySURBVDhPjZNtiwFRFMftfo7d2u9Avucm5Qt4I5HyQkKi
+        hggvPCV5S0SGMWbG03/P/2ZmHwz21K+Z7j3nd8+5zQSu8SYEhfATPoRX4SaClmXph8PhfDqd4Idt24hE
+        Ip+S6ysJs3i328E0TY/NZoP1eo35fK4ks9kM0Wj0RvIihJkgXcBxHPUkhmFA13UsFgsl2O/34CGxWMyV
+        qPAELC6Xy8jn88hms0in00gkEojH47/GIay51n4Ljsejl8B3zu2OslwuVSfT6fS+gNRqNVQqFZRKJeRy
+        OdVJJpNBKpVCMpnEarV6LPiL2wnn551st1u1flfQbrfRaDSgaRqq1aq6k2KxiEKhoO6GoocCP9gFL5iw
+        G67dFQwGA3S7XXQ6HbRaLTSbTdTrdQW7eipw4alEPrAbHgomkwnG4zFGoxGGwyH6/T56vZ4Hpb4C2bi4
+        kmdI7vkq8CIks5nc8Cv4CXMk15Aa/r1evAshgdb/wGKpCQS+ABFOdD4xPukVAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="TblVitalSignObjectivesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1133, 161</value>
   </metadata>
