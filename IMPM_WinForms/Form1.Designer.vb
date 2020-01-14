@@ -29,10 +29,10 @@ Partial Class Form1
         Dim VwVitalSignOverviewGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Dim TblVitalSignsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim TblVitalSignProtocolsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblProtocolDeliverablesGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim ProtocolDeliverablesCardViewGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblProtocolRemeasurementsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim TblVitalSignProtocolsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim GridEX1_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim TblVitalSignTasksGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
@@ -61,17 +61,18 @@ Partial Class Form1
         Me.TblVitalSignsGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProtocolsTabPage = New System.Windows.Forms.TabPage()
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer = New System.Windows.Forms.SplitContainer()
+        Me.TblVitalSignProtocolsGridEX = New Janus.Windows.GridEX.GridEX()
+        Me.TblVitalSignProtocolsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProtocolTabControl = New System.Windows.Forms.TabControl()
         Me.DeliverablesTabPage = New System.Windows.Forms.TabPage()
         Me.ProtocolDeliverablesSplitContainer = New System.Windows.Forms.SplitContainer()
         Me.TblProtocolDeliverablesGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblProtocolDeliverablesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TblVitalSignProtocolsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ProtocolDeliverablesCardViewGridEX = New Janus.Windows.GridEX.GridEX()
         Me.RemeasurementsTabPage = New System.Windows.Forms.TabPage()
         Me.TblProtocolRemeasurementsGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblProtocolRemeasurementsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TblVitalSignProtocolsGridEX = New Janus.Windows.GridEX.GridEX()
         Me.ToolStrip2 = New System.Windows.Forms.ToolStrip()
         Me.GenerateDeliverablesDirectoriesCreationScriptButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
@@ -80,6 +81,8 @@ Partial Class Form1
         Me.CreateDeliverablesDirectoriesToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.EditDeliverableToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
+        Me.GenerateProtocolSummaryToolStripButton = New System.Windows.Forms.ToolStripButton()
         Me.ObjectivesTabPage = New System.Windows.Forms.TabPage()
         Me.TblVitalSignObjectivesDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -155,9 +158,6 @@ Partial Class Form1
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
         Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer = New System.Windows.Forms.SplitContainer()
-        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
-        Me.GenerateProtocolSummaryToolStripButton = New System.Windows.Forms.ToolStripButton()
         ProtocolDirectoryLabel = New System.Windows.Forms.Label()
         DataDirectoryLabel = New System.Windows.Forms.Label()
         CurrentStatusLabel = New System.Windows.Forms.Label()
@@ -175,6 +175,12 @@ Partial Class Form1
         CType(Me.TblVitalSignsGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblVitalSignsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProtocolsTabPage.SuspendLayout()
+        CType(Me.ProtocolsDeliverablesRemeasurementsSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel1.SuspendLayout()
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel2.SuspendLayout()
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.SuspendLayout()
+        CType(Me.TblVitalSignProtocolsGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TblVitalSignProtocolsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ProtocolTabControl.SuspendLayout()
         Me.DeliverablesTabPage.SuspendLayout()
         CType(Me.ProtocolDeliverablesSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -183,12 +189,10 @@ Partial Class Form1
         Me.ProtocolDeliverablesSplitContainer.SuspendLayout()
         CType(Me.TblProtocolDeliverablesGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblVitalSignProtocolsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProtocolDeliverablesCardViewGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RemeasurementsTabPage.SuspendLayout()
         CType(Me.TblProtocolRemeasurementsGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TblProtocolRemeasurementsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TblVitalSignProtocolsGridEX, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip2.SuspendLayout()
         Me.ObjectivesTabPage.SuspendLayout()
         CType(Me.TblVitalSignObjectivesDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -219,10 +223,6 @@ Partial Class Form1
         Me.MainMenuStrip.SuspendLayout()
         Me.MainToolStrip.SuspendLayout()
         CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProtocolsDeliverablesRemeasurementsSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel1.SuspendLayout()
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel2.SuspendLayout()
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.SuspendLayout()
         Me.SuspendLayout()
         '
         'ProtocolDirectoryLabel
@@ -452,6 +452,49 @@ Partial Class Form1
         Me.ProtocolsTabPage.Text = "Protocols, deliverables and remeasurements"
         Me.ProtocolsTabPage.UseVisualStyleBackColor = True
         '
+        'ProtocolsDeliverablesRemeasurementsSplitContainer
+        '
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Location = New System.Drawing.Point(3, 35)
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Name = "ProtocolsDeliverablesRemeasurementsSplitContainer"
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'ProtocolsDeliverablesRemeasurementsSplitContainer.Panel1
+        '
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel1.Controls.Add(Me.TblVitalSignProtocolsGridEX)
+        '
+        'ProtocolsDeliverablesRemeasurementsSplitContainer.Panel2
+        '
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel2.Controls.Add(Me.ProtocolTabControl)
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Size = New System.Drawing.Size(1170, 947)
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.SplitterDistance = 335
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.TabIndex = 2
+        '
+        'TblVitalSignProtocolsGridEX
+        '
+        Me.TblVitalSignProtocolsGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignProtocolsGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignProtocolsGridEX.DataSource = Me.TblVitalSignProtocolsBindingSource
+        TblVitalSignProtocolsGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignProtocolsGridEX_DesignTimeLayout.LayoutString")
+        Me.TblVitalSignProtocolsGridEX.DesignTimeLayout = TblVitalSignProtocolsGridEX_DesignTimeLayout
+        Me.TblVitalSignProtocolsGridEX.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TblVitalSignProtocolsGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TblVitalSignProtocolsGridEX.GroupByBoxVisible = False
+        Me.TblVitalSignProtocolsGridEX.Location = New System.Drawing.Point(0, 0)
+        Me.TblVitalSignProtocolsGridEX.Name = "TblVitalSignProtocolsGridEX"
+        Me.TblVitalSignProtocolsGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
+        Me.TblVitalSignProtocolsGridEX.RecordNavigator = True
+        Me.TblVitalSignProtocolsGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
+        Me.TblVitalSignProtocolsGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
+        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(1170, 335)
+        Me.TblVitalSignProtocolsGridEX.TabIndex = 0
+        Me.TblVitalSignProtocolsGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
+        '
+        'TblVitalSignProtocolsBindingSource
+        '
+        Me.TblVitalSignProtocolsBindingSource.DataMember = "FK_tblVitalSignProtocols_tblVitalSigns"
+        Me.TblVitalSignProtocolsBindingSource.DataSource = Me.TblVitalSignsBindingSource
+        '
         'ProtocolTabControl
         '
         Me.ProtocolTabControl.Controls.Add(Me.DeliverablesTabPage)
@@ -512,11 +555,6 @@ Partial Class Form1
         Me.TblProtocolDeliverablesBindingSource.DataMember = "FK_tblProtocolDeliverables_tblVitalSignProtocols"
         Me.TblProtocolDeliverablesBindingSource.DataSource = Me.TblVitalSignProtocolsBindingSource
         '
-        'TblVitalSignProtocolsBindingSource
-        '
-        Me.TblVitalSignProtocolsBindingSource.DataMember = "FK_tblVitalSignProtocols_tblVitalSigns"
-        Me.TblVitalSignProtocolsBindingSource.DataSource = Me.TblVitalSignsBindingSource
-        '
         'ProtocolDeliverablesCardViewGridEX
         '
         Me.ProtocolDeliverablesCardViewGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
@@ -565,27 +603,6 @@ Partial Class Form1
         '
         Me.TblProtocolRemeasurementsBindingSource.DataMember = "FK_tblVitalSignRemeasurements_tblVitalSignProtocols"
         Me.TblProtocolRemeasurementsBindingSource.DataSource = Me.TblVitalSignProtocolsBindingSource
-        '
-        'TblVitalSignProtocolsGridEX
-        '
-        Me.TblVitalSignProtocolsGridEX.AllowAddNew = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblVitalSignProtocolsGridEX.AllowDelete = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblVitalSignProtocolsGridEX.DataSource = Me.TblVitalSignProtocolsBindingSource
-        TblVitalSignProtocolsGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignProtocolsGridEX_DesignTimeLayout.LayoutString")
-        Me.TblVitalSignProtocolsGridEX.DesignTimeLayout = TblVitalSignProtocolsGridEX_DesignTimeLayout
-        Me.TblVitalSignProtocolsGridEX.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TblVitalSignProtocolsGridEX.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TblVitalSignProtocolsGridEX.GroupByBoxVisible = False
-        Me.TblVitalSignProtocolsGridEX.Hierarchical = True
-        Me.TblVitalSignProtocolsGridEX.Location = New System.Drawing.Point(0, 0)
-        Me.TblVitalSignProtocolsGridEX.Name = "TblVitalSignProtocolsGridEX"
-        Me.TblVitalSignProtocolsGridEX.NewRowPosition = Janus.Windows.GridEX.NewRowPosition.BottomRow
-        Me.TblVitalSignProtocolsGridEX.RecordNavigator = True
-        Me.TblVitalSignProtocolsGridEX.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
-        Me.TblVitalSignProtocolsGridEX.SelectionMode = Janus.Windows.GridEX.SelectionMode.MultipleSelection
-        Me.TblVitalSignProtocolsGridEX.Size = New System.Drawing.Size(1170, 335)
-        Me.TblVitalSignProtocolsGridEX.TabIndex = 0
-        Me.TblVitalSignProtocolsGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
         '
         'ToolStrip2
         '
@@ -647,6 +664,19 @@ Partial Class Form1
         Me.EditDeliverableToolStripButton.Name = "EditDeliverableToolStripButton"
         Me.EditDeliverableToolStripButton.Size = New System.Drawing.Size(196, 29)
         Me.EditDeliverableToolStripButton.Text = "Edit current deliverable"
+        '
+        'ToolStripSeparator11
+        '
+        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+        Me.ToolStripSeparator11.Size = New System.Drawing.Size(6, 6)
+        '
+        'GenerateProtocolSummaryToolStripButton
+        '
+        Me.GenerateProtocolSummaryToolStripButton.Image = CType(resources.GetObject("GenerateProtocolSummaryToolStripButton.Image"), System.Drawing.Image)
+        Me.GenerateProtocolSummaryToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.GenerateProtocolSummaryToolStripButton.Name = "GenerateProtocolSummaryToolStripButton"
+        Me.GenerateProtocolSummaryToolStripButton.Size = New System.Drawing.Size(194, 29)
+        Me.GenerateProtocolSummaryToolStripButton.Text = "Protocol summary..."
         '
         'ObjectivesTabPage
         '
@@ -1338,37 +1368,6 @@ Partial Class Form1
         '
         Me.VwContactsLookupTableAdapter.ClearBeforeFill = True
         '
-        'ProtocolsDeliverablesRemeasurementsSplitContainer
-        '
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Location = New System.Drawing.Point(3, 35)
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Name = "ProtocolsDeliverablesRemeasurementsSplitContainer"
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal
-        '
-        'ProtocolsDeliverablesRemeasurementsSplitContainer.Panel1
-        '
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel1.Controls.Add(Me.TblVitalSignProtocolsGridEX)
-        '
-        'ProtocolsDeliverablesRemeasurementsSplitContainer.Panel2
-        '
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel2.Controls.Add(Me.ProtocolTabControl)
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Size = New System.Drawing.Size(1170, 947)
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.SplitterDistance = 335
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.TabIndex = 2
-        '
-        'ToolStripSeparator11
-        '
-        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
-        Me.ToolStripSeparator11.Size = New System.Drawing.Size(6, 6)
-        '
-        'GenerateProtocolSummaryToolStripButton
-        '
-        Me.GenerateProtocolSummaryToolStripButton.Image = CType(resources.GetObject("GenerateProtocolSummaryToolStripButton.Image"), System.Drawing.Image)
-        Me.GenerateProtocolSummaryToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.GenerateProtocolSummaryToolStripButton.Name = "GenerateProtocolSummaryToolStripButton"
-        Me.GenerateProtocolSummaryToolStripButton.Size = New System.Drawing.Size(194, 29)
-        Me.GenerateProtocolSummaryToolStripButton.Text = "Protocol summary..."
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -1396,6 +1395,12 @@ Partial Class Form1
         CType(Me.TblVitalSignsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ProtocolsTabPage.ResumeLayout(False)
         Me.ProtocolsTabPage.PerformLayout()
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel1.ResumeLayout(False)
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel2.ResumeLayout(False)
+        CType(Me.ProtocolsDeliverablesRemeasurementsSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.ResumeLayout(False)
+        CType(Me.TblVitalSignProtocolsGridEX, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TblVitalSignProtocolsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ProtocolTabControl.ResumeLayout(False)
         Me.DeliverablesTabPage.ResumeLayout(False)
         Me.ProtocolDeliverablesSplitContainer.Panel1.ResumeLayout(False)
@@ -1404,12 +1409,10 @@ Partial Class Form1
         Me.ProtocolDeliverablesSplitContainer.ResumeLayout(False)
         CType(Me.TblProtocolDeliverablesGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblProtocolDeliverablesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblVitalSignProtocolsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProtocolDeliverablesCardViewGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         Me.RemeasurementsTabPage.ResumeLayout(False)
         CType(Me.TblProtocolRemeasurementsGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TblProtocolRemeasurementsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TblVitalSignProtocolsGridEX, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ToolStrip2.ResumeLayout(False)
         Me.ToolStrip2.PerformLayout()
         Me.ObjectivesTabPage.ResumeLayout(False)
@@ -1450,10 +1453,6 @@ Partial Class Form1
         Me.MainToolStrip.ResumeLayout(False)
         Me.MainToolStrip.PerformLayout()
         CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel1.ResumeLayout(False)
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.Panel2.ResumeLayout(False)
-        CType(Me.ProtocolsDeliverablesRemeasurementsSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ProtocolsDeliverablesRemeasurementsSplitContainer.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
