@@ -36,22 +36,22 @@ Partial Class DeliverablesScheduleForm
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.DeliverablesScheduleGridTabPage = New System.Windows.Forms.TabPage()
         Me.DeliverablesScheduleTextTabPage = New System.Windows.Forms.TabPage()
-        Me.ColumnsChooserDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DeliverablesSplitContainer = New System.Windows.Forms.SplitContainer()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.DelimiterToolStripTextBox = New System.Windows.Forms.ToolStripTextBox()
         Me.RebuildDSToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.ColumnsChooserDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DeliverablesSplitContainer = New System.Windows.Forms.SplitContainer()
         CType(Me.DeliverablesScheduleDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabControl1.SuspendLayout()
         Me.DeliverablesScheduleGridTabPage.SuspendLayout()
         Me.DeliverablesScheduleTextTabPage.SuspendLayout()
+        Me.ToolStrip1.SuspendLayout()
         CType(Me.ColumnsChooserDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DeliverablesSplitContainer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.DeliverablesSplitContainer.Panel1.SuspendLayout()
         Me.DeliverablesSplitContainer.Panel2.SuspendLayout()
         Me.DeliverablesSplitContainer.SuspendLayout()
-        Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'DeliverablesScheduleDataGridView
@@ -146,7 +146,6 @@ Partial Class DeliverablesScheduleForm
         Me.DSTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.DSTextBox.Size = New System.Drawing.Size(1476, 1100)
         Me.DSTextBox.TabIndex = 1
-        Me.DSTextBox.WordWrap = False
         '
         'TabControl1
         '
@@ -164,7 +163,7 @@ Partial Class DeliverablesScheduleForm
         Me.DeliverablesScheduleGridTabPage.Controls.Add(Me.DeliverablesScheduleDataGridView)
         Me.DeliverablesScheduleGridTabPage.Location = New System.Drawing.Point(4, 29)
         Me.DeliverablesScheduleGridTabPage.Name = "DeliverablesScheduleGridTabPage"
-        Me.DeliverablesScheduleGridTabPage.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.DeliverablesScheduleGridTabPage.Padding = New System.Windows.Forms.Padding(3)
         Me.DeliverablesScheduleGridTabPage.Size = New System.Drawing.Size(1482, 1138)
         Me.DeliverablesScheduleGridTabPage.TabIndex = 0
         Me.DeliverablesScheduleGridTabPage.Text = "Grid"
@@ -176,11 +175,42 @@ Partial Class DeliverablesScheduleForm
         Me.DeliverablesScheduleTextTabPage.Controls.Add(Me.ToolStrip1)
         Me.DeliverablesScheduleTextTabPage.Location = New System.Drawing.Point(4, 29)
         Me.DeliverablesScheduleTextTabPage.Name = "DeliverablesScheduleTextTabPage"
-        Me.DeliverablesScheduleTextTabPage.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.DeliverablesScheduleTextTabPage.Padding = New System.Windows.Forms.Padding(3)
         Me.DeliverablesScheduleTextTabPage.Size = New System.Drawing.Size(1482, 1138)
         Me.DeliverablesScheduleTextTabPage.TabIndex = 1
         Me.DeliverablesScheduleTextTabPage.Text = "Text"
         Me.DeliverablesScheduleTextTabPage.UseVisualStyleBackColor = True
+        '
+        'ToolStrip1
+        '
+        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.DelimiterToolStripTextBox, Me.RebuildDSToolStripButton})
+        Me.ToolStrip1.Location = New System.Drawing.Point(3, 3)
+        Me.ToolStrip1.Name = "ToolStrip1"
+        Me.ToolStrip1.Size = New System.Drawing.Size(1476, 32)
+        Me.ToolStrip1.TabIndex = 2
+        Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'ToolStripLabel1
+        '
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(83, 29)
+        Me.ToolStripLabel1.Text = "Delimiter"
+        '
+        'DelimiterToolStripTextBox
+        '
+        Me.DelimiterToolStripTextBox.Name = "DelimiterToolStripTextBox"
+        Me.DelimiterToolStripTextBox.Size = New System.Drawing.Size(100, 32)
+        Me.DelimiterToolStripTextBox.Text = "|"
+        '
+        'RebuildDSToolStripButton
+        '
+        Me.RebuildDSToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.RebuildDSToolStripButton.Image = CType(resources.GetObject("RebuildDSToolStripButton.Image"), System.Drawing.Image)
+        Me.RebuildDSToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.RebuildDSToolStripButton.Name = "RebuildDSToolStripButton"
+        Me.RebuildDSToolStripButton.Size = New System.Drawing.Size(75, 29)
+        Me.RebuildDSToolStripButton.Text = "Rebuild"
         '
         'ColumnsChooserDataGridView
         '
@@ -214,37 +244,6 @@ Partial Class DeliverablesScheduleForm
         Me.DeliverablesSplitContainer.SplitterWidth = 6
         Me.DeliverablesSplitContainer.TabIndex = 3
         '
-        'ToolStrip1
-        '
-        Me.ToolStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.DelimiterToolStripTextBox, Me.RebuildDSToolStripButton})
-        Me.ToolStrip1.Location = New System.Drawing.Point(3, 3)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.Size = New System.Drawing.Size(1476, 32)
-        Me.ToolStrip1.TabIndex = 2
-        Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'ToolStripLabel1
-        '
-        Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(83, 29)
-        Me.ToolStripLabel1.Text = "Delimiter"
-        '
-        'DelimiterToolStripTextBox
-        '
-        Me.DelimiterToolStripTextBox.Name = "DelimiterToolStripTextBox"
-        Me.DelimiterToolStripTextBox.Size = New System.Drawing.Size(100, 32)
-        Me.DelimiterToolStripTextBox.Text = "|"
-        '
-        'RebuildDSToolStripButton
-        '
-        Me.RebuildDSToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.RebuildDSToolStripButton.Image = CType(resources.GetObject("RebuildDSToolStripButton.Image"), System.Drawing.Image)
-        Me.RebuildDSToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.RebuildDSToolStripButton.Name = "RebuildDSToolStripButton"
-        Me.RebuildDSToolStripButton.Size = New System.Drawing.Size(75, 29)
-        Me.RebuildDSToolStripButton.Text = "Rebuild"
-        '
         'DeliverablesScheduleForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -258,13 +257,13 @@ Partial Class DeliverablesScheduleForm
         Me.DeliverablesScheduleGridTabPage.ResumeLayout(False)
         Me.DeliverablesScheduleTextTabPage.ResumeLayout(False)
         Me.DeliverablesScheduleTextTabPage.PerformLayout()
+        Me.ToolStrip1.ResumeLayout(False)
+        Me.ToolStrip1.PerformLayout()
         CType(Me.ColumnsChooserDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DeliverablesSplitContainer.Panel1.ResumeLayout(False)
         Me.DeliverablesSplitContainer.Panel2.ResumeLayout(False)
         CType(Me.DeliverablesSplitContainer, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DeliverablesSplitContainer.ResumeLayout(False)
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

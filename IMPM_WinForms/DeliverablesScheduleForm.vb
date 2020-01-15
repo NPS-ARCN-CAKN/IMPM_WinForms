@@ -1,7 +1,10 @@
-﻿Public Class DeliverablesScheduleForm
+﻿Imports Janus.Windows.GridEX
+
+Public Class DeliverablesScheduleForm
 
     Private _DeliverablesScheduleDataView As DataView
     Dim ChooserDataTable As New DataTable
+    Dim CurrentProtocolGridEXRow As GridEXRow
 
     Public Property DeliverablesScheduleDataView() As DataView
         Get
@@ -41,19 +44,26 @@
     End Property
 
 
-    Public Sub New()
+    Public Sub New(ProtocolRow As GridEXRow)
         ' This call is required by the designer.
         InitializeComponent()
+
+        CurrentProtocolGridEXRow = ProtocolRow
     End Sub
 
 
 
+
+
     Private Sub ReviseDGV(Delimiter As String)
+
+        'make sure we have a delimiter
         If Delimiter.Trim.Length = 0 Then
             Delimiter = "|"
         Else
             Me.DelimiterToolStripTextBox.Text.Trim()
         End If
+
         Try
             ' get a reference to the deliverables datagridview
             Dim Grid As DataGridView = Me.DeliverablesScheduleDataGridView
@@ -65,8 +75,51 @@
                 i = i + 1
             Next
 
+            'Grid.Columns("DeliverableIdentifier").Visible = True
+            'Grid.Columns("Deliverable").Visible = True
+            'Grid.Columns("Format").Visible = True
+            'Grid.Columns("Schedule").Visible = True
+            'Grid.Columns("Responsibility").Visible = True
+            'Grid.Columns("Description").Visible = True
+
             'clean the textbox
             Me.DSTextBox.Text = ""
+
+            'background info text
+            If Not CurrentProtocolGridEXRow Is Nothing Then
+                If Not CurrentProtocolGridEXRow.Cells("ProtocolCitation") Is Nothing Then
+                    'Citation
+                    Dim ColumnName As String = "ProtocolCitation"
+                    Dim Citation As String = ""
+                    If Not IsDBNull(CurrentProtocolGridEXRow.Cells(ColumnName).Value) Then
+                        Citation = CurrentProtocolGridEXRow.Cells(ColumnName).Value
+                    End If
+
+                    'Version
+                    ColumnName = "Version"
+                    Dim Version As String = "0.00"
+                    If Not IsDBNull(CurrentProtocolGridEXRow.Cells(ColumnName).Value) Then
+                        Version = CurrentProtocolGridEXRow.Cells(ColumnName).Value
+                    End If
+
+                    'IRMAReferenceCode
+                    ColumnName = "IRMAReferenceCode"
+                    Dim IRMAReferenceCode As String = "0"
+                    If Not IsDBNull(CurrentProtocolGridEXRow.Cells(ColumnName).Value) Then
+                        IRMAReferenceCode = CurrentProtocolGridEXRow.Cells(ColumnName).Value
+                    End If
+
+
+                    Dim Info As String = "--- MODIFY THESE STATEMENTS AS NEEDED ---" & vbNewLine & vbNewLine
+                    Info = Info & "[SENSITIVE DATA. NPS internal use only]. This dataset contains information about a species of commercial interest or threatened or endangered species]" & vbNewLine & vbNewLine
+                    Info = Info & "CAUTION: This dataset has not been certified for analytical use. The deliverables in this dataset contain raw, provisional or incomplete field data that may not have been processed for quality and may be available in a higher quality form elsewhere. These deliverables are archived for future quality checking purposes by NPS scientists only and are not certified for analysis or distribution. Contact the project leader for certified data." & vbNewLine & vbNewLine
+                    Info = Info & "Data deliverables For this monitoring program are defined In " & Citation & ", Version " & Version & ", IRMA reference code " & IRMAReferenceCode & ". This protocol Is available through the National Park Service's Integrated Resource Management Applications Data Store." & vbNewLine & vbNewLine
+                    Info = Info & "U.S. Government Works" & vbNewLine & "Data and content created by government employees within the scope of their employment are not subject to domestic copyright protection under 17 U.S.C. § 105. Government works are by default in the U.S. Public Domain."
+                    Me.DSTextBox.AppendText(Info & vbNewLine & vbNewLine)
+                End If
+            End If
+
+            Me.DSTextBox.AppendText("Deliverables Schedule" & vbNewLine)
 
             'dump out the selected columns to the text box
             'start with the column headers
@@ -77,23 +130,29 @@
                 End If
             Next
 
+
             'remove trailing comma and output the deliverables headers
             If Headers.Trim.Length > 0 Then
-                Me.DSTextBox.Text = Headers.Trim.Substring(0, Headers.Trim.Length - 1) & vbNewLine
+                Me.DSTextBox.AppendText(Headers.Trim.Substring(0, Headers.Trim.Length - 1) & vbNewLine)
             End If
 
             'now dump out the visible cells of the deliverables dgv to the textbox
-            Dim Specs As String = vbNewLine & vbNewLine & "Deliverable Specifications" & vbNewLine & vbNewLine
+            Dim Specs As String = vbNewLine & "Deliverable Specifications" & vbNewLine
             Dim Spec As String = ""
 
             'loop through the visible (chosen) columns in the DGV for each deliverable row and output in CSV format
             For Each Row As DataGridViewRow In Grid.Rows
+
                 Dim RowText As String = ""
+
                 Specs = Specs & vbNewLine
+
+                'loop through the row's columns
                 For Each Col As DataGridViewColumn In Grid.Columns
                     If Col.Visible = True Then
                         Dim CellHeader As String = Col.HeaderText
                         Dim CellValue As String = ""
+
                         If Not IsDBNull(Row.Cells(Col.Name).Value) Then
                             RowText = RowText & Row.Cells(Col.Name).Value & Delimiter
                             CellValue = Row.Cells(Col.Name).Value

@@ -437,7 +437,7 @@ Public Class Form1
         End With
 
         'build the form and give it the dataview
-        Dim DSForm As New DeliverablesScheduleForm()
+        Dim DSForm As New DeliverablesScheduleForm(Me.TblVitalSignProtocolsGridEX.CurrentRow)
         DSForm.DeliverablesScheduleDataView = DSDataView
         DSForm.ShowDialog()
     End Sub
