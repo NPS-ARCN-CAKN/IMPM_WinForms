@@ -13,6 +13,7 @@ Public Class Form1
         SetUpGridEX(Me.VwVitalSignOverviewGridEX)
         SetUpGridEX(TblVitalSignsGridEX)
         SetUpGridEX(TblVitalSignWorkLogGridEX)
+        'Me.TblVitalSignWorkLogGridEX.NewRowPosition = NewRowPosition.TopRow
         SetUpGridEX(TblVitalSignProtocolsGridEX)
         SetUpGridEX(TblVitalSignTasksGridEX)
         SetUpGridEX(TblVitalSignDataManagementSummaryGridEX)
@@ -896,6 +897,135 @@ Public Class Form1
         ProtocolSummaryForm.ShowDialog()
     End Sub
 
+    Private Sub GetRemeasurementVerbageToolStripButton_Click(sender As Object, e As EventArgs) Handles GetRemeasurementVerbageToolStripButton.Click
+        'generate boilerplate text for the remeasurement dataset for dumping into IRMA Data Store
+        Dim BP As String = GetCurrentRemeasurementDatasetVerbage(",")
+
+        Dim VerbageForm As New GenericOutputForm("Remeasurement Dataset Verbage", BP)
+        VerbageForm.ShowDialog()
+    End Sub
+
+    ''' <summary>
+    ''' Generates boilerplate verbage that can be cut and pasted into an IRMA Dataset Reference for a Vital Sign's remeasurement deliverables
+    ''' </summary>
+    ''' <returns></returns>
+    Public Function GetCurrentRemeasurementDatasetVerbage(Delimiter As String) As String
+        Dim V As String = "Failed to retrieve the verbage for this remeasurement (GetCurrentRemeasurementDatasetVerbage())" 'the verbage
+
+        Try
+            'Dim CurrentVSID As String = GetCurrentGridEXCellValue(Me.TblVitalSignsGridEX, "VSID")
+            Dim CurrentProtocolID As String = GetCurrentGridEXCellValue(Me.TblVitalSignProtocolsGridEX, "ProtocolID")
+            Dim CurrentRemeasurementID As String = GetCurrentGridEXCellValue(Me.TblProtocolRemeasurementsGridEX, "RemeasurementID")
+            If CurrentProtocolID <> "" And CurrentRemeasurementID <> "" Then
+                'Dataset overview --------------------------------------------------------------------
+                Dim DatasetTitle As String = GetCurrentGridEXCellValue(TblProtocolRemeasurementsGridEX, "Description")
+                'Dim VitalSign As String = GetCurrentGridEXCellValue(Me.TblVitalSignsGridEX, "VitalSign")
+                Dim ProtocolCitation As String = GetCurrentGridEXCellValue(Me.TblVitalSignProtocolsGridEX, "ProtocolCitation")
+                Dim Version As String = GetCurrentGridEXCellValue(Me.TblVitalSignProtocolsGridEX, "Version")
+                Dim IRMAReferenceCode As String = GetCurrentGridEXCellValue(Me.TblVitalSignProtocolsGridEX, "IRMAReferenceCode")
+
+                'title
+                V = DatasetTitle & vbNewLine & vbNewLine
+
+                'protocol reference
+                V = V & "Data deliverables For this monitoring program are defined In " & ProtocolCitation & ", Version " & Version & ", IRMA reference code " & IRMAReferenceCode & ". This protocol Is available through the National Park Service's Integrated Resource Management Applications Data Store." & vbNewLine & vbNewLine
 
 
+                'deliverables schedule --------------------------------------------------------------------
+                V = V & "Deliverables Schedule" & vbNewLine & vbNewLine
+                Dim Sql As String = "SELECT DeliverableIdentifier, Deliverable, SOP, SOPVersion, Format, Schedule, Responsibility, DeliverableDescription, DataHandling, QAQC, DocumentNotes, NetworkID, VSID, ProtocolID, DocumentID, DeliverableID, Archival, Specifications, 
+                         FileNamingScheme, BuilderTasks, ValidatorTasks, CertifierTasks
+FROM            vwProtocolDeliverables
+WHERE        (ProtocolID = " & CurrentProtocolID & ")"
+
+                'dump out the deliverables into a readable string
+                'also build out the specifications
+                Dim DeliverablesDataTable As DataTable = GetDataTable(My.Settings.AKROConnectionString, Sql)
+
+                'build a header line
+                V = V & "Identifier,Deliverable,Format,Schedule" & vbNewLine
+                'dump out the deliverables in a readable table format
+                Dim Specs As String = ""
+                For Each Row As DataRow In DeliverablesDataTable.Rows
+                    V = V & Row.Item("DeliverableIDentifier") & Delimiter & Row.Item("Deliverable") & Delimiter & Row.Item("Format") & Delimiter & Row.Item("Schedule") & vbNewLine
+
+                    Specs = Specs & Row.Item("DeliverableIDentifier") & ": " & Row.Item("Deliverable") & vbNewLine & "Format: " & Row.Item("Format") & vbNewLine & "Schedule: " & Row.Item("Schedule") & vbNewLine & "Description: " & Row.Item("DeliverableDescription") & vbNewLine & vbNewLine
+                Next
+
+                'output the extended specifications
+                V = V & vbNewLine & "Specifications" & vbNewLine
+                V = V & Specs & vbNewLine & vbNewLine
+
+                V = V & "--- SENSITIVITY STATEMENT - MODIFY/DELETE AS NEEDED ---" & vbNewLine & vbNewLine
+                V = V & "[SENSITIVE DATA. NPS internal use only]. This dataset contains information about a species of commercial interest Or threatened Or endangered species]" & vbNewLine & vbNewLine
+
+                V = V & "--- RAW/PROVISIONAL DATA STATEMENT - MODIFY/DELETE AS NEEDED ---" & vbNewLine & vbNewLine
+                V = V & "CAUTION: This dataset has not been certified for analytical use. The deliverables in this dataset contain raw, provisional or incomplete field data that may not have been processed for quality and may be available in a higher quality form elsewhere. These deliverables are archived for future quality checking purposes by NPS scientists only and are not certified for analysis or distribution. Contact the project leader for certified data." & vbNewLine & vbNewLine
+                V = V & vbNewLine & vbNewLine
+
+
+                V = V & "U.S. Government Works" & vbNewLine & "Data and content created by government employees within the scope of their employment are not subject to domestic copyright protection under 17 U.S.C. § 105. Government works are by default in the U.S. Public Domain." & vbNewLine
+
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+
+        Return V
+    End Function
+
+
+    Private Sub CurrentRemeasurementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CurrentRemeasurementToolStripMenuItem.Click
+        OpenCurrentRemeasurementDataset()
+    End Sub
+
+    Private Sub OpenCurrentRemeasurementDataset()
+        Try
+            'open the ref code using the default application
+            Dim IRMAReferenceCode As String = GetCurrentGridEXCellValue(Me.TblProtocolRemeasurementsGridEX, "DeliverablesIRMAReferenceCode")
+            If IsNumeric(IRMAReferenceCode) Then
+                If CInt(IRMAReferenceCode) > 0 Then
+                    Dim URL As String = My.Settings.IRMADataStoreURLPrefix & IRMAReferenceCode
+                    Process.Start(URL)
+                End If
+
+            Else
+                MsgBox("Please select a remeasurement with a valid Data Store reference code.")
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    Private Sub AllRemeasurementsShownBelowToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AllRemeasurementsShownBelowToolStripMenuItem.Click
+        Try
+            'loop through all the dataset references in the remeasurements grid and open them using default application
+            For Each Row As GridEXRow In Me.TblProtocolRemeasurementsGridEX.GetRows
+                If Not Row Is Nothing Then
+                    If Not Row.Cells("DeliverablesIRMAReferenceCode") Is Nothing Then
+                        If Not Row.Cells("DeliverablesIRMAReferenceCode").Value Is Nothing Then
+                            If Not IsDBNull(Row.Cells("DeliverablesIRMAReferenceCode").Value) Then
+                                Dim RefCode As String = Row.Cells("DeliverablesIRMAReferenceCode").Value
+                                If IsNumeric(RefCode) Then
+                                    If CInt(RefCode) > 0 Then
+                                        Dim URL As String = My.Settings.IRMADataStoreURLPrefix & RefCode
+                                        Process.Start(URL)
+                                    End If
+                                End If
+
+                            End If
+                        End If
+                    End If
+                End If
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
+
+    Private Sub OpenDatasetsToolStripSplitButton_ButtonClick(sender As Object, e As EventArgs) Handles OpenDatasetsToolStripSplitButton.ButtonClick
+        OpenCurrentRemeasurementDataset()
+    End Sub
 End Class

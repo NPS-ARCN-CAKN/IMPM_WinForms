@@ -38,7 +38,9 @@ Module ApplicationUtilities
                 '.ColumnAutoResize = True
                 .Font = MyFont
                 .RowHeaders = InheritableBoolean.True
-                .NewRowPosition = NewRowPosition.BottomRow
+                .NewRowPosition = NewRowPosition.TopRow
+                .NewRowFormatStyle.BackColor = Color.AliceBlue
+                .FilterRowFormatStyle.BackColor = Color.LightYellow
                 .SelectOnExpand = False
                 .SaveSettings = True
             End With
@@ -258,5 +260,35 @@ WHERE        (VSID = " & VSID & ") ORDER BY Version DESC ")
 
         Return Dump
     End Function
+
+    ''' <summary>
+    ''' Returns the current value of the cell specified by GridEXColumnKey of the current row of GridEX.
+    ''' </summary>
+    ''' <param name="GridEX">GridEX to search. GridEX</param>
+    ''' <param name="GridEXColumnKey">The key (name) of the GridEX column from which you would like the current value. String.</param>
+    ''' <returns></returns>
+    Public Function GetCurrentGridEXCellValue(GridEX As GridEX, GridEXColumnKey As String) As String
+        Dim CellValue As String = ""
+        Try
+            'get the current row of the VS GridEX
+            If Not GridEX Is Nothing Then
+                If Not GridEX.CurrentRow Is Nothing Then
+                    Dim CurrentRow As GridEXRow = GridEX.CurrentRow
+                    If Not CurrentRow.Cells(GridEXColumnKey) Is Nothing Then
+                        If Not IsDBNull(CurrentRow.Cells(GridEXColumnKey).Value) Then
+                            CellValue = CurrentRow.Cells(GridEXColumnKey).Value
+                        Else
+                            CellValue = ""
+                        End If
+                    End If
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+        Return CellValue
+    End Function
+
+
 
 End Module
