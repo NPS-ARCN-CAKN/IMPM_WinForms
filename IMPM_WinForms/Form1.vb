@@ -927,6 +927,15 @@ Public Class Form1
                 'title
                 V = DatasetTitle & vbNewLine & vbNewLine
 
+                'sensitivity statement
+                V = V & "--- SENSITIVITY STATEMENT - MODIFY/DELETE AS NEEDED ---" & vbNewLine & vbNewLine
+                V = V & "[SENSITIVE DATA. NPS internal use only]. This dataset contains information about a species of commercial interest Or threatened Or endangered species. " & vbNewLine & vbNewLine
+
+                'data quality statement
+                V = V & "--- RAW/PROVISIONAL DATA STATEMENT - MODIFY/DELETE AS NEEDED ---" & vbNewLine & vbNewLine
+                V = V & "CAUTION: This dataset contains archived raw field data deliverable files that have not been certified for analytical use. The data in this dataset may be incomplete and/or not processed for quality. These deliverables are archived for future quality checking purposes by NPS scientists. Certified data is available. Contact the project leader."
+                V = V & vbNewLine & vbNewLine
+
                 'protocol reference
                 V = V & "Data deliverables For this monitoring program are defined In " & ProtocolCitation & ", Version " & Version & ", IRMA reference code " & IRMAReferenceCode & ". This protocol Is available through the National Park Service's Integrated Resource Management Applications Data Store." & vbNewLine & vbNewLine
 
@@ -956,12 +965,7 @@ WHERE        (ProtocolID = " & CurrentProtocolID & ")"
                 V = V & vbNewLine & "Specifications" & vbNewLine
                 V = V & Specs & vbNewLine & vbNewLine
 
-                V = V & "--- SENSITIVITY STATEMENT - MODIFY/DELETE AS NEEDED ---" & vbNewLine & vbNewLine
-                V = V & "[SENSITIVE DATA. NPS internal use only]. This dataset contains information about a species of commercial interest Or threatened Or endangered species]" & vbNewLine & vbNewLine
 
-                V = V & "--- RAW/PROVISIONAL DATA STATEMENT - MODIFY/DELETE AS NEEDED ---" & vbNewLine & vbNewLine
-                V = V & "CAUTION: This dataset has not been certified for analytical use. The deliverables in this dataset contain raw, provisional or incomplete field data that may not have been processed for quality and may be available in a higher quality form elsewhere. These deliverables are archived for future quality checking purposes by NPS scientists only and are not certified for analysis or distribution. Contact the project leader for certified data." & vbNewLine & vbNewLine
-                V = V & vbNewLine & vbNewLine
 
 
                 V = V & "U.S. Government Works" & vbNewLine & "Data and content created by government employees within the scope of their employment are not subject to domestic copyright protection under 17 U.S.C. § 105. Government works are by default in the U.S. Public Domain." & vbNewLine
