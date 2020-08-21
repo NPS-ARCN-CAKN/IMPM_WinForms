@@ -1034,4 +1034,6 @@ WHERE        (ProtocolID = " & CurrentProtocolID & ")"
     Private Sub OpenDatasetsToolStripSplitButton_ButtonClick(sender As Object, e As EventArgs) Handles OpenDatasetsToolStripSplitButton.ButtonClick
         OpenCurrentRemeasurementDataset()
     End Sub
+
+
 End Class
