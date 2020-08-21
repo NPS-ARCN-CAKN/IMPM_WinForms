@@ -963,7 +963,7 @@ WHERE        (ProtocolID = " & CurrentProtocolID & ")"
                 For Each Row As DataRow In DeliverablesDataTable.Rows
                     V = V & Row.Item("DeliverableIDentifier") & Delimiter & Row.Item("Deliverable") & Delimiter & Row.Item("Format") & Delimiter & Row.Item("Schedule") & vbNewLine
 
-                    Specs = Specs & Row.Item("DeliverableIDentifier") & ": " & Row.Item("Deliverable") & vbNewLine & "Format: " & Row.Item("Format") & vbNewLine & "Schedule: " & Row.Item("Schedule") & vbNewLine & "Description: " & Row.Item("DeliverableDescription") & vbNewLine & Row.Item("Specifications") & vbNewLine & vbNewLine
+                    Specs = Specs & Row.Item("DeliverableIDentifier") & ": " & Row.Item("Deliverable") & vbNewLine & "Format: " & Row.Item("Format") & vbNewLine & "Schedule: " & Row.Item("Schedule") & vbNewLine & "Description: " & Row.Item("DeliverableDescription") & vbNewLine & vbNewLine
                 Next
 
                 'output the extended specifications
