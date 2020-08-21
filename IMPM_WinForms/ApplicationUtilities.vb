@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.IO
 Imports Janus.Windows.GridEX
 
 Module ApplicationUtilities
@@ -49,6 +50,28 @@ Module ApplicationUtilities
         End Try
     End Sub
 
+    ''' <summary>
+    ''' Saves TextToSave to a text file chosen from a SaveFileDialog
+    ''' </summary>
+    ''' <param name="TextToSave">The text to save. String.</param>
+    Public Sub SaveTextToFile(TextToSave As String)
+        Try
+            Dim SFD As New SaveFileDialog
+            With SFD
+                .AddExtension = True
+                .DefaultExt = ".txt"
+                .Filter = "Text  files(.txt)|*.txt"
+                .InitialDirectory = "C:\"
+                .Title = "Save text to file"
+            End With
+
+            If SFD.ShowDialog = DialogResult.OK Then
+                File.WriteAllText(SFD.FileName, TextToSave)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
+        End Try
+    End Sub
 
     ''' <summary>
     ''' Runs the query in Sql against a database using ConnectionString and returns the results as a DataTable

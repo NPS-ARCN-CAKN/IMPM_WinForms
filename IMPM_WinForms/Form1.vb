@@ -919,6 +919,9 @@ Public Class Form1
             If CurrentProtocolID <> "" And CurrentRemeasurementID <> "" Then
                 'Dataset overview --------------------------------------------------------------------
                 Dim DatasetTitle As String = GetCurrentGridEXCellValue(TblProtocolRemeasurementsGridEX, "Description")
+                Dim DatasetStartDate As String = GetCurrentGridEXCellValue(Me.TblProtocolRemeasurementsGridEX, "BeginDate")
+                Dim DatasetEndDate As String = GetCurrentGridEXCellValue(Me.TblProtocolRemeasurementsGridEX, "EndDate")
+
                 'Dim VitalSign As String = GetCurrentGridEXCellValue(Me.TblVitalSignsGridEX, "VitalSign")
                 Dim ProtocolCitation As String = GetCurrentGridEXCellValue(Me.TblVitalSignProtocolsGridEX, "ProtocolCitation")
                 Dim Version As String = GetCurrentGridEXCellValue(Me.TblVitalSignProtocolsGridEX, "Version")
@@ -926,6 +929,9 @@ Public Class Form1
 
                 'title
                 V = DatasetTitle & vbNewLine & vbNewLine
+
+                'date range
+                V = V & "Date range: " & DatasetStartDate & " - " & DatasetEndDate & vbNewLine & vbNewLine
 
                 'sensitivity statement
                 V = V & "--- SENSITIVITY STATEMENT - MODIFY/DELETE AS NEEDED ---" & vbNewLine & vbNewLine
@@ -938,7 +944,6 @@ Public Class Form1
 
                 'protocol reference
                 V = V & "Data deliverables For this monitoring program are defined In " & ProtocolCitation & ", Version " & Version & ", IRMA reference code " & IRMAReferenceCode & ". This protocol Is available through the National Park Service's Integrated Resource Management Applications Data Store." & vbNewLine & vbNewLine
-
 
                 'deliverables schedule --------------------------------------------------------------------
                 V = V & "Deliverables Schedule" & vbNewLine & vbNewLine
@@ -958,15 +963,12 @@ WHERE        (ProtocolID = " & CurrentProtocolID & ")"
                 For Each Row As DataRow In DeliverablesDataTable.Rows
                     V = V & Row.Item("DeliverableIDentifier") & Delimiter & Row.Item("Deliverable") & Delimiter & Row.Item("Format") & Delimiter & Row.Item("Schedule") & vbNewLine
 
-                    Specs = Specs & Row.Item("DeliverableIDentifier") & ": " & Row.Item("Deliverable") & vbNewLine & "Format: " & Row.Item("Format") & vbNewLine & "Schedule: " & Row.Item("Schedule") & vbNewLine & "Description: " & Row.Item("DeliverableDescription") & vbNewLine & vbNewLine
+                    Specs = Specs & Row.Item("DeliverableIDentifier") & ": " & Row.Item("Deliverable") & vbNewLine & "Format: " & Row.Item("Format") & vbNewLine & "Schedule: " & Row.Item("Schedule") & vbNewLine & "Description: " & Row.Item("DeliverableDescription") & vbNewLine & Row.Item("Specifications") & vbNewLine & vbNewLine
                 Next
 
                 'output the extended specifications
                 V = V & vbNewLine & "Specifications" & vbNewLine
                 V = V & Specs & vbNewLine & vbNewLine
-
-
-
 
                 V = V & "U.S. Government Works" & vbNewLine & "Data and content created by government employees within the scope of their employment are not subject to domestic copyright protection under 17 U.S.C. § 105. Government works are by default in the U.S. Public Domain." & vbNewLine
 

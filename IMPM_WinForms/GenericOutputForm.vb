@@ -20,4 +20,8 @@
     Private Sub OffToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OffToolStripMenuItem.Click
         Me.OutputTextBox.WordWrap = False
     End Sub
+
+    Private Sub SaveToFileToolStripButton_Click(sender As Object, e As EventArgs) Handles SaveToFileToolStripButton.Click
+        SaveTextToFile(OutputTextBox.Text)
+    End Sub
 End Class
