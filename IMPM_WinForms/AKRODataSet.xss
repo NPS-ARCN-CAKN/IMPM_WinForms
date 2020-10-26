@@ -9,18 +9,18 @@
     <Shape ID="DesignTable:tblNetworks" ZOrder="37" X="7" Y="102" Height="365" Width="255" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
     <Shape ID="DesignTable:tblProtocolDeliverables" ZOrder="29" X="1127" Y="504" Height="365" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
     <Shape ID="DesignTable:tblProtocolRemeasurements" ZOrder="19" X="1056" Y="886" Height="342" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="283" />
-    <Shape ID="DesignTable:tblVitalSignDataManagementSummary" ZOrder="6" X="741" Y="102" Height="365" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
+    <Shape ID="DesignTable:tblVitalSignDataManagementSummary" ZOrder="7" X="741" Y="102" Height="365" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
     <Shape ID="DesignTable:tblVitalSignObjectives" ZOrder="33" X="8" Y="567" Height="158" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="99" />
     <Shape ID="DesignTable:tblVitalSigns" ZOrder="17" X="334" Y="99" Height="365" Width="257" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
     <Shape ID="DesignTable:tblVitalSignTasks" ZOrder="16" X="381" Y="649" Height="319" Width="290" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="260" />
     <Shape ID="DesignTable:tblVitalSignWorkLog" ZOrder="36" X="529" Y="1021" Height="204" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="145" />
-    <Shape ID="DesignTable:vwVitalSignOverview" ZOrder="2" X="1137" Y="70" Height="365" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
+    <Shape ID="DesignTable:vwVitalSignOverview" ZOrder="3" X="1137" Y="70" Height="365" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
     <Shape ID="DesignTable:vwVitalSignWorkLog" ZOrder="35" X="1507" Y="70" Height="229" Width="266" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
     <Shape ID="DesignTable:tblVitalSignProtocols" ZOrder="30" X="739" Y="499" Height="319" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="260" />
-    <Shape ID="DesignTable:tblContacts" ZOrder="7" X="429" Y="-38" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
-    <Shape ID="DesignTable:DataManagementMilestones" ZOrder="8" X="206" Y="-12" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
-    <Shape ID="DesignTable:tblNetworkTasks" ZOrder="5" X="0" Y="0" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
-    <Shape ID="DesignTable:vwContactsLookup" ZOrder="4" X="0" Y="0" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
+    <Shape ID="DesignTable:tblContacts" ZOrder="8" X="429" Y="-38" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
+    <Shape ID="DesignTable:DataManagementMilestones" ZOrder="1" X="72" Y="786" Height="222" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
+    <Shape ID="DesignTable:tblNetworkTasks" ZOrder="6" X="0" Y="0" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
+    <Shape ID="DesignTable:vwContactsLookup" ZOrder="5" X="0" Y="0" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_tblProtocolDeliverables_tblVitalSignProtocols" ZOrder="28" LineWidth="11">
@@ -290,24 +290,20 @@
     <Connector ID="DesignRelation:FK_DataManagementMilestones_tblVitalSigns" ZOrder="10" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>158</X>
-          <Y>74</Y>
+          <X>359</X>
+          <Y>464</Y>
         </Point>
         <Point>
-          <X>372</X>
-          <Y>74</Y>
+          <X>359</X>
+          <Y>803</Y>
         </Point>
         <Point>
-          <X>372</X>
-          <Y>62</Y>
-        </Point>
-        <Point>
-          <X>364</X>
-          <Y>62</Y>
+          <X>230</X>
+          <Y>803</Y>
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:FK_tblNetworkTasks_tblNetworks" ZOrder="3" LineWidth="11">
+    <Connector ID="DesignRelation:FK_tblNetworkTasks_tblNetworks" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>158</X>
@@ -327,7 +323,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:vwVitalSignWorkLog_tblVitalSigns" ZOrder="1" LineWidth="11">
+    <Connector ID="DesignRelation:vwVitalSignWorkLog_tblVitalSigns" ZOrder="2" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>1507</X>

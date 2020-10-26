@@ -23,9 +23,6 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim ProtocolDirectoryLabel As System.Windows.Forms.Label
-        Dim DataDirectoryLabel As System.Windows.Forms.Label
-        Dim CurrentStatusLabel As System.Windows.Forms.Label
         Dim VwVitalSignOverviewGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Dim TblVitalSignsGridEX_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
@@ -111,11 +108,6 @@ Partial Class Form1
         Me.DataManagementMilestonesTabPage = New System.Windows.Forms.TabPage()
         Me.GridEX1 = New Janus.Windows.GridEX.GridEX()
         Me.DataManagementMilestonesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OpenDataDirectoryButton = New System.Windows.Forms.Button()
-        Me.OpenProtocolDirectoryButton = New System.Windows.Forms.Button()
-        Me.ProtocolDirectoryTextBox = New System.Windows.Forms.TextBox()
-        Me.DataDirectoryTextBox = New System.Windows.Forms.TextBox()
-        Me.CurrentStatusTextBox = New System.Windows.Forms.TextBox()
         Me.DataManagementOverviewTabPage = New System.Windows.Forms.TabPage()
         Me.TblVitalSignDataManagementSummaryGridEX = New Janus.Windows.GridEX.GridEX()
         Me.TblVitalSignDataManagementSummaryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -165,9 +157,6 @@ Partial Class Form1
         Me.vwVitalSignWorkLogTableAdapter = New IMPM.AKRODataSetTableAdapters.vwVitalSignWorkLogTableAdapter()
         Me.VwContactsLookupBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VwContactsLookupTableAdapter = New IMPM.AKRODataSetTableAdapters.vwContactsLookupTableAdapter()
-        ProtocolDirectoryLabel = New System.Windows.Forms.Label()
-        DataDirectoryLabel = New System.Windows.Forms.Label()
-        CurrentStatusLabel = New System.Windows.Forms.Label()
         CType(Me.vwVitalSignWorkLogBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AKRODataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwVitalSignOverviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -232,33 +221,6 @@ Partial Class Form1
         Me.MainToolStrip.SuspendLayout()
         CType(Me.VwContactsLookupBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ProtocolDirectoryLabel
-        '
-        ProtocolDirectoryLabel.AutoSize = True
-        ProtocolDirectoryLabel.Location = New System.Drawing.Point(24, 507)
-        ProtocolDirectoryLabel.Name = "ProtocolDirectoryLabel"
-        ProtocolDirectoryLabel.Size = New System.Drawing.Size(144, 17)
-        ProtocolDirectoryLabel.TabIndex = 14
-        ProtocolDirectoryLabel.Text = "Protocol Directory:"
-        '
-        'DataDirectoryLabel
-        '
-        DataDirectoryLabel.AutoSize = True
-        DataDirectoryLabel.Location = New System.Drawing.Point(24, 533)
-        DataDirectoryLabel.Name = "DataDirectoryLabel"
-        DataDirectoryLabel.Size = New System.Drawing.Size(118, 17)
-        DataDirectoryLabel.TabIndex = 16
-        DataDirectoryLabel.Text = "Data Directory:"
-        '
-        'CurrentStatusLabel
-        '
-        CurrentStatusLabel.AutoSize = True
-        CurrentStatusLabel.Location = New System.Drawing.Point(24, 559)
-        CurrentStatusLabel.Name = "CurrentStatusLabel"
-        CurrentStatusLabel.Size = New System.Drawing.Size(118, 17)
-        CurrentStatusLabel.TabIndex = 18
-        CurrentStatusLabel.Text = "Current Status:"
         '
         'vwVitalSignWorkLogBindingSource
         '
@@ -918,14 +880,6 @@ Partial Class Form1
         '
         Me.DataManagementMilestonesTabPage.AutoScroll = True
         Me.DataManagementMilestonesTabPage.Controls.Add(Me.GridEX1)
-        Me.DataManagementMilestonesTabPage.Controls.Add(Me.OpenDataDirectoryButton)
-        Me.DataManagementMilestonesTabPage.Controls.Add(Me.OpenProtocolDirectoryButton)
-        Me.DataManagementMilestonesTabPage.Controls.Add(ProtocolDirectoryLabel)
-        Me.DataManagementMilestonesTabPage.Controls.Add(Me.ProtocolDirectoryTextBox)
-        Me.DataManagementMilestonesTabPage.Controls.Add(DataDirectoryLabel)
-        Me.DataManagementMilestonesTabPage.Controls.Add(Me.DataDirectoryTextBox)
-        Me.DataManagementMilestonesTabPage.Controls.Add(CurrentStatusLabel)
-        Me.DataManagementMilestonesTabPage.Controls.Add(Me.CurrentStatusTextBox)
         Me.DataManagementMilestonesTabPage.Location = New System.Drawing.Point(4, 25)
         Me.DataManagementMilestonesTabPage.Name = "DataManagementMilestonesTabPage"
         Me.DataManagementMilestonesTabPage.Padding = New System.Windows.Forms.Padding(3)
@@ -936,18 +890,17 @@ Partial Class Form1
         '
         'GridEX1
         '
-        Me.GridEX1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GridEX1.CardWidth = 678
+        Me.GridEX1.CardWidth = 748
         Me.GridEX1.ColumnAutoSizeMode = Janus.Windows.GridEX.ColumnAutoSizeMode.DiaplayedCells
         Me.GridEX1.DataSource = Me.DataManagementMilestonesBindingSource
         GridEX1_DesignTimeLayout.LayoutString = resources.GetString("GridEX1_DesignTimeLayout.LayoutString")
         Me.GridEX1.DesignTimeLayout = GridEX1_DesignTimeLayout
+        Me.GridEX1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GridEX1.GroupByBoxVisible = False
-        Me.GridEX1.Location = New System.Drawing.Point(11, 70)
+        Me.GridEX1.Location = New System.Drawing.Point(3, 3)
         Me.GridEX1.Margin = New System.Windows.Forms.Padding(2)
         Me.GridEX1.Name = "GridEX1"
-        Me.GridEX1.Size = New System.Drawing.Size(706, 479)
+        Me.GridEX1.Size = New System.Drawing.Size(776, 541)
         Me.GridEX1.TabIndex = 22
         Me.GridEX1.View = Janus.Windows.GridEX.View.SingleCard
         '
@@ -955,53 +908,6 @@ Partial Class Form1
         '
         Me.DataManagementMilestonesBindingSource.DataMember = "FK_DataManagementMilestones_tblVitalSigns"
         Me.DataManagementMilestonesBindingSource.DataSource = Me.TblVitalSignsBindingSource
-        '
-        'OpenDataDirectoryButton
-        '
-        Me.OpenDataDirectoryButton.Location = New System.Drawing.Point(695, 531)
-        Me.OpenDataDirectoryButton.Name = "OpenDataDirectoryButton"
-        Me.OpenDataDirectoryButton.Size = New System.Drawing.Size(75, 23)
-        Me.OpenDataDirectoryButton.TabIndex = 21
-        Me.OpenDataDirectoryButton.Text = "Open..."
-        Me.OpenDataDirectoryButton.UseVisualStyleBackColor = True
-        '
-        'OpenProtocolDirectoryButton
-        '
-        Me.OpenProtocolDirectoryButton.Location = New System.Drawing.Point(695, 505)
-        Me.OpenProtocolDirectoryButton.Name = "OpenProtocolDirectoryButton"
-        Me.OpenProtocolDirectoryButton.Size = New System.Drawing.Size(75, 23)
-        Me.OpenProtocolDirectoryButton.TabIndex = 20
-        Me.OpenProtocolDirectoryButton.Text = "Open..."
-        Me.OpenProtocolDirectoryButton.UseVisualStyleBackColor = True
-        '
-        'ProtocolDirectoryTextBox
-        '
-        Me.ProtocolDirectoryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "ProtocolDirectory", True))
-        Me.ProtocolDirectoryTextBox.Location = New System.Drawing.Point(175, 505)
-        Me.ProtocolDirectoryTextBox.Name = "ProtocolDirectoryTextBox"
-        Me.ProtocolDirectoryTextBox.Size = New System.Drawing.Size(515, 23)
-        Me.ProtocolDirectoryTextBox.TabIndex = 15
-        '
-        'DataDirectoryTextBox
-        '
-        Me.DataDirectoryTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "DataDirectory", True))
-        Me.DataDirectoryTextBox.Location = New System.Drawing.Point(175, 531)
-        Me.DataDirectoryTextBox.Name = "DataDirectoryTextBox"
-        Me.DataDirectoryTextBox.Size = New System.Drawing.Size(515, 23)
-        Me.DataDirectoryTextBox.TabIndex = 17
-        '
-        'CurrentStatusTextBox
-        '
-        Me.CurrentStatusTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CurrentStatusTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DataManagementMilestonesBindingSource, "CurrentStatus", True))
-        Me.CurrentStatusTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CurrentStatusTextBox.Location = New System.Drawing.Point(175, 557)
-        Me.CurrentStatusTextBox.Multiline = True
-        Me.CurrentStatusTextBox.Name = "CurrentStatusTextBox"
-        Me.CurrentStatusTextBox.Size = New System.Drawing.Size(560, 136)
-        Me.CurrentStatusTextBox.TabIndex = 19
         '
         'DataManagementOverviewTabPage
         '
@@ -1503,7 +1409,6 @@ Partial Class Form1
         Me.tblVitalSignObjectivesBindingNavigator.ResumeLayout(False)
         Me.tblVitalSignObjectivesBindingNavigator.PerformLayout()
         Me.DataManagementMilestonesTabPage.ResumeLayout(False)
-        Me.DataManagementMilestonesTabPage.PerformLayout()
         CType(Me.GridEX1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataManagementMilestonesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.DataManagementOverviewTabPage.ResumeLayout(False)
@@ -1621,13 +1526,8 @@ Partial Class Form1
     Friend WithEvents CreateDeliverablesDirectoriesToolStripButton As ToolStripButton
     Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
     Friend WithEvents DataManagementMilestonesTabPage As TabPage
-    Friend WithEvents ProtocolDirectoryTextBox As TextBox
-    Friend WithEvents DataDirectoryTextBox As TextBox
-    Friend WithEvents CurrentStatusTextBox As TextBox
     Friend WithEvents DataManagementMilestonesBindingSource As BindingSource
     Friend WithEvents DataManagementMilestonesTableAdapter As AKRODataSetTableAdapters.DataManagementMilestonesTableAdapter
-    Friend WithEvents OpenDataDirectoryButton As Button
-    Friend WithEvents OpenProtocolDirectoryButton As Button
     Friend WithEvents SitesTabPage As TabPage
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
     Friend WithEvents OpenProtocolTrackerToolStripButton As ToolStripButton

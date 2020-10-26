@@ -612,26 +612,7 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub OpenProtocolDirectoryButton_Click(sender As Object, e As EventArgs) Handles OpenProtocolDirectoryButton.Click
-        Try
-            Process.Start(Me.ProtocolDirectoryTextBox.Text.Trim)
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
 
-    Private Sub OpenDataDirectoryButton_Click(sender As Object, e As EventArgs) Handles OpenDataDirectoryButton.Click
-        Try
-            Process.Start(Me.DataDirectoryTextBox.Text.Trim)
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-
-    Private Sub DataManagementMilestonesBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles DataManagementMilestonesBindingSource.CurrentChanged
-
-
-    End Sub
 
     Private Sub OpenProtocolTrackerToolStripButton_Click(sender As Object, e As EventArgs) Handles OpenProtocolTrackerToolStripButton.Click
         'the gridex contains a column called IRMAProtocolTrackerID which is the unique ID of the Vital Sign (not the protocol as the website implies)
@@ -671,44 +652,7 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub ProtocolDirectoryTextBox_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ProtocolDirectoryTextBox.Validating
-        Try
-            'make sure the protocol directory exists
-            If Me.ProtocolDirectoryTextBox.Text.Trim <> "" Then
-                If My.Computer.FileSystem.DirectoryExists(Me.ProtocolDirectoryTextBox.Text.Trim) = False Then
-                    Me.ProtocolDirectoryTextBox.ForeColor = Color.Red
-                Else
-                    Me.ProtocolDirectoryTextBox.ForeColor = Color.Black
-                End If
-            Else
-                Me.ProtocolDirectoryTextBox.ForeColor = Color.Black
-            End If
-        Catch ex As Exception
-            Me.ProtocolDirectoryTextBox.ForeColor = Color.Black
-            Me.DataDirectoryTextBox.ForeColor = Color.Black
-            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
-        End Try
-    End Sub
 
-    Private Sub DataDirectoryTextBox_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles DataDirectoryTextBox.Validating
-        Try
-            'make sure the data directory exists
-            If Me.DataDirectoryTextBox.Text.Trim <> "" Then
-                If My.Computer.FileSystem.DirectoryExists(Me.DataDirectoryTextBox.Text.Trim) = False Then
-                    Me.DataDirectoryTextBox.ForeColor = Color.Red
-                Else
-                    Me.DataDirectoryTextBox.ForeColor = Color.Black
-                End If
-            Else
-                Me.DataDirectoryTextBox.ForeColor = Color.Black
-            End If
-
-        Catch ex As Exception
-            Me.ProtocolDirectoryTextBox.ForeColor = Color.Black
-            Me.DataDirectoryTextBox.ForeColor = Color.Black
-            MsgBox(ex.Message & " " & System.Reflection.MethodBase.GetCurrentMethod.Name)
-        End Try
-    End Sub
 
 
 
