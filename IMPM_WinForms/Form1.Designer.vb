@@ -928,7 +928,7 @@ Partial Class Form1
         Me.TblVitalSignDataManagementSummaryGridEX.AlternatingColors = True
         Me.TblVitalSignDataManagementSummaryGridEX.CardBorders = False
         Me.TblVitalSignDataManagementSummaryGridEX.CardHeaders = False
-        Me.TblVitalSignDataManagementSummaryGridEX.CardWidth = 742
+        Me.TblVitalSignDataManagementSummaryGridEX.CardWidth = 733
         Me.TblVitalSignDataManagementSummaryGridEX.ColumnAutoSizeMode = Janus.Windows.GridEX.ColumnAutoSizeMode.DiaplayedCells
         Me.TblVitalSignDataManagementSummaryGridEX.DataSource = Me.TblVitalSignDataManagementSummaryBindingSource
         TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout.LayoutString = resources.GetString("TblVitalSignDataManagementSummaryGridEX_DesignTimeLayout.LayoutString")
@@ -951,6 +951,7 @@ Partial Class Form1
         Me.TblVitalSignDataManagementSummaryGridEX.Size = New System.Drawing.Size(778, 543)
         Me.TblVitalSignDataManagementSummaryGridEX.TabIndex = 0
         Me.TblVitalSignDataManagementSummaryGridEX.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[Default]
+        Me.TblVitalSignDataManagementSummaryGridEX.View = Janus.Windows.GridEX.View.SingleCard
         '
         'TblVitalSignDataManagementSummaryBindingSource
         '
